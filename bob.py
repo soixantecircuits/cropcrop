@@ -4,5 +4,9 @@ program_name = sys.argv[0]
 arguments = sys.argv[1:]
 count = len(arguments)
 
-for output, i in sys.argv:
+print program_name
+arguments
+
+
+for output, i in arguments:
 	print (output)
