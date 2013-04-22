@@ -1,7 +1,7 @@
 #!/usr/bin/python3.2
 import json                     # For JSON
-import os                       # To call functions
-import subprocess               # Same...
+import os                       # To call functions in the system
+import subprocess               # Same as for module os...
 from pprint import pprint       # To do pprint, rather than pprint.pprint
 
 

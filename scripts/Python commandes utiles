@@ -1,35 +1,23 @@
 ## Stocker le résultat d'une commande dans une variable
-# Module pour exécuter des commandes dans le système
-import subprocess
-# Stocker sous forme texte dans output le resultat de la commande 
-output = subprocess.check_output("ls", shell=True)
 
-## Stocker le contenu d'un fichier dans une variable (sans plus, il le prend en lecture seule)
-data = open("/home/sylvain/Scripts/Python/superbob").read()
+import subprocess                                          # Module pour exécuter des commandes dans le système
+output = subprocess.check_output("ls", shell=True)         # Stocker sous forme texte dans output le resultat de la commande 
+
+
+data = open("/home/sylvain/Scripts/Python/superbob").read()# Stocker le contenu d'un fichier dans une variable (sans plus, il le prend en lecture seule)
+
 
 ## Json
-# Module pour travailler le json
-import json
-# Module pour afficher joliment le json (pprint = pretty print
-from pprint import pprint
-# lire et stocker le fichier texte dans json_data
-json_data=open('/home/sylvain/Scripts/Python/test.json')
-# transformer le fichier texte en json lisible par python
-data = json.load(json_data)
-# afficher joliment notre data pour être sur que tout va bien :D
-pprint(data)
-# ça marche, goodbye
-json_data.close()
+import json                                                # Module pour travailler le json
+from pprint import pprint                                  # Module pour afficher joliment le json (pprint = pretty print
+json_data=open('/home/sylvain/Scripts/Python/test.json')   # lire et stocker le fichier texte dans json_data
+data = json.load(json_data)                                # transformer le fichier texte en json lisible par python
+pprint(data)                                               # afficher joliment notre data pour être sur que tout va bien :D
+json_data.close()                                          # ça marche, goodbye
 
-
-# chemins
-/home/sylvain/Scripts/Python/superbob
-/home/sylvain/Scripts/Python/test.json
-/home/sylvain/Vidéos/test.mp4
 
 ## MediaInfo et Python
 output = subprocess.check_output("mediainfo -f /home/sylvain/Vidéos/test.mp4", shell=True)
-#NE MARCHE PAS  output = subprocess.check_output("mediainfo -f /home/sylvain/Vidéos/test.mp4", shell=True).sub("\n", "", handle)
 
 ## Shell
 mediainfo --Inform="Video;file://Video.txt" /home/sylvain/Vidéos/test.mp4
