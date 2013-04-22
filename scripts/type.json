@@ -1,0 +1,16 @@
+{
+	"screens": {
+		"screen1": {
+		    "crop_width"   : 800,
+		    "crop_height"  : 600,
+		    "margin_left"  : 200,
+		    "margin_top"   : 200
+		},
+		"screen2": {
+		    "crop_width"   : 200,
+		    "crop_height"  : 1024,
+		    "margin_left"  : 0,
+		    "margin_top"   : 0
+		}
+	}
+}
