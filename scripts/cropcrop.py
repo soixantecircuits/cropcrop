@@ -1,10 +1,10 @@
 #!/usr/bin/python3.2
 
 ## Module Import
-import json                                # For JSON
-import os                                  # To call functions in the system
-import subprocess                          # Same as for module os...
-import sys                                 # Same as the two others... 
+import json                                # To treat JSON
+import os                                  # System command calls
+import subprocess                          # System command calls
+import sys                                 # System command calls
 from pprint import pprint                  # To do pprint, rather than pprint.pprint
 
 ## Preparing
@@ -26,7 +26,7 @@ if sys.argv.__len__() == 3:
     }
 
 ## Cropping
-    for attribute, value in data["screens"].items():# Listing every screens
+    for attribute, value in data["screens"].items():                  # Listing every screens
         videoInformations["screenId"]      = attribute
         videoInformations["cropWidth"]     = data["screens"][attribute]["crop_width"]
         videoInformations["cropHeight"]    = data["screens"][attribute]["crop_height"]
