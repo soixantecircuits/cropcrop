@@ -1,4 +1,4 @@
-video-crop
-==========
+CROPCROP
+========
 
-A tool for cropping video easily online
+A tool for cropping video easily online.
