@@ -1,27 +1,28 @@
 #!/usr/bin/python3.2
-import argparse
 import json
 import os
 import subprocess
+import sys
 
 
-parser    = argparse.ArgumentParser()
-# Arguments list
-parser.add_argument("videoFile", type=str, help="Name of the original video")
-parser.add_argument("jsonFile", type=str, help="Name of the json file")
-#parser.add_argument("-v", "--verbose", help="Increase output verbosity.")
-
-args      = parser.parse_args()
+program_name = sys.argv[0]
+arguments = sys.argv[1]
 
 
-if args.videoFile:
+
+
+
+
+
+if sys.argv.__len__()>1:
+	print("videofile : "+sys.argv[1]+"  jsonfile : "+sys.argv[2]+" filepath :"+sys.argv[3])
 	# Command lines to invocate
-	videoWidthCmd     = "mediainfo --Inform='Video;"+"%"+"Width%' /home/sylvain/Vidéos/"+args.videoFile
-	videoHeightCmd    = "mediainfo --Inform='Video;"+"%"+"Height%' /home/sylvain/Vidéos/"+args.videoFile
+	videoWidthCmd     = "mediainfo --Inform='Video;"+"%"+"Width%' "+sys.argv[3]+sys.argv[2]
+	videoHeightCmd    = "mediainfo --Inform='Video;"+"%"+"Height%'"+sys.argv[3]+sys.argv[2]
 
 	# Stock informations
 	videoInformations = {
-		"filename"      : args.videoFile,
+		"filename"      : sys.argv[1],
 		"width"         : int(subprocess.check_output(videoWidthCmd, shell=True)),
 		"height"        : int(subprocess.check_output(videoHeightCmd, shell=True))
 	}
