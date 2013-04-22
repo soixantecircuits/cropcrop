@@ -35,16 +35,16 @@ if sys.argv.__len__() == 3:
 ######################## LOOPING
 
 for attribute, value in data["screens"].items():# Listing every screens
-	print ("\n-----------------")
+	#print ("\n-----------------")
 	videoInformations["screenId"]      = attribute
 	videoInformations["cropWidth"]     = data["screens"][attribute]["crop_width"]
 	videoInformations["cropHeight"]    = data["screens"][attribute]["crop_height"]
 	videoInformations["marginLeft"]    = data["screens"][attribute]["margin_left"]
 	videoInformations["marginTop"]     = data["screens"][attribute]["margin_top"]
-	pprint(videoInformations)
+	#pprint(videoInformations)
 	cropCommand         = "ffmpeg -i %(filename)s -strict experimental -r 25 -vf crop=%(cropWidth)s:%(cropHeight)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 %(screenId)s_%(filename)s" % videoInformations
-	print ("")
-	print (cropCommand)
+	#print ("")
+	#print (cropCommand)
 	os.system(cropCommand)
 
 json_data.close()                                # If I understood, it is not absolutely necessary in little scripts because of Python's Garbage Collector. But it's better to conserve control.
