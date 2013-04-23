@@ -26,12 +26,12 @@ if sys.argv.__len__() == 3:
     }
 
 ## Cropping
-    for screen, value in data["screens"].items():                  # Listing every screens
-        videoInformations["screenId"]      = screen
-        videoInformations["cropWidth"]     = data["screens"][screen]["crop_width"]
-        videoInformations["cropHeight"]    = data["screens"][screen]["crop_height"]
-        videoInformations["marginLeft"]    = data["screens"][screen]["margin_left"]
-        videoInformations["marginTop"]     = data["screens"][screen]["margin_top"]
+    for value in range(len(data["screens"])):                         # Listing every screens
+        videoInformations["screenId"]      = data["screens"][value]["name"]
+        videoInformations["cropWidth"]     = data["screens"][value]["crop_width"]
+        videoInformations["cropHeight"]    = data["screens"][value]["crop_height"]
+        videoInformations["marginLeft"]    = data["screens"][value]["margin_left"]
+        videoInformations["marginTop"]     = data["screens"][value]["margin_top"]
         cropCommand                        = "ffmpeg -i %(filename)s.%(fileExt)s -strict experimental -r 25 -vf crop=%(cropWidth)s:%(cropHeight)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 %(screenId)s_%(filename)s.%(fileExt)s" % videoInformations
         print(cropCommand)
         os.system(cropCommand)
