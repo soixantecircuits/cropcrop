@@ -7,7 +7,8 @@ A tool for cropping video easily online.
 
 Depedencies
 -----------
-
-* Python 3
+Softwares :
+* Python 3.2
 * FFmpeg
 * MediaInfo
+* zip
