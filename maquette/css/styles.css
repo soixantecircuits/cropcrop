@@ -140,7 +140,8 @@ body {
 						border-top: 7px solid #5DC1FF;}
 				#YourVideoToolbar{
 					/* visibility: hidden;*/
-					}
+					-webkit-box-shadow        : 1px 2px 1px 1px #3D3E40;
+					box-shadow                : 1px 2px 1px 1px #3D3E40;}
 					#videoInformationsDiv{
 						position: relative;
 						color: #000;
