@@ -17,8 +17,8 @@ os.system("clear")                         # Call Clear to clean the Terminal
 if sys.argv.__len__() == 3:
 
     # System call (middle % isolated this way => "..." + "%" + "...", otherwise it f*** everything up)
-    videoWidthCmd                              = "mediainfo --Inform='Video;" + "%" + "Width%' " + sys.argv[1]    # System call to get video width with MediaInfo, called for fileWidth var
-    videoHeightCmd                             = "mediainfo --Inform='Video;" + "%" + "Height%' " + sys.argv[1]   # System call to get video height with MediaInfo, called for fileHeight var
+    videoWidthCmd                          = "mediainfo --Inform='Video;" + "%" + "Width%' " + sys.argv[1]    # System call to get video width with MediaInfo, called for fileWidth var
+    videoHeightCmd                         = "mediainfo --Inform='Video;" + "%" + "Height%' " + sys.argv[1]   # System call to get video height with MediaInfo, called for fileHeight var
 
     json_data                              = open(sys.argv[2])                      # Open the desired file
     data                                   = json.load(json_data)                   # Converting desired file to something understandable by Python
