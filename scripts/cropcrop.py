@@ -17,15 +17,24 @@ os.system("clear")                         # Call Clear to clean the Terminal
 if sys.argv.__len__() == 3:
 
     # System call (middle % isolated this way => "..." + "%" + "...", otherwise it f*** everything up)
-    videoWidthCmd                          = "mediainfo --Inform='Video;" + "%" + "Width%' " + sys.argv[1]    # System call to get video width with MediaInfo, called for fileWidth var
-    videoHeightCmd                         = "mediainfo --Inform='Video;" + "%" + "Height%' " + sys.argv[1]   # System call to get video height with MediaInfo, called for fileHeight var
+    # List of commands called
+    # mediainfo --Inform='Video;%Width%'  filename.ext
+    # mediainfo --Inform='Video;%Height%'  filename.ext
+    # mediainfo --Inform='General;%FileName%' 
+    # mediainfo --Inform='General;%FileExtension%' filename.ext
+
+    fileNameCmd                            = "mediainfo --Inform='General;" + "%" + "FileName%' " + sys.argv[1]
+    fileExtensionCmd                       = "mediainfo --Inform='General;" + "%" + "FileExtension%' " + sys.argv[1]
+    videoWidthCmd                          = "mediainfo --Inform='Video;" + "%" + "Width%' " + sys.argv[1]
+    videoHeightCmd                         = "mediainfo --Inform='Video;" + "%" + "Height%' " + sys.argv[1]
+    
 
     json_data                              = open(sys.argv[2])                      # Open the desired file
     data                                   = json.load(json_data)                   # Converting desired file to something understandable by Python
 	# Stock informations
     videoInformations = {
-        "filename"                         : sys.argv[1].split(".")[0],
-        "fileExt"                          : sys.argv[1].split(".")[1],
+        "filename"                         : str(subprocess.check_output(fileNameCmd, shell=True).rstrip()).split('b')[1],
+        "fileExt"                          : str(subprocess.check_output(fileExtensionCmd, shell=True).rstrip()).split('b')[1],
         "width"                            : int(subprocess.check_output(videoWidthCmd, shell=True)),
         "height"                           : int(subprocess.check_output(videoHeightCmd, shell=True))
     }
