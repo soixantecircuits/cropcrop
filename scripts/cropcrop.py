@@ -23,6 +23,8 @@ if sys.argv.__len__() == 3:
     # mediainfo --Inform='General;%FileName%' 
     # mediainfo --Inform='General;%FileExtension%' filename.ext
 
+    completeNameCmd                        = "mediainfo --Inform='General;" + "%" + "CompleteName%' " + sys.argv[1]
+    folderNameCmd                          = "mediainfo --Inform='General;" + "%" + "FolderName%' " + sys.argv[1]
     fileNameCmd                            = "mediainfo --Inform='General;" + "%" + "FileName%' " + sys.argv[1]
     fileExtensionCmd                       = "mediainfo --Inform='General;" + "%" + "FileExtension%' " + sys.argv[1]
     videoWidthCmd                          = "mediainfo --Inform='Video;" + "%" + "Width%' " + sys.argv[1]
@@ -33,12 +35,14 @@ if sys.argv.__len__() == 3:
     data                                   = json.load(json_data)                   # Converting desired file to something understandable by Python
 	# Stock informations
     videoInformations = {
-        "filename"                         : str(subprocess.check_output(fileNameCmd, shell=True).rstrip()).split('b')[1],
-        "fileExt"                          : str(subprocess.check_output(fileExtensionCmd, shell=True).rstrip()).split('b')[1],
+        "completeName"                     : str(subprocess.check_output(completeNameCmd, shell=True).rstrip())[1:],
+        "folderName"                       : str(subprocess.check_output(folderNameCmd, shell=True).rstrip())[1:],
+        "filename"                         : str(subprocess.check_output(fileNameCmd, shell=True).rstrip())[1:],
+        "fileExt"                          : str(subprocess.check_output(fileExtensionCmd, shell=True).rstrip())[1:],
         "width"                            : int(subprocess.check_output(videoWidthCmd, shell=True)),
         "height"                           : int(subprocess.check_output(videoHeightCmd, shell=True))
     }
-
+    pprint(videoInformations)
     os.system("mkdir %(filename)s" % videoInformations)                              # Make the directory containing video
 
     ## Cropping
@@ -48,7 +52,7 @@ if sys.argv.__len__() == 3:
         videoInformations["cropHeight"]    = data["screens"][value]["crop_height"]
         videoInformations["marginLeft"]    = data["screens"][value]["margin_left"]
         videoInformations["marginTop"]     = data["screens"][value]["margin_top"]
-        cropCommand                        = "ffmpeg -i %(filename)s.%(fileExt)s -strict experimental -r 25 -vf crop=%(cropWidth)s:%(cropHeight)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 ./%(filename)s/%(screenId)s_%(filename)s.%(fileExt)s" % videoInformations
+        cropCommand                        = "ffmpeg -i %(completeName)s -strict experimental -r 25 -vf crop=%(cropWidth)s:%(cropHeight)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 ./%(filename)s/%(screenId)s_%(filename)s.%(fileExt)s" % videoInformations
         os.system(cropCommand)
 
     os.system("zip -r %(filename)s.zip ./%(filename)s/" % videoInformations)         # Compressing the directory with video files in filename.zip
