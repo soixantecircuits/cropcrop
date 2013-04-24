@@ -52,11 +52,11 @@ if sys.argv.__len__() == 3:
         videoInformations["cropHeight"]    = data["screens"][value]["crop_height"]
         videoInformations["marginLeft"]    = data["screens"][value]["margin_left"]
         videoInformations["marginTop"]     = data["screens"][value]["margin_top"]
-        cropCommand                        = "ffmpeg -i %(completeName)s -strict experimental -r 25 -vf crop=%(cropWidth)s:%(cropHeight)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 ./%(filename)s/%(screenId)s_%(filename)s.%(fileExt)s" % videoInformations
+        cropCommand                        = "ffmpeg -i %(completeName)s -strict experimental -r 25 -vf crop=%(cropWidth)s:%(cropHeight)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 %(folderName)s/%(screenId)s_%(filename)s.%(fileExt)s" % videoInformations
         os.system(cropCommand)
 
-    os.system("zip -r %(filename)s.zip ./%(filename)s/" % videoInformations)         # Compressing the directory with video files in filename.zip
-    os.system("rm -R ./%(filename)s/" % videoInformations)                           # Removing the directory, now files are stored
+    os.system("zip -r %(filename)s.zip ./%(folderName)s/" % videoInformations)         # Compressing the directory with video files in filename.zip
+    os.system("rm -R ./%(folderName)s/" % videoInformations)                           # Removing the directory, now files are stored
     json_data.close()                                                                # If I understood, it is not absolutely necessary in little scripts because of Python's Garbage Collector. But it's better to conserve control.
 
 
