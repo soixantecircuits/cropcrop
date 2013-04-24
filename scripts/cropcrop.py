@@ -36,14 +36,14 @@ if sys.argv.__len__() == 3:
 	# Stock informations
     videoInformations = {
         "completeName"                     : str(subprocess.check_output(completeNameCmd, shell=True).rstrip())[1:],
-        "folderName"                       : str(subprocess.check_output(folderNameCmd, shell=True).rstrip())[1:],
+        "folderName"                       : str(subprocess.check_output(folderNameCmd, shell=True).rstrip())[1:] + "/",
         "filename"                         : str(subprocess.check_output(fileNameCmd, shell=True).rstrip())[1:],
         "fileExt"                          : str(subprocess.check_output(fileExtensionCmd, shell=True).rstrip())[1:],
         "width"                            : int(subprocess.check_output(videoWidthCmd, shell=True)),
         "height"                           : int(subprocess.check_output(videoHeightCmd, shell=True))
     }
     pprint(videoInformations)
-    os.system("mkdir ./uploads/%(filename)s" % videoInformations)                              # Make the directory containing video
+    os.system("mkdir %(folderName)s%(filename)s" % videoInformations)                              # Make the directory containing video
 
     ## Cropping
     for value in range(len(data["screens"])):                                        # Listing every screens
@@ -52,11 +52,11 @@ if sys.argv.__len__() == 3:
         videoInformations["cropHeight"]    = data["screens"][value]["crop_height"]
         videoInformations["marginLeft"]    = data["screens"][value]["margin_left"]
         videoInformations["marginTop"]     = data["screens"][value]["margin_top"]
-        cropCommand                        = "ffmpeg -i %(completeName)s -strict experimental -r 25 -vf crop=%(cropWidth)s:%(cropHeight)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 %(folderName)s/%(screenId)s_%(filename)s.%(fileExt)s" % videoInformations
+        cropCommand                        = "ffmpeg -i %(completeName)s -strict experimental -r 25 -vf crop=%(cropWidth)s:%(cropHeight)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 %(folderName)s%(filename)s/%(screenId)s_%(filename)s.%(fileExt)s" % videoInformations
         os.system(cropCommand)
 
-    os.system("zip -r %(filename)s.zip ./uploads/%(filename)s" % videoInformations)         # Compressing the directory with video files in filename.zip
-    os.system("rm -R ./uploads/%(filename)s" % videoInformations)                           # Removing the directory, now files are stored
+    os.system("zip -r %(filename)s.zip %(folderName)s%(filename)s" % videoInformations)         # Compressing the directory with video files in filename.zip
+    os.system("rm -R %(folderName)s%(filename)s" % videoInformations)                           # Removing the directory, now files are stored
     json_data.close()                                                                # If I understood, it is not absolutely necessary in little scripts because of Python's Garbage Collector. But it's better to conserve control.
 
 
