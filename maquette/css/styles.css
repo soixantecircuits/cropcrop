@@ -143,16 +143,16 @@ body {
 					-webkit-box-shadow        : 1px 2px 1px 1px #3D3E40;
 					box-shadow                : 1px 2px 1px 1px #3D3E40;}
 					#videoInformationsDiv{
-						position: relative;
 						color: #000;
 						z-index: 1000;
 						min-height: 94px;
 						background-color: #5DC1FF;}
-						#videoInformationsDiv ul{
-							margin          : 0;
-							float           : right;}
+						#videoInformationsDiv{
+							list-style-type : none;
+							padding-top     : 10px; 
+							margin-top      : 0;}
 							#videoInformationsDiv ul li{
-								display     : inline-block;
+								display     : block;
 								margin      : 4px;}
 					#videoDownloadButtonDiv{
 						text-align          : center;
