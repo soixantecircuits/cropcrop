@@ -140,16 +140,17 @@ body {
 						border-top: 7px solid #5DC1FF;}
 				#YourVideoToolbar{
 					/* visibility: hidden;*/
+					position: relative;
 					-webkit-box-shadow        : 1px 2px 1px 1px #3D3E40;
 					box-shadow                : 1px 2px 1px 1px #3D3E40;}
 					#videoInformationsDiv{
 						color: #000;
 						z-index: 1000;
-						min-height: 94px;
 						background-color: #5DC1FF;}
 						#videoInformationsDiv{
 							list-style-type : none;
 							padding-top     : 10px; 
+							padding-bottom  : 10px; 
 							margin-top      : 0;}
 							#videoInformationsDiv ul li{
 								display     : block;
