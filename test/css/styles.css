@@ -1,0 +1,207 @@
+
+  /*************/
+ /* Rewriting */
+/*************/
+.link{
+	max-width                 : none;}
+
+input[type=checkbox] {
+	position                  :  relative !important;
+	padding                   : 0;
+	margin                    : auto;
+	width                     : 20px;
+	height                    : 20px;
+	overflow                  : hidden;
+	clip                      : rect(5px 5px 5px 5px);
+	border                    : 0;}
+
+.button.large {
+	color                     : #C7C7C7;
+	text-align                : center;
+	font-family               : "source-l" !important;
+	font-size                 : 20px !important;
+	
+	background-color          : #595B5A;
+	border                    : 0px;
+	display                   : inline-block;
+
+	-webkit-box-shadow        : 1px 2px 1px 1px #3D3E40;
+	box-shadow                : 1px 2px 1px 1px #3D3E40;
+	-webkit-border-radius     : 0px;
+    border-radius             : 0px;
+
+	height                    : 50px !important;
+	margin                    : 0 !important;
+	padding                   : 20px auto 10px auto !important;}
+
+
+  /**********/
+ /* Styles */
+/**********/
+html,
+body {
+	background-color: #404446;
+	margin:0;
+	padding:0;
+	height:100%;}
+
+#container {
+	padding: 0;
+	min-height:100%;
+	position:relative;}
+
+#header {
+	background-color: #595B5A;
+	width: 100%;
+	height: 80px;
+
+	-webkit-box-shadow:  0px 0px 1px 2px #3D3E40;
+    box-shadow:  0px 0px 1px 2px #3D3E40;}
+	#headerContent{
+		width: 960px;
+		margin: auto;
+		text-transform: uppercase;}
+			.bg-slategray .title {
+				color           : #D4D7D7;
+				text-shadow     : none;
+				padding-top     : 10px;
+				font-family     : "source-l";
+				font-size       : 35px;
+				margin          : 0;}
+			h2{
+				margin-top: 0;
+				font-family: "source";
+				color: #5DC1FF;
+				font-size: 14px;}
+			#headerContent ul{
+				margin-top: 25px;
+				float: right;}
+			#headerContent ul li{
+				display: inline-block;
+				margin: 4px;}
+
+
+#body {
+	padding-bottom:40px;   /* Height of the footer */
+	}
+	#nav{
+		height: 50px;
+		text-align: right;
+		width: 960px;
+		margin: auto;
+		margin-bottom: 18px;
+		margin-top: 20px;}
+		.navElement{
+			vertical-align: top;
+			display: inline-block;}
+			#addScreenInputText{
+				margin-top: 5px;
+				width: 96px;
+				margin-right: 20px;}
+				.text-field.navInputText{
+					-webkit-border-radius: 0px;
+	    			border-radius: 0px;
+					min-width: 0;
+					height: 17px;
+					width: 96px;}
+				.navInputText:first-of-type{
+					margin-bottom: 7px;}
+
+			#autoCropCheckboxDiv{
+				text-align: center;
+				width: 120px;}
+
+			/* Button format */
+			#buttonUpload{
+				float: left;
+				width: 90px}
+			#buttonAddScreen{
+				width: 123px}
+			#buttonCropIt{
+				margin-right: 54px !important;
+				width: 94px}
+
+			#yourVideoContent{
+				text-align: left;
+				width: 220px;
+				display: inline-block;}
+				#buttonYourVideo{
+					position: relative;
+					z-index: 0;
+					min-width: 190px}
+					#triangle {
+						margin-top: 25px;
+						display: inline-block;
+						width: 0px; 
+						height: 0px; 
+						margin-left: 33px;
+						border-left: 7px solid transparent;
+						border-right: 7px solid transparent;
+						border-top: 7px solid #5DC1FF;
+						-webkit-transition: all 500ms ease-in-out;
+				        -moz-transition: all 500ms ease-in-out;
+				        -o-transition: all 500ms ease-in-out;
+				        -ms-transition: all 500ms ease-in-out;}
+						#triangle.up {
+						    -webkit-transform: rotate(180deg);
+						       -moz-transform: rotate(180deg);
+						        -ms-transform: rotate(180deg);
+						         -o-transform: rotate(180deg);
+						            transform: rotate(180deg);
+						               /* IE6–IE9 */
+						               filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.9914448613738104, M12=-0.13052619222005157,M21=0.13052619222005157, M22=0.9914448613738104, sizingMethod='auto expand');
+						                 zoom: 1;}
+				#YourVideoToolbar{
+					/* visibility: hidden;*/
+					position: relative;
+					-webkit-box-shadow        : 1px 2px 1px 1px #3D3E40;
+					box-shadow                : 1px 2px 1px 1px #3D3E40;}
+					#videoInformationsDiv{
+						color: #000;
+						z-index: 1000;
+						background-color: #5DC1FF;}
+						#videoInformationsDiv{
+							list-style-type : none;
+							padding-top     : 10px; 
+							padding-bottom  : 10px; 
+							margin-top      : 0;}
+							#videoInformationsDiv ul li{
+								display     : block;
+								margin      : 4px;}
+					#videoDownloadButtonDiv{
+						text-align          : center;
+						background-color    : #595B5A;
+						height              : 67px;}
+						#buttonDownloadIt{
+							margin-top: 13px !important;}
+					#videoCropListDiv{
+						background-color    : rgba(0,0,0, 0.5);}
+						#videoCropListDiv ol li{
+							border-bottom   : 1px solid #D4D7D7;}
+
+	#videoContent{
+		background-color     : #595B5A;
+		width                : 960px;
+		height               : 422px;
+		margin               : auto;}
+		#videoContentBackground{
+			margin           : auto;
+			padding-top      : 151px;
+			text-align       : center;
+			width            : 120px;
+			height           : 130px;}
+
+
+
+#footer {
+	position                 : absolute;
+	bottom                   : 0;
+	width                    : 100%;
+	height                   : 40px;   /* Height of the footer */
+	border-top               : 1px solid #595B5A;}
+	#footerContent{
+		text-align           : center;
+		width                : 960px;
+		margin               : auto;}
+		#footerContent p{
+			margin-bottom    : 0;}
