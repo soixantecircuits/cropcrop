@@ -23,7 +23,7 @@ if(!empty($_FILES)) {
 		echo '<div id="status">success</div>';
 		echo '<div id="message">'. $tmp.' </div>';		
 		echo '<div id="uploadedfile">'. $upload->file_copy .'</div>';
-		exec('python3 ./uploads/cropcrop.py ./uploads/'. $upload->file_copy .' ./uploads/screen.json '. $upload->file_copy);
+		#exec('python3 ./uploads/cropcrop.py ./uploads/'. $upload->file_copy .' ./uploads/screen.json '. $upload->file_copy);
 				
 	} else {
 		

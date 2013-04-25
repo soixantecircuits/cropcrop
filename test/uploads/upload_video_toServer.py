@@ -33,17 +33,11 @@ if sys.argv.__len__()>1:
 	
 	os.system("ffmpeg -itsoffset -15 -i ./uploads/"+sys.argv[1]+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" ./thumbnails/"+fileW+".jpg")
 	
-	
-	
-        
-
-	data = [ { 'width': width, 'height':height } ]
-	repr(data)
-	os.system("touch informations.txt")
-	file = open("informations.txt", "w")
-	file.write(data)
-	file.close()
-	#print ('JSON:'+data_string)
+	data =  { 'width': width, 'height':height, 'thumbnails': fileW+".jpg"}
+	data_string = json.dumps(data)
+	f = open('infos.txt', 'wt')
+	f.write(data_string)
+	f.close()
 	print("Width : %(width)s  Height : %(height)s" % videoInformations)
 
 
