@@ -3,6 +3,7 @@ jQuery(function($){
 	console.log("jQuery is ok.");
 
 	$('#YourVideoToolbar').hide();
+	$('#main_container').hide();
 	var isShown = 0;
 
 
@@ -19,5 +20,10 @@ jQuery(function($){
 			$('#triangle').toggleClass('up');
 			isShown = 0;
 		};
+	});
+
+	$('#buttonUpload').click(function(event){
+		event.preventDefault();
+		$('#inputFileUpload').trigger('click');
 	});
 });
