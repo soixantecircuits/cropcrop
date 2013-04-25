@@ -31,17 +31,19 @@ if sys.argv.__len__()>1:
 	width = ("%(width)s" % videoInformations)
 	height = ("%(height)s" % videoInformations)
 	
-	#command = "ffmpeg -itsoffset -15 -i "+sys.argv[1]+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s 300*300 uploads/sample.jpg"
-	os.system("ffmpeg -itsoffset -15 -i ./uploads/"+sys.argv[1]+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" thumbnails/"+fileW+".jpg")
-	#ls="pwd"
-	#print(subprocess.check_output(ls, shell=True))
-	data = [ { 'width':'A', 'b':(2, 4), 'c':3.0 } ]
-        pprint(mavar)
+	os.system("ffmpeg -itsoffset -15 -i ./uploads/"+sys.argv[1]+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" ./thumbnails/"+fileW+".jpg")
+	
+	
+	
+        
 
 	data = [ { 'width': width, 'height':height } ]
 	repr(data)
-	data_string = json.dumps(data)
-	print ('JSON:'+data_string)
-	#print("Width : %(width)s  Height : %(height)s" % videoInformations)
+	os.system("touch informations.txt")
+	file = open("informations.txt", "w")
+	file.write(data)
+	file.close()
+	#print ('JSON:'+data_string)
+	print("Width : %(width)s  Height : %(height)s" % videoInformations)
 
 

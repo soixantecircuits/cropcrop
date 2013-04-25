@@ -37,8 +37,7 @@ if sys.argv.__len__() > 0:
 		videoInformations["marginTop"] = data["screens"][value]["margin_top"]
 		cropCommand = "ffmpeg -i "+sys.argv[1]+" -strict experimental -r 25 -vf crop=%(cropWidth)s:%(cropHeight)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 CropCrop/%(screenId)s.mp4" % videoInformations
 		os.system(cropCommand)
-	os.system("zip -r CropCrop.zip .CropCrop") # Compressing the directory with video files in filename.zip
-	os.system("rm -r CropCrop") # Removing the directory, now files are stored
-	json_data.close() # If I understood, it is not absolutely necessary in little scripts because of Python's Garbage Collector. But it's better to conserve control.
-	# Giving the opportunity to user to check errors
-	# input(" Press ENTER to quit.")
+	os.system("zip -r CropCrop.zip .CropCrop") 
+	os.system("rm -r CropCrop") 
+	json_data.close()  
+	

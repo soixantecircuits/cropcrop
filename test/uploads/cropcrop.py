@@ -37,7 +37,7 @@ if sys.argv.__len__() > 0:
 		videoInformations["marginTop"] = data["screens"][value]["margin_top"]
 		cropCommand = "ffmpeg -i "+sys.argv[1]+" -strict experimental -r 25 -vf crop=%(cropWidth)s:%(cropHeight)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 CropCrop/%(screenId)s.mp4" % videoInformations
 		os.system(cropCommand)
-	os.system("zip -r CropCrop.zip .CropCrop") 
+	os.system("zip -r CropCrop.zip CropCrop") 
 	os.system("rm -r CropCrop") 
 	json_data.close()  
 	

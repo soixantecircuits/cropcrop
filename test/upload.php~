@@ -16,7 +16,7 @@ if(!empty($_FILES)) {
 	
 		if ($upload->upload()){
 		$analys = true;
-		
+		echo  "<h1> ". $upload->file_copy ."aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>"
     		$tmp = exec("python3 ./uploads/upload_video_toServer.py ".$upload->file_copy);
 		
 		
