@@ -117,24 +117,6 @@
 
 
 
-	<div id="main_container">
-		<h2>jQuery Fileuploder Plugin</h2>
-		<form action="upload.php" method="post" enctype="multipart/form-data">
-			<input type="file" id="inputFileUpload" name="userfile" class="fileUpload" >
-			
-			<button id="px-submit" type="submit">Upload</button>
-			<button id="px-clear" type="reset">Clear</button>
-		</form>
-		
-		<div id="uploadingModal">
-			<script type="text/javascript">
-				jQuery(function($){
-					$('.fileUpload').fileUploader();
-				});
-			</script>
-		</div>
-	</div>
-
 
 
 
@@ -155,7 +137,30 @@
 
 		</div>
 
+		<div id="cache">
+		</div>
+		<div id="uploadingModal">
+			<h2>jQuery Fileuploder Plugin</h2>
+			<form action="upload.php" method="post" enctype="multipart/form-data">
+				<input type="file" id="inputFileUpload" name="userfile" class="fileUpload" >
+				
+				<!-- <button id="px-submit" type="submit">Upload</button>
+				<button id="px-clear" type="reset">Clear</button> -->
+			</form>
+			
+				<script type="text/javascript">
+					jQuery(function($){
+						$('.fileUpload').fileUploader();
+					});
+				</script>
+		</div>
+
+
+
 		<div id="warningJavascriptNotEnabled">
 		</div>
+
+
+
 	</body>
 </html>

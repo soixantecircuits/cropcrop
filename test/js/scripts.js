@@ -3,7 +3,8 @@ jQuery(function($){
 	console.log("jQuery is ok.");
 
 	$('#YourVideoToolbar').hide();
-	// $('#main_container').hide();
+	$('#cache').hide();
+	$('#uploadingModal').hide();
 	$('#warningJavascriptNotEnabled').hide();
 
 	var isShown = 0;
@@ -26,7 +27,18 @@ jQuery(function($){
 
 	$('#buttonUpload').click(function(event){
 		event.preventDefault();
-		$('#inputFileUpload').trigger('click');
+		$('#cache').fadeIn();
 		$('#uploadingModal').fadeIn();
+	});
+
+	$('#cache').click(function(event){
+		event.preventDefault();
+		console.log("cache fadeout")
+		$('#cache').fadeOut();
+		$('#uploadingModal').fadeOut();
+	});
+
+	$("#uploadingModal").click(function(event){
+		// event.stopPropagation();
 	});
 });
