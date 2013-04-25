@@ -15,13 +15,14 @@ if(!empty($_FILES)) {
 	$upload->do_filename_check = 'y'; // use this boolean to check for a valid filename
 	
 		if ($upload->upload()){
-		$analys = true;
-		echo  "<h1> ". $upload->file_copy ."aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>";
+		
+		
     		$tmp = exec("python3 ./uploads/upload_video_toServer.py ".$upload->file_copy);
 		
 		
 		echo '<div id="status">success</div>';
-		echo '<div id="message">'. $tmp.' </div>';		
+		echo '<div id="message">'. $tmp.' </div>';
+		echo "<script type='text/javascript'> affiche('infos.txt') </script>"		
 		echo '<div id="uploadedfile">'. $upload->file_copy .'</div>';
 		exec('python3 ./uploads/cropcrop.py ./uploads/'. $upload->file_copy .' ./uploads/screen.json '. $upload->file_copy);
 				
