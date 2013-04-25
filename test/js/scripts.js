@@ -5,6 +5,7 @@ jQuery(function($){
 	$('#YourVideoToolbar').hide();
 	$('#cache').hide();
 	$('#uploadingModal').hide();
+	$('#rouge').hide();
 	$('#warningJavascriptNotEnabled').hide();
 
 	var isShown = 0;
@@ -41,4 +42,17 @@ jQuery(function($){
 	$("#uploadingModal").click(function(event){
 		// event.stopPropagation();
 	});
+
+
+	// Called with $().affiche()
+	jQuery.fn.extend({
+	    affiche: function (SUPERBOB) {
+	        var retour = SUPERBOB;
+			$('#rouge').fadeIn();
+	    	return retour;
+	    }
+	});
+
+
+
 });

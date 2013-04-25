@@ -139,6 +139,8 @@
 
 		<div id="cache">
 		</div>
+		<div id="rouge">
+		</div>
 		<div id="uploadingModal">
 			<h2>jQuery Fileuploder Plugin</h2>
 			<form action="upload.php" method="post" enctype="multipart/form-data">
