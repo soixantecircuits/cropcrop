@@ -3,7 +3,7 @@ jQuery(function($){
 	console.log("jQuery is ok.");
 
 	$('#YourVideoToolbar').hide();
-	$('#main_container').hide();
+	// $('#main_container').hide();
 	$('#warningJavascriptNotEnabled').hide();
 
 	var isShown = 0;
