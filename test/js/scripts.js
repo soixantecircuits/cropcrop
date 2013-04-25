@@ -5,7 +5,7 @@ jQuery(function($){
 	$('#YourVideoToolbar').hide();
 	$('#main_container').hide();
 	$('#warningJavascriptNotEnabled').hide();
-	
+
 	var isShown = 0;
 
 
@@ -27,5 +27,6 @@ jQuery(function($){
 	$('#buttonUpload').click(function(event){
 		event.preventDefault();
 		$('#inputFileUpload').trigger('click');
+		$('#uploadingModal').fadeIn();
 	});
 });
