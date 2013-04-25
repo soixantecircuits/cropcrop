@@ -7,7 +7,6 @@
 		<meta name="msapplication-TileImage" content="./css/images-interface/logo.png" />
 		<meta content="application/xhtml+xml; charset=UTF-8" http-equiv="Content-Type" />
 		
-		<link rel="stylesheet" media="screen" type="text/css" href="./css/fileUploader.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="./css/normalize.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="./css/topcoat-desktop-min.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="./css/styles.css" />
@@ -18,7 +17,6 @@
 		
 		<script type="text/javascript" src="./js/jquery-1.6.2.min.js"></script>
 		<script type="text/javascript" src="./js/jquery-ui-1.8.14.custom.min.js"></script>
-		<script type="text/javascript" src="./js/jquery.fileUploader.js"></script>
 		<script type="text/javascript" src="./js/scripts.js"></script>
 		
 		<title>CROP CROP</title>
@@ -58,8 +56,8 @@
 
 					<!-- Zone screen input -->
 					<div class="navElement" id="addScreenInputText">
-						<input class="text-field navInputText" type="text" placeholder="W:" name="text_field">
-						<input class="text-field navInputText" type="text" placeholder="H:" name="text_field">
+						<input class="text-field navInputText" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
+						<input class="text-field navInputText" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
 					</div>
 					<input type="button" class="button large dark" value ="Add Screen" id="buttonAddScreen" />
 
@@ -79,11 +77,21 @@
 						<a class="button large dark" role="button" id="buttonYourVideo" href="#button"><span id="buttonYourVideo">Your Video</span><span id="triangle"></span></a>
 						<div id="YourVideoToolbar">
 								<ul id="videoInformationsDiv">
-									<li><strong>Battle de créateurs.mp4</strong></li>
-									<li>Format : AVC Coding	</li>
-									<li>Dimensions : 1920 x 1080</li>
-									<li>Size : 2,3 MB</li>
-									<li>FPS : 25</li>
+									<li>
+										<strong><span id="videoInformationsTitle">...</span></strong>
+									</li>
+									<li>
+										Format : <span id="videoInformationsFormat">...</span>
+									</li>
+									<li>
+										Dimensions : <span id="videoInformationsWidth">...</span> x <span id="videoInformationsHeight">...</span>
+									</li>
+									<li>
+										Size : <span id="videoInformationsSize">...</span>
+									</li>
+									<li>
+										FPS : <span id="videoInformationsFPS">...</span>
+									</li>
 								</ul>
 							<div id="videoDownloadButtonDiv">
 								<input type="button" class="button large dark" value ="Download It" id="buttonDownloadIt" />
@@ -142,19 +150,6 @@
 		<div id="rouge">
 		</div>
 		<div id="uploadingModal">
-			<h2>jQuery Fileuploder Plugin</h2>
-			<form action="upload.php" method="post" enctype="multipart/form-data">
-				<input type="file" id="inputFileUpload" name="userfile" class="fileUpload" >
-				
-				<!-- <button id="px-submit" type="submit">Upload</button>
-				<button id="px-clear" type="reset">Clear</button> -->
-			</form>
-			
-				<script type="text/javascript">
-					jQuery(function($){
-						$('.fileUpload').fileUploader();
-					});
-				</script>
 		</div>
 
 

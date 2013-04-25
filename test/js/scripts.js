@@ -2,6 +2,14 @@ jQuery(function($){
 	"use strict";
 	console.log("jQuery is ok.");
 
+	/*************/
+
+	var screensList = [];
+
+	/*************/
+
+
+
 	$('#YourVideoToolbar').hide();
 	$('#cache').hide();
 	$('#uploadingModal').hide();
@@ -44,6 +52,25 @@ jQuery(function($){
 	});
 
 
+	$("#buttonAddScreen").click(function(event){
+		$().addScreen();
+	});
+
+
+
+
+
+
+
+
+	/***********************************************/
+	/*                                             */
+	/*                                             */
+	/*              CUSTOM FUNCTIONS               */
+	/*                                             */
+	/*                                             */
+	/***********************************************/
+
 	// Called with $().affiche()
 	jQuery.fn.extend({
 	    affiche: function (SUPERBOB) {
@@ -54,5 +81,63 @@ jQuery(function($){
 	});
 
 
+	// Called with $().afficheThumbnail( parameter )
+	jQuery.fn.extend({
+	    showThumbnail: function (thumbnailName) {
+	    	$('#videoContent').empty()
+	    	$('#videoContent').css({
+			    "background-image" : 'url("./thumbnails/video.jpg")', // couleur rouge
+			    width : '800px', 
+			    height : '600px'
+			});
+	    }
+	});
+
+	// Called with $().afficheThumbnail( parameter )
+	jQuery.fn.extend({
+	    updateVideoInformations: function (thumbnailName) {
+	    	$('#videoInformationsTitle').empty();
+	    	$('#videoInformationsFormat').empty();
+	    	$('#videoInformationsWidth').empty();
+	    	$('#videoInformationsHeight').empty();
+	    	$('#videoInformationsSize').empty();
+	    	$('#videoInformationsFPS').empty();
+	    }
+	});
+
+
+	// Called with $().afficheThumbnail( parameter )
+	jQuery.fn.extend({
+	    updateVideoInformations: function (thumbnailName) {
+	    	$('#videoInformationsTitle').empty();
+	    	$('#videoInformationsFormat').empty();
+	    	$('#videoInformationsWidth').empty();
+	    	$('#videoInformationsHeight').empty();
+	    	$('#videoInformationsSize').empty();
+	    	$('#videoInformationsFPS').empty();
+	    }
+	});
+
+	// Called with $().afficheThumbnail( parameter )
+	jQuery.fn.extend({
+	    addScreen: function () {
+	    	var width = "";
+	    	var height = "";
+
+	    	width = $('#navInputTextWidth').val();
+	    	height = $('#navInputTextHeight').val();
+
+	    	console.log(width + " " + height)
+	    }
+	});
 
 });
+
+
+/*
+var img = new Image();
+img.onload = function() {
+  alert(this.width + 'x' + this.height);
+}
+img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
+*/
