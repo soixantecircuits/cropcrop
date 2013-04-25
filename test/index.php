@@ -12,11 +12,8 @@
 		<link rel="stylesheet" media="screen" type="text/css" href="./css/styles.css" />
 		
 		<link rel="icon" type="image/png" href="./img/favicon.ico" />
-
-		<link href="css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" type="text/css" />
 		
-		<script type="text/javascript" src="./js/jquery-1.6.2.min.js"></script>
-		<script type="text/javascript" src="./js/jquery-ui-1.8.14.custom.min.js"></script>
+		<script type="text/javascript" src="./js/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="./js/scripts.js"></script>
 		
 		<title>CROP CROP</title>
