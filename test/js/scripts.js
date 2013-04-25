@@ -4,6 +4,8 @@ jQuery(function($){
 
 	$('#YourVideoToolbar').hide();
 	$('#main_container').hide();
+	$('#warningJavascriptNotEnabled').hide();
+	
 	var isShown = 0;
 
 
