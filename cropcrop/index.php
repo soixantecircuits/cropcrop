@@ -54,11 +54,15 @@
 					<input type="button"class="button large dark" value ="Upload" id="buttonUpload" />
 
 					<!-- Zone screen input -->
-					<div class="navElement" id="addScreenInputText">
-						<input class="text-field navInputText" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
-						<input class="text-field navInputText" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
-					</div>
-					<input type="button" class="button large dark" value ="Add Screen" id="buttonAddScreen" />
+					<form class="navElement" id="addScreenForm">
+
+						<div class="navElement"  id="addScreenInputText">
+							<input class="text-field navInputText" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
+							<input class="text-field navInputText" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
+						</div>
+						<input type="submit" class="navElement button large dark" value ="Add Screen" id="buttonAddScreen" />
+
+					</form>
 
 					<!-- Zone autocrop -->
 					<div class="navElement" id="autoCropCheckboxDiv">
@@ -148,8 +152,6 @@
 
 		<div id="cache">
 		</div>
-		<div id="rouge">
-		</div>
 		<div id="uploadingModal">
 		</div>
 
@@ -166,5 +168,7 @@
 
 
 
+		<div id="rouge">
+		</div>
 	</body>
 </html>

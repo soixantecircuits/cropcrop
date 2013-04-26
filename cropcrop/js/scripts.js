@@ -18,21 +18,29 @@ jQuery(function($){
 	}
 
 	crops = {};
-	crops[1]={
+	crops.list = [];
+	crops.list[0]={
+		width      : "32",
+		height     : "32",
+		marginLeft : "0",
+		marginTop  : "0",
+		color      : [255,0,0,0.5],
+	}
+	crops.list[1]={
 		width      : "60",
 		height     : "200",
 		marginLeft : "50",
 		marginTop  : "0",
 		color      : [255,255,0,0.5],
 	}
-	crops[2]={
+	crops.list[2]={
 		width      : "66",
 		height     : "66",
 		marginLeft : "200",
 		marginTop  : "100",
 		color      : [255,0,255,0.5],
 	}
-	crops[3]={
+	crops.list[3]={
 		width      : "200",
 		height     : "60",
 		marginLeft : "400",
@@ -92,7 +100,8 @@ jQuery(function($){
 	});
 
 
-	$("#buttonAddScreen").click(function(event){
+	$("#addScreenForm").submit(function(event){
+		event.preventDefault();
 		$().addScreen();
 	});
 
@@ -110,7 +119,8 @@ jQuery(function($){
 		$().updateVideoInformations( videoInformations )
 	});
 	$("#tmpAff").click(function(event){
-		$().affiche()
+		$("#videoContent").empty();
+		$().affiche();
 	});
 
 
@@ -136,7 +146,7 @@ jQuery(function($){
 	// $().affiche()
 	jQuery.fn.extend({
 		affiche: function () {
-			for ( i in crops ) {
+			for ( i in crops.list ) {
 				$().createScreen( i )
 			}
 		}
@@ -171,17 +181,28 @@ jQuery(function($){
 	// $().createScreen( parameter )
 	jQuery.fn.extend({
 		createScreen: function (id) {
+			console.log("essais : "+id);
 			$('#videoContent').append('<div id="cropNumber' + id + '"></div>');
 			$('#cropNumber' + id).css({
 				'position'           : 'absolute',
-				"background-color"   : 'rgba(' + crops[id].color[0] + ',' + crops[id].color[1] + ',' + crops[id].color[2] + ',' + crops[id].color[3] + ')',
-				'margin-top'         : crops[id].marginTop + "px",
-				'margin-left'        : crops[id].marginLeft + "px",
-				'width'              : crops[id].width + "px", 
-				'height'             : crops[id].height + "px"
+				"background-color"   : 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
+				'margin-top'         : crops.list[id].marginTop + "px",
+				'margin-left'        : crops.list[id].marginLeft + "px",
+				'width'              : crops.list[id].width + "px", 
+				'height'             : crops.list[id].height + "px"
 			});
 			// Draggable, resizable
-			$('#cropNumber' + id).draggable().resizable();
+			$('#cropNumber' + id)
+				.resizable()
+				.draggable({ //make it "draggable" and "resizable"
+					drag: function(event, ui) { // What happen when dragged
+						crops.list[id].marginTop = $('#cropNumber'+id).position().top;
+						console.log(crops.list[id].marginTop);
+						crops.list[id].marginLeft = $('#cropNumber'+id).position().left;
+						console.log(crops.list[id].marginLeft);
+					}
+				});
+
 		}
 	});
 
@@ -192,43 +213,53 @@ jQuery(function($){
 	// $().addScreen( parameter )
 	jQuery.fn.extend({
 		addScreen: function () {
-			var width = $('#navInputTextWidth').val();
-			var height = $('#navInputTextHeight').val();
+			var width = parseInt( $('#navInputTextWidth').val() );
+			var height = parseInt( $('#navInputTextHeight').val() );
 
-			// Resetting to default, in case of inputs being red
+			// Resetting colors to default, in case of inputs being red
 			$('#navInputTextWidth').css({
-				"background-color"   : '#FFF'
+				"background-color"   : '#FFF',
+				"color"   : '#000'
 			});
 			$('#navInputTextHeight').css({
-				"background-color"   : '#FFF'
+				"background-color"   : '#FFF',
+				"color"   : '#000'
 			});
 
 
 			// Control to show user he forget to input something
-			if ( width == '' ){
+			if ( isNaN(width) == true ){
 				$('#navInputTextWidth').css({
-					"background-color"   : 'rgba(255,0,0,.5)'
+					"background-color"   : 'rgba(255,0,0,.5)',
+					"color"   : '#FFF'
 				});
 			}
-			if ( height  == '' ){
+			if ( isNaN(height)  == true ){
 				$('#navInputTextHeight').css({
-					"background-color"   : '#A00'
+					"background-color"   : 'rgba(255,0,0,.5)',
+					"color"   : '#FFF'
 				});
 			}
 
 			// If all is ok
-			if ( (width != '') && ( height != '') ) {
-				console.log(width + " " + height)
-				$('#videoContent').append('<div id="cropNumber' + screensCropCount + '"></div>');
-				$('#cropNumber' + screensCropCount).css({
-					'position'           : 'relative',
-					"background-color"   : 'rgba(0,255,255,.5)',
-					'width'              : width, 
-					'height'             : height
+			if ( ( isNaN(width) == false ) && ( isNaN(height)  == false ) )
+			{
+				crops.list.push({
+					width      : width,
+					height     : height,
+					marginLeft : "0",
+					marginTop  : "0",
+					color      : [
+						Math.ceil( (Math.random()*255) ), 
+						Math.ceil( (Math.random()*255) ), 
+						Math.ceil( (Math.random()*255) ),
+						0.5
+					],
 				});
-				// Draggable, resizable
-				$('#cropNumber' + screensCropCount).draggable().resizable();
+				$().createScreen( crops.list.length-1 )
 			};
+
+
 		}
 	});
 
