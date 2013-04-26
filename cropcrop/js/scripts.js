@@ -127,31 +127,25 @@ jQuery(function($){
 	//
 	// CREATE SCREEN
 	//
-	// 
+	// $().createScreen( parameter )
 	jQuery.fn.extend({
-	    addScreen: function (id) {
-
+	    createScreen: function (id) {
+	    	crops[id].width
 	    	
-		    $('#videoContent').append('<div id="cropNumber' + screensCropCount + '"></div>');
-		    
-		    $('#cropNumber' + screensCropCount).css({
+		    $('#videoContent').append('<div id="cropNumber' + id + '"></div>');
+
+
+		    $('#cropNumber' + id).css({
 		    	'position'           : 'absolute',
-			    "background-color"   : 'rgba(0,255,255,.5)',
-			    'width'              : width, 
-			    'height'             : height
+			    "background-color"   : 'rgba(' + crops[id].color[0] + ',' + crops[id].color[1] + ',' + crops[id].color[2] + ',' + crops[id].color[3] + ')',
+			    'margin-top'         : crops[id].marginTop,
+			    'margin-left'        : crops[id].marginLeft,
+			    'width'              : crops[id].width, 
+			    'height'             : crops[id].height
 			});
 			// Draggable, resizable
-		    $('#cropNumber' + screensCropCount).draggable().resizable();
+		    $('#cropNumber' + id).draggable().resizable();
 
-
-    			crops = {};
-				crops[1]={
-					width      : "60",
-					height     : "200",
-					marginLeft : "",
-					marginTop  : "",
-					color      : [255,255,0,0.5],
-				}
 	    }
 	});
 
@@ -159,7 +153,7 @@ jQuery(function($){
 	//
 	// ADD SCREEN
 	//
-	// Called with $().afficheThumbnail( parameter )
+	// $().afficheThumbnail( parameter )
 	jQuery.fn.extend({
 	    addScreen: function () {
 	    	var width = $('#navInputTextWidth').val();
