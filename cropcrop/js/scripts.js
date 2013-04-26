@@ -151,6 +151,7 @@ jQuery(function($){
 		}
 	});
 
+/*
 	//
 	// UPDATE VIDEO INFORMATIONS
 	//
@@ -173,7 +174,7 @@ jQuery(function($){
 			$('#videoInformationsFPS').text(infos.FPS);
 		}
 	});
-
+*/
 
 
 
@@ -204,18 +205,6 @@ jQuery(function($){
 			$('#videoInformationsHeight').text( infos.message.height );
 		}
 	});
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -257,7 +246,7 @@ jQuery(function($){
 	//
 	// ADD SCREEN
 	//
-	// $().addScreen( parameter )
+	// $().addScreen()
 	jQuery.fn.extend({
 		addScreen: function () {
 			var width = parseInt( $('#navInputTextWidth').val() );
