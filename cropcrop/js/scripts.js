@@ -277,19 +277,19 @@ jQuery(function($){
 			// If all is ok
 			if ( isNaN(width) == true ){
 				console.log("1");
-				return;
+				return false;
 			}
 			if ( isNaN(height)  == true ){
 				console.log("2");
-				return;
+				return false;
 			}
 			if ( width > videoContentWidth ){
 				console.log("3");
-				return;
+				return false;
 			}
 			if ( height  > videoContentHeight ){
 				console.log("4");
-				return;
+				return false;
 			}
 
 			crops.list.push({
