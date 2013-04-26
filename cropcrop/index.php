@@ -153,7 +153,13 @@
 		<div id="uploadingModal">
 		</div>
 
-
+<div id="etablis">
+	<h2>Tmp work bar</h2>
+	<ul>
+		<li><input type="button" id="tmpUpd" value="Update videos informations" /></li>
+		<li><input type="button" id="tmpAff" value="Affiche crops" /></li>
+	</ul>
+</div>
 
 		<div id="warningJavascriptNotEnabled">
 		</div>

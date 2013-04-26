@@ -98,6 +98,23 @@ jQuery(function($){
 
 
 
+
+
+	/*********************/
+	/*********************/
+	/*********************/
+	/*********************/
+	/*********************/
+
+	$("#tmpUpd").click(function(event){
+		$().updateVideoInformations( videoInformations )
+	});
+	$("#tmpAff").click(function(event){
+		$().affiche()
+	});
+
+
+
 	/***********************************************/
 	/*                                             */
 	/*                                             */
@@ -116,19 +133,19 @@ jQuery(function($){
 	//
 	// AFFICHE
 	//
-	// Called with $().affiche()
+	// $().affiche()
 	jQuery.fn.extend({
-		affiche: function (SUPERBOB) {
-		    var retour = SUPERBOB;
-			$('#rouge').fadeIn();
-			return retour;
+		affiche: function () {
+			for ( i in crops ) {
+				$().createScreen( i )
+			}
 		}
 	});
 
 	//
 	// UPDATE VIDEO INFORMATIONS
 	//
-	// $().updateVideoInformations(  )
+	// $().updateVideoInformations( infos )
 	jQuery.fn.extend({
 		updateVideoInformations: function ( infos ) {
 			$('#videoContent').empty()
@@ -155,8 +172,6 @@ jQuery(function($){
 	jQuery.fn.extend({
 		createScreen: function (id) {
 			$('#videoContent').append('<div id="cropNumber' + id + '"></div>');
-
-
 			$('#cropNumber' + id).css({
 				'position'           : 'absolute',
 				"background-color"   : 'rgba(' + crops[id].color[0] + ',' + crops[id].color[1] + ',' + crops[id].color[2] + ',' + crops[id].color[3] + ')',
@@ -167,7 +182,6 @@ jQuery(function($){
 			});
 			// Draggable, resizable
 			$('#cropNumber' + id).draggable().resizable();
-
 		}
 	});
 

@@ -42,6 +42,13 @@ input[type=checkbox] {
 	opacity: 0;
 }
 
+#etablis{
+	position: fixed;
+	background-color: #fff;
+	top: 100px;
+	left: 20px;
+}
+
   /**********/
  /* Styles */
 /**********/
@@ -183,9 +190,8 @@ body {
 							margin-top: 8px!important}
 					#videoCropListDiv{
 						background-color    : rgba(0,0,0, 0.5);}
-					#videoCropListDiv ol{
-						margin-top:         : 0;}
-						#videoCropListDiv ol li{
+						#videoCropListDivElement{
+							margin-top:         : 0;
 							border-bottom   : 1px solid #D4D7D7;}
 
 	#videoContent{
