@@ -9,8 +9,8 @@ jQuery(function($){
 
 	crops = {};
 	crops[1]={
-		width      : "",
-		height     : "",
+		width      : "60",
+		height     : "200",
 		marginLeft : "",
 		marginTop  : "",
 		color      : [255,255,0,0.5],
@@ -123,6 +123,38 @@ jQuery(function($){
 	    	$('#videoInformationsFPS').empty();
 	    }
 	});
+
+	//
+	// CREATE SCREEN
+	//
+	// 
+	jQuery.fn.extend({
+	    addScreen: function (id) {
+
+	    	
+		    $('#videoContent').append('<div id="cropNumber' + screensCropCount + '"></div>');
+		    
+		    $('#cropNumber' + screensCropCount).css({
+		    	'position'           : 'absolute',
+			    "background-color"   : 'rgba(0,255,255,.5)',
+			    'width'              : width, 
+			    'height'             : height
+			});
+			// Draggable, resizable
+		    $('#cropNumber' + screensCropCount).draggable().resizable();
+
+
+    			crops = {};
+				crops[1]={
+					width      : "60",
+					height     : "200",
+					marginLeft : "",
+					marginTop  : "",
+					color      : [255,255,0,0.5],
+				}
+	    }
+	});
+
 
 	//
 	// ADD SCREEN
