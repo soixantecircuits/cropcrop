@@ -191,7 +191,17 @@ jQuery(function($){
 				'height'             : crops.list[id].height + "px"
 			});
 			// Draggable, resizable
-			$('#cropNumber' + id).draggable().resizable();
+			$('#cropNumber' + id)
+				.resizable()
+				.draggable({ //make it "draggable" and "resizable"
+					drag: function(event, ui) { // What happen when dragged
+						crops.list[id].marginTop = $('#cropNumber'+id).position().top;
+						console.log(crops.list[id].marginTop);
+						crops.list[id].marginLeft = $('#cropNumber'+id).position().left;
+						console.log(crops.list[id].marginLeft);
+					}
+				});
+
 		}
 	});
 
