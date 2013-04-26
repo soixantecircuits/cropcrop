@@ -151,48 +151,13 @@ jQuery(function($){
 		}
 	});
 
-/*
+
 	//
 	// UPDATE VIDEO INFORMATIONS
 	//
 	// $().updateVideoInformations( infos )
 	jQuery.fn.extend({
 		updateVideoInformations: function ( infos ) {
-			$('#videoContent').empty()
-			$('#videoContent').css({
-				"background-image" : 'url("")',
-				"background-image" : infos.imgSrc,
-				width : infos.width, 
-				height : infos.height
-			});
-
-			$('#videoInformationsTitle').text(infos.title);
-			$('#videoInformationsFormat').text(infos.format);
-			$('#videoInformationsWidth').text(infos.width);
-			$('#videoInformationsHeight').text(infos.height);
-			$('#videoInformationsSize').text(infos.size);
-			$('#videoInformationsFPS').text(infos.FPS);
-		}
-	});
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-	//
-	// UPDATE VIDEO INFORMATIONS
-	//
-	// $().updateVideoInformations( infos )
-	jQuery.fn.extend({
-		updateVideoInformations2: function ( infos ) {
 			console.log(infos);
 			$('#videoContent').empty()
 			$('#videoContent').css({
@@ -232,12 +197,40 @@ jQuery(function($){
 				.resizable()
 				.draggable({ //make it "draggable" and "resizable"
 					drag: function(event, ui) { // What happen when dragged
-						crops.list[id].marginTop = $('#cropNumber'+id).position().top;
+
+						// DO NOT TOUCH. Or I'll bite you.
+
+						cropNumberPositionTop     = parseInt($('#cropNumber'+id).position().top);
+						cropNumberPositionLeft    = parseInt($('#cropNumber'+id).position().left);
+						cropNumberOffsetTop       = parseInt($('#cropNumber'+id).offset().top);
+						cropNumberOffsetLeft      = parseInt($('#cropNumber'+id).offset().left);
+
+						videoContentPositionTop   = parseInt($('#videoContent').position().top);
+						videoContentPositionLeft  = parseInt($('#videoContent').position().left);
+						videoContentOffsetTop     = parseInt($('#videoContent').offset().top);
+						videoContentOffsetLeft    = parseInt($('#videoContent').offset().left);
+
+						calculPosTop              = cropNumberOffsetTop - videoContentOffsetTop;
+						calculPosLeft             = cropNumberOffsetLeft - videoContentOffsetLeft;
+
+
+						console.log("--------------------------------");
+						console.log(" cropNumber " + id + " position : " + cropNumberPositionTop + " " + cropNumberPositionLeft);
+						console.log(" cropNumber " + id + " offset   : " + cropNumberOffsetTop + " " + cropNumberOffsetLeft);
+
+						console.log(" yourVideo position    : " + videoContentPositionTop + " " + videoContentPositionLeft);
+						console.log(" yourVideo offset      : " + videoContentOffsetTop + " " + videoContentOffsetLeft);
+
+						console.log("Mix offset top         : " + calculPosTop);
+						console.log("Mix offset left        : " + calculPosLeft);
+
+
+						crops.list[id].marginTop = calculPosTop;
+						crops.list[id].marginLeft = calculPosLeft;
 						console.log(crops.list[id].marginTop);
-						crops.list[id].marginLeft = $('#cropNumber'+id).position().left;
 						console.log(crops.list[id].marginLeft);
 					}
-				});
+				});// End draggable
 
 		}
 	});

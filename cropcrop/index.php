@@ -23,39 +23,31 @@
 		<script>
 
 		$(function () {
-		    $('#fileupload').fileupload({
-		        dataType: 'json',
-		        done: function (e, data) {
-		            $.each(data.result.files, function (index, file) {
-		                $('<p/>').text(file.name).appendTo(document.body);
-		            });
-		        }
+			$('#fileupload').fileupload({
+				dataType: 'json',
+				done: function (e, data) {
+					$.each ( data.result.files, function (index, file) {
+						$('<p/>').text(file.name).appendTo(document.body);
+					});
+				}
+			});
 
-		    });
+			$('#fileupload').bind('fileuploaddone', function (e, data) { 
+				console.log(data);
+				$.each(data.result.files, function (index, file) {
+					var _self=this;
 
-
-
-		    $('#fileupload').bind('fileuploaddone', function (e, data) { 
-		        console.log(data);
-		        $.each(data.result.files, function (index, file) {              
-		                
-		            var _self=this;
-		        $.ajax({
-		            type: "POST",
-		            data : _self,
-		            url: './server/php/test.php',
-		                success: function(response) {
-		                	console.log(response);
-
-		                $().updateVideoInformations2( response )
-		            }
-		        });
-
-
-		      })
-		    });
+					$.ajax({
+						type: "POST",
+						data : _self,
+						url: './server/php/test.php', success: function(response) {
+							console.log(response);
+							$().updateVideoInformations( response );
+						}
+					});
+				})
+			});
 		});
-
 		</script>
 
 		<title>CROP CROP</title>
@@ -81,11 +73,6 @@
 			</header>
 			</div>
 			<!-- HEADER END -->
-
-
-
-
-
 
 
 			<div id="body">
@@ -197,7 +184,7 @@
 
 <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
 		</div>
-<!--
+
 <div id="etablis">
 	<h2>Tmp work bar</h2>
 	<ul>
@@ -205,7 +192,6 @@
 		<li><input type="button" id="tmpAff" value="Affiche crops" /></li>
 	</ul>
 </div>
--->
 
 		<div id="warningJavascriptNotEnabled">
 		</div>
