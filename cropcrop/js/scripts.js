@@ -242,6 +242,10 @@ jQuery(function($){
 	// $().addScreen()
 	jQuery.fn.extend({
 		addScreen: function () {
+
+			videoContentWidth     = parseInt($('#videoContent').width());
+			videoContentHeight    = parseInt($('#videoContent').height());
+
 			var width = parseInt( $('#navInputTextWidth').val() );
 			var height = parseInt( $('#navInputTextHeight').val() );
 
@@ -271,22 +275,36 @@ jQuery(function($){
 			}
 
 			// If all is ok
-			if ( ( isNaN(width) == false ) && ( isNaN(height)  == false ) )
-			{
-				crops.list.push({
-					width      : width,
-					height     : height,
-					marginLeft : "0",
-					marginTop  : "0",
-					color      : [
-						Math.ceil( (Math.random()*255) ), 
-						Math.ceil( (Math.random()*255) ), 
-						Math.ceil( (Math.random()*255) ),
-						0.5
-					],
-				});
-				$().createScreen( crops.list.length-1 )
-			};
+			if ( isNaN(width) == true ){
+				console.log("1");
+				return;
+			}
+			if ( isNaN(height)  == true ){
+				console.log("2");
+				return;
+			}
+			if ( width > videoContentWidth ){
+				console.log("3");
+				return;
+			}
+			if ( height  > videoContentHeight ){
+				console.log("4");
+				return;
+			}
+
+			crops.list.push({
+				width      : width,
+				height     : height,
+				marginLeft : "0",
+				marginTop  : "0",
+				color      : [
+					Math.ceil( (Math.random()*255) ), 
+					Math.ceil( (Math.random()*255) ), 
+					Math.ceil( (Math.random()*255) ),
+					0.5
+				],
+			});
+			$().createScreen( crops.list.length-1 )
 
 
 		}
