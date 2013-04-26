@@ -35,6 +35,13 @@ input[type=checkbox] {
 	padding                   : 20px auto 10px auto !important;}
 
 
+  /*********/
+ /* Fixes */
+/*********/
+#fix{
+	opacity: 0;
+}
+
   /**********/
  /* Styles */
 /**********/
@@ -159,12 +166,12 @@ body {
 					#videoInformationsDiv{
 						color: #000;
 						z-index: 1000;
-						background-color: #5DC1FF;}
-						#videoInformationsDiv{
-							list-style-type : none;
-							padding-top     : 10px; 
-							padding-bottom  : 10px; 
-							margin-top      : 0;}
+						background-color: #5DC1FF;
+						list-style-type : none;
+						padding-top     : 10px; 
+						padding-bottom  : 10px; 
+						margin-top      : 0;
+						margin-bottom   : 0;}
 							#videoInformationsDiv ul li{
 								display     : block;
 								margin      : 4px;}
@@ -176,6 +183,8 @@ body {
 							margin-top: 13px !important;}
 					#videoCropListDiv{
 						background-color    : rgba(0,0,0, 0.5);}
+					#videoCropListDiv ol{
+						margin-top:         : 0;}
 						#videoCropListDiv ol li{
 							border-bottom   : 1px solid #D4D7D7;}
 

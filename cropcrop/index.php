@@ -4,17 +4,19 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<meta name="msapplication-TileColor" content="#494D4E" />
-		<meta name="msapplication-TileImage" content="./css/images-interface/logo.png" />
+		<meta name="msapplication-TileImage" content="css/images-interface/logo.png" />
 		<meta content="application/xhtml+xml; charset=UTF-8" http-equiv="Content-Type" />
 		
-		<link rel="stylesheet" media="screen" type="text/css" href="./css/normalize.css" />
-		<link rel="stylesheet" media="screen" type="text/css" href="./css/topcoat-desktop-min.css" />
-		<link rel="stylesheet" media="screen" type="text/css" href="./css/styles.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="css/topcoat-desktop-min.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="css/jquery-ui.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
 		
-		<link rel="icon" type="image/png" href="./img/favicon.ico" />
+		<link rel="icon" type="image/png" href="img/favicon.ico" />
 		
-		<script type="text/javascript" src="./js/jquery-1.9.1.js"></script>
-		<script type="text/javascript" src="./js/scripts.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>
 		
 		<title>CROP CROP</title>
 	</head>
@@ -28,9 +30,9 @@
 			<header>
 				<div id="headerContent">
 					<ul>
-						<li><a href="https://github.com/soixantecircuits/cropcrop/" title="Project on GitHub"><img src="./img/logoGitHub.png" /></a></li>
-						<li><a href="https://www.facebook.com/pages/Soixante-circuits/148341911906454" title="Find us on Facebook"><img src="./img/logoFacebook.png" /></a></li>
-						<li><a href="#"  title="Help"><img src="./img/logoHelp.png" /></a></li>
+						<li><a href="https://github.com/soixantecircuits/cropcrop/" title="Project on GitHub"><img src="img/logoGitHub.png" /></a></li>
+						<li><a href="https://www.facebook.com/pages/Soixante-circuits/148341911906454" title="Find us on Facebook"><img src="img/logoFacebook.png" /></a></li>
+						<li><a href="#"  title="Help"><img src="img/logoHelp.png" /></a></li>
 					</ul>
 					<h1 class="title">Crop crop</h1>
 					<h2>Video cropping made easy</h2>
@@ -69,61 +71,63 @@
 					<!-- Bouton Crop It -->
 					<input type="button" class="button large dark" value ="Crop It" id="buttonCropIt" />
 
-					<!-- Menu déroulant -->
+					<!-- TOOL MENU -->
 					<div id="yourVideoContent">
 						<a class="button large dark" role="button" id="buttonYourVideo" href="#button"><span id="buttonYourVideo">Your Video</span><span id="triangle"></span></a>
+						
+						
+						<!-- TOOL BAR -->
 						<div id="YourVideoToolbar">
-								<ul id="videoInformationsDiv">
-									<li>
-										<strong><span id="videoInformationsTitle">...</span></strong>
-									</li>
-									<li>
-										Format : <span id="videoInformationsFormat">...</span>
-									</li>
-									<li>
-										Dimensions : <span id="videoInformationsWidth">...</span> x <span id="videoInformationsHeight">...</span>
-									</li>
-									<li>
-										Size : <span id="videoInformationsSize">...</span>
-									</li>
-									<li>
-										FPS : <span id="videoInformationsFPS">...</span>
-									</li>
-								</ul>
+
+							<ul id="videoInformationsDiv">
+								<li>
+									<strong><span id="videoInformationsTitle">...</span></strong>
+								</li>
+								<li>
+									Format : <span id="videoInformationsFormat">...</span>
+								</li>
+								<li>
+									Dimensions : <span id="videoInformationsWidth">...</span> x <span id="videoInformationsHeight">...</span>
+								</li>
+								<li>
+									Size : <span id="videoInformationsSize">...</span>
+								</li>
+								<li>
+									FPS : <span id="videoInformationsFPS">...</span>
+								</li>
+							</ul>
+
 							<div id="videoDownloadButtonDiv">
 								<input type="button" class="button large dark" value ="Download It" id="buttonDownloadIt" />
 							</div>
+
 							<div id="videoCropListDiv">
-								<ol>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ol>
+								<div class="videoCropListDivElement">
+									<p><spans id="cropSelectionID__id">1</span>. <spans id="cropSelectionID__rectangle" class="rectangle"></span></p>
+								</div>
 							</div>
+
 						</div>
+
+						<div id="fix">
+							<p>Div fixing #buttonYourVideo position.</p>
+						</div>
+
+					<!-- END TOOL MENU -->
 					</div>
 				</nav>
 				</div>
 
 
-
+				<!-- VIDEO AREA -->
 				<div id="videoContent">
 					<div id="videoContentBackground">
-						<img src="./img/camera.png">
+						<img src="img/camera.png">
 						<p>
 							Or just drag and drop your video here
 						</p>
 					</div>
 				</div>
-
-
-
-
-
-
-
-
 
 
 

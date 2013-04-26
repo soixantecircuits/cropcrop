@@ -4,7 +4,8 @@ jQuery(function($){
 
 	/*************/
 
-	var screensList = [];
+	var screensCropList = [];
+	var screensCropCount = 0; // Use to be an ID
 
 	/*************/
 
@@ -71,6 +72,9 @@ jQuery(function($){
 	/*                                             */
 	/***********************************************/
 
+	//
+	// AFFICHE
+	//
 	// Called with $().affiche()
 	jQuery.fn.extend({
 	    affiche: function (SUPERBOB) {
@@ -80,19 +84,24 @@ jQuery(function($){
 	    }
 	});
 
-
+	//
+	// SHOW THUMBNAIL
+	//
 	// Called with $().afficheThumbnail( parameter )
 	jQuery.fn.extend({
 	    showThumbnail: function (thumbnailName) {
 	    	$('#videoContent').empty()
 	    	$('#videoContent').css({
-			    "background-image" : 'url("./thumbnails/video.jpg")', // couleur rouge
+			    "background-image" : 'url("thumbnails/video.jpg")',
 			    width : '800px', 
 			    height : '600px'
 			});
 	    }
 	});
 
+	//
+	// UPDATE VIDEO INFORMATIONS
+	//
 	// Called with $().afficheThumbnail( parameter )
 	jQuery.fn.extend({
 	    updateVideoInformations: function (thumbnailName) {
@@ -105,29 +114,49 @@ jQuery(function($){
 	    }
 	});
 
-
-	// Called with $().afficheThumbnail( parameter )
-	jQuery.fn.extend({
-	    updateVideoInformations: function (thumbnailName) {
-	    	$('#videoInformationsTitle').empty();
-	    	$('#videoInformationsFormat').empty();
-	    	$('#videoInformationsWidth').empty();
-	    	$('#videoInformationsHeight').empty();
-	    	$('#videoInformationsSize').empty();
-	    	$('#videoInformationsFPS').empty();
-	    }
-	});
-
+	//
+	// ADD SCREEN
+	//
 	// Called with $().afficheThumbnail( parameter )
 	jQuery.fn.extend({
 	    addScreen: function () {
-	    	var width = "";
-	    	var height = "";
+	    	var width = $('#navInputTextWidth').val();
+	    	var height = $('#navInputTextHeight').val();
 
-	    	width = $('#navInputTextWidth').val();
-	    	height = $('#navInputTextHeight').val();
+	    	// Resetting to default, in case of inputs being red
+			$('#navInputTextWidth').css({
+			    "background-color"   : '#FFF'
+			});
+			$('#navInputTextHeight').css({
+			    "background-color"   : '#FFF'
+			});
 
-	    	console.log(width + " " + height)
+
+			// Control to show user he forget to input something
+	    	if ( width == '' ){
+				$('#navInputTextWidth').css({
+				    "background-color"   : 'rgba(255,0,0,.5)'
+				});
+	    	}
+	    	if ( height  == '' ){
+				$('#navInputTextHeight').css({
+				    "background-color"   : '#A00'
+				});
+	    	}
+
+	    	// If all is ok
+	    	if ( (width != '') && ( height != '') ) {
+		    	console.log(width + " " + height)
+		    	$('#videoContent').append('<div id="cropNumber' + screensCropCount + '"></div>');
+		    	$('#cropNumber' + screensCropCount).css({
+		    		'position'           : 'absolute',
+				    "background-color"   : 'rgba(0,255,255,.5)',
+				    'width'              : width, 
+				    'height'             : height
+				});
+				// Draggable, resizable
+		    	$('#cropNumber' + screensCropCount).draggable().resizable();
+	    	};
 	    }
 	});
 
