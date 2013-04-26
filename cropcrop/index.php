@@ -14,11 +14,12 @@
 		
 		<link rel="icon" type="image/png" href="img/favicon.ico" />
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="js/vendor/jquery.ui.widget.js"></script>
-		<script src="js/jquery.iframe-transport.js"></script>
-		<script src="js/jquery.fileupload.js"></script>
-
+		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/vendor/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
+		<script type="text/javascript" src="js/jquery.fileupload.js"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>
 		<script>
 
 		$(function () {
@@ -57,13 +58,8 @@
 
 		</script>
 
-
-		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-		<script type="text/javascript" src="js/jquery-ui.js"></script>
-		<script type="text/javascript" src="js/scripts.js"></script>
-
 		<title>CROP CROP</title>
-		
+
 	</head>
 	<body>
 
