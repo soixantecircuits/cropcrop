@@ -1,11 +1,30 @@
 jQuery(function($){
-	"use strict";
+	// "use strict";
 	console.log("jQuery is ok.");
 
 	/*************/
 
 	var screensCropList = [];
 	var screensCropCount = 0; // Use to be an ID
+
+	crops = {};
+	crops[1]={
+		width      : "",
+		height     : "",
+		marginLeft : "",
+		marginTop  : "",
+		color      : [255,255,0,0.5],
+	}
+
+
+
+	// for (var i = 0; i < oFullResponse.results.length; i++) {
+	//     var key = oFullResponse.results[i].label
+	//     columns[key] = {
+	//         sortable: true,
+	//         resizeable: true
+	//     };
+	// }
 
 	/*************/
 
@@ -48,19 +67,10 @@ jQuery(function($){
 		$('#uploadingModal').fadeOut();
 	});
 
-	$("#uploadingModal").click(function(event){
-		// event.stopPropagation();
-	});
-
 
 	$("#buttonAddScreen").click(function(event){
 		$().addScreen();
 	});
-
-
-
-
-
 
 
 
