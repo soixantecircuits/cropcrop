@@ -148,8 +148,6 @@
 
 		<div id="cache">
 		</div>
-		<div id="rouge">
-		</div>
 		<div id="uploadingModal">
 		</div>
 
@@ -166,5 +164,7 @@
 
 
 
+		<div id="rouge">
+		</div>
 	</body>
 </html>
