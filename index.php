@@ -1,3 +1,2 @@
 <?php      
-  include('./front/index.html');      
-?>
+  include 'cropcrop/index.php'; 
