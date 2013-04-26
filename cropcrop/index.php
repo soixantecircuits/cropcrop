@@ -17,6 +17,63 @@
 		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/scripts.js"></script>
+
+
+
+
+
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="js/vendor/jquery.ui.widget.js"></script>
+		<script src="js/jquery.iframe-transport.js"></script>
+		<script src="js/jquery.fileupload.js"></script>
+		<script>
+
+
+		$(function () {
+		    $('#fileupload').fileupload({
+		        dataType: 'json',
+		        done: function (e, data) {
+		            $.each(data.result.files, function (index, file) {
+		                $('<p/>').text(file.name).appendTo(document.body);
+		            });
+		        }
+
+		    });
+
+
+
+		    $('#fileupload').bind('fileuploaddone', function (e, data) { 
+		        console.log(data);
+		        $.each(data.result.files, function (index, file) {              
+		                
+		            var _self=this;
+		        $.ajax({
+		            type: "POST",
+		            data : _self,
+		            url: './server/php/test.php',
+		                success: function(response) {
+		                	console.log(response);
+
+		                $().updateVideoInformations2( response )
+		            }
+		        });
+
+
+		      })
+		    });
+		});
+
+
+
+		</script>
+
+
+
+
+
+
+
 		
 		<title>CROP CROP</title>
 	</head>
@@ -153,8 +210,10 @@
 		<div id="cache">
 		</div>
 		<div id="uploadingModal">
-		</div>
 
+<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+		</div>
+<!--
 <div id="etablis">
 	<h2>Tmp work bar</h2>
 	<ul>
@@ -162,6 +221,7 @@
 		<li><input type="button" id="tmpAff" value="Affiche crops" /></li>
 	</ul>
 </div>
+-->
 
 		<div id="warningJavascriptNotEnabled">
 		</div>

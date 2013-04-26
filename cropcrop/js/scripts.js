@@ -88,8 +88,7 @@ jQuery(function($){
 
 	$('#buttonUpload').click(function(event){
 		event.preventDefault();
-		$('#cache').fadeIn();
-		$('#uploadingModal').fadeIn();
+		$("#fileupload").trigger("click")
 	});
 
 	$('#cache').click(function(event){
@@ -174,6 +173,54 @@ jQuery(function($){
 			$('#videoInformationsFPS').text(infos.FPS);
 		}
 	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//
+	// UPDATE VIDEO INFORMATIONS
+	//
+	// $().updateVideoInformations( infos )
+	jQuery.fn.extend({
+		updateVideoInformations2: function ( infos ) {
+			console.log(infos);
+			$('#videoContent').empty()
+			$('#videoContent').css({
+				"background-image" : 'url("server/php/'+infos.message.thumbnails+'")',
+				width : infos.message.width, 
+				height : infos.message.height
+			});
+
+			$('#videoInformationsWidth').text( infos.message.width );
+			$('#videoInformationsHeight').text( infos.message.height );
+		}
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	//
 	// CREATE SCREEN
