@@ -23,11 +23,12 @@ if sys.argv.__len__() > 0:
 		"filename" : str(subprocess.check_output(fileNameCmd, shell=True).rstrip())[1:],
 		"fileExt" : str(subprocess.check_output(fileExtensionCmd, shell=True).rstrip())[1:],
 		"width" : int(subprocess.check_output(videoWidthCmd, shell=True)),
-		"height" : int(subprocess.check_output(videoHeightCmd, shell=True))
+		"height" : int(subprocess.check_output(videoHeightCmd, shell=True)),
+		"fileW"  : fileW
 	}
 	
 
-	os.system("mkdir CropCrop") 
+	os.system("mkdir "+fileW) 
 
 	for value in range(len(data["list"])):
 		videoInformations["screenId"] = data["list"][value]["screenId"]
@@ -35,11 +36,14 @@ if sys.argv.__len__() > 0:
 		videoInformations["height"] = data["list"][value]["height"]
 		videoInformations["marginLeft"] = data["list"][value]["marginLeft"]
 		videoInformations["marginTop"] = data["list"][value]["marginTop"]
-		cropCommand = "ffmpeg -i "+sys.argv[1]+" -strict experimental -r 25 -vf crop=%(width)s:%(height)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 CropCrop/%(screenId)s.%(fileExt)s" % videoInformations
+		cropCommand = "ffmpeg -i "+sys.argv[1]+" -strict experimental -r 25 -vf crop=%(width)s:%(height)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 %(fileW)s/%(screenId)s.%(fileExt)s" % videoInformations
 		print(cropCommand)
 		os.system(cropCommand)
 		
-	os.system("zip -r CropCrop.zip CropCrop") 
-	os.system("rm -r CropCrop") 
+	os.system("zip -r "+fileW+".zip "+fileW) 
+	os.system("rm -r "+fileW) 
 	os.system("rm "+sys.argv[1])
 	json_data.close() 
+	#print("CropCrop.zip")
+	#ffmpeg -i ./files/duke.mp4 -strict experimental -r 25 -vf crop=%(width)s:%(height)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 duke/0.'mp4' 
+	#ffmpeg -i ./files/duke.mp4 -strict experimental -r 25 -vf crop=100:100:0:0 -keyint_min 1 duke/0.'mp4' 
