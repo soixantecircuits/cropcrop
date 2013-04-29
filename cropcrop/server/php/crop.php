@@ -12,10 +12,10 @@
     fclose($file);
 
     $output = json_decode($person);
-   	echo $output->title;
+   	//echo $output->title;
     
-    // Now you can access your php object like so
-    // $output[0]->variable-name
+    $resp = exec('python3 ./scripts/cropcrop.py ./files/'. $output->title ." screen.json  ./files/". $output->title);
+    echo $resp;
 }
 
 ?>
