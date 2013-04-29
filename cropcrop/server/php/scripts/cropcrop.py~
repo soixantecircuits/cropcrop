@@ -30,16 +30,14 @@ if sys.argv.__len__() > 0:
 	os.system("mkdir CropCrop") 
 
 	for value in range(len(data["list"])):
-		videoInformations["screenId"] = data["list"][value]["screenId"]
-		videoInformations["width"] = data["list"][value]["width"]
-		videoInformations["height"] = data["list"][value]["height"]
-		videoInformations["marginLeft"] = data["list"][value]["marginLeft"]
-		videoInformations["marginTop"] = data["list"][value]["marginTop"]
-		cropCommand = "ffmpeg -i "+sys.argv[1]+" -strict experimental -r 25 -vf crop=%(width)s:%(height)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 CropCrop/%(screenId)s.%(fileExt)s" % videoInformations
-		print(cropCommand)
+		videoInformations["screenId"] = data["screens"][value]["name"]
+		videoInformations["cropWidth"] = data["screens"][value]["crop_width"]
+		videoInformations["cropHeight"] = data["screens"][value]["crop_height"]
+		videoInformations["marginLeft"] = data["screens"][value]["margin_left"]
+		videoInformations["marginTop"] = data["screens"][value]["margin_top"]
+		cropCommand = "ffmpeg -i "+sys.argv[1]+" -strict experimental -r 25 -vf crop=%(cropWidth)s:%(cropHeight)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 CropCrop/%(screenId)s.mp4" % videoInformations
 		os.system(cropCommand)
-		
+		pprint(cropCommand)
 	os.system("zip -r CropCrop.zip CropCrop") 
 	os.system("rm -r CropCrop") 
-	os.system("rm "+sys.argv[1])
 	json_data.close() 
