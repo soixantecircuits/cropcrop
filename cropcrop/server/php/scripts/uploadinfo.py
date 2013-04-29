@@ -32,23 +32,29 @@ if sys.argv.__len__()>0:
 	videoWidthCmd     = "mediainfo --Inform='Video;"+"%"+"Width%' "+filename
 	videoHeightCmd    = "mediainfo --Inform='Video;"+"%"+"Height%' "+filename
 	fileExtensionCmd  = "mediainfo --Inform='General;" + "%" + "FileExtension%' " + filename
+	fileSizeCmd       = "mediainfo --Inform='General;" + "%" + "FileSize/String%' " + filename
+	frameRateCmd      = "mediainfo --Inform='Video;" + "%" + "FrameRate%' " + filename
 	
 	# Stock informations
 	videoInformations = {
 		"filename"      : sys.argv[1],
 		"width"         : int(subprocess.check_output(videoWidthCmd, shell=True)),
 		"height"        : int(subprocess.check_output(videoHeightCmd, shell=True)),
-		"fileExt"       : str(subprocess.check_output(fileExtensionCmd, shell=True).rstrip())[1:]
+		"fileExt"       : str(subprocess.check_output(fileExtensionCmd, shell=True).rstrip())[1:],
+		"fileSize"      : str(subprocess.check_output(fileSizeCmd, shell=True).rstrip())[1:],
+		"frameRate"     : str(subprocess.check_output(frameRateCmd, shell=True).rstrip())[1:]
 	}
 	
         #ffmpeg = 'encoder\ffmpeg'
 	width = ("%(width)s" % videoInformations)
 	height = ("%(height)s" % videoInformations)
 	fileExt = ("%(fileExt)s" % videoInformations)
+	fileSize = ("%(fileSize)s" % videoInformations)
+	frameRate = ("%(frameRate)s" % videoInformations)
 	
 	os.system("ffmpeg -itsoffset -15 -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+random_string+".jpg")
 	
-	data =  { 'width': width, 'height':height, 'fileExt' : fileExt, 'thumbnails': random_string+".jpg"}
+	data =  { 'width': width, 'height':height, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails': random_string+".jpg"}
 	data_string = json.dumps(data)
 	#os.system("rm "+filename)
 	#f = open('infos.txt', 'wt')
