@@ -195,10 +195,28 @@ body {
 						#buttonDownloadIt{
 							margin-top: 8px!important}
 					#videoCropListDiv{
-						background-color       : rgba(0,0,0, 0.5);}
-						#videoCropListDivElement{
-							margin-top         : 0;
-							border-bottom      : 1px solid #D4D7D7;}
+						background-color       : rgba(0,0,0, 0.5);
+						max-height: 40%;
+						overflow: }
+						.videoCropListDivElement{
+							line-height           : 50px;
+							margin-top            : 0;
+							border-bottom         : 1px solid #D4D7D7;}
+							.videoCropListDivElementContent{
+								display           : inline-block;
+								vertical-align    : middle;}
+							.videoCropListDivElementContent input{
+								width             : 64px;}
+							.videoCropListDivElementContent input:first-of-type{
+								margin-top        : -12px;}
+							.rectangle{
+								height            : 16px;
+								width             : 32px;
+								background-color  : #FFF;
+							}
+
+
+
 
 	#videoContent{
 		background-repeat    : no-repeat;

@@ -160,9 +160,31 @@
 							</div>
 
 							<div id="videoCropListDiv">
+
+
 								<div class="videoCropListDivElement">
-									<p><spans id="cropSelectionID__id">1</span>. <spans id="cropSelectionID__rectangle" class="rectangle"></span></p>
+									<div id="cropSelection2" class="videoCropListDivElementContent">
+										<p>1</p>
+									</div>
+									<div id="cropSelectionID__rectangle" class="rectangle videoCropListDivElementContent"></div>
+									<div id="cropSelectionID__rectangle" class="rectangle videoCropListDivElementContent">
+										<input type="text" />
+										<input type="text" />
+									</div>
 								</div>
+
+								<div class="videoCropListDivElement">
+									<div id="cropSelection2" class="videoCropListDivElementContent">
+										<p>2</p>
+									</div>
+									<div id="cropSelectionID__rectangle" class="rectangle videoCropListDivElementContent"></div>
+									<div id="cropSelectionID__rectangle" class="rectangle videoCropListDivElementContent">
+										<input type="text" />
+										<input type="text" />
+									</div>
+								</div>
+
+
 							</div>
 
 						</div>
@@ -179,15 +201,15 @@
 
 				<!-- VIDEO AREA -->
 				<div id="videoContent">
-						<div id="videoContentCache">
-							<div id="videoContentBackground">
-								<img src="img/camera.png">
-								<p>
-									Or just drag and drop your video here
-								</p>
-							</div>
+					<div id="videoContentCache">
+						<div id="videoContentBackground">
+							<img src="img/camera.png">
+							<p>
+								Or just drag and drop your video here
+							</p>
 						</div>
 					</div>
+				</div>
 
 
 

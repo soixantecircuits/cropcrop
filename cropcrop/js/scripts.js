@@ -8,20 +8,22 @@ jQuery(function($){
 	var screensCropCount = 0; // Use to be an ID
 
 	videoInformations = {
-		imgSrc  : "thumbnails/video.jpg",
-		width   : 800,
-		height  : 600,
-		title   : "Battle de créateurs.mp4",
-		format  : "AVC Codec",
-		size    : "30mo",
-		FPS     : "25"
+		message:{
+			imgSrc  : "http://elevage-guppy.fr/wp-content/uploads/2012/03/video.jpg",
+			width   : 800,
+			height  : 600,
+			title   : "Battle de créateurs.mp4",
+			format  : "AVC Codec",
+			size    : "30mo",
+			FPS     : "25"
+		}
 	}
 
 	crops = {};
 	crops.title = "None";
 	crops.list = [];
 
-
+/*
 	crops.list[0]={
 		screenId   : 0, 
 		width      : "32",
@@ -54,7 +56,7 @@ jQuery(function($){
 		marginTop  : "200",
 		color      : [0,255,255,0.5],
 	}
-
+*/
 
 	/***********************************************/
 	/*                                             */
@@ -207,10 +209,12 @@ jQuery(function($){
 	// $().updateVideoInformations( infos )
 	jQuery.fn.extend({
 		updateVideoInformations: function ( infos ) {
+			console.log("------------");
 			console.log(infos);
 
 			var img   = new Image();
 			var bgImgUrl  = "server/php/" + infos.message.thumbnails;
+			var bgImgUrl  = infos.message.imgSrc;
 			var infWidth  = infos.message.width;
 			var infHeight = infos.message.height;
 
@@ -225,6 +229,12 @@ jQuery(function($){
 				$("#videoContent").animate({height: infHeight}, 1000, "easeOutCirc");
 			});
 
+			$("#videoInformationsTitle").text(infos.message.title);
+			$("#videoInformationsFormat").text(infos.message.format);
+			$("#videoInformationsWidth").text(infos.message.width);
+			$("#videoInformationsHeight").text(infos.message.height);
+			$("#videoInformationsSize").text(infos.message.size);
+			$("#videoInformationsFPS").text(infos.message.FPS);
 		}
 	});
 
