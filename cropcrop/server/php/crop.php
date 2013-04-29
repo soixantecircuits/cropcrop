@@ -11,7 +11,8 @@
     fwrite($file, $person);
     fclose($file);
 
-   echo "success";
+    $output = json_decode($person);
+   	echo $output->title;
     
     // Now you can access your php object like so
     // $output[0]->variable-name
