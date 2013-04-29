@@ -124,7 +124,7 @@ jQuery(function($){
 		var title = $("#fileupload").val();
 		title = title.split(/(\\|\/)/g).pop();
 		crops.title = title;
-		
+
 		$('#videoContentBackground').empty();
 		$('#videoContentBackground').append('<div class="spinner large" role="progressbar"> </div>');
 	});
