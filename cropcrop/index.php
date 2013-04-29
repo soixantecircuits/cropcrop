@@ -8,6 +8,7 @@
 		<meta content="application/xhtml+xml; charset=UTF-8" http-equiv="Content-Type" />
 		
 		<link rel="stylesheet" media="screen" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="css/jquery.gridster.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/topcoat-desktop-min.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/jquery-ui.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
@@ -20,6 +21,7 @@
 		<script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
 		<script type="text/javascript" src="js/jquery.fileupload.js"></script>
 		<script type="text/javascript" src="js/scripts.js"></script>
+		<script type="text/javascript" src="js/jquery.gridster.js"></script>
 		<script>
 
 		$(function () {
@@ -28,8 +30,6 @@
 				done: function (e, data) {
 					$.each ( data.result.files, function (index, file) {
 						// $('<p/>').text(file.name).appendTo(document.body);
-						$('#videoContentBackground').empty();
-						$('#videoContentBackground').append('<div class="spinner large" role="progressbar"> </div>');
 					});
 				}
 			});

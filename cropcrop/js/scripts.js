@@ -118,6 +118,12 @@ jQuery(function($){
 		$().addScreen();
 	});
 
+	$("#fileupload").change(function(event){
+		event.preventDefault();
+		$('#videoContentBackground').empty();
+		$('#videoContentBackground').append('<div class="spinner large" role="progressbar"> </div>');
+	});
+
 
 
 
