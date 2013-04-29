@@ -217,21 +217,26 @@ jQuery(function($){
 	// CROP IT
 	//
 	// $().sendCrop( infos )
-	jQuery.fn.extend({
+		jQuery.fn.extend({
 		sendCrop: function ( jsondata ) {
 			console.log(jsondata);
-
-			var jsoninfo = jsondata;
+					var jsoninfo = jsondata;
+					
+ 					
+					// Lets put our stringified json into a variable for posting
+					
+			
 				$.ajax({
 					type: "POST",
-					dataType: "json",
-					data: jsoninfo,
+
+					data: { json: JSON.stringify(jsoninfo) },
 					url: './server/php/crop.php', success: function(response) {
 						console.log(response);
 				}
 			});
 		}
 	});
+
 
 
 
