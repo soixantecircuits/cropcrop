@@ -199,6 +199,7 @@ body {
 						max-height: 40%;
 						overflow: }
 						.videoCropListDivElement{
+							text-align            : center;
 							line-height           : 50px;
 							margin-top            : 0;
 							border-bottom         : 1px solid #D4D7D7;}

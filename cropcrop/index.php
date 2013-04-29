@@ -142,9 +142,6 @@
 									<strong><span id="videoInformationsTitle">...</span></strong>
 								</li>
 								<li>
-									Format : <span id="videoInformationsFormat">...</span>
-								</li>
-								<li>
 									Dimensions : <span id="videoInformationsWidth">...</span> x <span id="videoInformationsHeight">...</span>
 								</li>
 								<li>
@@ -234,7 +231,8 @@
 
 <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
 		</div>
-
+		
+<!--
 <div id="etablis">
 	<h2>Tmp work bar</h2>
 	<ul>
@@ -242,6 +240,7 @@
 		<li><input type="button" id="tmpAff" value="Affiche crops" /></li>
 	</ul>
 </div>
+-->
 
 		<div id="warningJavascriptNotEnabled">
 		</div>

@@ -9,13 +9,12 @@ jQuery(function($){
 
 	videoInformations = {
 		message:{
-			imgSrc  : "http://elevage-guppy.fr/wp-content/uploads/2012/03/video.jpg",
-			width   : 800,
-			height  : 600,
-			title   : "Battle de créateurs.mp4",
-			format  : "AVC Codec",
-			size    : "30mo",
-			FPS     : "25"
+			thumbnails    : "http://elevage-guppy.fr/wp-content/uploads/2012/03/video.jpg",
+			width         : 800,
+			height        : 600,
+			title         : "Battle de créateurs.mp4",
+			fileSize      : "30mo",
+			frameRate     : "25"
 		}
 	}
 
@@ -23,40 +22,6 @@ jQuery(function($){
 	crops.title = "None";
 	crops.list = [];
 
-/*
-	crops.list[0]={
-		screenId   : 0, 
-		width      : "32",
-		height     : "32",
-		marginLeft : "0",
-		marginTop  : "0",
-		color      : [255,0,0,0.5],
-	}
-	crops.list[1]={
-		screenId   : 1, 
-		width      : "60",
-		height     : "200",
-		marginLeft : "50",
-		marginTop  : "0",
-		color      : [255,255,0,0.5],
-	}
-	crops.list[2]={
-		screenId   : 2, 
-		width      : "66",
-		height     : "66",
-		marginLeft : "200",
-		marginTop  : "100",
-		color      : [255,0,255,0.5],
-	}
-	crops.list[3]={
-		screenId   : 3, 
-		width      : "200",
-		height     : "60",
-		marginLeft : "400",
-		marginTop  : "200",
-		color      : [0,255,255,0.5],
-	}
-*/
 
 	/***********************************************/
 	/*                                             */
@@ -212,9 +177,13 @@ jQuery(function($){
 			console.log("------------");
 			console.log(infos);
 
+			infos.message.filename = infos.message.filename.replaceAll('\'','');
+			infos.message.frameRate = infos.message.frameRate.replaceAll('\'','');
+			infos.message.fileSize = infos.message.fileSize.replaceAll('\'','');
+
 			var img   = new Image();
 			var bgImgUrl  = "server/php/" + infos.message.thumbnails;
-			var bgImgUrl  = infos.message.imgSrc;
+
 			var infWidth  = infos.message.width;
 			var infHeight = infos.message.height;
 
@@ -229,12 +198,11 @@ jQuery(function($){
 				$("#videoContent").animate({height: infHeight}, 1000, "easeOutCirc");
 			});
 
-			$("#videoInformationsTitle").text(infos.message.title);
-			$("#videoInformationsFormat").text(infos.message.format);
-			$("#videoInformationsWidth").text(infos.message.width);
-			$("#videoInformationsHeight").text(infos.message.height);
-			$("#videoInformationsSize").text(infos.message.size);
-			$("#videoInformationsFPS").text(infos.message.FPS);
+			$("#videoInformationsTitle").text( infos.message.filename );
+			$("#videoInformationsWidth").text( infos.message.width );
+			$("#videoInformationsHeight").text( infos.message.height );
+			$("#videoInformationsSize").text( infos.message.fileSize );
+			$("#videoInformationsFPS").text( infos.message.frameRate );
 		}
 	});
 
@@ -391,3 +359,61 @@ jQuery(function($){
 
 // jQuery end
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * ReplaceAll by Fagner Brack (MIT Licensed)
+ * Replaces all occurrences of a substring in a string
+ */
+String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
+    var _token;
+    var str = this + "";
+    var i = -1;
+
+    if ( typeof token === "string" ) {
+
+        if ( ignoreCase ) {
+
+            _token = token.toLowerCase();
+
+            while( (
+                i = str.toLowerCase().indexOf(
+                    token, i >= 0 ? i + newToken.length : 0
+                ) ) !== -1
+            ) {
+                str = str.substring( 0, i ) +
+                    newToken +
+                    str.substring( i + token.length );
+            }
+
+        } else {
+            return this.split( token ).join( newToken );
+        }
+
+    }
+return str;
+};
