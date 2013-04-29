@@ -10,6 +10,7 @@ program_name = sys.argv[0]
 arguments = sys.argv[1]
 
 filename = "'"+sys.argv[1]+"'"
+filename2 = filename.split("/")[-1]
 filex=filename.split("/")[-1]
 fileW=filex.split(".")[0]
 fileW.replace(" ", "")
@@ -54,7 +55,7 @@ if sys.argv.__len__()>0:
 	
 	os.system("ffmpeg -itsoffset -15 -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+random_string+".jpg")
 	
-	data =  { 'width': width, 'height':height, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails': random_string+".jpg"}
+	data =  { 'width': width, 'height':height,'filename':filename2, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails': random_string+".jpg"}
 	data_string = json.dumps(data)
 	#os.system("rm "+filename)
 	#f = open('infos.txt', 'wt')
