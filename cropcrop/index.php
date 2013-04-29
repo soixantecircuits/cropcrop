@@ -156,11 +156,13 @@
 
 				<!-- VIDEO AREA -->
 				<div id="videoContent">
-					<div id="videoContentBackground">
-						<img src="img/camera.png">
-						<p>
-							Or just drag and drop your video here
-						</p>
+					<div id="videoContentCache">
+						<div id="videoContentBackground">
+							<img src="img/camera.png">
+							<p>
+								Or just drag and drop your video here
+							</p>
+						</div>
 					</div>
 				</div>
 

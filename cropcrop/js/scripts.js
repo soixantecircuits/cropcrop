@@ -23,6 +23,7 @@ jQuery(function($){
 
 
 	crops.list[0]={
+		screenId   : 0, 
 		width      : "32",
 		height     : "32",
 		marginLeft : "0",
@@ -30,6 +31,7 @@ jQuery(function($){
 		color      : [255,0,0,0.5],
 	}
 	crops.list[1]={
+		screenId   : 1, 
 		width      : "60",
 		height     : "200",
 		marginLeft : "50",
@@ -37,6 +39,7 @@ jQuery(function($){
 		color      : [255,255,0,0.5],
 	}
 	crops.list[2]={
+		screenId   : 2, 
 		width      : "66",
 		height     : "66",
 		marginLeft : "200",
@@ -44,6 +47,7 @@ jQuery(function($){
 		color      : [255,0,255,0.5],
 	}
 	crops.list[3]={
+		screenId   : 3, 
 		width      : "200",
 		height     : "60",
 		marginLeft : "400",
@@ -189,12 +193,15 @@ jQuery(function($){
 
 			var img = new Image();
 			bgImgUrl = "server/php/" + infos.message.thumbnails;
-
 		       
 			$(img).attr('src', bgImgUrl).load(function() {
 				$("#videoContent").animate({width: infos.message.width }, 1000, "easeInCirc", function(){
-					$("#videoContent").empty();
-					$(img).hide().appendTo("#videoContent").fadeIn();
+					$("#videoContentCache").empty();
+					$("#videoContent").css({
+						"background-image": "url(" + bgImgUrl + ")",
+					});
+					$("#videoContentCache").fadeOut();
+					
 				});
 				$("#videoContent").animate({height: infos.message.height}, 1000, "easeOutCirc");
 			});
@@ -331,6 +338,7 @@ jQuery(function($){
 			}
 
 			crops.list.push({
+				screenId   : crops.list.length,
 				width      : width,
 				height     : height,
 				marginLeft : "0",
