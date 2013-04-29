@@ -44,7 +44,7 @@ if sys.argv.__len__()>0:
 		"fileExt"       : str(subprocess.check_output(fileExtensionCmd, shell=True).rstrip())[1:],
 		"fileSize"      : str(subprocess.check_output(fileSizeCmd, shell=True).rstrip())[1:],
 		"frameRate"     : str(subprocess.check_output(frameRateCmd, shell=True).rstrip())[1:]
-	}
+	}s
 	
         #ffmpeg = 'encoder\ffmpeg'
 	width = ("%(width)s" % videoInformations)
