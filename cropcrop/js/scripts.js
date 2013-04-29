@@ -18,7 +18,10 @@ jQuery(function($){
 	}
 
 	crops = {};
+	crops.title = "";
 	crops.list = [];
+
+
 	crops.list[0]={
 		width      : "32",
 		height     : "32",
@@ -99,7 +102,7 @@ jQuery(function($){
 
 	$('#buttonCropIt').click(function(event){
 		event.preventDefault();
-		$().sendCrop( crops )
+		$().sendCrop( crops );
 	});
 
 	$('#cache').click(function(event){
@@ -172,17 +175,36 @@ jQuery(function($){
 	jQuery.fn.extend({
 		updateVideoInformations: function ( infos ) {
 			console.log(infos);
-			$('#videoContent').empty()
-			$('#videoContent').css({
-				"background-image" : 'url("server/php/'+infos.message.thumbnails+'")',
-				width : infos.message.width, 
-				height : infos.message.height
+
+			var img = new Image();
+			bgImgUrl = "server/php/" + infos.message.thumbnails;
+
+		       
+			$(img).attr('src', bgImgUrl).load(function() {
+				$("#videoContent").animate({width: infos.message.width }, 1000, "easeInCirc", function(){
+					$("#videoContent").empty();
+					$(img).hide().appendTo("#videoContent").fadeIn();
+				});
+				$("#videoContent").animate({height: infos.message.height}, 1000, "easeOutCirc");
 			});
 
-			$('#videoInformationsWidth').text( infos.message.width );
-			$('#videoInformationsHeight').text( infos.message.height );
 		}
 	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	//
@@ -200,7 +222,6 @@ jQuery(function($){
 					data: jsoninfo,
 					url: './server/php/crop.php', success: function(response) {
 						console.log(response);
-					
 				}
 			});
 		}
@@ -227,7 +248,12 @@ jQuery(function($){
 			});
 			// Draggable, resizable
 			$('#cropNumber' + id)
-				.resizable()
+				.resizable({
+					stop: function( event, ui ) {
+						crops.list[id].width      = $('#cropNumber'+id).width();
+						crops.list[id].height     = $('#cropNumber'+id).height();
+					}
+				}) // End resizable
 				.draggable({ //make it "draggable" and "resizable"
 					drag: function(event, ui) { // What happen when dragged
 						cropNumberOffsetTop       = parseInt($('#cropNumber'+id).offset().top);
@@ -238,17 +264,10 @@ jQuery(function($){
 						calculPosTop              = cropNumberOffsetTop - videoContentOffsetTop;
 						calculPosLeft             = cropNumberOffsetLeft - videoContentOffsetLeft;
 
-
-
-						crops.list[id].marginTop = calculPosTop;
+						crops.list[id].marginTop  = calculPosTop;
 						crops.list[id].marginLeft = calculPosLeft;
-						crops.list[id].width = $('#cropNumber'+id).width();
-						crops.list[id].height = $('#cropNumber'+id).height();
-
-						console.log($('#cropNumber'+id).width());
-						console.log($('#cropNumber'+id).height());
 					}
-				});// End draggable
+				}); // End draggable
 
 		}
 	});

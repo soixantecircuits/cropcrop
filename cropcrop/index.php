@@ -27,12 +27,15 @@
 				dataType: 'json',
 				done: function (e, data) {
 					$.each ( data.result.files, function (index, file) {
-						$('<p/>').text(file.name).appendTo(document.body);
+						// $('<p/>').text(file.name).appendTo(document.body);
+						$('#videoContentBackground').empty();
+						$('#videoContentBackground').append('<div class="spinner large" role="progressbar"> </div>');
 					});
 				}
 			});
 
 			$('#fileupload').bind('fileuploaddone', function (e, data) { 
+				console.log("----------------");
 				console.log(data);
 				$.each(data.result.files, function (index, file) {
 					var _self=this;
