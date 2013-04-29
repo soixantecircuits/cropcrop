@@ -18,7 +18,7 @@ jQuery(function($){
 	}
 
 	crops = {};
-	crops.title = "";
+	crops.title = "None";
 	crops.list = [];
 
 
@@ -118,8 +118,13 @@ jQuery(function($){
 		$().addScreen();
 	});
 
+	// When upload start
 	$("#fileupload").change(function(event){
 		event.preventDefault();
+		var title = $("#fileupload").val();
+		title = title.split(/(\\|\/)/g).pop();
+		crops.title = title;
+		
 		$('#videoContentBackground').empty();
 		$('#videoContentBackground').append('<div class="spinner large" role="progressbar"> </div>');
 	});
@@ -196,21 +201,6 @@ jQuery(function($){
 
 		}
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	//
