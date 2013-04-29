@@ -125,12 +125,14 @@ jQuery(function($){
 	// When upload start
 	$("#fileupload").change(function(event){
 		event.preventDefault();
+		$('#videoContentCache').fadeIn();
 		var title = $("#fileupload").val();
 		title = title.split(/(\\|\/)/g).pop();
 		crops.title = title;
 
-		$('#videoContentBackground').empty();
-		$('#videoContentBackground').append('<div class="spinner large" role="progressbar"> </div>');
+		$('#videoContentCache').append('<div id="videoContentBackground"></div>');
+		$('#videoContentBackground').empty('');
+		$('#videoContentBackground').append('<div class="spinner large" role="progressbar"></div>');
 	});
 
 
@@ -191,19 +193,20 @@ jQuery(function($){
 		updateVideoInformations: function ( infos ) {
 			console.log(infos);
 
-			var img = new Image();
-			bgImgUrl = "server/php/" + infos.message.thumbnails;
-		       
+			var img   = new Image();
+			var bgImgUrl  = "server/php/" + infos.message.thumbnails;
+			var infWidth  = infos.message.width;
+			var infHeight = infos.message.height;
+
 			$(img).attr('src', bgImgUrl).load(function() {
-				$("#videoContent").animate({width: infos.message.width }, 1000, "easeInCirc", function(){
+				$("#videoContent").animate({width: infWidth }, 1000, "easeInCirc", function(){
 					$("#videoContentCache").empty();
 					$("#videoContent").css({
 						"background-image": "url(" + bgImgUrl + ")",
 					});
 					$("#videoContentCache").fadeOut();
-					
 				});
-				$("#videoContent").animate({height: infos.message.height}, 1000, "easeOutCirc");
+				$("#videoContent").animate({height: infHeight}, 1000, "easeOutCirc");
 			});
 
 		}
@@ -217,20 +220,33 @@ jQuery(function($){
 		jQuery.fn.extend({
 		sendCrop: function ( jsondata ) {
 			console.log(jsondata);
-					var jsoninfo = jsondata;
-					
- 					
-					// Lets put our stringified json into a variable for posting
-					
-			
-				$.ajax({
-					type: "POST",
-
-					data: { json: JSON.stringify(jsoninfo) },
-					url: './server/php/crop.php', success: function(response) {
-						console.log(response);
+			var jsoninfo = jsondata;
+			$.ajax({
+				type: "POST",
+				data: { json: jsoninfo },
+				url: './server/php/crop.php', success: function(response) {
+					console.log(response);
 				}
 			});
+		}
+	});
+
+
+	//
+	// CREATE GRID
+	//
+	// $().createGrid( 10, 50 )
+	jQuery.fn.extend({
+		createGrid: function ( width, height ) {
+			var gridContent = '<div class="gridster"><ul>';
+
+			for (var i = 0 ; i < width ; i++) {
+				for (var j = 0 ; j < height ; j++) {
+					gridContent += '<li data-row="' + i + '" data-col="' + j + '" data-sizex="1" data-sizey="1"></li>';
+				};
+			};
+			gridContent += '</ul></div>';
+			$("#videoContent").append(gridContent);
 		}
 	});
 
@@ -319,23 +335,11 @@ jQuery(function($){
 				});
 			}
 
-			// If all is ok
-			if ( isNaN(width) == true ){
-				console.log("1");
-				return false;
-			}
-			if ( isNaN(height)  == true ){
-				console.log("2");
-				return false;
-			}
-			if ( width > videoContentWidth ){
-				console.log("3");
-				return false;
-			}
-			if ( height  > videoContentHeight ){
-				console.log("4");
-				return false;
-			}
+			// Cancel
+			if ( isNaN(width) == true )         {return false;}
+			if ( isNaN(height)  == true )       {return false;}
+			if ( width > videoContentWidth )    {return false;}
+			if ( height  > videoContentHeight ) {return false;}
 
 			crops.list.push({
 				screenId   : crops.list.length,
