@@ -11,6 +11,7 @@
 		<link rel="stylesheet" media="screen" type="text/css" href="css/jquery.gridster.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/topcoat-desktop-min.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/jquery-ui.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="css/annotation.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
 		
 		<link rel="icon" type="image/png" href="img/favicon.ico" />
@@ -20,9 +21,31 @@
 		<script type="text/javascript" src="js/vendor/jquery.ui.widget.js"></script>
 		<script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
 		<script type="text/javascript" src="js/jquery.fileupload.js"></script>
-		<script type="text/javascript" src="js/scripts.js"></script>
 		<script type="text/javascript" src="js/jquery.gridster.js"></script>
+		<script type="text/javascript" src="js/jquery.annotate.js"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>
 		<script>
+
+		$(window).load(function() {
+			annotations = $("#toAnnotate").annotateImage({
+				editable: true,
+				useAjax: false,
+				notes: [ { "top": 0,
+						   "left": 0,
+						   "width": 52,
+						   "height": 37,
+						   "text": "Small people on the steps",
+						   "id": "e69213d0-2eef-40fa-a04b-0ed998f9f1f5",
+						   "editable": true },
+						 { "top": 134,
+						   "left": 179,
+						   "width": 68,
+						   "height": 74,
+						   "text": "National Gallery Dome",
+						   "id": "e7f44ac5-bcf2-412d-b440-6dbb8b19ffbe",
+						   "editable": true } ]
+			});
+		});
 
 		$(function () {
 			$('#fileupload').fileupload({
@@ -156,15 +179,15 @@
 
 				<!-- VIDEO AREA -->
 				<div id="videoContent">
-					<div id="videoContentCache">
-						<div id="videoContentBackground">
-							<img src="img/camera.png">
-							<p>
-								Or just drag and drop your video here
-							</p>
+						<div id="videoContentCache">
+							<div id="videoContentBackground">
+								<img src="img/camera.png">
+								<p>
+									Or just drag and drop your video here
+								</p>
+							</div>
 						</div>
 					</div>
-				</div>
 
 
 

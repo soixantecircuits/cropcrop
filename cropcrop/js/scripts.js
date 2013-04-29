@@ -56,15 +56,6 @@ jQuery(function($){
 	}
 
 
-
-	// for (var i = 0; i < oFullResponse.results.length; i++) {
-	//     var key = oFullResponse.results[i].label
-	//     columns[key] = {
-	//         sortable: true,
-	//         resizeable: true
-	//     };
-	// }
-
 	/***********************************************/
 	/*                                             */
 	/*                                             */
@@ -153,6 +144,31 @@ jQuery(function($){
 	$("#tmpAff").click(function(event){
 		$("#videoContent").empty();
 		$().affiche();
+	});
+
+	//
+	// MOVE TO CROPS
+	//
+	// $().moveToCrops()
+	jQuery.fn.extend({
+		moveToCrops: function () {
+			for ( i in annotations.notes ) {
+				// console.log( annotations.notes[i].height );
+				crops.list.push({
+					screenId   : crops.list.length,
+					width      : annotations.notes[i].width,
+					height     : annotations.notes[i].height,
+					marginLeft : annotations.notes[i].left,
+					marginTop  : annotations.notes[i].top,
+					color      : [
+						Math.ceil( (Math.random()*255) ), 
+						Math.ceil( (Math.random()*255) ), 
+						Math.ceil( (Math.random()*255) ),
+						0.5
+					],
+				});
+			}
+		}
 	});
 
 
@@ -265,8 +281,8 @@ jQuery(function($){
 			$('#cropNumber' + id).css({
 				'position'           : 'absolute',
 				"background-color"   : 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
-				'margin-top'         : crops.list[id].marginTop + "px",
-				'margin-left'        : crops.list[id].marginLeft + "px",
+				'top'                : crops.list[id].marginTop + "px",
+				'left'               : crops.list[id].marginLeft + "px",
 				'width'              : crops.list[id].width + "px", 
 				'height'             : crops.list[id].height + "px"
 			});
@@ -276,7 +292,8 @@ jQuery(function($){
 					stop: function( event, ui ) {
 						crops.list[id].width      = $('#cropNumber'+id).width();
 						crops.list[id].height     = $('#cropNumber'+id).height();
-					}
+					},
+					containment : $("#videoContent"),
 				}) // End resizable
 				.draggable({ //make it "draggable" and "resizable"
 					drag: function(event, ui) { // What happen when dragged
@@ -290,7 +307,8 @@ jQuery(function($){
 
 						crops.list[id].marginTop  = calculPosTop;
 						crops.list[id].marginLeft = calculPosLeft;
-					}
+					},
+					containment : $("#videoContent"),
 				}); // End draggable
 
 		}
