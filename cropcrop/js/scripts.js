@@ -58,7 +58,13 @@ jQuery(function($){
 	//     };
 	// }
 
-	/*************/
+	/***********************************************/
+	/*                                             */
+	/*                                             */
+	/*                  INTERFACE                  */
+	/*                                             */
+	/*                                             */
+	/***********************************************/
 
 
 
@@ -91,6 +97,11 @@ jQuery(function($){
 		$("#fileupload").trigger("click")
 	});
 
+	$('#buttonCropIt').click(function(event){
+		event.preventDefault();
+		$().sendCrop( crops )
+	});
+
 	$('#cache').click(function(event){
 		event.preventDefault();
 		console.log("cache fadeout")
@@ -108,11 +119,13 @@ jQuery(function($){
 
 
 
-	/*********************/
-	/*********************/
-	/*********************/
-	/*********************/
-	/*********************/
+	/***********************************************/
+	/*                                             */
+	/*                                             */
+	/*                  TEMPORARY                  */
+	/*                                             */
+	/*                                             */
+	/***********************************************/
 
 	$("#tmpUpd").click(function(event){
 		$().updateVideoInformations( videoInformations )
@@ -172,6 +185,26 @@ jQuery(function($){
 	});
 
 
+	//
+	// CROP IT
+	//
+	// $().sendCrop( infos )
+	jQuery.fn.extend({
+		sendCrop: function ( jsondata ) {
+			console.log(jsondata);
+
+			var jsoninfo = jsondata;
+				$.ajax({
+					type: "POST",
+					dataType: "json",
+					data: jsoninfo,
+					url: './server/php/crop.php', success: function(response) {
+						console.log(response);
+					
+				}
+			});
+		}
+	});
 
 
 
@@ -197,16 +230,8 @@ jQuery(function($){
 				.resizable()
 				.draggable({ //make it "draggable" and "resizable"
 					drag: function(event, ui) { // What happen when dragged
-
-						// DO NOT TOUCH. Or I'll bite you.
-
-						cropNumberPositionTop     = parseInt($('#cropNumber'+id).position().top);
-						cropNumberPositionLeft    = parseInt($('#cropNumber'+id).position().left);
 						cropNumberOffsetTop       = parseInt($('#cropNumber'+id).offset().top);
 						cropNumberOffsetLeft      = parseInt($('#cropNumber'+id).offset().left);
-
-						videoContentPositionTop   = parseInt($('#videoContent').position().top);
-						videoContentPositionLeft  = parseInt($('#videoContent').position().left);
 						videoContentOffsetTop     = parseInt($('#videoContent').offset().top);
 						videoContentOffsetLeft    = parseInt($('#videoContent').offset().left);
 
@@ -214,21 +239,14 @@ jQuery(function($){
 						calculPosLeft             = cropNumberOffsetLeft - videoContentOffsetLeft;
 
 
-						console.log("--------------------------------");
-						console.log(" cropNumber " + id + " position : " + cropNumberPositionTop + " " + cropNumberPositionLeft);
-						console.log(" cropNumber " + id + " offset   : " + cropNumberOffsetTop + " " + cropNumberOffsetLeft);
-
-						console.log(" yourVideo position    : " + videoContentPositionTop + " " + videoContentPositionLeft);
-						console.log(" yourVideo offset      : " + videoContentOffsetTop + " " + videoContentOffsetLeft);
-
-						console.log("Mix offset top         : " + calculPosTop);
-						console.log("Mix offset left        : " + calculPosLeft);
-
 
 						crops.list[id].marginTop = calculPosTop;
 						crops.list[id].marginLeft = calculPosLeft;
-						console.log(crops.list[id].marginTop);
-						console.log(crops.list[id].marginLeft);
+						crops.list[id].width = $('#cropNumber'+id).width();
+						crops.list[id].height = $('#cropNumber'+id).height();
+
+						console.log($('#cropNumber'+id).width());
+						console.log($('#cropNumber'+id).height());
 					}
 				});// End draggable
 
