@@ -47,7 +47,7 @@ if sys.argv.__len__()>0:
 	
 	data =  { 'width': width, 'height':height, 'thumbnails': random_string+".jpg"}
 	data_string = json.dumps(data)
-	os.system("rm "+filename)
+	#os.system("rm "+filename)
 	#f = open('infos.txt', 'wt')
 	#f.write(data_string)
 	#f.close()

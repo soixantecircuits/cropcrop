@@ -43,7 +43,7 @@ if sys.argv.__len__()>0:
 	width = ("%(width)s" % videoInformations)
 	height = ("%(height)s" % videoInformations)
 	
-	os.system("ffmpeg -itsoffset -15 -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" ./thumbnails/"+random_string+".jpg")
+	os.system("ffmpeg -itsoffset -15 -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+random_string+".jpg")
 	
 	data =  { 'width': width, 'height':height, 'thumbnails': random_string+".jpg"}
 	data_string = json.dumps(data)
