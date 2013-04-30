@@ -52,10 +52,11 @@ if sys.argv.__len__()>0:
 	fileExt = ("%(fileExt)s" % videoInformations)
 	fileSize = ("%(fileSize)s" % videoInformations)
 	frameRate = ("%(frameRate)s" % videoInformations)
+	thumbname = "./thumbnails/"+random_string
 	
-	os.system("ffmpeg -itsoffset -15 -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+random_string+".jpg")
+	os.system("ffmpeg -itsoffset -15 -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbname+".jpg")
 	
-	data =  { 'width': width, 'height':height,'filename':filename2, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails': random_string+".jpg"}
+	data =  { 'width': width, 'height':height,'filename':filename2, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails': thumbname+".jpg"}
 	data_string = json.dumps(data)
 	#os.system("rm "+filename)
 	#f = open('infos.txt', 'wt')
