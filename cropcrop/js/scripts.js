@@ -70,7 +70,6 @@ jQuery(function($){
 
 	$('#cache').click(function(event){
 		event.preventDefault();
-		console.log("cache fadeout")
 		$('#cache').fadeOut();
 		$('#uploadingModal').fadeOut();
 	});
@@ -239,7 +238,7 @@ jQuery(function($){
 	// addToolbarInfos
 	//
 	// $().addToolbarInfos( id )
-		jQuery.fn.extend({
+	jQuery.fn.extend({
 		addToolbarInfos: function ( id ) {
 			console.log("   "+crops.list[id]);
 			if (!crops.list[id]) {
@@ -298,9 +297,12 @@ jQuery(function($){
 			// Draggable, resizable
 			$('#cropNumber' + id)
 				.resizable({
-					stop: function( event, ui ) {
-						crops.list[id].width      = $('#cropNumber'+id).width();
-						crops.list[id].height     = $('#cropNumber'+id).height();
+					resize: function( event, ui ) {
+						var width = $('#cropNumber'+id).width();
+						var height = $('#cropNumber'+id).height();
+
+						// Function update
+						$().updateSize( id, width, height );
 					},
 					containment : $("#videoContent"),
 				}) // End resizable
@@ -308,19 +310,48 @@ jQuery(function($){
 					drag: function(event, ui) { // What happen when dragged
 						cropNumberOffsetTop       = parseInt($('#cropNumber'+id).offset().top);
 						cropNumberOffsetLeft      = parseInt($('#cropNumber'+id).offset().left);
+
 						videoContentOffsetTop     = parseInt($('#videoContent').offset().top);
 						videoContentOffsetLeft    = parseInt($('#videoContent').offset().left);
 
 						calculPosTop              = cropNumberOffsetTop - videoContentOffsetTop;
 						calculPosLeft             = cropNumberOffsetLeft - videoContentOffsetLeft;
 
-						crops.list[id].marginTop  = calculPosTop;
-						crops.list[id].marginLeft = calculPosLeft;
+						// Function update
+						$().updatePos( id, calculPosTop, calculPosLeft );
 					},
 					containment : $("#videoContent"),
 				}); // End draggable
 
 			$().addToolbarInfos( id );
+		}
+	});
+
+	//
+	// UPDATE SIZE
+	//
+	// $().updateSize( id, width, height )
+	jQuery.fn.extend({
+		updateSize: function ( id, width, height ) {
+			crops.list[id].width      = width;
+			crops.list[id].height     = height;
+
+			$('#inputWidth' + id).attr("placeholder", "W : " + crops.list[id].width);
+			$('#inputHeight' + id).attr("placeholder", "H : " + crops.list[id].height);
+
+
+		}
+	});
+	//
+	// UPDATE POS
+	//
+	// $().updatePos( id, top, left )
+	jQuery.fn.extend({
+		updatePos: function ( id, top, left ) {
+			crops.list[id].marginTop  = calculPosTop;
+			crops.list[id].marginLeft = calculPosLeft;
+			$('#inputTop' + id).attr("placeholder", "T : " + crops.list[id].marginTop);
+			$('#inputLeft' + id).attr("placeholder", "L : " + crops.list[id].marginLeft);
 		}
 	});
 
