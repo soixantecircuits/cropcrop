@@ -6,6 +6,7 @@ import sys
 from pprint import pprint
 import random
 
+
 program_name = sys.argv[0]
 arguments = sys.argv[1]
 
@@ -35,6 +36,7 @@ if sys.argv.__len__()>0:
 	fileExtensionCmd  = "mediainfo --Inform='General;" + "%" + "FileExtension%' " + filename
 	fileSizeCmd       = "mediainfo --Inform='General;" + "%" + "FileSize/String%' " + filename
 	frameRateCmd      = "mediainfo --Inform='Video;" + "%" + "FrameRate%' " + filename
+	durationCmd       = "mediainfo --Inform='General;" + "%" + "Duration%' " + filename
 	
 	# Stock informations
 	videoInformations = {
@@ -43,20 +45,41 @@ if sys.argv.__len__()>0:
 		"height"        : int(subprocess.check_output(videoHeightCmd, shell=True)),
 		"fileExt"       : str(subprocess.check_output(fileExtensionCmd, shell=True).rstrip())[1:],
 		"fileSize"      : str(subprocess.check_output(fileSizeCmd, shell=True).rstrip())[1:],
-		"frameRate"     : str(subprocess.check_output(frameRateCmd, shell=True).rstrip())[1:]
+		"frameRate"     : str(subprocess.check_output(frameRateCmd, shell=True).rstrip())[1:],
+		"duration"      : int(subprocess.check_output(durationCmd, shell=True))
 	}
+
+	
+
+
 	
         #ffmpeg = 'encoder\ffmpeg'
 	width = ("%(width)s" % videoInformations)
 	height = ("%(height)s" % videoInformations)
 	fileExt = ("%(fileExt)s" % videoInformations)
 	fileSize = ("%(fileSize)s" % videoInformations)
-	frameRate = ("%(frameRate)s" % videoInformations)
-	thumbname = "./thumbnails/"+random_string
+	frameRate = ("%(frameRate)s" % videoInformations)	
+	duration = ("%(duration)s" % videoInformations)
+
+	thumb = []
+	thumbname =[]
+	#test = []
+
+	for i in range (1,4,1):
+		ID=str(i)
+		thumb.append(str((int(duration)/3600)/i).split(".")[0])
+		thumbname.append(str('./thumbnails/'+random_string+ID))
+    	
+
 	
-	os.system("ffmpeg -itsoffset -15 -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbname+".jpg")
+
+		
+
+	os.system("ffmpeg -itsoffset -"+thumb[0]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbname[0]+".jpg")
+	os.system("ffmpeg -itsoffset -"+thumb[1]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbname[1]+".jpg")
+	os.system("ffmpeg -itsoffset -"+thumb[2]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbname[2]+".jpg")
 	
-	data =  { 'width': width, 'height':height,'filename':filename2, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails': thumbname+".jpg"}
+	data =  { 'width': width, 'height':height,'filename':filename2, 'duration' : duration, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails': thumbname[0]+".jpg", 'thumbnails2': thumbname[1]+".jpg", 'thumbnails3': thumbname[2]+".jpg"}
 	data_string = json.dumps(data)
 	#os.system("rm "+filename)
 	#f = open('infos.txt', 'wt')
