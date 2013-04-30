@@ -121,7 +121,7 @@
 					<!-- Zone autocrop -->
 					<div class="navElement" id="autoCropCheckboxDiv">
 						<p>
-							<input type="checkbox" />
+							<input id="autoCropCheckbox" type="checkbox" class="disabled" />
 							Autocrop
 						</p>
 					</div>
@@ -134,7 +134,7 @@
 
 					<!-- TOOL MENU -->
 					<div id="yourVideoContent">
-						<a class="button large dark" role="button" id="buttonYourVideo" href="#button"><span id="buttonYourVideo">Your Video</span><span id="triangle"></span></a>
+						<a class="button large dark disabled" role="button" id="buttonYourVideo" href="#button"><span id="buttonYourVideo">Your Video</span><span id="triangle"></span></a>
 						
 						
 						<!-- TOOL BAR -->

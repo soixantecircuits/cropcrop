@@ -182,10 +182,10 @@ jQuery(function($){
 
 			var img                 = new Image();
 			var bgImgUrl            = "server/php/" + infos.message.thumbnails;
-
 			var infWidth            = infos.message.width;
 			var infHeight           = infos.message.height;
 
+			// We wait for the image to load, and only after we act
 			$(img).attr('src', bgImgUrl).load(function() {
 				$("#videoContent").animate({width: infWidth }, 1000, "easeInCirc", function(){
 					$("#videoContentCache").empty();
@@ -207,6 +207,8 @@ jQuery(function($){
 			$("#navInputTextHeight").removeClass("disabled");
 			$("#buttonAddScreen").removeClass("disabled");
 			$("#buttonCropIt").removeClass("disabled");
+			$("#autoCropCheckbox").removeClass("disabled");
+			$("#buttonYourVideo").removeClass("disabled");
 
 			$("#buttonAddScreen").effect("highlight", {}, 500);
 			$("#buttonCropIt").effect("highlight", {}, 500);
