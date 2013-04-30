@@ -62,8 +62,9 @@ if sys.argv.__len__()>0:
 	duration = ("%(duration)s" % videoInformations)
 
 
-	widthmini = int(width)/10
-	heightmini = int(width)/10
+	widthmini = str(int(width)/10).split(".")[0]
+	heightmini = str(int(height)/10).split(".")[0]
+
 	thumb = []
 	thumbname =[]
 	thumbmini =[]
@@ -72,8 +73,8 @@ if sys.argv.__len__()>0:
 	for i in range (1,4,1):
 		ID=str(i)
 		thumb.append(str((int(duration)/3600)/i).split(".")[0])
-		thumbname.append(str('./thumbnails/Mini'+random_string+ID))
-		thumbmini.append(str('./thumbnails/'+random_string+ID))
+		thumbname.append(str('./thumbnails/'+random_string+ID))
+		thumbmini.append(str('./thumbnails/Mini'+random_string+ID))
     	
 
 	
@@ -84,12 +85,12 @@ if sys.argv.__len__()>0:
 	os.system("ffmpeg -itsoffset -"+thumb[1]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbname[1]+".jpg")
 	os.system("ffmpeg -itsoffset -"+thumb[2]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbname[2]+".jpg")
 
-	os.system("ffmpeg -itsoffset -"+thumb[0]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbmini[0]+".jpg")
-	os.system("ffmpeg -itsoffset -"+thumb[1]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbmini[1]+".jpg")
-	os.system("ffmpeg -itsoffset -"+thumb[2]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbmini[2]+".jpg")
+	os.system("ffmpeg -itsoffset -"+thumb[0]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+widthmini+"*"+heightmini+" "+thumbmini[0]+".jpg")
+	os.system("ffmpeg -itsoffset -"+thumb[1]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+widthmini+"*"+heightmini+" "+thumbmini[1]+".jpg")
+	os.system("ffmpeg -itsoffset -"+thumb[2]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+widthmini+"*"+heightmini+" "+thumbmini[2]+".jpg")
 
 	
-	data =  { 'width': width, 'height':height,'filename':filename2, 'duration' : duration, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails': thumbname[0]+".jpg", 'thumbnails2': thumbname[1]+".jpg", 'thumbnails3': thumbname[2]+".jpg"}
+	data =  { 'width': width, 'height':height,'filename':filename2, 'duration' : duration, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails': thumbname[0]+".jpg", 'thumbnails2': thumbname[1]+".jpg", 'thumbnails3': thumbname[2]+".jpg" ,'mini' : thumbmini[0], 'mini2' : thumbmini[1], 'mini3' : thumbmini[2]}
 	data_string = json.dumps(data)
 	#os.system("rm "+filename)
 	#f = open('infos.txt', 'wt')
