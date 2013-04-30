@@ -181,9 +181,10 @@
 						<button class="button dark next"> >> </button>
 						<div class="thumbnailsCarousel">
 							<ul id="carouselContainer">
+								<!--
 								<li><img id="mini1" src="" alt="" width="72" height="72" /></li>
 								<li><img id="mini2" src="" alt="" width="72" height="72" /></li>
-								<li><img id="mini3" src="" alt="" width="72" height="72" /></li>
+								<li><img id="mini3" src="" alt="" width="72" height="72" /></li>-->
 							</ul>
 						</div>
 

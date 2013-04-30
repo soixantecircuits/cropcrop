@@ -181,7 +181,7 @@ jQuery(function($){
 			infos.message.fileSize  = infos.message.fileSize.replaceAll('\'','');
 
 			var img                 = new Image();
-			var bgImgUrl            = "server/php/" + infos.message.thumbnails;
+			var bgImgUrl            = "server/php/" + infos.message.thumbnails1;
 			var infWidth            = infos.message.width;
 			var infHeight           = infos.message.height;
 
@@ -219,15 +219,8 @@ jQuery(function($){
 			carouselContent += '<li><img src="server/php/' + infos.message.mini2 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
 			carouselContent += '<li><img src="server/php/' + infos.message.mini3 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
 
-			$("#carouselContainer").append(carouselContent)
+			$("#carouselContainer").append(carouselContent);
 
-			for (var i = 1; i = Things.length; i++) {
-				Things[i]
-			};
-
-			$("#mini1").attr("href", ""+infos.message.mini1);
-			$("#mini2").attr(carouselContent);
-			$("#mini3").attr(carouselContent);
 		}
 	});
 
