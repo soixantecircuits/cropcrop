@@ -24,7 +24,7 @@
 
 		<script>
 		$(function () {
-			
+
 			// SCRIPT UPLOAD DONE
 			$('#fileupload').fileupload({
 				dataType: 'json',
@@ -169,22 +169,15 @@
 				<div id="thumbnailsContainer">
 					<div id="thumbnailsList">
 
-						<button class="button dark prev"> << </button>
-						<button class="button dark next"> >> </button>
+						<button id="carouselPrev" class="button dark prev disabled"> << </button>
+						<button id="carouselNext" class="button dark next disabled"> >> </button>
 						<div class="thumbnailsCarousel">
 							<ul id="carouselContainer">
-								<!--
-								<li><img id="mini1" src="" alt="" width="72" height="72" /></li>
-								<li><img id="mini2" src="" alt="" width="72" height="72" /></li>
-								<li><img id="mini3" src="" alt="" width="72" height="72" /></li>-->
 							</ul>
 						</div>
 
 					</div>
 				</div>
-								
-
-
 
 			</div>
 			<!-- BODY END -->

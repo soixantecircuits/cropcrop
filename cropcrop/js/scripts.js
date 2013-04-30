@@ -4,21 +4,11 @@ jQuery(function($){
 
 	/*************/
 
+	var serverPath = "server/php/";
 	var screensCropList = [];
 	var screensCropCount = 0; // Use to be an ID
-
-	videoInformations = {
-		message:{
-			thumbnails    : "http://elevage-guppy.fr/wp-content/uploads/2012/03/video.jpg",
-			width         : 800,
-			height        : 600,
-			title         : "Battle de créateurs.mp4",
-			fileSize      : "30mo",
-			frameRate     : "25"
-		}
-	}
-
-	crops = {};
+	videoInformations = {};
+	var crops = {};
 	crops.title = "None";
 	crops.list = [];
 
@@ -31,9 +21,9 @@ jQuery(function($){
 	/*                                             */
 	/***********************************************/
 
-	  /*****************/
-	 /* Hide elements */
-	/*****************/
+	  /*******************/
+	 /*  Hide elements  */
+	/*******************/
 	$('#cropItProgressBar').hide();
 	$('#YourVideoToolbar').hide();
 	$('#cache').hide();
@@ -92,49 +82,24 @@ jQuery(function($){
 		$('#videoContentBackground').append('<div class="spinner large" role="progressbar"></div>');
 	});
 
+	  /********************************/
+	 /*  Mini thumbnails management  */
+	/********************************/
 
-
-
-
-	/***********************************************/
-	/*                                             */
-	/*                                             */
-	/*                  TEMPORARY                  */
-	/*                                             */
-	/*                                             */
-	/***********************************************/
-
-	$("#tmpUpd").click(function(event){
-		$().updateVideoInformations( videoInformations )
+	$("#carouselContainer").on("click", "#mini1",function(event){
+		$("#videoContent").css({
+			"background-image": "url(" + serverPath + videoInformations.message.thumbnails1 + ")",
+		});
 	});
-	$("#tmpAff").click(function(event){
-		$("#videoContent").empty();
-		$().affiche();
+	$("#carouselContainer").on("click", "#mini2",function(event){
+		$("#videoContent").css({
+			"background-image": "url(" + serverPath + videoInformations.message.thumbnails2 + ")",
+		});
 	});
-
-	//
-	// MOVE TO CROPS
-	//
-	// $().moveToCrops()
-	jQuery.fn.extend({
-		moveToCrops: function () {
-			for ( i in annotations.notes ) {
-				// console.log( annotations.notes[i].height );
-				crops.list.push({
-					screenId   : crops.list.length,
-					width      : annotations.notes[i].width,
-					height     : annotations.notes[i].height,
-					marginLeft : annotations.notes[i].left,
-					marginTop  : annotations.notes[i].top,
-					color      : [
-						Math.ceil( (Math.random()*255) ), 
-						Math.ceil( (Math.random()*255) ), 
-						Math.ceil( (Math.random()*255) ),
-						0.5
-					],
-				});
-			}
-		}
+	$("#carouselContainer").on("click", "#mini3",function(event){
+		$("#videoContent").css({
+			"background-image": "url(" + serverPath + videoInformations.message.thumbnails3 + ")",
+		});
 	});
 
 
@@ -146,13 +111,6 @@ jQuery(function($){
 	/*                                             */
 	/*                                             */
 	/***********************************************/
-
-	/* Functions list
-		$().affiche()
-		$().updateVideoInformations(  )
-		$().createScreen( parameter )
-		$().addScreen( parameter )
-	*/
 
 	//
 	// AFFICHE
@@ -176,14 +134,16 @@ jQuery(function($){
 			console.log("$().updateVideoInformations() ------------");
 			console.log(infos);
 
-			infos.message.filename  = infos.message.filename.replaceAll('\'','');
-			infos.message.frameRate = infos.message.frameRate.replaceAll('\'','');
-			infos.message.fileSize  = infos.message.fileSize.replaceAll('\'','');
+			videoInformations = infos;
+
+			videoInformations.message.filename  = videoInformations.message.filename.replaceAll('\'','');
+			videoInformations.message.frameRate = videoInformations.message.frameRate.replaceAll('\'','');
+			videoInformations.message.fileSize  = videoInformations.message.fileSize.replaceAll('\'','');
 
 			var img                 = new Image();
-			var bgImgUrl            = "server/php/" + infos.message.thumbnails1;
-			var infWidth            = infos.message.width;
-			var infHeight           = infos.message.height;
+			var bgImgUrl            = serverPath + videoInformations.message.thumbnails1;
+			var infWidth            = videoInformations.message.width;
+			var infHeight           = videoInformations.message.height;
 
 			// We wait for the image to load, and only after we act
 			$(img).attr('src', bgImgUrl).load(function() {
@@ -198,11 +158,11 @@ jQuery(function($){
 			});
 
 			// Update infos content
-			$("#videoInformationsTitle").text( infos.message.filename );
-			$("#videoInformationsWidth").text( infos.message.width );
-			$("#videoInformationsHeight").text( infos.message.height );
-			$("#videoInformationsSize").text( infos.message.fileSize );
-			$("#videoInformationsFPS").text( infos.message.frameRate );
+			$("#videoInformationsTitle").text( videoInformations.message.filename );
+			$("#videoInformationsWidth").text( videoInformations.message.width );
+			$("#videoInformationsHeight").text( videoInformations.message.height );
+			$("#videoInformationsSize").text( videoInformations.message.fileSize );
+			$("#videoInformationsFPS").text( videoInformations.message.frameRate );
 			
 			// Enable to user the use of interface
 			$().enableUserInterface();
@@ -252,6 +212,8 @@ jQuery(function($){
 			$("#buttonCropIt").removeClass("disabled");
 			$("#autoCropCheckbox").removeClass("disabled");
 			$("#buttonYourVideo").removeClass("disabled");
+			$("#carouselPrev").removeClass("disabled");
+			$("#carouselNext").removeClass("disabled");
 		}
 	});
 
@@ -268,6 +230,14 @@ jQuery(function($){
 			$("#buttonCropIt").addClass("disabled");
 			$("#autoCropCheckbox").addClass("disabled");
 			$("#buttonYourVideo").addClass("disabled");
+			$("#carouselPrev").addClass("disabled");
+			$("#carouselNext").addClass("disabled");
+
+			if (isShown === 1) {
+				$('#YourVideoToolbar').slideUp();
+				$('#triangle').toggleClass('up');
+				isShown = 0;
+			};
 		}
 	});
 
@@ -279,10 +249,11 @@ jQuery(function($){
 	jQuery.fn.extend({
 		createCarousel: function ( infos ) {
 			$("#carouselContainer").empty();
+
 			carouselContent = "";
-			carouselContent += '<li><img id="mini1" src="server/php/' + infos.message.mini1 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
-			carouselContent += '<li><img id="mini2" src="server/php/' + infos.message.mini2 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
-			carouselContent += '<li><img id="mini3" src="server/php/' + infos.message.mini3 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
+			carouselContent += '<li><img id="mini1" src="server/php/' + videoInformations.message.mini1 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
+			carouselContent += '<li><img id="mini2" src="server/php/' + videoInformations.message.mini2 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
+			carouselContent += '<li><img id="mini3" src="server/php/' + videoInformations.message.mini3 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
 
 			$("#carouselContainer").append(carouselContent);
 
