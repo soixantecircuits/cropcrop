@@ -195,14 +195,24 @@ body {
 								margin-top: 8px!important;
 								font: 14px/27px "source-sb",helvetica,arial,sans-serif !important;}
 					#videoCropListDiv{
-						background-color       : rgba(0,0,0, 0.5);
-						max-height: 50%;
+						background-color: rgba(0,0,0, 0.5);
+						max-height: 300px;
 						overflow-y: scroll;}
 						.videoCropListDivElement{
+							-moz-transition: all .8s; 
+						    -webkit-transition: all .8s; 
+						    -o-transition: all .8s; 
+						    transition: all .8s;
 							text-align            : center;
 							line-height           : 50px;
 							margin-top            : 0;
 							border-bottom         : 1px solid #D4D7D7;}
+						.videoCropListDivElement:hover{
+							-moz-transition: all .1s; 
+						    -webkit-transition: all .1s; 
+						    -o-transition: all .1s; 
+						    transition: all .1s;
+							background-color       : rgba(0,255,255, 0.5);}
 							.videoCropListDivElementContent{
 								display           : inline-block;
 								vertical-align    : middle;}

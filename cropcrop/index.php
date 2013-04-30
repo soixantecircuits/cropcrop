@@ -111,10 +111,10 @@
 					<form class="navElement" id="addScreenForm">
 
 						<div class="navElement"  id="addScreenInputText">
-							<input class="text-field navInputText" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
-							<input class="text-field navInputText" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
+							<input class="text-field navInputText disabled" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
+							<input class="text-field navInputText disabled" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
 						</div>
-						<input type="submit" class="navElement button large dark" value ="Add Screen" id="buttonAddScreen" />
+						<input type="submit" class="navElement button large dark disabled" value ="Add Screen" id="buttonAddScreen" />
 
 					</form>
 
@@ -128,7 +128,7 @@
 
 					<!-- Bouton Crop It -->
 					<div class="navElement" id="buttonCropItContainer">
-						<input type="button" class="button large dark" value ="Crop It" id="buttonCropIt" />
+						<input type="button" class="button large dark disabled" value ="Crop It" id="buttonCropIt" />
 						<div class="spinner large" role="progressbar" id="cropItProgressBar"></div>
 					</div>
 

@@ -176,15 +176,15 @@ jQuery(function($){
 			console.log("$().updateVideoInformations() ------------");
 			console.log(infos);
 
-			infos.message.filename = infos.message.filename.replaceAll('\'','');
+			infos.message.filename  = infos.message.filename.replaceAll('\'','');
 			infos.message.frameRate = infos.message.frameRate.replaceAll('\'','');
-			infos.message.fileSize = infos.message.fileSize.replaceAll('\'','');
+			infos.message.fileSize  = infos.message.fileSize.replaceAll('\'','');
 
-			var img   = new Image();
-			var bgImgUrl  = "server/php/" + infos.message.thumbnails;
+			var img                 = new Image();
+			var bgImgUrl            = "server/php/" + infos.message.thumbnails;
 
-			var infWidth  = infos.message.width;
-			var infHeight = infos.message.height;
+			var infWidth            = infos.message.width;
+			var infHeight           = infos.message.height;
 
 			$(img).attr('src', bgImgUrl).load(function() {
 				$("#videoContent").animate({width: infWidth }, 1000, "easeInCirc", function(){
@@ -202,6 +202,14 @@ jQuery(function($){
 			$("#videoInformationsHeight").text( infos.message.height );
 			$("#videoInformationsSize").text( infos.message.fileSize );
 			$("#videoInformationsFPS").text( infos.message.frameRate );
+			
+			$("#navInputTextWidth").removeClass("disabled");
+			$("#navInputTextHeight").removeClass("disabled");
+			$("#buttonAddScreen").removeClass("disabled");
+			$("#buttonCropIt").removeClass("disabled");
+
+			$("#buttonAddScreen").effect("highlight", {}, 500);
+			$("#buttonCropIt").effect("highlight", {}, 500);
 		}
 	});
 
