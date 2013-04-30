@@ -156,7 +156,7 @@
 							</ul>
 
 							<div id="videoDownloadButtonDiv">
-								<a title="Download It" id="buttonDownloadIt"><input type="button" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
+								<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
 							</div>
 
 							<div id="videoCropListDiv">
