@@ -226,10 +226,6 @@ body {
 							.videoCropListDivElementContent input{
 								width             : 48px;
 								display: inline-block;}
-
-
-
-
 	#videoContent{
 		background-repeat    : no-repeat;
 		position             : relative;
@@ -238,11 +234,6 @@ body {
 		width                : 960px;
 		height               : 422px;
 		margin               : auto;}
-		#toAnnotate{
-			margin-right: auto; 
-			margin-left: auto; 
-			width: 100%;
-			height: 100%;}
 		#videoContentBackground{
 			margin           : auto;
 			padding-top      : 151px;
@@ -254,6 +245,18 @@ body {
 			width: 100%;
 			height: 100%;
 			background-color: #595B5A;}
+	#thumbnailsContainer{
+		border-top: 1px solid #595B5A;
+		width: 100%;}
+		#thumbnailsList{
+			text-align: center;
+			width: 960px;
+			height: 144px;
+			overflow-x: scroll; 
+			overflow-y: hidden; 
+			margin: auto;}
+			.thumbnailsCarousel{
+				margin: auto;}
 
 
 

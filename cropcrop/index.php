@@ -11,7 +11,6 @@
 		<link rel="stylesheet" media="screen" type="text/css" href="css/jquery.gridster.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/topcoat-desktop-min.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/jquery-ui.css" />
-		<link rel="stylesheet" media="screen" type="text/css" href="css/annotation.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
 		
 		<link rel="icon" type="image/png" href="img/favicon.ico" />
@@ -22,32 +21,21 @@
 		<script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
 		<script type="text/javascript" src="js/jquery.fileupload.js"></script>
 		<script type="text/javascript" src="js/jquery.gridster.js"></script>
-		<script type="text/javascript" src="js/jquery.annotate.js"></script>
+		<script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
 		<script type="text/javascript" src="js/scripts.js"></script>
+
 		<script>
-
-		$(window).load(function() {
-			annotations = $("#toAnnotate").annotateImage({
-				editable: true,
-				useAjax: false,
-				notes: [ { "top": 0,
-						   "left": 0,
-						   "width": 52,
-						   "height": 37,
-						   "text": "Small people on the steps",
-						   "id": "e69213d0-2eef-40fa-a04b-0ed998f9f1f5",
-						   "editable": true },
-						 { "top": 134,
-						   "left": 179,
-						   "width": 68,
-						   "height": 74,
-						   "text": "National Gallery Dome",
-						   "id": "e7f44ac5-bcf2-412d-b440-6dbb8b19ffbe",
-						   "editable": true } ]
-			});
-		});
-
 		$(function () {
+
+			// SCRIPT CAROUSEL
+			$(function() {
+			    $(".thumbnailsCarousel").jCarouselLite({
+			        btnNext: ".next",
+			        btnPrev: ".prev"
+			    });
+			});
+
+			// SCRIPT UPLOAD DONE
 			$('#fileupload').fileupload({
 				dataType: 'json',
 				done: function (e, data) {
@@ -57,6 +45,7 @@
 				}
 			});
 
+			// SCRIPT WHEN UPLOAD DONE
 			$('#fileupload').bind('fileuploaddone', function (e, data) { 
 				console.log("----------------");
 				console.log(data);
@@ -186,6 +175,25 @@
 					</div>
 				</div>
 
+				<div id="thumbnailsContainer">
+					<div id="thumbnailsList">
+
+						<button class="prev"> << </button>
+						<button class="next"> >> </button>
+
+						<div class="thumbnailsCarousel">
+							<ul>
+								<li><img src="someimage" alt="" width="100" height="100" ></li>
+								<li><img src="someimage" alt="" width="100" height="100" ></li>
+								<li><img src="someimage" alt="" width="100" height="100" ></li>
+								<li><img src="someimage" alt="" width="100" height="100" ></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+								
+
 
 
 			</div>
@@ -209,16 +217,6 @@
 
 <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
 		</div>
-		
-<!--
-<div id="etablis">
-	<h2>Tmp work bar</h2>
-	<ul>
-		<li><input type="button" id="tmpUpd" value="Update videos informations" /></li>
-		<li><input type="button" id="tmpAff" value="Affiche crops" /></li>
-	</ul>
-</div>
--->
 
 		<div id="warningJavascriptNotEnabled">
 		</div>
