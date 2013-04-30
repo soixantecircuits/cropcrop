@@ -219,8 +219,13 @@ jQuery(function($){
 			carouselContent += '<li><img src="server/php/' + infos.message.mini2 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
 			carouselContent += '<li><img src="server/php/' + infos.message.mini3 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
 
+			$("#carouselContainer").append(carouselContent)
 
-			$("#mini1").attr(carouselContent);
+			for (var i = 1; i = Things.length; i++) {
+				Things[i]
+			};
+
+			$("#mini1").attr("href", ""+infos.message.mini1);
 			$("#mini2").attr(carouselContent);
 			$("#mini3").attr(carouselContent);
 		}
