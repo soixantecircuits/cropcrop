@@ -74,7 +74,6 @@ jQuery(function($){
 		$('#uploadingModal').fadeOut();
 	});
 
-
 	$("#addScreenForm").submit(function(event){
 		event.preventDefault();
 		$().addScreen();
@@ -219,7 +218,8 @@ jQuery(function($){
 				type: "POST",
 				data: { json: jsoninfo },
 				url: './server/php/crop.php', success: function(response) {
-					console.log(response);
+					$('#buttonDownloadIt').attr("href","server/php/download.php?filename="+response);
+					$('#buttonDownloadIt').removeClass("disabled");
 				}
 			});
 		}
@@ -230,34 +230,42 @@ jQuery(function($){
 	//
 	// addToolbarInfos
 	//
-	// $().addToolbarInfos( infos )
+	// $().addToolbarInfos( id )
 		jQuery.fn.extend({
 		addToolbarInfos: function ( id ) {
-			console.log(crops.list[id]);
+			console.log("   "+crops.list[id]);
 			if (!crops.list[id]) {
 				return false;
 			};
 
 			var content = "";
-			var marginTop = crops.list[id].marginTop;
-			var marginLeft = crops.list[id].marginLeft;
 			var width = crops.list[id].width;
 			var height = crops.list[id].height;
-
+			var marginTop = crops.list[id].marginTop;
+			var marginLeft = crops.list[id].marginLeft;
 
 
 			content += '<div class="videoCropListDivElement">';
-				content += '<div id="cropSelection' + id + '" class="videoCropListDivElementContent">';
-					content += '<p>' + id + '.</p>';
+				content += '<div id="cropSelection2" class="videoCropListDivElementContent">';
+					content += '<p>' + id + ' . </p>';
 				content += '</div>';
 				content += '<div id="cropSelection' + id + '__rectangle" class="rectangle videoCropListDivElementContent"></div>';
-				content += '<div id="cropSelection' + id + '__rectangle" class="rectangle videoCropListDivElementContent">';
-					content += '<input type="text" />';
-					content += '<input type="text" />';
+				content += '<div class="videoCropListDivElementContent inputContainer">';
+					content += '<input type="text" id="inputWidth' + id + '" placeholder="W : ' + width + '" />';
+					content += '<input type="text" id="inputHeight' + id + '" placeholder="H : ' + height + '" />';
+				content += '</div>';
+				content += '<div class="videoCropListDivElementContent inputContainer">';
+					content += '<input type="text" id="inputTop' + id + '" placeholder="T : ' + marginTop + '" />';
+					content += '<input type="text" id="inputLeft' + id + '" placeholder="L : ' + marginLeft + '" />';
 				content += '</div>';
 			content += '</div>';
 
-			return content;
+			// Add to UI
+			$("#videoCropListDiv").append(content);
+			// Add rectangle color
+			$('#cropSelection' + id + '__rectangle').css({
+				"background-color"   : 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
+			});
 		}
 	});
 
@@ -268,7 +276,7 @@ jQuery(function($){
 	//
 	// $().createScreen( parameter )
 	jQuery.fn.extend({
-		createScreen: function (id) {
+		createScreen: function ( id ) {
 			console.log("essais : "+id);
 			$('#videoContent').append('<div id="cropNumber' + id + '"></div>');
 			$('#cropNumber' + id).css({
@@ -304,6 +312,7 @@ jQuery(function($){
 					containment : $("#videoContent"),
 				}); // End draggable
 
+			$().addToolbarInfos( id );
 		}
 	});
 
@@ -366,31 +375,12 @@ jQuery(function($){
 				],
 			});
 			$().createScreen( crops.list.length-1 )
-
-
 		}
 	});
 
 
 // jQuery end
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
