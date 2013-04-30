@@ -209,9 +209,6 @@ jQuery(function($){
 			$("#buttonCropIt").removeClass("disabled");
 			$("#autoCropCheckbox").removeClass("disabled");
 			$("#buttonYourVideo").removeClass("disabled");
-
-			$("#buttonAddScreen").effect("highlight", {}, 500);
-			$("#buttonCropIt").effect("highlight", {}, 500);
 		}
 	});
 
