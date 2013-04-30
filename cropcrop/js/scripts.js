@@ -205,31 +205,19 @@ jQuery(function($){
 			$("#videoInformationsFPS").text( infos.message.frameRate );
 			
 			// Enable to user the use of interface
-			$("#navInputTextWidth").removeClass("disabled");
-			$("#navInputTextHeight").removeClass("disabled");
-			$("#buttonAddScreen").removeClass("disabled");
-			$("#buttonCropIt").removeClass("disabled");
-			$("#autoCropCheckbox").removeClass("disabled");
-			$("#buttonYourVideo").removeClass("disabled");
-
+			$().enableUserInterface();
 
 			// Update Carousel
-			carouselContent ="";
-			carouselContent += '<li><img src="server/php/' + infos.message.mini1 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
-			carouselContent += '<li><img src="server/php/' + infos.message.mini2 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
-			carouselContent += '<li><img src="server/php/' + infos.message.mini3 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
-
-			$("#carouselContainer").append(carouselContent);
-
+			$().createCarousel( infos );
 		}
 	});
 
 
 	//
-	// CROP IT
+	// SEND CROP
 	//
 	// $().sendCrop( infos )
-		jQuery.fn.extend({
+	jQuery.fn.extend({
 		sendCrop: function ( jsondata ) {
 			// console.log(jsondata);
 			$("#buttonCropIt").hide();
@@ -247,6 +235,62 @@ jQuery(function($){
 					$("#cropItProgressBar").hide();
 					$("#buttonCropIt").fadeIn();
 				}
+			});
+		}
+	});
+
+
+	//
+	// Enable user interface
+	//
+	// $().enableUserInterface( infos )
+	jQuery.fn.extend({
+		enableUserInterface: function ( infos ) {
+			$("#navInputTextWidth").removeClass("disabled");
+			$("#navInputTextHeight").removeClass("disabled");
+			$("#buttonAddScreen").removeClass("disabled");
+			$("#buttonCropIt").removeClass("disabled");
+			$("#autoCropCheckbox").removeClass("disabled");
+			$("#buttonYourVideo").removeClass("disabled");
+		}
+	});
+
+
+	//
+	// Disable user interface
+	//
+	// $().disableUserInterface( infos )
+	jQuery.fn.extend({
+		disableUserInterface: function ( infos ) {
+			$("#navInputTextWidth").addClass("disabled");
+			$("#navInputTextHeight").addClass("disabled");
+			$("#buttonAddScreen").addClass("disabled");
+			$("#buttonCropIt").addClass("disabled");
+			$("#autoCropCheckbox").addClass("disabled");
+			$("#buttonYourVideo").addClass("disabled");
+		}
+	});
+
+
+	//
+	// createCarousel
+	//
+	// $().createCarousel( infos )
+	jQuery.fn.extend({
+		createCarousel: function ( infos ) {
+			$("#carouselContainer").empty();
+			carouselContent = "";
+			carouselContent += '<li><img id="mini1" src="server/php/' + infos.message.mini1 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
+			carouselContent += '<li><img id="mini2" src="server/php/' + infos.message.mini2 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
+			carouselContent += '<li><img id="mini3" src="server/php/' + infos.message.mini3 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
+
+			$("#carouselContainer").append(carouselContent);
+
+			$(function() {
+			    $(".thumbnailsCarousel").jCarouselLite({
+			        btnNext: ".next",
+			        btnPrev: ".prev"
+			    });
 			});
 		}
 	});

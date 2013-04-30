@@ -24,15 +24,7 @@
 
 		<script>
 		$(function () {
-
-			// SCRIPT CAROUSEL
-			$(function() {
-			    $(".thumbnailsCarousel").jCarouselLite({
-			        btnNext: ".next",
-			        btnPrev: ".prev"
-			    });
-			});
-
+			
 			// SCRIPT UPLOAD DONE
 			$('#fileupload').fileupload({
 				dataType: 'json',
