@@ -226,25 +226,40 @@ jQuery(function($){
 	});
 
 
-	//
-	// CREATE GRID
-	//
-	// $().createGrid( 10, 50 )
-	jQuery.fn.extend({
-		createGrid: function ( width, height ) {
-			var gridContent = '<div class="gridster"><ul>';
 
-			for (var i = 0 ; i < width ; i++) {
-				for (var j = 0 ; j < height ; j++) {
-					gridContent += '<li data-row="' + i + '" data-col="' + j + '" data-sizex="1" data-sizey="1"></li>';
-				};
+	//
+	// addToolbarInfos
+	//
+	// $().addToolbarInfos( infos )
+		jQuery.fn.extend({
+		addToolbarInfos: function ( id ) {
+			console.log(crops.list[id]);
+			if (!crops.list[id]) {
+				return false;
 			};
-			gridContent += '</ul></div>';
-			$("#videoContent").append(gridContent);
+
+			var content = "";
+			var marginTop = crops.list[id].marginTop;
+			var marginLeft = crops.list[id].marginLeft;
+			var width = crops.list[id].width;
+			var height = crops.list[id].height;
+
+
+
+			content += '<div class="videoCropListDivElement">';
+				content += '<div id="cropSelection' + id + '" class="videoCropListDivElementContent">';
+					content += '<p>' + id + '.</p>';
+				content += '</div>';
+				content += '<div id="cropSelection' + id + '__rectangle" class="rectangle videoCropListDivElementContent"></div>';
+				content += '<div id="cropSelection' + id + '__rectangle" class="rectangle videoCropListDivElementContent">';
+					content += '<input type="text" />';
+					content += '<input type="text" />';
+				content += '</div>';
+			content += '</div>';
+
+			return content;
 		}
 	});
-
-
 
 
 

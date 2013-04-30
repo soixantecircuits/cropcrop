@@ -14,7 +14,7 @@
     $output = json_decode($person);
    	//echo $output->title;
     
-    $resp = exec('python3 ./scripts/cropcrop.py ./files/'. $output->title ." screen.json  ./files/". $output->title);
+    $resp = exec('python3 ./scripts/cropcrop.py ./files/'. $output->title ." screen.json  ". $output->title);
     echo $resp;
 }
 
