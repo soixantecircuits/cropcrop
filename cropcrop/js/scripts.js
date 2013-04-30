@@ -197,18 +197,32 @@ jQuery(function($){
 				$("#videoContent").animate({height: infHeight}, 1000, "easeOutCirc");
 			});
 
+			// Update infos content
 			$("#videoInformationsTitle").text( infos.message.filename );
 			$("#videoInformationsWidth").text( infos.message.width );
 			$("#videoInformationsHeight").text( infos.message.height );
 			$("#videoInformationsSize").text( infos.message.fileSize );
 			$("#videoInformationsFPS").text( infos.message.frameRate );
 			
+			// Enable to user the use of interface
 			$("#navInputTextWidth").removeClass("disabled");
 			$("#navInputTextHeight").removeClass("disabled");
 			$("#buttonAddScreen").removeClass("disabled");
 			$("#buttonCropIt").removeClass("disabled");
 			$("#autoCropCheckbox").removeClass("disabled");
 			$("#buttonYourVideo").removeClass("disabled");
+
+
+			// Update Carousel
+			carouselContent ="";
+			carouselContent += '<li><img src="server/php/' + infos.message.mini1 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
+			carouselContent += '<li><img src="server/php/' + infos.message.mini2 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
+			carouselContent += '<li><img src="server/php/' + infos.message.mini3 + '" alt="" width="' + infos.message.miniwidth + '" height="' + infos.message.miniheight + '" ></li>';
+
+
+			$("#mini1").attr(carouselContent);
+			$("#mini2").attr(carouselContent);
+			$("#mini3").attr(carouselContent);
 		}
 	});
 

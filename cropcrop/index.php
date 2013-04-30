@@ -8,7 +8,6 @@
 		<meta content="application/xhtml+xml; charset=UTF-8" http-equiv="Content-Type" />
 		
 		<link rel="stylesheet" media="screen" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" media="screen" type="text/css" href="css/jquery.gridster.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/topcoat-desktop-min.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/jquery-ui.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
@@ -20,7 +19,6 @@
 		<script type="text/javascript" src="js/vendor/jquery.ui.widget.js"></script>
 		<script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
 		<script type="text/javascript" src="js/jquery.fileupload.js"></script>
-		<script type="text/javascript" src="js/jquery.gridster.js"></script>
 		<script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
 		<script type="text/javascript" src="js/scripts.js"></script>
 
@@ -62,6 +60,7 @@
 					});
 				})
 			});
+
 		});
 		</script>
 
@@ -181,11 +180,10 @@
 						<button class="button dark prev"> << </button>
 						<button class="button dark next"> >> </button>
 						<div class="thumbnailsCarousel">
-							<ul>
-								<li><img src="http://1.im6.fr/0080008003116164-c2-photo-oYToxOntzOjU6ImNvbG9yIjtzOjU6IndoaXRlIjt9-noeil.jpg" alt="" width="100" height="100" ></li>
-								<li><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Crystal_128_krita.png" alt="" width="100" height="100" ></li>
-								<li><img src="http://1.im6.fr/0080008003116518-c2-photo-oYToxOntzOjU6ImNvbG9yIjtzOjU6IndoaXRlIjt9-mir-logo-mikeklo.jpg" alt="" width="100" height="100" ></li>
-								<li><img src="http://1.im6.fr/0080008003116518-c2-photo-oYToxOntzOjU6ImNvbG9yIjtzOjU6IndoaXRlIjt9-mir-logo-mikeklo.jpg" alt="" width="100" height="100" ></li>
+							<ul id="carouselContainer">
+								<li><img id="mini1" src="" alt="" width="72" height="72" /></li>
+								<li><img id="mini2" src="" alt="" width="72" height="72" /></li>
+								<li><img id="mini3" src="" alt="" width="72" height="72" /></li>
 							</ul>
 						</div>
 
