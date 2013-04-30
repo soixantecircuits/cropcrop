@@ -90,7 +90,7 @@ if sys.argv.__len__()>0:
 	os.system("ffmpeg -itsoffset -"+thumb[2]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+widthmini+"*"+heightmini+" "+thumbmini[2]+".jpg")
 
 	
-	data =  { 'width': width, 'height':height,'filename':filename2, 'duration' : duration, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails': thumbname[0]+".jpg", 'thumbnails2': thumbname[1]+".jpg", 'thumbnails3': thumbname[2]+".jpg" ,'mini' : thumbmini[0], 'mini2' : thumbmini[1], 'mini3' : thumbmini[2]}
+	data =  { 'miniwidth' :widthmini, 'miniheight' : heightmini, 'width': width, 'height':height,'filename':filename2, 'duration' : duration, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails': thumbname[0]+".jpg", 'thumbnails2': thumbname[1]+".jpg", 'thumbnails3': thumbname[2]+".jpg" ,'mini' : thumbmini[0]+".jpg", 'mini2' : thumbmini[1]+".jpg", 'mini3' : thumbmini[2]+".jpg"}
 	data_string = json.dumps(data)
 	#os.system("rm "+filename)
 	#f = open('infos.txt', 'wt')
