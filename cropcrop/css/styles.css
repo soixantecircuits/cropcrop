@@ -246,16 +246,13 @@ body {
 			height: 100%;
 			background-color: #595B5A;}
 	#thumbnailsContainer{
-		border-top: 1px solid #595B5A;
 		width: 100%;}
 		#thumbnailsList{
 			text-align: center;
 			width: 960px;
-			height: 144px;
-			overflow-x: scroll; 
-			overflow-y: hidden; 
 			margin: auto;}
 			.thumbnailsCarousel{
+				min-height: 128px; 
 				margin: auto;}
 
 

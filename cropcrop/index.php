@@ -178,15 +178,14 @@
 				<div id="thumbnailsContainer">
 					<div id="thumbnailsList">
 
-						<button class="prev"> << </button>
-						<button class="next"> >> </button>
-
+						<button class="button dark prev"> << </button>
+						<button class="button dark next"> >> </button>
 						<div class="thumbnailsCarousel">
 							<ul>
-								<li><img src="someimage" alt="" width="100" height="100" ></li>
-								<li><img src="someimage" alt="" width="100" height="100" ></li>
-								<li><img src="someimage" alt="" width="100" height="100" ></li>
-								<li><img src="someimage" alt="" width="100" height="100" ></li>
+								<li><img src="http://1.im6.fr/0080008003116164-c2-photo-oYToxOntzOjU6ImNvbG9yIjtzOjU6IndoaXRlIjt9-noeil.jpg" alt="" width="100" height="100" ></li>
+								<li><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Crystal_128_krita.png" alt="" width="100" height="100" ></li>
+								<li><img src="http://1.im6.fr/0080008003116518-c2-photo-oYToxOntzOjU6ImNvbG9yIjtzOjU6IndoaXRlIjt9-mir-logo-mikeklo.jpg" alt="" width="100" height="100" ></li>
+								<li><img src="http://1.im6.fr/0080008003116518-c2-photo-oYToxOntzOjU6ImNvbG9yIjtzOjU6IndoaXRlIjt9-mir-logo-mikeklo.jpg" alt="" width="100" height="100" ></li>
 							</ul>
 						</div>
 

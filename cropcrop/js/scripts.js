@@ -31,8 +31,9 @@ jQuery(function($){
 	/*                                             */
 	/***********************************************/
 
-
-
+	  /*****************/
+	 /* Hide elements */
+	/*****************/
 	$('#cropItProgressBar').hide();
 	$('#YourVideoToolbar').hide();
 	$('#cache').hide();
@@ -40,9 +41,8 @@ jQuery(function($){
 	$('#rouge').hide();
 	$('#warningJavascriptNotEnabled').hide();
 
+	/* Tool box */
 	var isShown = 0;
-
-
 	$('#buttonYourVideo').click(function(event){
 		event.preventDefault();
 
