@@ -131,9 +131,14 @@ body {
 				width: 90px}
 			#buttonAddScreen{
 				width: 123px}
-			#buttonCropIt{
-				margin-right: 54px !important;
-				width: 94px}
+			#buttonCropItContainer{
+				margin-right: 54px;
+				width: 94px;}
+				#buttonCropIt{
+					width: 94px;}
+				#cropItProgressBar{
+					margin-top: 8px;
+					margin-right: 32px;}
 
 			#yourVideoContent{
 				position: relative;
@@ -185,8 +190,10 @@ body {
 						text-align             : center;
 						background-color       : #595B5A;
 						height                 : 67px;}
-						#buttonDownloadIt{
-							margin-top: 8px!important}
+						#buttonDownloadIt{}
+							#buttonDownloadItInput{
+								margin-top: 8px!important;
+								font: 14px/27px "source-sb",helvetica,arial,sans-serif !important;}
 					#videoCropListDiv{
 						background-color       : rgba(0,0,0, 0.5);
 						max-height: 50%;

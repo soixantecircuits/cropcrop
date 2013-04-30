@@ -33,6 +33,7 @@ jQuery(function($){
 
 
 
+	$('#cropItProgressBar').hide();
 	$('#YourVideoToolbar').hide();
 	$('#cache').hide();
 	$('#uploadingModal').hide();
@@ -173,7 +174,7 @@ jQuery(function($){
 	// $().updateVideoInformations( infos )
 	jQuery.fn.extend({
 		updateVideoInformations: function ( infos ) {
-			console.log("------------");
+			console.log("$().updateVideoInformations() ------------");
 			console.log(infos);
 
 			infos.message.filename = infos.message.filename.replaceAll('\'','');
@@ -212,14 +213,21 @@ jQuery(function($){
 	// $().sendCrop( infos )
 		jQuery.fn.extend({
 		sendCrop: function ( jsondata ) {
-			console.log(jsondata);
+			// console.log(jsondata);
+			$("#buttonCropIt").hide();
+			$("#cropItProgressBar").fadeIn();
+
 			var jsoninfo = jsondata;
 			$.ajax({
 				type: "POST",
 				data: { json: jsoninfo },
 				url: './server/php/crop.php', success: function(response) {
 					$('#buttonDownloadIt').attr("href","server/php/download.php?filename="+response);
-					$('#buttonDownloadIt').removeClass("disabled");
+					$('#buttonDownloadItInput').removeClass("disabled");
+					$("#buttonYourVideo").effect("highlight", {}, 1000);
+					$("#buttonDownloadItInput").effect("highlight", {}, 1000);
+					$("#cropItProgressBar").hide();
+					$("#buttonCropIt").fadeIn();
 				}
 			});
 		}

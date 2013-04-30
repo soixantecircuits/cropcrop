@@ -127,7 +127,10 @@
 					</div>
 
 					<!-- Bouton Crop It -->
-					<input type="button" class="button large dark" value ="Crop It" id="buttonCropIt" />
+					<div class="navElement" id="buttonCropItContainer">
+						<input type="button" class="button large dark" value ="Crop It" id="buttonCropIt" />
+						<div class="spinner large" role="progressbar" id="cropItProgressBar"></div>
+					</div>
 
 					<!-- TOOL MENU -->
 					<div id="yourVideoContent">
@@ -153,7 +156,7 @@
 							</ul>
 
 							<div id="videoDownloadButtonDiv">
-								<a class="button large dark disabled" title="Download It" id="buttonDownloadIt">Download It</a>
+								<a title="Download It" id="buttonDownloadIt"><input type="button" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
 							</div>
 
 							<div id="videoCropListDiv">
