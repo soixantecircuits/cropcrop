@@ -44,6 +44,6 @@ if sys.argv.__len__() > 0:
 	os.system("rm -r "+fileW) 
 	os.system("rm "+sys.argv[1])
 	json_data.close() 
-	#print("CropCrop.zip")
+	print(fileW+".zip")
 	#ffmpeg -i ./files/duke.mp4 -strict experimental -r 25 -vf crop=%(width)s:%(height)s:%(marginLeft)s:%(marginTop)s -keyint_min 1 duke/0.'mp4' 
 	#ffmpeg -i ./files/duke.mp4 -strict experimental -r 25 -vf crop=100:100:0:0 -keyint_min 1 duke/0.'mp4' 
