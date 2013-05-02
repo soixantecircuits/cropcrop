@@ -90,17 +90,17 @@ jQuery(function($){
 
 	$("#carouselContainer").on("click", "#mini1",function(event){
 		$("#videoContent").css({
-			"background-image": "url(" + serverPath + videoInformations.message.thumbnails1 + ")",
+			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails1 + ")",
 		});
 	});
 	$("#carouselContainer").on("click", "#mini2",function(event){
 		$("#videoContent").css({
-			"background-image": "url(" + serverPath + videoInformations.message.thumbnails2 + ")",
+			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails2 + ")",
 		});
 	});
 	$("#carouselContainer").on("click", "#mini3",function(event){
 		$("#videoContent").css({
-			"background-image": "url(" + serverPath + videoInformations.message.thumbnails3 + ")",
+			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails3 + ")",
 		});
 	});
 
@@ -162,9 +162,9 @@ jQuery(function($){
 			$.ajax({
 						type: "POST",
 						data : dataAStocker,
-						url: './server/php/test2.php', success: function(response) {
-							
-							thumnbnailsinfos = response;
+						url: './server/php/test2.php', success: function(datas) {
+							console.log(datas)
+							thumnbnailsinfos = datas;
 							$().createCarousel();
 						}
 					});
