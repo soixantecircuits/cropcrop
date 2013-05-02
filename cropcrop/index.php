@@ -46,7 +46,10 @@
 						type: "POST",
 						data : _self,
 						url: './server/php/test.php', success: function(response) {
+							console.log("");
+							console.log("fileuploaddone");
 							console.log(response);
+							console.log("");
 							$().updateVideoInformations( response );
 						}
 					});
@@ -55,21 +58,12 @@
 
 
 			$('#fileupload').bind('fileuploadprogress', function (e, data) { 
-				
-					console.log("BLABLA PROG");
-				
-					        var progress = parseInt(data.loaded / data.total * 100, 10);
-					        $('#progress .bar').css(
-					            'width',
-					            progress + '%'
-        						);
-   							 
-				
-				});
-			
-
-
-			
+				console.log("BLABLA PROG");
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				$('#progress .bar').css(
+					'width', progress + '%'
+        		);
+   			});
 
 		});
 		</script>
@@ -171,6 +165,7 @@
 					</div>
 				</nav>
 				</div>
+				<input type="button" class="button large dark" value ="Upload your photo" id="buttonUploadYourPhoto" />
 
 				<div id="progressContainer">
 					<div id="progress">

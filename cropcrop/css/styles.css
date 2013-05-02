@@ -311,6 +311,5 @@ body {
 	width: 960px;}
 	#progress{}
 		.bar {
-		    height: 40px!important;
-		    background: green;
-		}
+		    height: 40px;
+		    background: green;}
