@@ -14,79 +14,6 @@
 		
 		<link rel="icon" type="image/png" href="img/favicon.ico" />
 
-		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-		<script type="text/javascript" src="js/jquery-ui.js"></script>
-		<script type="text/javascript" src="js/vendor/jquery.ui.widget.js"></script>
-		<script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
-		<script type="text/javascript" src="js/jquery.fileupload.js"></script>
-		<script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
-		<script type="text/javascript" src="js/upload.js"></script>
-		<script type="text/javascript" src="js/scripts.js"></script>
-
-		<script>
-		$(function () {
-
-			// SCRIPT UPLOAD DONE
-			$('#fileupload').fileupload({
-				dataType: 'json',
-				done: function (e, data) {
-					$.each ( data.result.files, function (index, file) {
-						// $('<p/>').text(file.name).appendTo(document.body);
-					});
-				}
-			});
-
-			// SCRIPT WHEN UPLOAD DONE
-			$('#fileupload').bind('fileuploaddone', function (e, data) { 
-				console.log("----------------");
-				console.log(data);
-				$.each(data.result.files, function (index, file) {
-					var _self=this;
-
-					$.ajax({
-						type: "POST",
-						data : _self,
-						url: './server/php/test.php', success: function(response) {
-							console.log(response);
-							dataAStocker = _self;
-							console.log("");
-							console.log("fileuploaddone");
-							
-							console.log("");
-
-							$().updateVideoInformations( response );
-						}
-					});
-				})
-			});
-
-
-			$('#fileupload').bind('fileuploadprogress', function (e, data) { 
-				
-				var progress = parseInt(data.loaded / data.total * 100, 10);
-				$('#progress .bar').css(
-					'width', progress + '%'
-				);
-				$("#progressBarText").text("Downloading your video file : "+progress+" %");
-   			});
-
-			// $("#autoCropCheckbox").is(':checked');
-
-			  /***********************/
-			 /*  User can upload his photo  */
-			/***********************/
-			$("#buttonUploadYourPhoto").click(function(event){
-				event.preventDefault();
-				$("#images").trigger("click");
-			});
-			$("#yourPhotoUpload").change(function(event){
-				event.preventDefault();
-				$("#btn").submit();
-			});
-
-		});
-		</script>
-
 		<title>CROP CROP</title>
 
 	</head>
@@ -301,5 +228,77 @@
 		</div>
 
 
+
+		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/vendor/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
+		<script type="text/javascript" src="js/jquery.fileupload.js"></script>
+		<script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
+		<script type="text/javascript" src="js/upload.js"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>
+
+		<script>
+		$(function () {
+
+			// SCRIPT UPLOAD DONE
+			$('#fileupload').fileupload({
+				dataType: 'json',
+				done: function (e, data) {
+					$.each ( data.result.files, function (index, file) {
+						// $('<p/>').text(file.name).appendTo(document.body);
+					});
+				}
+			});
+
+			// SCRIPT WHEN UPLOAD DONE
+			$('#fileupload').bind('fileuploaddone', function (e, data) { 
+				console.log("----------------");
+				console.log(data);
+				$.each(data.result.files, function (index, file) {
+					var _self=this;
+
+					$.ajax({
+						type: "POST",
+						data : _self,
+						url: './server/php/test.php', success: function(response) {
+							console.log(response);
+							dataAStocker = _self;
+							console.log("");
+							console.log("fileuploaddone");
+							console.log("");
+
+							$().updateVideoInformations( response );
+						}
+					});
+				})
+			});
+
+
+			$('#fileupload').bind('fileuploadprogress', function (e, data) { 
+				
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				$('#progress .bar').css(
+					'width', progress + '%'
+				);
+				$("#progressBarText").text("Downloading your video file : "+progress+" %");
+   			});
+
+			// $("#autoCropCheckbox").is(':checked');
+
+			  /***********************/
+			 /*  User can upload his photo  */
+			/***********************/
+			$("#buttonUploadYourPhoto").click(function(event){
+				event.preventDefault();
+				$("#images").trigger("click");
+			});
+			$("#yourPhotoUpload").change(function(event){
+				event.preventDefault();
+				$("#btn").submit();
+			});
+
+		});
+		</script>
 	</body>
 </html>

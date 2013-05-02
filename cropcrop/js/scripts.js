@@ -461,7 +461,7 @@ jQuery(function($){
 			};
 
 			var id = crops.list.length;
-			
+
 			videoContentWidth     = parseInt($('#videoContent').width());
 			videoContentHeight    = parseInt($('#videoContent').height());
 			var width = parseInt( $('#navInputTextWidth').val() );
@@ -497,6 +497,81 @@ jQuery(function($){
 					resize: function( event, ui ) {
 						var width = $('#cropNumber'+id).width();
 						var height = $('#cropNumber'+id).height();
+
+						// Function update
+						$().updateSize( id, width, height );
+					},
+					containment : $("#videoContent"),
+				}) // End resizable
+				.draggable({ //make it "draggable" and "resizable"
+					drag: function(event, ui) { // What happen when dragged
+						cropNumberOffsetTop       = parseInt($('#cropNumber'+id).offset().top);
+						cropNumberOffsetLeft      = parseInt($('#cropNumber'+id).offset().left);
+
+						videoContentOffsetTop     = parseInt($('#videoContent').offset().top);
+						videoContentOffsetLeft    = parseInt($('#videoContent').offset().left);
+
+						calculPosTop              = cropNumberOffsetTop - videoContentOffsetTop;
+						calculPosLeft             = cropNumberOffsetLeft - videoContentOffsetLeft;
+
+						// Function update
+						$().updatePos( id, calculPosTop, calculPosLeft );
+					},
+					containment : $("#videoContent"),
+				}); // End draggable
+
+			$().addToolbarInfos( id );
+		}
+	});
+
+
+
+	//
+	// CREATE FORMAT SCREEN
+	//
+	// $().createFormatScreen( parameter )
+	jQuery.fn.extend({
+		createFormatScreen: function () {
+			if ( $("#buttonCropIt").hasClass("disabled") === true ) {
+				$("#buttonCropIt").removeClass("disabled");
+			};
+
+			var id                    = crops.list.length;
+			var videoContentWidth     = parseInt( $('#videoContent').width() );
+			var videoContentHeight    = parseInt( $('#videoContent').height() );
+			var width                 = parseInt( $('#navInputTextWidth').val() );
+			var height                = parseInt( $('#navInputTextHeight').val() );
+
+			crops.list.push({
+				screenId   : crops.list.length,
+				width      : width,
+				height     : height,
+				marginLeft : "0",
+				marginTop  : "0",
+				color      : [
+					Math.ceil( (Math.random()*255) ), 
+					Math.ceil( (Math.random()*255) ), 
+					Math.ceil( (Math.random()*255) ),
+					0.5
+				],
+			});
+
+
+			$('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
+			$('#cropNumber' + id).css({
+				'position'           : 'absolute',
+				"background-color"   : 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
+				'top'                : crops.list[id].marginTop + "px",
+				'left'               : crops.list[id].marginLeft + "px",
+				'width'              : crops.list[id].width + "px", 
+				'height'             : crops.list[id].height + "px"
+			});
+			// Draggable, resizable
+			$('#cropNumber' + id)
+				.resizable({
+					resize: function( event, ui ) {
+						var width     = $('#cropNumber'+id).width();
+						var height    = $('#cropNumber'+id).height();
 
 						// Function update
 						$().updateSize( id, width, height );
