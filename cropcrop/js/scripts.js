@@ -29,7 +29,6 @@ jQuery(function($){
 	$('#YourVideoToolbar').hide();
 	$('#cache').hide();
 	$('#uploadingModal').hide();
-	$('#rouge').hide();
 	$('#warningJavascriptNotEnabled').hide();
 
 	/* Tool box */
