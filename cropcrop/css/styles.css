@@ -305,9 +305,12 @@ body {
 	left: 50%;}
 
 
-
-
-.bar {
-    height: 40px!important;
-    background: green;
-}
+#progressContainer{
+	margin-right: auto;
+	margin-left: auto;
+	width: 960px;}
+	#progress{}
+		.bar {
+		    height: 40px!important;
+		    background: green;
+		}

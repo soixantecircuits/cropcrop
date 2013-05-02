@@ -172,6 +172,11 @@
 				</nav>
 				</div>
 
+				<div id="progressContainer">
+					<div id="progress">
+						<div class="bar" style="width: 0%;"></div>
+					</div>	
+				</div>		
 
 				<!-- VIDEO AREA -->
 				<div id="videoContent">
@@ -184,11 +189,6 @@
 						</div>
 					</div>
 				</div>
-
-				<div id="progress">
-   				 <div class="bar" style="width: 0%;"></div>
-   				 pppppp
-				</div>		
 				
 				<div id="thumbnailsContainer">
 					<div id="thumbnailsList">
@@ -215,9 +215,6 @@
 				<div id="footerContent">
 					<p><a class="link dark" href="http://vimeo.com/soixantecircuits/videos/">&#169; 2013 Soixante circuits | All Rights Reserved</a></p>
 				</div>
-
-
-
 			</footer>
 			</div>
 
