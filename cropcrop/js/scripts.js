@@ -102,6 +102,21 @@ jQuery(function($){
 		});
 	});
 
+	  /***********************/
+	 /*  Select crop layer  */
+	/***********************/
+	$("#videoCropListDiv").on("click", ".videoCropListDivElement",function(event){
+		var id = $(this).attr("id");
+
+		$(".cropLayer").css({
+			"z-index": "0"
+		});
+		$("#cropNumber" + id).css({
+			"z-index": "1"
+		});
+		$("#cropNumber" + id).effect("highlight", {}, 1000);
+	});
+
 
 
 	/***********************************************/
@@ -113,19 +128,6 @@ jQuery(function($){
 	/***********************************************/
 
 	//
-	// AFFICHE
-	//
-	// $().affiche()
-	jQuery.fn.extend({
-		affiche: function () {
-			for ( i in crops.list ) {
-				$().createScreen( i )
-			}
-		}
-	});
-
-
-	//
 	// UPDATE VIDEO INFORMATIONS
 	//
 	// $().updateVideoInformations( infos )
@@ -134,12 +136,29 @@ jQuery(function($){
 			console.log("$().updateVideoInformations() ------------");
 			console.log(infos);
 
-			videoInformations = infos;
-
+			videoInformations                   = infos;
 			videoInformations.message.filename  = videoInformations.message.filename.replaceAll('\'','');
 			videoInformations.message.frameRate = videoInformations.message.frameRate.replaceAll('\'','');
 			videoInformations.message.fileSize  = videoInformations.message.fileSize.replaceAll('\'','');
 
+			// Display HTML content in the interface (thumbnails, informations,...)
+			$().displayContent();
+
+			// Enable to user the use of interface
+			$().enableUserInterface();
+
+			// Update Carousel
+			$().createCarousel();
+		}
+	});
+
+
+	//
+	// Enable user interface
+	//
+	// $().displayContent()
+	jQuery.fn.extend({
+		displayContent: function () {
 			var img                 = new Image();
 			var bgImgUrl            = serverPath + videoInformations.message.thumbnails1;
 			var infWidth            = videoInformations.message.width;
@@ -163,12 +182,73 @@ jQuery(function($){
 			$("#videoInformationsHeight").text( videoInformations.message.height );
 			$("#videoInformationsSize").text( videoInformations.message.fileSize );
 			$("#videoInformationsFPS").text( videoInformations.message.frameRate );
-			
-			// Enable to user the use of interface
-			$().enableUserInterface();
+		}
+	});
 
-			// Update Carousel
-			$().createCarousel( infos );
+
+	//
+	// Enable user interface
+	//
+	// $().enableUserInterface()
+	jQuery.fn.extend({
+		enableUserInterface: function () {
+			$("#navInputTextWidth").removeClass("disabled");
+			$("#navInputTextHeight").removeClass("disabled");
+			$("#buttonAddScreen").removeClass("disabled");
+			$("#buttonCropIt").removeClass("disabled");
+			$("#autoCropCheckbox").removeClass("disabled");
+			$("#buttonYourVideo").removeClass("disabled");
+			$("#carouselPrev").removeClass("disabled");
+			$("#carouselNext").removeClass("disabled");
+		}
+	});
+
+
+	//
+	// Disable user interface
+	//
+	// $().disableUserInterface()
+	jQuery.fn.extend({
+		disableUserInterface: function () {
+			$("#navInputTextWidth").addClass("disabled");
+			$("#navInputTextHeight").addClass("disabled");
+			$("#buttonAddScreen").addClass("disabled");
+			$("#buttonCropIt").addClass("disabled");
+			$("#autoCropCheckbox").addClass("disabled");
+			$("#buttonYourVideo").addClass("disabled");
+			$("#carouselPrev").addClass("disabled");
+			$("#carouselNext").addClass("disabled");
+
+			if (isShown === 1) {
+				$('#YourVideoToolbar').slideUp();
+				$('#triangle').toggleClass('up');
+				isShown = 0;
+			};
+		}
+	});
+
+
+	//
+	// createCarousel
+	//
+	// $().createCarousel()
+	jQuery.fn.extend({
+		createCarousel: function () {
+			$("#carouselContainer").empty();
+
+			carouselContent = "";
+			carouselContent += '<li><img id="mini1" src="server/php/' + videoInformations.message.mini1 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
+			carouselContent += '<li><img id="mini2" src="server/php/' + videoInformations.message.mini2 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
+			carouselContent += '<li><img id="mini3" src="server/php/' + videoInformations.message.mini3 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
+
+			$("#carouselContainer").append(carouselContent);
+
+			$(function() {
+			    $(".thumbnailsCarousel").jCarouselLite({
+			        btnNext: ".next",
+			        btnPrev: ".prev"
+			    });
+			});
 		}
 	});
 
@@ -200,73 +280,6 @@ jQuery(function($){
 	});
 
 
-	//
-	// Enable user interface
-	//
-	// $().enableUserInterface( infos )
-	jQuery.fn.extend({
-		enableUserInterface: function ( infos ) {
-			$("#navInputTextWidth").removeClass("disabled");
-			$("#navInputTextHeight").removeClass("disabled");
-			$("#buttonAddScreen").removeClass("disabled");
-			$("#buttonCropIt").removeClass("disabled");
-			$("#autoCropCheckbox").removeClass("disabled");
-			$("#buttonYourVideo").removeClass("disabled");
-			$("#carouselPrev").removeClass("disabled");
-			$("#carouselNext").removeClass("disabled");
-		}
-	});
-
-
-	//
-	// Disable user interface
-	//
-	// $().disableUserInterface( infos )
-	jQuery.fn.extend({
-		disableUserInterface: function ( infos ) {
-			$("#navInputTextWidth").addClass("disabled");
-			$("#navInputTextHeight").addClass("disabled");
-			$("#buttonAddScreen").addClass("disabled");
-			$("#buttonCropIt").addClass("disabled");
-			$("#autoCropCheckbox").addClass("disabled");
-			$("#buttonYourVideo").addClass("disabled");
-			$("#carouselPrev").addClass("disabled");
-			$("#carouselNext").addClass("disabled");
-
-			if (isShown === 1) {
-				$('#YourVideoToolbar').slideUp();
-				$('#triangle').toggleClass('up');
-				isShown = 0;
-			};
-		}
-	});
-
-
-	//
-	// createCarousel
-	//
-	// $().createCarousel( infos )
-	jQuery.fn.extend({
-		createCarousel: function ( infos ) {
-			$("#carouselContainer").empty();
-
-			carouselContent = "";
-			carouselContent += '<li><img id="mini1" src="server/php/' + videoInformations.message.mini1 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
-			carouselContent += '<li><img id="mini2" src="server/php/' + videoInformations.message.mini2 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
-			carouselContent += '<li><img id="mini3" src="server/php/' + videoInformations.message.mini3 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
-
-			$("#carouselContainer").append(carouselContent);
-
-			$(function() {
-			    $(".thumbnailsCarousel").jCarouselLite({
-			        btnNext: ".next",
-			        btnPrev: ".prev"
-			    });
-			});
-		}
-	});
-
-
 
 	//
 	// addToolbarInfos
@@ -286,7 +299,7 @@ jQuery(function($){
 			var marginLeft = crops.list[id].marginLeft;
 
 
-			content += '<div class="videoCropListDivElement">';
+			content += '<div class="videoCropListDivElement" id="' + id + '">';
 				content += '<div id="cropSelection2" class="videoCropListDivElementContent">';
 					content += '<p>' + id + ' . </p>';
 				content += '</div>';
@@ -319,7 +332,7 @@ jQuery(function($){
 	jQuery.fn.extend({
 		createScreen: function ( id ) {
 			console.log("essais : "+id);
-			$('#videoContent').append('<div id="cropNumber' + id + '"></div>');
+			$('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
 			$('#cropNumber' + id).css({
 				'position'           : 'absolute',
 				"background-color"   : 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
