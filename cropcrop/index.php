@@ -219,7 +219,11 @@
 
 				<div id="progressContainer">
 					<div id="progress">
-						<div class="bar" style="width: 0%;"></div>
+						<div class="bar" style="width: 0%;">
+							<p>
+								<span id="progressBarTest"></span>
+							</p>
+						</div>
 					</div>	
 				</div>		
 
