@@ -65,6 +65,18 @@
         		);
    			});
 
+
+
+			  /***********************/
+			 /*  User can upload his photo  */
+			/***********************/
+			$("#buttonUploadYourPhoto").click(function(event){
+				$("#yourPhotoUpload").trigger("click");
+			});
+			$("#yourPhotoUpload").change(function(event){
+				$("#yourPhotoForm").submit();
+			});
+
 		});
 		</script>
 
@@ -165,7 +177,29 @@
 					</div>
 				</nav>
 				</div>
-				<input type="button" class="button large dark" value ="Upload your photo" id="buttonUploadYourPhoto" />
+
+
+
+
+				<input id="buttonUploadYourPhoto" type="button" class="button large dark" value ="Upload your photo"/>
+
+<form id="yourPhotoForm" action="upload.php" enctype="multipart/form-data" method="post">
+<input id="yourPhotoUpload" name="fichier" size="30" type="file" />
+<input name="upload" type="submit" value="Uploader" />
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 				<div id="progressContainer">
 					<div id="progress">
@@ -219,8 +253,7 @@
 		<div id="cache">
 		</div>
 		<div id="uploadingModal">
-
-<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+			<input id="fileupload" type="file" name="files[]" data-url="server/php/" />
 		</div>
 
 		<div id="warningJavascriptNotEnabled">
