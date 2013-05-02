@@ -87,16 +87,19 @@ jQuery(function($){
 	/********************************/
 
 	$("#carouselContainer").on("click", "#mini1", function(event){
+		event.preventDefault();
 		$("#videoContent").css({
 			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails1 + ")",
 		});
 	});
 	$("#carouselContainer").on("click", "#mini2", function(event){
+		event.preventDefault();
 		$("#videoContent").css({
 			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails2 + ")",
 		});
 	});
 	$("#carouselContainer").on("click", "#mini3", function(event){
+		event.preventDefault();
 		$("#videoContent").css({
 			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails3 + ")",
 		});
@@ -106,6 +109,7 @@ jQuery(function($){
 	 /*  Select crop layer  */
 	/***********************/
 	$("#videoCropListDiv").on("click", ".videoCropListDivElement",function(event){
+		event.preventDefault();
 		var id = $(this).attr("id");
 		if ( $("#cropNumber" + id).hasClass("topLayer") === false ){
 			$(".topLayer").removeClass("topLayer")
@@ -118,16 +122,20 @@ jQuery(function($){
 	 /*  Video format function  */
 	/***************************/
 	$("#secondMenu").on("click", "#buttonFormat1_1", function(event){
-		console.log($(this).attr("id"));
+		event.preventDefault();
+		$().createFormatScreen( 1, 1 );
 	});
 	$("#secondMenu").on("click", "#buttonFormat4_3", function(event){
-		console.log($(this).attr("id"));
+		event.preventDefault();
+		$().createFormatScreen( 4, 3 );
 	});
 	$("#secondMenu").on("click", "#buttonFormat16_9", function(event){
-		console.log($(this).attr("id"));
+		event.preventDefault();
+		$().createFormatScreen( 16, 9 );
 	});
 	$("#secondMenu").on("click", "#buttonFormat16_10", function(event){
-		console.log($(this).attr("id"));
+		event.preventDefault();
+		$().createFormatScreen( 16, 10 );
 	});
 
 	  /*******************************/
@@ -540,12 +548,17 @@ jQuery(function($){
 	//
 	// CREATE FORMAT SCREEN
 	//
-	// $().createFormatScreen( parameter )
+	// $().createFormatScreen( formatW, formatH )
 	jQuery.fn.extend({
-		createFormatScreen: function () {
+		createFormatScreen: function ( formatW, formatH ) {
 			if ( $("#buttonCropIt").hasClass("disabled") === true ) {
 				$("#buttonCropIt").removeClass("disabled");
 			};
+
+			formatW                   = parseInt( formatW );
+			formatH                   = parseInt( formatH );
+
+			console.log( formatW + " : " + formatH);
 
 			var id                    = crops.list.length;
 			var videoContentWidth     = parseInt( $('#videoContent').width() );
@@ -553,6 +566,7 @@ jQuery(function($){
 			var width                 = parseInt( $('#navInputTextWidth').val() );
 			var height                = parseInt( $('#navInputTextHeight').val() );
 
+/* 
 			crops.list.push({
 				screenId   : crops.list.length,
 				width      : width,
@@ -607,6 +621,7 @@ jQuery(function($){
 				}); // End draggable
 
 			$().addToolbarInfos( id );
+*/
 		}
 	});
 
