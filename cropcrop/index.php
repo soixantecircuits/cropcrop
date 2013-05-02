@@ -208,14 +208,18 @@
 					</p>
 				</div>
 
-
-
-
 				<div id="progressContainer">
 					<div id="progress">
 						<div class="bar" style="width: 0%;"></div>
 					</div>	
 				</div>		
+
+
+
+
+
+
+
 
 				<!-- VIDEO AREA -->
 				<div id="videoContent">

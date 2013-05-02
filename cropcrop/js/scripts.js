@@ -107,16 +107,23 @@ jQuery(function($){
 	/***********************/
 	$("#videoCropListDiv").on("click", ".videoCropListDivElement",function(event){
 		var id = $(this).attr("id");
-		console.log(id);		
-		$(this).toggleClass("topLayer");
+		console.log(id);
+
+		if ( $("#cropNumber" + id).hasClass("topLayer") === false ){
+			$(".topLayer").removeClass("topLayer")
+			$(this).addClass("topLayer");
+			$("#cropNumber" + id).effect("highlight", {}, 1000);
+		}
+
 		
-			// $(".cropLayer").css({
-			// 	"z-index": "0"
-			// });
-			// $("#cropNumber" + id).css({
-			// 	"z-index": "1"
-			// });
-			// $("#cropNumber" + id).effect("highlight", {}, 1000);
+
+		// $(".cropLayer").css({
+		// 	"z-index": "0"
+		// });
+		// $("#cropNumber" + id).css({
+		// 	"z-index": "1"
+		// });
+
 	});
 
 
@@ -329,9 +336,9 @@ jQuery(function($){
 	//
 	// CREATE SCREEN
 	//
-	// $().createScreen( parameter )
+	// $().createAdlibitumScreen( parameter )
 	jQuery.fn.extend({
-		createScreen: function ( id ) {
+		createAdlibitumScreen: function ( id ) {
 			console.log("essais : "+id);
 			$('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
 			$('#cropNumber' + id).css({
@@ -461,7 +468,7 @@ jQuery(function($){
 					0.5
 				],
 			});
-			$().createScreen( crops.list.length-1 )
+			$().createAdlibitumScreen( crops.list.length-1 )
 		}
 	});
 
