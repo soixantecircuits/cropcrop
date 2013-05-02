@@ -148,7 +148,7 @@ jQuery(function($){
 			// Enable to user the use of interface
 			$().enableUserInterface();
 
-
+			$("#progressBarText").text("Creating thumbnails...");
 			$().thumbnails();
 			// Update Carousel
 			//$().createCarousel();
@@ -169,6 +169,7 @@ jQuery(function($){
 					console.log(datas)
 					thumnbnailsinfos = datas;
 					$().createCarousel();
+					$("#progressBarText").text("You can now add screens to crop with video");
 				}
 			});
 

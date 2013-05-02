@@ -67,6 +67,7 @@
 				$('#progress .bar').css(
 					'width', progress + '%'
 				);
+				$("#progressBarText").text("Downloading your video file : "+progress+" %");
    			});
 
 			// $("#autoCropCheckbox").is(':checked');
@@ -221,7 +222,7 @@
 					<div id="progress">
 						<div class="bar" style="width: 0%;">
 							<p>
-								<span id="progressBarTest"></span>
+								<span id="progressBarText"></span>
 							</p>
 						</div>
 					</div>	
