@@ -11,7 +11,6 @@ jQuery(function($){
 	var crops = {};
 	crops.title = "None";
 	crops.list = [];
-
 	dataAStocker = "";
 
 
@@ -160,19 +159,18 @@ jQuery(function($){
 		thumbnails: function ( infos ) {
 			
 			$.ajax({
-						type: "POST",
-						data : dataAStocker,
-						url: './server/php/test2.php', success: function(datas) {
-							console.log(datas)
-							thumnbnailsinfos = datas;
-							$().createCarousel();
-						}
-					});
+				type: "POST",
+				data : dataAStocker,
+				url: './server/php/test2.php', success: function(datas) {
+					console.log(datas)
+					thumnbnailsinfos = datas;
+					$().createCarousel();
+				}
+			});
 
 
 		}
 	});
-
 
 
 	//
