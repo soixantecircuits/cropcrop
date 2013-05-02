@@ -51,16 +51,22 @@ $(function () {
 
 
 
-
-
-
-
-			$.ajax({
-			    url: "upload.php",
-			    data: formdata,
-				}).done(function(res) {
-			    console.log(res); 
+				$.ajax({
+				  url: "upload.php",
+				  type: "POST",
+				data: formdata,
+				processData: false,
+				contentType: false,
+				}).done(function ( data ) {
+				  if( console && console.log ) {
+				    console.log(data);
+				  }
 				});
+					
+						
+
+
+			
 
 
 
