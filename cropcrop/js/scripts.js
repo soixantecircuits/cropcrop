@@ -118,6 +118,18 @@ jQuery(function($){
 	  /***************************/
 	 /*  Video format function  */
 	/***************************/
+	$("#secondMenu").on("click", "#buttonFormat1_1", function(event){
+		console.log($(this).attr("id"));
+	});
+	$("#secondMenu").on("click", "#buttonFormat4_3", function(event){
+		console.log($(this).attr("id"));
+	});
+	$("#secondMenu").on("click", "#buttonFormat16_9", function(event){
+		console.log($(this).attr("id"));
+	});
+	$("#secondMenu").on("click", "#buttonFormat16_10", function(event){
+		console.log($(this).attr("id"));
+	});
 
 
 	/***********************************************/
@@ -224,6 +236,13 @@ jQuery(function($){
 			$("#buttonYourVideo").removeClass("disabled");
 			$("#carouselPrev").removeClass("disabled");
 			$("#carouselNext").removeClass("disabled");
+
+			// Toolbar 2
+			$("#buttonUploadYourPhoto").removeClass("disabled");
+			$("#buttonFormat1_1").removeClass("disabled");
+			$("#buttonFormat4_3").removeClass("disabled");
+			$("#buttonFormat16_9").removeClass("disabled");
+			$("#buttonFormat16_10").removeClass("disabled");
 		}
 	});
 
@@ -248,6 +267,13 @@ jQuery(function($){
 				$('#triangle').toggleClass('up');
 				isShown = 0;
 			};
+
+			// Toolbar 2
+			$("#buttonUploadYourPhoto").addClass("disabled");
+			$("#buttonFormat1:1").addClass("disabled");
+			$("#buttonFormat4:3").addClass("disabled");
+			$("#buttonFormat16:9").addClass("disabled");
+			$("#buttonFormat16:10").addClass("disabled");
 		}
 	});
 
@@ -348,17 +374,112 @@ jQuery(function($){
 	});
 
 
+	//
+	// UPDATE SIZE
+	//
+	// $().updateSize( id, width, height )
+	jQuery.fn.extend({
+		updateSize: function ( id, width, height ) {
+			crops.list[id].width      = width;
+			crops.list[id].height     = height;
+			$('#inputWidth' + id).attr("placeholder", "W : " + crops.list[id].width);
+			$('#inputHeight' + id).attr("placeholder", "H : " + crops.list[id].height);
+		}
+	});
 
 	//
-	// CREATE SCREEN
+	// UPDATE POS
+	//
+	// $().updatePos( id, top, left )
+	jQuery.fn.extend({
+		updatePos: function ( id, top, left ) {
+			crops.list[id].marginTop  = calculPosTop;
+			crops.list[id].marginLeft = calculPosLeft;
+			$('#inputTop' + id).attr("placeholder", "T : " + crops.list[id].marginTop);
+			$('#inputLeft' + id).attr("placeholder", "L : " + crops.list[id].marginLeft);
+		}
+	});
+
+
+	//
+	// ADD SCREEN
+	//
+	// $().addScreen()
+	jQuery.fn.extend({
+		addScreen: function () {
+			videoContentWidth     = parseInt($('#videoContent').width());
+			videoContentHeight    = parseInt($('#videoContent').height());
+			var width = parseInt( $('#navInputTextWidth').val() );
+			var height = parseInt( $('#navInputTextHeight').val() );
+
+			// Resetting colors to default, in case of inputs being red
+			$('#navInputTextWidth').css({
+				"background-color"   : '#FFF',
+				"color"   : '#000'
+			});
+			$('#navInputTextHeight').css({
+				"background-color"   : '#FFF',
+				"color"   : '#000'
+			});
+
+
+			// Control to show user he forget to input something
+			if ( isNaN(width) == true ){
+				$('#navInputTextWidth').css({
+					"background-color"   : 'rgba(255,0,0,.5)',
+					"color"   : '#FFF'
+				});
+			}
+			if ( isNaN(height)  == true ){
+				$('#navInputTextHeight').css({
+					"background-color"   : 'rgba(255,0,0,.5)',
+					"color"   : '#FFF'
+				});
+			}
+
+			// Cancellers
+			if ( isNaN(width) == true )         {return false;}
+			if ( isNaN(height)  == true )       {return false;}
+			if ( width > videoContentWidth )    {return false;}
+			if ( height  > videoContentHeight ) {return false;}
+
+			// If all is good
+			$().createAdlibitumScreen()
+		}
+	});
+
+
+
+	//
+	// CREATE ADD LIBITUM SCREEN
 	//
 	// $().createAdlibitumScreen( parameter )
 	jQuery.fn.extend({
-		createAdlibitumScreen: function ( id ) {
-
+		createAdlibitumScreen: function () {
 			if ( $("#buttonCropIt").hasClass("disabled") === true ) {
 				$("#buttonCropIt").removeClass("disabled");
 			};
+
+			var id = crops.list.length;
+			
+			videoContentWidth     = parseInt($('#videoContent').width());
+			videoContentHeight    = parseInt($('#videoContent').height());
+			var width = parseInt( $('#navInputTextWidth').val() );
+			var height = parseInt( $('#navInputTextHeight').val() );
+
+			crops.list.push({
+				screenId   : crops.list.length,
+				width      : width,
+				height     : height,
+				marginLeft : "0",
+				marginTop  : "0",
+				color      : [
+					Math.ceil( (Math.random()*255) ), 
+					Math.ceil( (Math.random()*255) ), 
+					Math.ceil( (Math.random()*255) ),
+					0.5
+				],
+			});
 
 
 			$('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
@@ -400,93 +521,6 @@ jQuery(function($){
 				}); // End draggable
 
 			$().addToolbarInfos( id );
-		}
-	});
-
-	//
-	// UPDATE SIZE
-	//
-	// $().updateSize( id, width, height )
-	jQuery.fn.extend({
-		updateSize: function ( id, width, height ) {
-			crops.list[id].width      = width;
-			crops.list[id].height     = height;
-			$('#inputWidth' + id).attr("placeholder", "W : " + crops.list[id].width);
-			$('#inputHeight' + id).attr("placeholder", "H : " + crops.list[id].height);
-		}
-	});
-	//
-	// UPDATE POS
-	//
-	// $().updatePos( id, top, left )
-	jQuery.fn.extend({
-		updatePos: function ( id, top, left ) {
-			crops.list[id].marginTop  = calculPosTop;
-			crops.list[id].marginLeft = calculPosLeft;
-			$('#inputTop' + id).attr("placeholder", "T : " + crops.list[id].marginTop);
-			$('#inputLeft' + id).attr("placeholder", "L : " + crops.list[id].marginLeft);
-		}
-	});
-
-
-	//
-	// ADD SCREEN
-	//
-	// $().addScreen()
-	jQuery.fn.extend({
-		addScreen: function () {
-
-			videoContentWidth     = parseInt($('#videoContent').width());
-			videoContentHeight    = parseInt($('#videoContent').height());
-
-			var width = parseInt( $('#navInputTextWidth').val() );
-			var height = parseInt( $('#navInputTextHeight').val() );
-
-			// Resetting colors to default, in case of inputs being red
-			$('#navInputTextWidth').css({
-				"background-color"   : '#FFF',
-				"color"   : '#000'
-			});
-			$('#navInputTextHeight').css({
-				"background-color"   : '#FFF',
-				"color"   : '#000'
-			});
-
-
-			// Control to show user he forget to input something
-			if ( isNaN(width) == true ){
-				$('#navInputTextWidth').css({
-					"background-color"   : 'rgba(255,0,0,.5)',
-					"color"   : '#FFF'
-				});
-			}
-			if ( isNaN(height)  == true ){
-				$('#navInputTextHeight').css({
-					"background-color"   : 'rgba(255,0,0,.5)',
-					"color"   : '#FFF'
-				});
-			}
-
-			// Cancel
-			if ( isNaN(width) == true )         {return false;}
-			if ( isNaN(height)  == true )       {return false;}
-			if ( width > videoContentWidth )    {return false;}
-			if ( height  > videoContentHeight ) {return false;}
-
-			crops.list.push({
-				screenId   : crops.list.length,
-				width      : width,
-				height     : height,
-				marginLeft : "0",
-				marginTop  : "0",
-				color      : [
-					Math.ceil( (Math.random()*255) ), 
-					Math.ceil( (Math.random()*255) ), 
-					Math.ceil( (Math.random()*255) ),
-					0.5
-				],
-			});
-			$().createAdlibitumScreen( crops.list.length-1 )
 		}
 	});
 

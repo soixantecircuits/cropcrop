@@ -85,12 +85,6 @@
 			});
 
 		});
-
-
-
-
-
-		
 		</script>
 
 		<title>CROP CROP</title>
@@ -207,13 +201,13 @@
 				<div id="secondMenu">
 					<p id="secondMenuContent">
 						<span class="button-group large">
-							<a id="buttonUploadYourPhoto" class="button large dark" role="button">Upload your photo</a>
+							<a id="buttonUploadYourPhoto" class="button large dark disabled" role="button">Upload your photo</a>
 						</span>
 						<span class="button-group large">
-							<a class="button start dark large" role="button" href="#button-bar">1 : 1</a>
-							<a class="button inside dark large" role="button" href="#button-bar">4 : 3</a>
-							<a class="button inside dark large" role="button" href="#button-bar">16 : 9</a>
-							<a class="button end dark large" role="button" href="#button-bar">16 : 10</a>
+							<a role="button" class="button start dark large disabled" id="buttonFormat1_1" href="#button-bar">1 : 1</a>
+							<a role="button" class="button inside dark large disabled" id="buttonFormat4_3" href="#button-bar">4 : 3</a>
+							<a role="button" class="button inside dark large disabled" id="buttonFormat16_9" href="#button-bar">16 : 9</a>
+							<a role="button" class="button end dark large disabled" id="buttonFormat16_10" href="#button-bar">16 : 10</a>
 						</span>
 					</p>
 				</div>
