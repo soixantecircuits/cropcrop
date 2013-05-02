@@ -70,7 +70,7 @@ if sys.argv.__len__()>0:
 	thumbmini =[]
 	#test = []
 
-	for i in range (1,2,1):
+	for i in range (1,4,1):
 		ID=str(i)
 		thumb.append(str((int(duration)/1500)/i).split(".")[0])
 		thumbname.append(str('./thumbnails/'+random_string+ID))
@@ -82,10 +82,15 @@ if sys.argv.__len__()>0:
 		
 
 	os.system("ffmpeg -itsoffset -"+thumb[0]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbname[0]+".jpg")
-	
+	os.system("ffmpeg -itsoffset -"+thumb[1]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbname[1]+".jpg")
+	os.system("ffmpeg -itsoffset -"+thumb[2]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbname[2]+".jpg")
+
+	os.system("ffmpeg -itsoffset -"+thumb[0]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+widthmini+"*"+heightmini+" "+thumbmini[0]+".jpg")
+	os.system("ffmpeg -itsoffset -"+thumb[1]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+widthmini+"*"+heightmini+" "+thumbmini[1]+".jpg")
+	os.system("ffmpeg -itsoffset -"+thumb[2]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+widthmini+"*"+heightmini+" "+thumbmini[2]+".jpg")
 
 	
-	data =  { 'width': width, 'height':height,'filename':filename2, 'duration' : duration, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails1': thumbname[0]+".jpg"}
+	data =  { 'miniwidth' :widthmini, 'miniheight' : heightmini, 'width': width, 'height':height,'filename':filename2, 'duration' : duration, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails1': thumbname[0]+".jpg", 'thumbnails2': thumbname[1]+".jpg", 'thumbnails3': thumbname[2]+".jpg" ,'mini1' : thumbmini[0]+".jpg", 'mini2' : thumbmini[1]+".jpg", 'mini3' : thumbmini[2]+".jpg"}
 	data_string = json.dumps(data)
 	#os.system("rm "+filename)
 	#f = open('infos.txt', 'wt')
