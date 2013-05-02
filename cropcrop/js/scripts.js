@@ -87,17 +87,17 @@ jQuery(function($){
 	 /*  Mini thumbnails management  */
 	/********************************/
 
-	$("#carouselContainer").on("click", "#mini1",function(event){
+	$("#carouselContainer").on("click", "#mini1", function(event){
 		$("#videoContent").css({
 			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails1 + ")",
 		});
 	});
-	$("#carouselContainer").on("click", "#mini2",function(event){
+	$("#carouselContainer").on("click", "#mini2", function(event){
 		$("#videoContent").css({
 			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails2 + ")",
 		});
 	});
-	$("#carouselContainer").on("click", "#mini3",function(event){
+	$("#carouselContainer").on("click", "#mini3", function(event){
 		$("#videoContent").css({
 			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails3 + ")",
 		});
@@ -114,6 +114,10 @@ jQuery(function($){
 			$("#cropNumber" + id).effect("highlight", {}, 1000);
 		}
 	});
+
+	  /***************************/
+	 /*  Video format function  */
+	/***************************/
 
 
 	/***********************************************/
@@ -215,7 +219,6 @@ jQuery(function($){
 			$("#navInputTextWidth").removeClass("disabled");
 			$("#navInputTextHeight").removeClass("disabled");
 			$("#buttonAddScreen").removeClass("disabled");
-			$("#buttonCropIt").removeClass("disabled");
 			$("#autoCropCheckbox").removeClass("disabled");
 			$("#buttonYourVideo").removeClass("disabled");
 			$("#carouselPrev").removeClass("disabled");
@@ -351,7 +354,12 @@ jQuery(function($){
 	// $().createAdlibitumScreen( parameter )
 	jQuery.fn.extend({
 		createAdlibitumScreen: function ( id ) {
-			console.log("essais : "+id);
+
+			if ( $("#buttonCropIt").hasClass("disabled") === true ) {
+				$("#buttonCropIt").removeClass("disabled");
+			};
+
+
 			$('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
 			$('#cropNumber' + id).css({
 				'position'           : 'absolute',
