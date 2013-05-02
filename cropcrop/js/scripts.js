@@ -107,14 +107,16 @@ jQuery(function($){
 	/***********************/
 	$("#videoCropListDiv").on("click", ".videoCropListDivElement",function(event){
 		var id = $(this).attr("id");
-
-		$(".cropLayer").css({
-			"z-index": "0"
-		});
-		$("#cropNumber" + id).css({
-			"z-index": "1"
-		});
-		$("#cropNumber" + id).effect("highlight", {}, 1000);
+		console.log(id);		
+		$(this).toggleClass("topLayer");
+		
+			// $(".cropLayer").css({
+			// 	"z-index": "0"
+			// });
+			// $("#cropNumber" + id).css({
+			// 	"z-index": "1"
+			// });
+			// $("#cropNumber" + id).effect("highlight", {}, 1000);
 	});
 
 

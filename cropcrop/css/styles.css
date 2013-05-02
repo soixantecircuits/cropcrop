@@ -5,7 +5,7 @@
 .link{
 	max-width                 : none;}
 
-input[type=checkbox] {
+.custom input[type=checkbox] {
 	position                  : relative !important;
 	padding                   : 0;
 	margin                    : auto;
@@ -15,7 +15,7 @@ input[type=checkbox] {
 	clip                      : rect(5px 5px 5px 5px);
 	border                    : 0;}
 
-.button.large {
+.custom.button.large {
 	color                     : #C7C7C7;
 	text-align                : center;
 	font-family               : "source-l" !important;
@@ -223,7 +223,7 @@ body {
 								width             : 64px;}
 							.videoCropListDivElementContent input{
 								width             : 48px;
-								display: inline-block;}
+								display           : inline-block;}
 	#videoContent{
 		background-repeat    : no-repeat;
 		position             : relative;
@@ -243,6 +243,10 @@ body {
 			width: 100%;
 			height: 100%;
 			background-color: #595B5A;}
+		.cropLayer{
+			z-index: 0;}
+			.topLayer{
+				z-index: 1;}
 	#thumbnailsContainer{
 		width: 100%;}
 		#thumbnailsList{
@@ -305,6 +309,11 @@ body {
 	left: 50%;}
 
 
+
+
+  /**********************/
+ /*  WORK IN PROGRESS  */
+/**********************/
 #progressContainer{
 	margin-right: auto;
 	margin-left: auto;
@@ -313,3 +322,19 @@ body {
 		.bar {
 		    height: 40px;
 		    background: green;}
+
+#main{
+	width: 0;
+	height: 0;
+	visibility: hidden;}
+
+#secondMenu{
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;}
+
+#secondMenuContent{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;}

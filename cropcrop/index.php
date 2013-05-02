@@ -20,9 +20,8 @@
 		<script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
 		<script type="text/javascript" src="js/jquery.fileupload.js"></script>
 		<script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
-		<script type="text/javascript" src="js/scripts.js"></script>
 		<script type="text/javascript" src="js/upload.js"></script>
-
+		<script type="text/javascript" src="js/scripts.js"></script>
 
 		<script>
 		$(function () {
@@ -64,17 +63,24 @@
 				var progress = parseInt(data.loaded / data.total * 100, 10);
 				$('#progress .bar').css(
 					'width', progress + '%'
-        		);
+				);
    			});
 
+			// $("#autoCropCheckbox").is(':checked');
+
+			  /***********************/
+			 /*  User can upload his photo  */
+			/***********************/
+			$("#buttonUploadYourPhoto").click(function(event){
+				event.preventDefault();
+				$("#images").trigger("click");
+			});
+			$("#yourPhotoUpload").change(function(event){
+				event.preventDefault();
+				$("#btn").submit();
+			});
+
 		});
-
-
-
-
-
-
-		
 		</script>
 
 		<title>CROP CROP</title>
@@ -107,7 +113,7 @@
 				<div id="nav">
 				<nav>
 					<!-- Bouton upload -->
-					<input type="button"class="button large dark" value ="Upload" id="buttonUpload" />
+					<input type="button"class="custom button large dark" value ="Upload" id="buttonUpload" />
 
 					<!-- Zone screen input -->
 					<form class="navElement" id="addScreenForm">
@@ -116,27 +122,39 @@
 							<input class="text-field navInputText disabled" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
 							<input class="text-field navInputText disabled" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
 						</div>
-						<input type="submit" class="navElement button large dark disabled" value ="Add Screen" id="buttonAddScreen" />
+						<input type="submit" class="navElement custom button large dark disabled" value ="Add Screen" id="buttonAddScreen" />
 
 					</form>
 
 					<!-- Zone autocrop -->
 					<div class="navElement" id="autoCropCheckboxDiv">
-						<p>
+						<!--<p>
 							<input id="autoCropCheckbox" type="checkbox" class="disabled" />
 							Autocrop
-						</p>
+						</p>-->
+
+						<p>
+							<label for="autoCropCheckbox">Autocrop</label>
+							<input type="checkbox" class="slide-switch dark disabled" id="autoCropCheckbox">
+							<label for="autoCropCheckbox">
+								<span class="wrapper">
+									<span class="on">ON</span>
+									<span class="switch"></span>
+									<span class="off">OFF</span>
+								</span>
+							</label>
+				   	 </p>
 					</div>
 
 					<!-- Bouton Crop It -->
 					<div class="navElement" id="buttonCropItContainer">
-						<input type="button" class="button large dark disabled" value ="Crop It" id="buttonCropIt" />
+						<input type="button" class="custom button large dark disabled" value ="Crop It" id="buttonCropIt" />
 						<div class="spinner large" role="progressbar" id="cropItProgressBar"></div>
 					</div>
 
 					<!-- TOOL MENU -->
 					<div id="yourVideoContent">
-						<a class="button large dark disabled" role="button" id="buttonYourVideo" href="#button"><span id="buttonYourVideo">Your Video</span><span id="triangle"></span></a>
+						<a class="custom button large dark disabled" role="button" id="buttonYourVideo" href="#button"><span id="buttonYourVideo">Your Video</span><span id="triangle"></span></a>
 						
 						
 						<!-- TOOL BAR -->
@@ -174,35 +192,30 @@
 					</div>
 				</nav>
 				</div>
-				<input type="button" class="button large dark" value ="Upload your photo" id="buttonUploadYourPhoto" />
+
+
+				<div id="secondMenu">
+					<p id="secondMenuContent">
+						<span class="button-group large">
+							<a id="buttonUploadYourPhoto" class="button large dark" role="button">Upload your photo</a>
+						</span>
+						<span class="button-group large">
+							<a class="button start dark large" role="button" href="#button-bar">1 : 1</a>
+							<a class="button inside dark large" role="button" href="#button-bar">4 : 3</a>
+							<a class="button inside dark large" role="button" href="#button-bar">16 : 9</a>
+							<a class="button end dark large" role="button" href="#button-bar">16 : 10</a>
+						</span>
+					</p>
+				</div>
+
+
+
 
 				<div id="progressContainer">
 					<div id="progress">
 						<div class="bar" style="width: 0%;"></div>
 					</div>	
 				</div>		
-
-
-
-
-				<div id="main">
-		<h1>Upload Your Images</h1>
-		<form method="post" enctype="multipart/form-data"  action="upload.php">
-    		<input type="file" name="images" id="images" multiple />
-    		<button type="submit" id="btn">Upload Files!</button>
-    	</form>
-
-  	<div id="response"></div>
-		<ul id="image-list">
-
-		</ul>
-	</div>
-	
-
-  
-
-
-
 
 				<!-- VIDEO AREA -->
 				<div id="videoContent">
@@ -250,8 +263,21 @@
 		<div id="cache">
 		</div>
 		<div id="uploadingModal">
+			<input id="fileupload" type="file" name="files[]" data-url="server/php/" />
 
-<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+			<div id="main">
+				<h1>Upload Your Images</h1>
+				<form method="post" enctype="multipart/form-data"  action="upload.php">
+					<input type="file" name="images" id="images" multiple />
+					<button type="submit" id="btn">Upload Files!</button>
+				</form>
+
+		  		<div id="response">
+		  		</div>
+				<ul id="image-list">
+
+				</ul>
+			</div>
 		</div>
 
 		<div id="warningJavascriptNotEnabled">
