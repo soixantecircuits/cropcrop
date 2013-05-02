@@ -410,11 +410,8 @@ jQuery(function($){
 		updateSize: function ( id, width, height ) {
 			crops.list[id].width      = width;
 			crops.list[id].height     = height;
-
 			$('#inputWidth' + id).attr("placeholder", "W : " + crops.list[id].width);
 			$('#inputHeight' + id).attr("placeholder", "H : " + crops.list[id].height);
-
-
 		}
 	});
 	//

@@ -143,7 +143,7 @@
 						</p>-->
 
 						<p>
-							<label for="autoCropCheckbox">Autocrop</label>
+							<label id="autoCropCheckboxLabel" for="autoCropCheckbox">Autocrop</label>
 							<input type="checkbox" class="slide-switch dark disabled" id="autoCropCheckbox">
 							<label for="autoCropCheckbox">
 								<span class="wrapper">
