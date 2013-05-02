@@ -53,6 +53,24 @@
 				})
 			});
 
+
+			$('#fileupload').bind('fileuploadprogress', function (e, data) { 
+				
+					console.log("BLABLA PROG");
+				
+					        var progress = parseInt(data.loaded / data.total * 100, 10);
+					        $('#progress .bar').css(
+					            'width',
+					            progress + '%'
+        						);
+   							 
+				
+				});
+			
+
+
+			
+
 		});
 		</script>
 
@@ -82,6 +100,7 @@
 
 
 			<div id="body">
+
 				<div id="nav">
 				<nav>
 					<!-- Bouton upload -->
@@ -166,6 +185,11 @@
 					</div>
 				</div>
 
+				<div id="progress">
+   				 <div class="bar" style="width: 0%;"></div>
+   				 pppppp
+				</div>		
+				
 				<div id="thumbnailsContainer">
 					<div id="thumbnailsList">
 
@@ -180,14 +204,20 @@
 				</div>
 
 			</div>
-			<!-- BODY END -->
 
+
+			
+			<!-- BODY END -->
+				
 
 			<div id="footer">
 			<footer>
 				<div id="footerContent">
 					<p><a class="link dark" href="http://vimeo.com/soixantecircuits/videos/">&#169; 2013 Soixante circuits | All Rights Reserved</a></p>
 				</div>
+
+
+
 			</footer>
 			</div>
 
@@ -208,5 +238,7 @@
 
 		<div id="rouge">
 		</div>
+
+
 	</body>
 </html>
