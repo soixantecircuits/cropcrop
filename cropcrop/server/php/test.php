@@ -14,5 +14,5 @@ header('Content-Type: application/json');
 		echo json_encode($response);
  }
 
-else echo "ben j'ai rien neger";
+
 ?>

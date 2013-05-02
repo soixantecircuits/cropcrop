@@ -21,6 +21,8 @@
 		<script type="text/javascript" src="js/jquery.fileupload.js"></script>
 		<script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
 		<script type="text/javascript" src="js/scripts.js"></script>
+		<script type="text/javascript" src="js/upload.js"></script>
+
 
 		<script>
 		$(function () {
@@ -65,19 +67,14 @@
         		);
    			});
 
-
-
-			  /***********************/
-			 /*  User can upload his photo  */
-			/***********************/
-			$("#buttonUploadYourPhoto").click(function(event){
-				$("#yourPhotoUpload").trigger("click");
-			});
-			$("#yourPhotoUpload").change(function(event){
-				$("#yourPhotoForm").submit();
-			});
-
 		});
+
+
+
+
+
+
+		
 		</script>
 
 		<title>CROP CROP</title>
@@ -177,35 +174,35 @@
 					</div>
 				</nav>
 				</div>
-
-
-
-
-				<input id="buttonUploadYourPhoto" type="button" class="button large dark" value ="Upload your photo"/>
-
-<form id="yourPhotoForm" action="upload.php" enctype="multipart/form-data" method="post">
-<input id="yourPhotoUpload" name="fichier" size="30" type="file" />
-<input name="upload" type="submit" value="Uploader" />
-</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
+				<input type="button" class="button large dark" value ="Upload your photo" id="buttonUploadYourPhoto" />
 
 				<div id="progressContainer">
 					<div id="progress">
 						<div class="bar" style="width: 0%;"></div>
 					</div>	
 				</div>		
+
+
+
+
+				<div id="main">
+		<h1>Upload Your Images</h1>
+		<form method="post" enctype="multipart/form-data"  action="upload.php">
+    		<input type="file" name="images" id="images" multiple />
+    		<button type="submit" id="btn">Upload Files!</button>
+    	</form>
+
+  	<div id="response"></div>
+		<ul id="image-list">
+
+		</ul>
+	</div>
+	
+
+  
+
+
+
 
 				<!-- VIDEO AREA -->
 				<div id="videoContent">
@@ -253,7 +250,8 @@
 		<div id="cache">
 		</div>
 		<div id="uploadingModal">
-			<input id="fileupload" type="file" name="files[]" data-url="server/php/" />
+
+<input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
 		</div>
 
 		<div id="warningJavascriptNotEnabled">
