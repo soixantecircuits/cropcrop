@@ -191,7 +191,12 @@
 			<div id="footer">
 			<footer>
 				<div id="footerContent">
-					<p><a class="link dark" href="http://vimeo.com/soixantecircuits/videos/">&#169; 2013 Soixante circuits | All Rights Reserved</a></p>
+					<p>
+						<a class="link dark" href="http://vimeo.com/soixantecircuits/videos/">&#169; 2013 Soixante circuits | All Rights Reserved</a>
+					</p>
+					<p>
+						<a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_blue.png" alt="Mobile Analytics" /></a>
+					</p>
 				</div>
 			</footer>
 			</div>
@@ -226,8 +231,6 @@
 
 		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.js"></script>
-		<script type="text/javascript" src="js/vendor/jquery.ui.widget.js"></script>
-		<script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
 		<script type="text/javascript" src="js/jquery.fileupload.js"></script>
 		<script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
 		<script type="text/javascript" src="js/upload.js"></script>
@@ -280,18 +283,6 @@
    			});
 
 			// $("#autoCropCheckbox").is(':checked');
-
-			  /***********************/
-			 /*  User can upload his photo  */
-			/***********************/
-			$("#buttonUploadYourPhoto").click(function(event){
-				event.preventDefault();
-				$("#images").trigger("click");
-			});
-			$("#yourPhotoUpload").change(function(event){
-				event.preventDefault();
-				$("#btn").submit();
-			});
 
 		});
 		</script>

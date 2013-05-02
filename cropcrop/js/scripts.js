@@ -130,6 +130,18 @@ jQuery(function($){
 		console.log($(this).attr("id"));
 	});
 
+	  /*******************************/
+	 /*  User can upload his photo  */
+	/*******************************/
+	$("#buttonUploadYourPhoto").click(function(event){
+		event.preventDefault();
+		$("#images").trigger("click");
+	});
+	$("#yourPhotoUpload").change(function(event){
+		event.preventDefault();
+		$("#btn").submit();
+	});
+
 
 	/***********************************************/
 	/*                                             */
