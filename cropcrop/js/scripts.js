@@ -12,6 +12,8 @@ jQuery(function($){
 	crops.title = "None";
 	crops.list = [];
 
+	dataAStocker = "";
+
 
 	/***********************************************/
 	/*                                             */
@@ -148,10 +150,34 @@ jQuery(function($){
 			// Enable to user the use of interface
 			$().enableUserInterface();
 
+
+			$().thumbnails();
 			// Update Carousel
-			$().createCarousel();
+			//$().createCarousel();
 		}
 	});
+
+
+
+
+	//THUMBNAILS CREATION
+	jQuery.fn.extend({
+		thumbnails: function ( infos ) {
+			
+			$.ajax({
+						type: "POST",
+						data : dataAStocker,
+						url: './server/php/test2.php', success: function(response) {
+							
+							thumnbnailsinfos = response;
+							$().createCarousel();
+						}
+					});
+
+
+		}
+	});
+
 
 
 	//
@@ -238,9 +264,9 @@ jQuery(function($){
 			$("#carouselContainer").empty();
 
 			carouselContent = "";
-			carouselContent += '<li><img id="mini1" src="server/php/' + videoInformations.message.mini1 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
-			carouselContent += '<li><img id="mini2" src="server/php/' + videoInformations.message.mini2 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
-			carouselContent += '<li><img id="mini3" src="server/php/' + videoInformations.message.mini3 + '" alt="" width="' + videoInformations.message.miniwidth + '" height="' + videoInformations.message.miniheight + '" ></li>';
+			carouselContent += '<li><img id="mini1" src="server/php/' + thumnbnailsinfos.message.mini1 + '" alt="" width="' + thumnbnailsinfos.message.miniwidth + '" height="' + thumnbnailsinfos.message.miniheight + '" ></li>';
+			carouselContent += '<li><img id="mini2" src="server/php/' + thumnbnailsinfos.message.mini2 + '" alt="" width="' + thumnbnailsinfos.message.miniwidth + '" height="' + thumnbnailsinfos.message.miniheight + '" ></li>';
+			carouselContent += '<li><img id="mini3" src="server/php/' + thumnbnailsinfos.message.mini3 + '" alt="" width="' + thumnbnailsinfos.message.miniwidth + '" height="' + thumnbnailsinfos.message.miniheight + '" ></li>';
 
 			$("#carouselContainer").append(carouselContent);
 

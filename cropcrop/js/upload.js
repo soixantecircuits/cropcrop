@@ -45,7 +45,7 @@ $(function () {
 				processData: false,
 				contentType: false,
 				success: function (res) {
-					document.getElementById("response").innerHTML = res; 
+					console.log(res); 
 				}
 			});
 		}
