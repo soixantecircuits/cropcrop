@@ -107,23 +107,11 @@ jQuery(function($){
 	/***********************/
 	$("#videoCropListDiv").on("click", ".videoCropListDivElement",function(event){
 		var id = $(this).attr("id");
-		console.log(id);
-
 		if ( $("#cropNumber" + id).hasClass("topLayer") === false ){
 			$(".topLayer").removeClass("topLayer")
-			$(this).addClass("topLayer");
+			$("#cropNumber" + id).addClass("topLayer");
 			$("#cropNumber" + id).effect("highlight", {}, 1000);
 		}
-
-		
-
-		// $(".cropLayer").css({
-		// 	"z-index": "0"
-		// });
-		// $("#cropNumber" + id).css({
-		// 	"z-index": "1"
-		// });
-
 	});
 
 
