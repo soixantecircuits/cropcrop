@@ -48,6 +48,24 @@ $(function () {
 					console.log(res); 
 				}
 			});
+
+
+
+
+
+
+
+			$.ajax({
+			    url: "upload.php",
+			    data: formdata,
+				}).done(function(res) {
+			    console.log(res); 
+				});
+
+
+
+
+
 		}
 	}, false);
 });
