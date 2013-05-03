@@ -127,7 +127,7 @@ jQuery(function($){
 	});
 	$("#secondMenu").on("click", "#buttonFormat4_3", function(event){
 		event.preventDefault();
-		$().createFormatScreen( 4, 3 );
+		$().createFormatScreen( 1.33, 1 );
 	});
 	$("#secondMenu").on("click", "#buttonFormat16_9", function(event){
 		event.preventDefault();
@@ -548,25 +548,31 @@ jQuery(function($){
 	//
 	// CREATE FORMAT SCREEN
 	//
-	// $().createFormatScreen( formatW, formatH )
+	// $().createFormatScreen( ratioW, ratioH )
 	jQuery.fn.extend({
-		createFormatScreen: function ( formatW, formatH ) {
+		createFormatScreen: function ( ratioW, ratioH ) {
 			if ( $("#buttonCropIt").hasClass("disabled") === true ) {
 				$("#buttonCropIt").removeClass("disabled");
 			};
 
-			formatW                   = parseInt( formatW );
-			formatH                   = parseInt( formatH );
+			ratioW                    = parseInt( ratioW );
+			ratioH                    = parseInt( ratioH );
 
-			console.log( formatW + " : " + formatH);
+			console.log( ratioW + " : " + ratioH);
 
 			var id                    = crops.list.length;
 			var videoContentWidth     = parseInt( $('#videoContent').width() );
 			var videoContentHeight    = parseInt( $('#videoContent').height() );
-			var width                 = parseInt( $('#navInputTextWidth').val() );
-			var height                = parseInt( $('#navInputTextHeight').val() );
+			var width                 = ( ( videoContentWidth / 2 ) );
+			var height                = ( ( videoContentHeight / 2 ) );
 
-/* 
+			if ( width > height) {
+
+			} else {
+
+			}
+
+
 			crops.list.push({
 				screenId   : crops.list.length,
 				width      : width,
@@ -580,6 +586,7 @@ jQuery(function($){
 					0.5
 				],
 			});
+/* 
 
 
 			$('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
