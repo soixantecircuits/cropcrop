@@ -677,7 +677,7 @@ jQuery(function($){
 			height     = parseInt( unit );
 			width      = parseInt( unit * ratioW );
 
-			console.log("Infos " +unit +" "+ height +" "+  width);
+			// console.log("Infos " +unit +" "+ height +" "+  width);
 
 			crops.list.push({
 				screenId   : crops.list.length,
