@@ -31,7 +31,7 @@
 						<li><a href="https://www.facebook.com/pages/Soixante-circuits/148341911906454" title="Find us on Facebook"><img src="img/logoFacebook.png" /></a></li>
 						<li><a href="#"  title="Help"><img src="img/logoHelp.png" /></a></li>
 					</ul>
-					<h2 id="betaText"> ( BETA ) </h2>
+					<h2 id="betaText"> ( BETA ) * </h2>
 					<h1 class="title">Crop crop</h1>
 					<h2>Video cropping made easy</h2>
 				</div>
