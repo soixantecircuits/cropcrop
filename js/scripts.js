@@ -131,11 +131,11 @@ jQuery(function($){
 	});
 	$("#secondMenu").on("click", "#buttonFormat16_9", function(event){
 		event.preventDefault();
-		$().createFormatScreen( 16, 9 );
+		$().createFormatScreen( 1.77, 1 );
 	});
 	$("#secondMenu").on("click", "#buttonFormat16_10", function(event){
 		event.preventDefault();
-		$().createFormatScreen( 16, 10 );
+		$().createFormatScreen( 1.618, 1 );
 	});
 
 	  /*******************************/
@@ -505,45 +505,7 @@ jQuery(function($){
 			});
 
 
-			$('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
-			$('#cropNumber' + id).css({
-				'position'           : 'absolute',
-				"background-color"   : 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
-				'top'                : crops.list[id].marginTop + "px",
-				'left'               : crops.list[id].marginLeft + "px",
-				'width'              : crops.list[id].width + "px", 
-				'height'             : crops.list[id].height + "px"
-			});
-			// Draggable, resizable
-			$('#cropNumber' + id)
-				.resizable({
-					resize: function( event, ui ) {
-						var width = $('#cropNumber'+id).width();
-						var height = $('#cropNumber'+id).height();
-
-						// Function update
-						$().updateSize( id, width, height );
-					},
-					containment : $("#videoContent"),
-				}) // End resizable
-				.draggable({ //make it "draggable" and "resizable"
-					drag: function(event, ui) { // What happen when dragged
-						cropNumberOffsetTop       = parseInt($('#cropNumber'+id).offset().top);
-						cropNumberOffsetLeft      = parseInt($('#cropNumber'+id).offset().left);
-
-						videoContentOffsetTop     = parseInt($('#videoContent').offset().top);
-						videoContentOffsetLeft    = parseInt($('#videoContent').offset().left);
-
-						calculPosTop              = cropNumberOffsetTop - videoContentOffsetTop;
-						calculPosLeft             = cropNumberOffsetLeft - videoContentOffsetLeft;
-
-						// Function update
-						$().updatePos( id, calculPosTop, calculPosLeft );
-					},
-					containment : $("#videoContent"),
-				}); // End draggable
-
-			$().addToolbarInfos( id );
+			$().addCropLayerToUI( id )
 		}
 	});
 
@@ -559,23 +521,26 @@ jQuery(function($){
 				$("#buttonCropIt").removeClass("disabled");
 			};
 
-			ratioW                    = parseInt( ratioW );
-			ratioH                    = parseInt( ratioH );
-
-			console.log( ratioW + " : " + ratioH);
+			ratioW                    = parseFloat( ratioW );
+			ratioH                    = parseFloat( ratioH );
 
 			var id                    = crops.list.length;
 			var videoContentWidth     = parseInt( $('#videoContent').width() );
 			var videoContentHeight    = parseInt( $('#videoContent').height() );
-			var width                 = ( ( videoContentWidth / 2 ) );
-			var height                = ( ( videoContentHeight / 2 ) );
+			var unit                  = "";
+			var width                 = "";
+			var height                = "";
 
-			if ( width > height) {
-
-			} else {
-
+			if ( videoContentWidth > videoContentHeight) {
+				unit   = ( videoContentHeight / 2 );
+			}
+			else{
+				unit   = ( videoContentWidth / 2 );
 			}
 
+			unit       = unit / 2 ;
+			height     = parseInt( unit );
+			width      = parseInt( unit * ratioW );
 
 			crops.list.push({
 				screenId   : crops.list.length,
@@ -590,8 +555,19 @@ jQuery(function($){
 					0.5
 				],
 			});
-/* 
 
+			$().addCropLayerToUI( id )
+		}
+	});
+
+
+
+	//
+	// ADD CROP LAYER TO UI
+	//
+	// $().addCropLayerToUI( id )
+	jQuery.fn.extend({
+		addCropLayerToUI: function ( id ) {
 
 			$('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
 			$('#cropNumber' + id).css({
@@ -602,6 +578,7 @@ jQuery(function($){
 				'width'              : crops.list[id].width + "px", 
 				'height'             : crops.list[id].height + "px"
 			});
+
 			// Draggable, resizable
 			$('#cropNumber' + id)
 				.resizable({
@@ -632,7 +609,6 @@ jQuery(function($){
 				}); // End draggable
 
 			$().addToolbarInfos( id );
-*/
 		}
 	});
 
