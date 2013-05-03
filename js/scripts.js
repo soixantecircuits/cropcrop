@@ -125,6 +125,10 @@ jQuery(function($){
 		event.preventDefault();
 		$().createFormatScreen( 1, 1 );
 	});
+	$("#secondMenu").on("click", "#buttonFormat3_2", function(event){
+		event.preventDefault();
+		$().createFormatScreen( 1.5, 1 );
+	});
 	$("#secondMenu").on("click", "#buttonFormat4_3", function(event){
 		event.preventDefault();
 		$().createFormatScreen( 1.33, 1 );
@@ -132,6 +136,10 @@ jQuery(function($){
 	$("#secondMenu").on("click", "#buttonFormat16_9", function(event){
 		event.preventDefault();
 		$().createFormatScreen( 1.77, 1 );
+	});
+	$("#secondMenu").on("click", "#buttonFormat5_3", function(event){
+		event.preventDefault();
+		$().createFormatScreen( 1.66, 1 );
 	});
 	$("#secondMenu").on("click", "#buttonFormat16_10", function(event){
 		event.preventDefault();
@@ -259,8 +267,10 @@ jQuery(function($){
 			// Toolbar 2
 			$("#buttonUploadYourPhoto").removeClass("disabled");
 			$("#buttonFormat1_1").removeClass("disabled");
+			$("#buttonFormat3_2").removeClass("disabled");
 			$("#buttonFormat4_3").removeClass("disabled");
 			$("#buttonFormat16_9").removeClass("disabled");
+			$("#buttonFormat5_3").removeClass("disabled");
 			$("#buttonFormat16_10").removeClass("disabled");
 		}
 	});
@@ -521,11 +531,7 @@ jQuery(function($){
 				$("#buttonCropIt").removeClass("disabled");
 			};
 
-
-			ratioW                    = parseInt( ratioW );
-			ratioH                    = parseInt( ratioH );
-
-			//console.log( ratioW + " : " + ratioH);
+			// console.log( ratioW + " : " + ratioH);
 
 			ratioW                    = parseFloat( ratioW );
 			ratioH                    = parseFloat( ratioH );
@@ -548,6 +554,8 @@ jQuery(function($){
 			unit       = unit / 2 ;
 			height     = parseInt( unit );
 			width      = parseInt( unit * ratioW );
+
+			console.log("Infos " +unit +" "+ height +" "+  width);
 
 			crops.list.push({
 				screenId   : crops.list.length,

@@ -31,6 +31,7 @@
 						<li><a href="https://www.facebook.com/pages/Soixante-circuits/148341911906454" title="Find us on Facebook"><img src="img/logoFacebook.png" /></a></li>
 						<li><a href="#"  title="Help"><img src="img/logoHelp.png" /></a></li>
 					</ul>
+					<h2 id="betaText"> ( BETA ) </h2>
 					<h1 class="title">Crop crop</h1>
 					<h2>Video cropping made easy</h2>
 				</div>
@@ -74,7 +75,7 @@
 									<span class="off">OFF</span>
 								</span>
 							</label>
-				   	 </p>
+				   		</p>
 					</div>
 
 					<!-- Bouton Crop It -->
@@ -131,10 +132,12 @@
 							<a id="buttonUploadYourPhoto" class="button large dark disabled" role="button">Upload your photo</a>
 						</span>
 						<span class="button-group large">
-							<a role="button" class="button start dark large disabled" id="buttonFormat1_1" href="#button-bar">1 : 1</a>
-							<a role="button" class="button inside dark large disabled" id="buttonFormat4_3" href="#button-bar">4 : 3</a>
-							<a role="button" class="button inside dark large disabled" id="buttonFormat16_9" href="#button-bar">16 : 9</a>
-							<a role="button" class="button end dark large disabled" id="buttonFormat16_10" href="#button-bar">16 : 10</a>
+							<a role="button" class="button start dark large disabled" id="buttonFormat1_1" >1 : 1</a>
+							<a role="button" class="button inside dark large disabled" id="buttonFormat3_2" >3 : 2</a>
+							<a role="button" class="button inside dark large disabled" id="buttonFormat4_3" >4 : 3</a>
+							<a role="button" class="button inside dark large disabled" id="buttonFormat16_9" >16 : 9</a>
+							<a role="button" class="button inside dark large disabled" id="buttonFormat5_3" >5 : 3</a>
+							<a role="button" class="button end dark large disabled" id="buttonFormat16_10" >16 : 10</a>
 						</span>
 					</p>
 				</div>

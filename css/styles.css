@@ -338,3 +338,8 @@ body {
 #autoCropCheckboxLabel{
 	display: block;
 	margin-top: -8px;}
+
+#betaText{
+	float: right;
+	padding-top: 18px;
+	padding-right: 600px;}
