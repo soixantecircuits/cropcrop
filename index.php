@@ -263,7 +263,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 			// SCRIPT WHEN UPLOAD DONE
 			$('#fileupload').bind('fileuploaddone', function (e, data) { 
 				console.log("----------------");
-				console.log(data);
+				
 				$.each(data.result.files, function (index, file) {
 					var _self=this;
 
@@ -282,6 +282,18 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					});
 				})
 			});
+
+			
+
+			$('#fileupload').bind('fileuploadsubmit', function (e, data) { 
+				console.log("GRRRRRRRRRRRRRRRRRRr");
+				console.log(data.files[0].name);
+				
+				
+				
+
+   			});
+
 
 
 			$('#fileupload').bind('fileuploadprogress', function (e, data) { 

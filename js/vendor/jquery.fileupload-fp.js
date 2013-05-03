@@ -39,12 +39,13 @@
         options: {
             // The list of file processing actions:
             process: [
-            /*
+            
                 {
                     action: 'load',
-                    fileTypes: /^image\/(gif|jpeg|png)$/,
+                    fileTypes: /^video\/(mpg|mpeg|mp4|avi)$/,
                     maxFileSize: 20000000 // 20MB
                 },
+                /*
                 {
                     action: 'resize',
                     maxWidth: 1920,
