@@ -229,10 +229,10 @@
 
 
 		<!-- Import libraries -->
-		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-		<script type="text/javascript" src="js/jquery-ui.js"></script>
-		<script type="text/javascript" src="js/jquery.fileupload.js"></script>
-		<script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
+		<script type="text/javascript" src="js/vendor/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="js/vendor/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/vendor/jquery.fileupload.js"></script>
+		<script type="text/javascript" src="js/vendor/jcarousellite_1.0.1.js"></script>
 		<!-- Import Mixpanel -->
 		<script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
 typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
