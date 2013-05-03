@@ -40,7 +40,7 @@ $(function () {
 		if (formdata) {
 
 				$.ajax({
-				  url: "upload.php",
+				  url: "./server/php/upload.php",
 				  type: "POST",
 				data: formdata,
 				processData: false,
