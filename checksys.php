@@ -26,13 +26,13 @@ echo " <br> <br> FFMpeg is required on server for CropCrop, even if it is deprec
 echo "  Your actual version of FFMpeg is : <br> <pre>";
 
 
-;
+
 echo shell_exec('ffmpeg -version');
 
 echo "</pre>";
 
 echo " <br> <br> Zip version on server for CropCrop is : Zip 3.0 <br>";
-echo "Your actual version is  :<pre>";
+echo "Your actual version is :<pre>";
 
 
 echo shell_exec('zip --version 2>&1');
