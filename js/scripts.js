@@ -165,7 +165,7 @@ jQuery(function($){
 	// $().updateVideoInformations( infos )
 	jQuery.fn.extend({
 		updateVideoInformations: function ( infos ) {
-			console.log("$().updateVideoInformations() ------------");
+			
 			console.log(infos);
 
 			videoInformations                   = infos;
