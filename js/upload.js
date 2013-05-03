@@ -47,7 +47,7 @@ $(function () {
 				contentType: false,
 				}).done(function ( data ) {
 				  if( console && console.log ) {
-				    console.log(data);
+				    
 				  }
 				});
 					
