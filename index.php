@@ -12,7 +12,7 @@
 		<link rel="stylesheet" media="screen" type="text/css" href="css/jquery-ui.css" />
 		<link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
 		
-		<link rel="icon" type="image/png" href="img/favicon.ico" />
+		<link rel="icon" type="image/png" href="img/favicon_static.png" />
 
 		<title>CROP CROP</title>
 
