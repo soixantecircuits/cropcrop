@@ -38,18 +38,6 @@ $(function () {
 		}
 	
 		if (formdata) {
-			$.ajax({
-				url: "upload.php",
-				type: "POST",
-				data: formdata,
-				processData: false,
-				contentType: false,
-				success: function (res) {
-					console.log(res); 
-				}
-			});
-
-
 
 				$.ajax({
 				  url: "upload.php",
@@ -63,14 +51,6 @@ $(function () {
 				  }
 				});
 					
-						
-
-
-			
-
-
-
-
 
 		}
 	}, false);
