@@ -1,8 +1,130 @@
 jQuery(function($){
 	// "use strict";
-	
 
-	/*************/
+	/**********************/
+	/* old upload.js  */
+	/**********************/
+
+
+	$(function () {
+		var input = document.getElementById("images"), 
+			formdata = false;
+
+		function showUploadedItem (source) {
+	  		var list = document.getElementById("image-list"),
+		  		li   = document.createElement("li"),
+		  		img  = document.createElement("img");
+	  		img.src = source;
+	  		li.appendChild(img);
+			list.appendChild(li);
+		}   
+
+		if (window.FormData) {
+	  		formdata = new FormData();
+	  		document.getElementById("btn").style.display = "none";
+		}
+		
+	 	input.addEventListener("change", function (evt) {
+	 		document.getElementById("response").innerHTML = "Uploading . . ."
+	 		var i = 0, len = this.files.length, img, reader, file;
+		
+			for ( ; i < len; i++ ) {
+				file = this.files[i];
+		
+				if (!!file.type.match(/image.*/)) {
+					if ( window.FileReader ) {
+						reader = new FileReader();
+						reader.onloadend = function (e) { 
+							showUploadedItem(e.target.result, file.fileName);
+						};
+						reader.readAsDataURL(file);
+					}
+					if (formdata) {
+						formdata.append("images[]", file);
+					}
+				}	
+			}
+		
+			if (formdata) {
+				$.ajax({
+					url: "./server/php/upload.php",
+					type: "POST",
+					data: formdata,
+					processData: false,
+					contentType: false,
+				}).done(function ( data ) {
+					if( console && console.log ) {
+					}
+				});
+						
+
+			}
+		}, false);
+	});
+
+
+/**********************/
+/**********************/
+/*   file upload      */
+/**********************/
+
+		$(function () {
+
+			// SCRIPT UPLOAD DONE
+			$('#fileupload').fileupload({
+				dataType: 'json',
+				done: function (e, data) {
+					$.each ( data.result.files, function (index, file) {
+						// $('<p/>').text(file.name).appendTo(document.body);
+					});
+				}
+			});
+
+			// SCRIPT WHEN UPLOAD DONE
+			$('#fileupload').bind('fileuploaddone', function (e, data) {
+				$.each(data.result.files, function (index, file) {
+					var _self=this;
+
+					$.ajax({
+						url: './server/php/test.php',
+						type: "POST",
+						data : _self,
+					
+					}).done(function ( response ) {
+						dataAStocker = _self;
+						$().updateVideoInformations( response );
+					});
+				})
+			});
+
+
+			// script when subimitted file ! 
+			$('#fileupload').bind('fileuploadsubmit', function (e, data) { 
+				
+				var ext = data.files[0].name.split('.').pop();
+
+				if(ext != (('mp4') || ('avi') || ('mpg') || ('mpeg')) )  {
+					alert("not good extension");
+				}
+			});
+
+
+
+			$('#fileupload').bind('fileuploadprogress', function (e, data) {
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				$('#progress .bar').css(
+					'width', progress + '%'
+				);
+				$("#progressBarText").text("Downloading your video file : "+progress+" %");
+   			});
+
+			// $("#autoCropCheckbox").is(':checked');
+		});
+/**********************/
+/**********************/
+/**********************/
+/**********************/
+
 
 	var serverPath = "server/php/";
 	var screensCropList = [];

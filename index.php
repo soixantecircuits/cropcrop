@@ -243,85 +243,10 @@ b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 		<!-- Our scripts :D -->
-		<script type="text/javascript" src="js/upload.js"></script>
-		<script type="text/javascript" src="js/scripts.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
 
 		<script type="text/javascript">
-			mixpanel.track("Video play");
-		</script>
-
-		<script>
-		$(function () {
-
-			// SCRIPT UPLOAD DONE
-			$('#fileupload').fileupload({
-				dataType: 'json',
-				done: function (e, data) {
-					$.each ( data.result.files, function (index, file) {
-						// $('<p/>').text(file.name).appendTo(document.body);
-					});
-				}
-			});
-
-			// SCRIPT WHEN UPLOAD DONE
-			$('#fileupload').bind('fileuploaddone', function (e, data) { 
-								
-				$.each(data.result.files, function (index, file) {
-					var _self=this;
-
-			   	$.ajax({
-				  url: './server/php/test.php',
-				  type: "POST",
-				  data : _self,
-				
-				}).done(function ( response ) {
-				  	
-							dataAStocker = _self;
-							$().updateVideoInformations( response );
-
-						  					});
-
-
-				})
-			});
-
-
-			// script when subimitted file ! 
-			$('#fileupload').bind('fileuploadsubmit', function (e, data) { 
-				
-				var ext = data.files[0].name.split('.').pop();
-
-				if(ext != (('mp4') || ('avi') || ('mpg') || ('mpeg')) )  {
-
-
-						alert("not good extension");
-
-
-			}
-
-
-
-
-				
-				
-				
-
-   			});
-
-
-
-			$('#fileupload').bind('fileuploadprogress', function (e, data) { 
-				
-				var progress = parseInt(data.loaded / data.total * 100, 10);
-				$('#progress .bar').css(
-					'width', progress + '%'
-				);
-				$("#progressBarText").text("Downloading your video file : "+progress+" %");
-   			});
-
-			// $("#autoCropCheckbox").is(':checked');
-
-		});
+			// mixpanel.track("Video play");
 		</script>
 	</body>
 </html>
