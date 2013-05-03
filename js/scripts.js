@@ -521,15 +521,15 @@ jQuery(function($){
 				$("#buttonCropIt").removeClass("disabled");
 			};
 
-<<<<<<< HEAD
+
 			ratioW                    = parseInt( ratioW );
 			ratioH                    = parseInt( ratioH );
 
 			//console.log( ratioW + " : " + ratioH);
-=======
+
 			ratioW                    = parseFloat( ratioW );
 			ratioH                    = parseFloat( ratioH );
->>>>>>> 3e299f939503f2d26d321e303f1621a507adbdd7
+
 
 			var id                    = crops.list.length;
 			var videoContentWidth     = parseInt( $('#videoContent').width() );
