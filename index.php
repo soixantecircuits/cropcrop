@@ -262,8 +262,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 			// SCRIPT WHEN UPLOAD DONE
 			$('#fileupload').bind('fileuploaddone', function (e, data) { 
-				console.log("----------------");
-				
+								
 				$.each(data.result.files, function (index, file) {
 					var _self=this;
 
@@ -273,13 +272,10 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				  data : _self,
 				
 				}).done(function ( response ) {
-				  	console.log(response);
+				  	
 							dataAStocker = _self;
-							console.log("");
-							console.log("fileuploaddone");
-							console.log("");
-
 							$().updateVideoInformations( response );
+
 						  					});
 
 
@@ -289,7 +285,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 			// script when subimitted file ! 
 			$('#fileupload').bind('fileuploadsubmit', function (e, data) { 
-				console.log(data.files);
+				
 				var ext = data.files[0].name.split('.').pop();
 
 				if(ext != (('mp4') || ('avi') || ('mpg') || ('mpeg')) )  {

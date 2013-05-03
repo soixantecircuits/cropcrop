@@ -736,7 +736,7 @@
             response.textStatus = options.textStatus = textStatus;
             response.jqXHR = options.jqXHR = jqXHR;
             this._trigger('done', null, options);
-            console.log("UPLoad");
+            
         },
 
         _onFail: function (jqXHR, textStatus, errorThrown, options) {

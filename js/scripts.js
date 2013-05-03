@@ -1,6 +1,6 @@
 jQuery(function($){
 	// "use strict";
-	console.log("jQuery is ok.");
+	
 
 	/*************/
 
@@ -166,7 +166,7 @@ jQuery(function($){
 	jQuery.fn.extend({
 		updateVideoInformations: function ( infos ) {
 			
-			console.log(infos);
+			
 
 			videoInformations                   = infos;
 			videoInformations.message.filename  = videoInformations.message.filename.replaceAll('\'','');
@@ -360,7 +360,7 @@ jQuery(function($){
 	// $().addToolbarInfos( id )
 	jQuery.fn.extend({
 		addToolbarInfos: function ( id ) {
-			console.log("   "+crops.list[id]);
+			//console.log("   "+crops.list[id]);
 			if (!crops.list[id]) {
 				return false;
 			};
@@ -562,7 +562,7 @@ jQuery(function($){
 			ratioW                    = parseInt( ratioW );
 			ratioH                    = parseInt( ratioH );
 
-			console.log( ratioW + " : " + ratioH);
+			//console.log( ratioW + " : " + ratioH);
 
 			var id                    = crops.list.length;
 			var videoContentWidth     = parseInt( $('#videoContent').width() );
