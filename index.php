@@ -287,11 +287,13 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 			});
 
 
-
+			// script when subimitted file ! 
 			$('#fileupload').bind('fileuploadsubmit', function (e, data) { 
-				console.log("GRRRRRRRRRRRRRRRRRRr");
-				console.log(data);
-				console.log(data.files[0].name);
+				var ext = data.files[0].name.split('.').pop();
+				if(ext != (('mp4') || ('avi') || ('mpg') || ('mpeg')) )  {alert('mauvaise extension');}
+
+
+
 
 				
 				
