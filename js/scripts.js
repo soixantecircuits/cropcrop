@@ -191,19 +191,19 @@ jQuery(function($){
 
 	//THUMBNAILS CREATION
 	jQuery.fn.extend({
-		thumbnails: function ( infos ) {
-			
-			$.ajax({
-				type: "POST",
+		thumbnails: function ( infos ) {			
+
+
+				$.ajax({
+				  url: './server/php/test2.php',
+				  type: "POST",
 				data : dataAStocker,
-				url: './server/php/test2.php', success: function(datas) {
-					console.log(datas)
-					thumnbnailsinfos = datas;
+				
+				}).done(function ( datas ) {
+				  	thumnbnailsinfos = datas;
 					$().createCarousel();
 					$("#progressBarText").text("You can now add screens to crop with video");
-				}
-			});
-
+				});
 
 		}
 	});
@@ -327,24 +327,28 @@ jQuery(function($){
 	//
 	// $().sendCrop( infos )
 	jQuery.fn.extend({
+
 		sendCrop: function ( jsondata ) {
 			// console.log(jsondata);
 			$("#buttonCropIt").hide();
 			$("#cropItProgressBar").fadeIn();
 
-			var jsoninfo = jsondata;
-			$.ajax({
-				type: "POST",
+
+
+				var jsoninfo = jsondata;
+				$.ajax({
+				  url: './server/php/crop.php',
+				  type: "POST",
 				data: { json: jsoninfo },
-				url: './server/php/crop.php', success: function(response) {
-					$('#buttonDownloadIt').attr("href","server/php/download.php?filename="+response);
+				
+				}).done(function ( datas ) {
+				  	$('#buttonDownloadIt').attr("href","server/php/download.php?filename="+datas);
 					$('#buttonDownloadItInput').removeClass("disabled");
 					$("#buttonYourVideo").effect("highlight", {}, 1000);
 					$("#buttonDownloadItInput").effect("highlight", {}, 1000);
 					$("#cropItProgressBar").hide();
 					$("#buttonCropIt").fadeIn();
-				}
-			});
+				});
 		}
 	});
 
