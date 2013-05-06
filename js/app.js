@@ -876,36 +876,27 @@ jQuery(function($){
 	//
 	// Animated favicon
 	//
-	// $().animateFavicon( newPath );
+	// $().animateFavicon();
 	jQuery.fn.extend({
 		animateFavicon: function () {
 			var i = 0;
-			$('#test1').timer({
-				delay: 1000,
+			$('html').timer({
+				delay: 400,
+				repeat: true,
 				callback: function( index ) {
 					$().changeFavicon( faviconAnimated[i] );
 					i ++;
+					if ( i == 16){
+						i = 0;
+					}
+					// console.log(i)
 				}
 			});
-
-
-			for (var i = 0; i < faviconAnimated.length; i++) {
-				console.log( faviconAnimated[i] );
-				$().changeFavicon( faviconAnimated[i] );
-				return false;
-			};
 		}
 	});
 
 // jQuery end
 });
-
-
-
-
-
-
-
 
 
 		// $("#autoCropCheckbox").is(':checked');
