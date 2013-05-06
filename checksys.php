@@ -45,15 +45,15 @@
 
 				<!-- Start Server Permission Control -->
 				<p>
-					<span id="checksysImportant">CropCrop need server folders to be writable and readable</span>.
+					<span class="checksysImportant">CropCrop need server folders to be writable and readable</span>.
 				</p>
 				<p>
 					<?php
 						if (is_writable('server') && is_readable('server')) {
-							echo '<pre><span id="checksysInfo">Server permissions : <span id="checksysImportant"><span id="checksysOk">Writable and Readable</span></pre>';
+							echo '<pre><span class="checksysPadding checksysInfo">Server permissions : <span class="checksysImportant"><span class="checksysOk">Writable and Readable</span></pre>';
 						}
 						else {
-							echo '<pre><span id="checksysInfo">Server permissions : <span id="checksysImportant"><span id="checksysError">Folder non-writable or readable</span></pre>';
+							echo '<pre><span class="checksysPadding checksysInfo">Server permissions : <span class="checksysImportant"><span class="checksysError">Folder non-writable or readable</span></pre>';
 						}
 					?>
 				</p>
@@ -63,12 +63,16 @@
 
 				<!-- Start Python Version Control -->
 				<p>
-					<span id='checksysImportant'>Python 2.7.3</span> is required. Your actual version is : 
+					<span class='checksysImportant'>Python 2.7.3</span> is required. Your actual version is : 
 				</p>
 				<p>
 					<?php
 						$output = shell_exec('python --version 2>&1');
-						echo "<pre id='checksysInfo'>$output</pre>";
+						if ( preg_match( "command not found" , $output ) ) {
+							echo "<pre class='checksysPadding checksysError'>$output</pre>";
+						} else {
+							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
+						}
 					?>
 				</p>
 				<!-- End Python Version Control -->
@@ -77,12 +81,16 @@
 
 				<!-- Start MediaInfo Version Control -->
 				<p>
-					<span id='checksysImportant'>MediaInfo v0.7.52</span> is required. Your actual version is :
+					<span class='checksysImportant'>MediaInfo v0.7.52</span> is required. Your actual version is :
 				</p>
 				<p>
 					<?php
 						$output = shell_exec('mediainfo --version 2>&1');
-						echo "<pre id='checksysInfo'>$output</pre>"
+						if ( preg_match( "command not found" , $output ) ) {
+							echo "<pre class='checksysPadding checksysError'>$output</pre>";
+						} else {
+							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
+						}
 					?>
 				</p>
 				<!-- End MediaInfo Version Control -->
@@ -91,12 +99,16 @@
 				
 				<!-- Start FFmpeg Version Control -->
 				<p>
-					<span id='checksysImportant'>FFMpeg 1.0</span> is required even if deprecated. Your actual version is :
+					<span class='checksysImportant'>FFMpeg 1.0</span> is required even if deprecated. Your actual version is :
 				</p>
 				<p>
 					<?php
 						$output = shell_exec('ffmpeg -version');
-						echo "<pre id='checksysInfo'>$output</pre>"
+						if ( preg_match( "command not found" , $output ) ) {
+							echo "<pre class='checksysPadding checksysError'>$output</pre>";
+						} else {
+							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
+						}
 					?>
 				</p>
 				<!-- End FFmpeg Version Control -->
@@ -105,12 +117,16 @@
 
 				<!-- Start Zip Version Control -->
 				<p>
-					<span id='checksysImportant'>Zip 3.0</span> is required. Your actual version is :<br />
+					<span class='checksysImportant'>Zip 3.0</span> is required. Your actual version is :<br />
 				</p>
 				<p>
 					<?php
 						$output = shell_exec('zip --version 2>&1');
-						echo "<pre id='checksysInfo'>$output</pre>"
+						if ( preg_match( "command not found" , $output ) ) {
+							echo "<pre class='checksysPadding checksysError'>$output</pre>";
+						} else {
+							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
+						}
 					?>
 				</p>
 				<!-- End Zip Version Control -->

@@ -367,16 +367,19 @@ body {
 	margin-right: auto;
 }
 
-#checksysInfo{
+.checksysPadding {
 	padding-left: 32px;
+}
+
+.checksysInfo{
 	color: #5DC1FF;
 }
-#checksysError{
+.checksysError{
 	color: #F00;
 }
-#checksysOk{
+.checksysOk{
 	color: #0F0;
 }
-#checksysImportant{
+.checksysImportant{
 	color: #FF0;
 }
