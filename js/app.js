@@ -805,7 +805,7 @@ jQuery(function($){
 
 
 	//
-	// 
+	// DISPLAY MODAL WITH DESIRED INFORMATIONS
 	//
 	// $().displayModal( title, text )
 	jQuery.fn.extend({
@@ -821,6 +821,19 @@ jQuery(function($){
 
 			$('#cache').fadeIn();
 			$('#informationModal').slideDown();
+		}
+	});
+
+
+
+	//
+	// HIDE MODALE WINDOW
+	//
+	// $().hideModal( )
+	jQuery.fn.extend({
+		hideModal: function (  ) {
+			$('#informationModal').slideUp();
+			$('#cache').fadeOut();
 		}
 	});
 
