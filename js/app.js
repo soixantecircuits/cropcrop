@@ -94,20 +94,20 @@ jQuery(function($){
 				});
 			})
 		});
-			// script when subimitted file ! 
-		$('#fileupload').bind('fileuploadsubmit', function (e, data) { 
 			
-			var ext = data.files[0].name.split('.').pop();
-				if(ext != (('mp4') || ('avi') || ('mpg') || ('mpeg')) )  {
-				alert("not good extension");
-			}
-		});
+
+
 		$('#fileupload').bind('fileuploadprogress', function (e, data) {
 			var progress = parseInt(data.loaded / data.total * 100, 10);
 			$('#progress .bar').css(
 				'width', progress + '%'
+
 			);
 			$("#progressBarText").text("Downloading your video file : "+progress+" %");
+			if (progress == 100) {
+				$("#progressBarText").text("Creating thumbnails...");
+
+			}
   		});
 	});
 
@@ -344,7 +344,7 @@ jQuery(function($){
 			// Enable to user the use of interface
 			$().enableUserInterface();
 
-			$("#progressBarText").text("Creating thumbnails...");
+			
 			$().thumbnails();
 			// Update Carousel
 			//$().createCarousel();
