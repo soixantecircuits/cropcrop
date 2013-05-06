@@ -147,7 +147,8 @@
                     
                     if (ext){
                      
-                    data.submit(); }                                                                       
+                    data.submit(); 
+                    $().addVideoContentLoadingSpinner(); }                                                                       
 
 
                 }

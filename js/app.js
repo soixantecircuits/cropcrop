@@ -775,7 +775,7 @@ jQuery(function($){
 
 			target = target.split('.').pop();
 			var control = false; 
-			 console.log("pendant");
+			
 			for (var i = 0 ; i < arrayOfReferences.length ; i ++ ){
 				if ( target === arrayOfReferences[i] ) {
 					control = true;
