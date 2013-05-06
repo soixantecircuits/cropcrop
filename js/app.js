@@ -47,7 +47,7 @@ jQuery(function($){
 			reader.onloadend = function (e) { 
 							showUploadedItem(e.target.result, file.fileName);
 						};
-			
+
 			if (formdata) {
 				$.ajax({
 					url: "./server/php/upload.php",
@@ -147,7 +147,7 @@ jQuery(function($){
 		if (hook) {
 			return "Video uploaded, are you sure?";
 		}
-	}
+	};
 /**********************/
 /**********************/
 
