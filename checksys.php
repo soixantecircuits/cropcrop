@@ -46,9 +46,9 @@ echo 'CropCrop need "Server" folder to be writable and readable.<br><br>';
 echo 'Status of "Server" folder : ';
 
 if (is_writable('server') && is_readable('server')) {
-    echo ' Writable and Readable.';
+    echo ' .................................................................................................................  OK : Writable and Readable';
 } else {
-    echo 'Folder not accessible';
+    echo '....................................................................................................................................... Folder non-writable or readable';
 }
 
 echo "<br><br><br>";

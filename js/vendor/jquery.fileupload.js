@@ -148,7 +148,8 @@
                     if (ext){
                      
                     data.submit(); 
-                    $().addVideoContentLoadingSpinner(); }                                                                       
+                    $().addVideoContentLoadingSpinner(); 
+                        hook = true; }                                                                       
 
 
                 }
