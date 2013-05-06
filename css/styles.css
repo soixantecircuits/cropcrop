@@ -345,8 +345,16 @@ body {
 	color: #5DC1FF;
 	font-size: 14px;}
 
+
+
+/*****************************/
+
 #checksysPhpContent{
 	width: 960px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#checksysInfo{
+	color: #5DC1FF;
 }
