@@ -255,18 +255,5 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 		<script type="text/javascript">
 			// mixpanel.track("Video play");
 		</script>
-
-	    <script type="text/javascript">
-	      var hook = true;
-	      window.onbeforeunload = function() {
-	        if (hook) {
-	          return "Did you save your stuff?"
-	        }
-	      }
-	      function unhook() {
-	        hook=false;
-	      }
-	    </script>
-
 	</body>
 </html>

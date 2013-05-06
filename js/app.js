@@ -113,6 +113,14 @@ jQuery(function($){
 
 /**********************/
 /**********************/
+
+	var hook = false;
+
+	window.onbeforeunload = function() {
+		if (hook) {
+			return "Video uploaded, are you sure?"
+		}
+	}
 /**********************/
 /**********************/
 
