@@ -281,7 +281,7 @@ jQuery(function($) {
 
 	/***************************/
 	/*                         */
-	/*  Video format function  */
+	/*  Video format function  /
 	/*                         */
 	/***************************/
 	$("#secondMenu").on("click", "#buttonFormat1_1", function(event) {
