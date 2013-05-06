@@ -239,8 +239,7 @@ jQuery(function($){
 
 	$('#cache').click(function(event){
 		event.preventDefault();
-		$('#cache').fadeOut();
-		$('#informationModal').fadeOut();
+		$().hideModal();
 	});
 
 	$("#addScreenForm").submit(function(event){
