@@ -137,15 +137,7 @@ jQuery(function($){
 	videoExtensionsAllowed = [
 		'mpg',
 		'avi',
-
-		'mp4',
-
-
-		'',
-
-
-		'',
-
+		'mp4'
 	];
 
 
@@ -164,8 +156,9 @@ jQuery(function($){
 	/*******************/
 	$('#cropItProgressBar').hide();
 	$('#YourVideoToolbar').hide();
+	$('#hiddenElements').hide();
 	$('#cache').hide();
-	$('#uploadingModal').hide();
+	$('#informationModal').hide();
 	$('#warningJavascriptNotEnabled').hide();
 
 	/* Tool box */
@@ -198,7 +191,7 @@ jQuery(function($){
 	$('#cache').click(function(event){
 		event.preventDefault();
 		$('#cache').fadeOut();
-		$('#uploadingModal').fadeOut();
+		$('#informationModal').fadeOut();
 	});
 
 	$("#addScreenForm").submit(function(event){
@@ -797,7 +790,7 @@ jQuery(function($){
 
 
 	//
-	// addVideoContentLoadingSpinner
+	// Add Video Content Loading Spinner
 	//
 	// $().addVideoContentLoadingSpinner(  )
 	jQuery.fn.extend({
@@ -806,6 +799,28 @@ jQuery(function($){
 			$('#videoContentCache').append('<div id="videoContentBackground"></div>');
 			$('#videoContentBackground').empty('');
 			$('#videoContentBackground').append('<div class="spinner large" role="progressbar"></div>');
+		}
+	});
+
+
+
+	//
+	// 
+	//
+	// $().displayModal( title, text )
+	jQuery.fn.extend({
+		displayModal: function ( title, text ) {
+			var titleId = "informationModalContentTitle";
+			var textId = "informationModalContentText";
+
+			$("#" + titleId).empty();
+			$("#" + textId).empty();
+			$("#" + titleId).append(title);
+			$("#" + textId).append(text);
+
+
+			$('#cache').fadeIn();
+			$('#informationModal').slideDown();
 		}
 	});
 

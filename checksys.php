@@ -31,7 +31,7 @@
 						<li><a href="#"  title="Help"><img src="img/logoHelp.png" /></a></li>
 					</ul>
 					<h1 class="title">Crop crop <span id="betaText">(BETA)</span></h1>
-					<h2>Video cropping made easy</h2>
+					<h2 class="customh2">Video cropping made easy</h2>
 				</div>
 			</header>
 			</div>

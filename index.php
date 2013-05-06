@@ -31,7 +31,7 @@
 						<li><a href="#"  title="Help"><img src="img/logoHelp.png" /></a></li>
 					</ul>
 					<h1 class="title">Crop crop <span id="betaText">(BETA)</span></h1>
-					<h2>Video cropping made easy</h2>
+					<h2 class="customh2">Video cropping made easy</h2>
 				</div>
 			</header>
 			</div>
@@ -43,7 +43,7 @@
 				<div id="nav">
 				<nav>
 					<!-- Bouton upload -->
-					<input type="button"class="custom button large dark" value ="Upload" id="buttonUpload" />
+					<input type="button" class="custom button large dark" value ="Upload" id="buttonUpload" />
 
 					<!-- Zone screen input -->
 					<form class="navElement" id="addScreenForm">
@@ -205,13 +205,10 @@
 
 		</div>
 
-		<div id="cache">
-		</div>
-		<div id="uploadingModal">
+		<div id="hiddenElements">
 			<input id="fileupload" type="file" name="files[]" data-url="server/php/" />
 
 			<div id="main">
-				<h1>Upload Your Images</h1>
 				<form method="post" enctype="multipart/form-data"  action="upload.php">
 					<input type="file" name="images" id="images" multiple />
 					<button type="submit" id="btn">Upload Files!</button>
@@ -223,15 +220,16 @@
 
 				</ul>
 			</div>
+		</div>
 
-
-    <!-- this will ask for confirmation: -->
-    <a href="http://google.com">external link</a>
-
-    <!-- this will go without asking: -->
-    <a href="anotherPage.html" onClick="unhook()">internal link, un-hooked</a>
-
-
+		
+		<div id="cache">
+		</div>
+		<div id="informationModal" class="bg-lightgray">
+			<div id="informationModalContent">
+				<h2 class="title"><span id="informationModalContentTitle">Blablabla</span></h2>
+				<p class="large" id ="informationModalContentText">Blablablabla</p>
+			</div>
 		</div>
 
 		<div id="warningJavascriptNotEnabled">
