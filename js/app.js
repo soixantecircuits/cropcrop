@@ -838,8 +838,26 @@ jQuery(function($){
 	});
 
 
+
+	//
+	// changeFavicon
+	//
+	// $().changeFavicon( newPath );
+	jQuery.fn.extend({
+		changeFavicon: function ( newPath ) {
+			$("#favicon").attr("href", newPath);
+		}
+	});
+
+
 // jQuery end
 });
+
+
+
+
+
+
 
 
 
