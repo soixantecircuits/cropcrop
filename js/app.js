@@ -772,14 +772,12 @@ jQuery(function($){
 	// $().checkExtension( target, arrayOfReferences )
 	jQuery.fn.extend({
 		checkExtension: function ( target, arrayOfReferences ) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 			target = target.split(/(\\|\/)/g).pop();
->>>>>>> 18fd92e8bccbed3e5a45af7487ebff73be3c2f3d
-=======
+
+
 			target = target.split(/(\\|\/)/g).pop();
->>>>>>> 18fd92e8bccbed3e5a45af7487ebff73be3c2f3d
+
 			target = target.split('.').pop();
 			var control = false; 
 			 console.log("pendant");
