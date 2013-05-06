@@ -13,6 +13,7 @@
 		<link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
 		
 		
+		<link rel="shortcut icon" href="img/favicon.gif">
 
 		<title>CROP CROP</title>
 	</head>
@@ -254,8 +255,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 		<script type="text/javascript">
 			// mixpanel.track("Video play");
-
-					(function() {
+			(function() {
 			    var icon = document.createElement('link');
 			    icon.type = 'image/png';
 			    icon.rel = 'icon';
@@ -264,6 +264,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 			    document.getElementsByTagName('head')[0].appendChild(icon);
 			}());
 
+					
 					
 		</script>
 	</body>

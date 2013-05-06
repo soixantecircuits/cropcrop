@@ -867,6 +867,16 @@ jQuery(function($){
 	// $().changeFavicon( newPath );
 	jQuery.fn.extend({
 		changeFavicon: function ( newPath ) {
+			oldLink = document.getElementById('favicon');
+			document.head.removeChild(oldLink);
+			
+			 var icon = document.createElement('link');
+			    icon.type = 'image/png';
+			    icon.rel = 'icon';
+			    icon.id = 'favicon';
+			    icon.href = newPath;
+			    document.getElementsByTagName('head')[0].appendChild(icon);
+
 			$("#favicon").attr("href", newPath);
 		}
 	});
@@ -886,10 +896,10 @@ jQuery(function($){
 				callback: function( index ) {
 					$().changeFavicon( faviconAnimated[i] );
 					i ++;
-					if ( i == 16){
+					if ( i == 15){
 						i = 0;
 					}
-					// console.log(i)
+					
 				}
 			});
 		}
