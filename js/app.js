@@ -130,7 +130,6 @@ jQuery(function($){
 		'mpg',
 		'avi',
 		'',
-
 	];
 
 
@@ -765,7 +764,7 @@ jQuery(function($){
 	// $().checkExtension( target, arrayOfReferences )
 	jQuery.fn.extend({
 		checkExtension: function ( target, arrayOfReferences ) {
-			target = target.split(/(\\|\/)/g).split('.').pop();
+			target = target.split(/(\\|\/)/g).pop();
 			target = target.split('.').pop();
 			var control = false; 
 
