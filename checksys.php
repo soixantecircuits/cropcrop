@@ -40,35 +40,45 @@
 
 			<div id="checksysPhpContent">
 
+<h2 class="title">CROPCROP Server Check</h2>
+<p>
+	<span id="checksysImportant">CropCrop need server folders to be writable and readable</span>.
+</p>
+<p>
+	<span id='checksysInfo'>Server permissions : <span id='checksysImportant'>
+	<?php
+		if (is_writable('server') && is_readable('server')) {
+			echo '<span id="checksysOk">OK : Writable and Readable</span>';
+		}
+		else {
+			echo '<span id="checksysError">Folder non-writable or readable</span>';
+		}
+	?>
+</p>
+
+<p>
+	<span id='checksysImportant'>Python 2.7.3</span> is required. Your actual version is : 
+</p>
+<p>
+	<?php
+		$output = shell_exec('python --version 2>&1');
+		echo "<pre id='checksysInfo'>$output</pre>";
+	?>
+</p>
 <?php
-
-echo '<h2>CROPCROP Server Check</h2>';
-echo 'CropCrop need " Server " folders to be <span id="checksysImportant">writable</span> and <span id="checksysImportant">readable</span>.<br><br>';
-echo 'Server permissions : ';
-
-if (is_writable('server') && is_readable('server')) {
-    echo ' .................................................................................................................  <span id="checksysOk">OK : Writable and Readable</span>';
-} else {
-    echo '....................................................................................................................................... <span id="checksysError">Folder non-writable or readable</span>';
-}
-
-echo "<br><br><br>";
-
-
-echo "<span id='checksysImportant'>Python 2.7.3</span> is get_required_files():   <br>";
-$output = shell_exec('python --version 2>&1');
-echo "Your actual version is : <pre id='checksysInfo'>$output</pre>";
-
-echo "<span id='checksysImportant'>MediaInfo v0.7.52</span> is required: <br>";
+echo "<span id='checksysImportant'>MediaInfo v0.7.52</span> is required. Your actual version is : <br>";
 $output2 = shell_exec('mediainfo --version');
-echo "Your actual version is : ";
 
 echo "<pre id='checksysInfo'>";
 echo shell_exec('mediainfo --version 2>&1');
 echo "</pre>";
 
-echo "<span id='checksysImportant'>FFMpeg 1.0</span> is required even if deprecated.<br>";
-echo "Your actual version of FFMpeg is : <br> <pre id='checksysInfo'>";
+
+
+
+
+echo "<span id='checksysImportant'>FFMpeg 1.0</span> is required even if deprecated. Your actual version is : <br>";
+echo "<br> <pre id='checksysInfo'>";
 
 
 
@@ -76,16 +86,13 @@ echo shell_exec('ffmpeg -version');
 
 echo "</pre>";
 
-echo "<span id='checksysImportant'>Zip</span> version on server for CropCrop is : Zip 3.0<br>";
-echo "Your actual version is :<pre id='checksysInfo'>";
+echo "<span id='checksysImportant'>Zip 3.0</span> is required. Your actual version is :<br>";
+echo "<pre id='checksysInfo'>";
 
 
 echo shell_exec('zip --version 2>&1');
-echo "";
-
-
 ?>
-
+</p>
 
 	</body>
 </html>
