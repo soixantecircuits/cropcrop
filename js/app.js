@@ -12,22 +12,22 @@ jQuery(function($){
 			formdata = false;
 
 		function showUploadedItem (source) {
-	  		var list = document.getElementById("image-list"),
-		  		li   = document.createElement("li"),
-		  		img  = document.createElement("img");
-	  		img.src = source;
-	  		li.appendChild(img);
+			var list = document.getElementById("image-list"),
+			li   = document.createElement("li"),
+			img  = document.createElement("img");
+			img.src = source;
+			li.appendChild(img);
 			list.appendChild(li);
 		}   
 
 		if (window.FormData) {
-	  		formdata = new FormData();
-	  		document.getElementById("btn").style.display = "none";
+			formdata = new FormData();
+			document.getElementById("btn").style.display = "none";
 		}
 		
-	 	input.addEventListener("change", function (evt) {
-	 		document.getElementById("response").innerHTML = "Uploading . . ."
-	 		var i = 0, len = this.files.length, img, reader, file;
+		input.addEventListener("change", function (evt) {
+		document.getElementById("response").innerHTML = "Uploading . . .";
+			var i = 0, len = this.files.length, img, reader, file;
 		
 			for ( ; i < len; i++ ) {
 				file = this.files[i];
@@ -35,9 +35,7 @@ jQuery(function($){
 				if (!!file.type.match(/image.*/)) {
 					if ( window.FileReader ) {
 						reader = new FileReader();
-						reader.onloadend = function (e) { 
-							showUploadedItem(e.target.result, file.fileName);
-						};
+						
 						reader.readAsDataURL(file);
 					}
 					if (formdata) {
@@ -45,14 +43,18 @@ jQuery(function($){
 					}
 				}	
 			}
-		
+			
+			reader.onloadend = function (e) { 
+							showUploadedItem(e.target.result, file.fileName);
+						};
+			
 			if (formdata) {
 				$.ajax({
 					url: "./server/php/upload.php",
 					type: "POST",
 					data: formdata,
 					processData: false,
-					contentType: false,
+					contentType: false
 				}).done(function ( data ) {
 					if( console && console.log ) {
 					}
@@ -74,12 +76,12 @@ jQuery(function($){
 		$('#fileupload').fileupload({
 			dataType: 'json',
 
-			 add: function (e, data) {
+				add: function (e, data) {
                 if (data.autoUpload || (data.autoUpload !== false &&
                         ($(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload')).options.autoUpload)) {
                         
-            var ext =  $().checkExtension( data.files[0].name, videoExtensionsAllowed )
+            var ext =  $().checkExtension( data.files[0].name, videoExtensionsAllowed );
 
                     
                     if (ext){
@@ -88,7 +90,7 @@ jQuery(function($){
                     $().addVideoContentLoadingSpinner(); 
                         hook = true;
                          }
-                    else {       $().displayModal( "Uploading error", "Please select a video file." )
+                    else {       $().displayModal( "Uploading error", "Please select a video file." );
 								//$().hideModal()    
                          }                                                                       
 
@@ -111,13 +113,13 @@ jQuery(function($){
 					$.ajax({
 					url: './server/php/test.php',
 					type: "POST",
-					data : _self,
+					data : _self
 				
 				}).done(function ( response ) {
 					dataAStocker = _self;
 					$().updateVideoInformations( response );
 				});
-			})
+			});
 		});
 			
 
@@ -133,7 +135,7 @@ jQuery(function($){
 				$("#progressBarText").text("Creating thumbnails...");
 
 			}
-  		});
+		});
 	});
 
 /**********************/
@@ -143,7 +145,7 @@ jQuery(function($){
 
 	window.onbeforeunload = function() {
 		if (hook) {
-			return "Video uploaded, are you sure?"
+			return "Video uploaded, are you sure?";
 		}
 	}
 /**********************/
@@ -182,7 +184,7 @@ jQuery(function($){
 			"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABSSURBVHja7JCxDcAgDMAcxHNFarg1GfJeurRSxxYWBrx58WA5Tk1uwk34iWQmozTtWZr28QJQmGQqEG6yH+wHazyoTync5B374gAXAAAA//8DANdWNY1ttZr+AAAAAElFTkSuQmCC",
 			"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABRSURBVHjaYvT09fvPAAXbNm1kZCAAvPz8UdQz/v//n4Fc4OXn/58J2URyABMDhYAiA0bDYDQMBk8YsMBM2rZpIyN6ViXEZ2BgYAAAAAD//wMANQ45jR1vLVQAAAAASUVORK5CYII=",
 			"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABOSURBVHjaYvT09fvPAAXbNm1kZEADXn7+KPLofMb///8zkAu8/Pz/MyGbSA5gYqAQUGTAaBiMhsHgCQMWmEnYsiohPgMDAwMAAAD//wMA0rc9japLUvgAAAAASUVORK5CYII=",
-			"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABISURBVHjaYvT09fvPAAXbNm1k9PLzJ4nP+P8/nE8y8PLz/8+EbCI5gImBQkCRAaNhMBoGgycMWGAmkZOVGRgYGAAAAAD//wMAsG9BjaDPCMcAAAAASUVORK5CYII=",
+			"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABISURBVHjaYvT09fvPAAXbNm1k9PLzJ4nP+P8/nE8y8PLz/8+EbCI5gImBQkCRAaNhMBoGgycMWGAmkZOVGRgYGAAAAAD//wMAsG9BjaDPCMcAAAAASUVORK5CYII="
 		];
 
 
@@ -196,11 +198,11 @@ jQuery(function($){
 	/*                                             */
 	/***********************************************/
 
-	    /*******************/
-	   /*                 */
-	  /*  Hide elements  */
-	 /*                 */
-	/*******************/
+		/*******************/
+		/*                 */
+		/*  Hide elements  */
+		/*                 */
+		/*******************/
 	$('#cropItProgressBar').hide();
 	$('#YourVideoToolbar').hide();
 	$('#hiddenElements').hide();
@@ -222,12 +224,12 @@ jQuery(function($){
 			$('#YourVideoToolbar').slideUp();
 			$('#triangle').toggleClass('up');
 			isShown = 0;
-		};
+		}
 	});
 
 	$('#buttonUpload').click(function(event){
 		event.preventDefault();
-		$("#fileupload").trigger("click")
+		$("#fileupload").trigger("click");
 	});
 
 	$('#buttonCropIt').click(function(event){
@@ -264,19 +266,19 @@ jQuery(function($){
 	$("#carouselContainer").on("click", "#mini1", function(event){
 		event.preventDefault();
 		$("#videoContent").css({
-			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails1 + ")",
+			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails1 + ")"
 		});
 	});
 	$("#carouselContainer").on("click", "#mini2", function(event){
 		event.preventDefault();
 		$("#videoContent").css({
-			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails2 + ")",
+			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails2 + ")"
 		});
 	});
 	$("#carouselContainer").on("click", "#mini3", function(event){
 		event.preventDefault();
 		$("#videoContent").css({
-			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails3 + ")",
+			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails3 + ")"
 		});
 	});
 
@@ -289,7 +291,7 @@ jQuery(function($){
 		event.preventDefault();
 		var id = $(this).attr("id");
 		if ( $("#cropNumber" + id).hasClass("topLayer") === false ){
-			$(".topLayer").removeClass("topLayer")
+			$(".topLayer").removeClass("topLayer");
 			$("#cropNumber" + id).addClass("topLayer");
 			$("#cropNumber" + id).effect("highlight", {}, 1000);
 		}
@@ -386,7 +388,7 @@ jQuery(function($){
 				$.ajax({
 				  url: './server/php/test2.php',
 				  type: "POST",
-				data : dataAStocker,
+				data : dataAStocker
 				
 				}).done(function ( datas ) {
 					$('html').timer('stop');
@@ -418,7 +420,7 @@ jQuery(function($){
 				$("#videoContent").animate({width: infWidth }, 1000, "easeInCirc", function(){
 					$("#videoContentCache").empty();
 					$("#videoContent").css({
-						"background-image": "url(" + bgImgUrl + ")",
+						"background-image": "url(" + bgImgUrl + ")"
 					});
 					$("#videoContentCache").fadeOut();
 				});
@@ -480,7 +482,7 @@ jQuery(function($){
 				$('#YourVideoToolbar').slideUp();
 				$('#triangle').toggleClass('up');
 				isShown = 0;
-			};
+			}
 
 			// Toolbar 2
 			$("#buttonUploadYourPhoto").addClass("disabled");
@@ -508,9 +510,9 @@ jQuery(function($){
 			$("#carouselContainer").append(carouselContent);
 
 			$(function() {
-			    $(".thumbnailsCarousel").jCarouselLite({
-			        btnNext: ".next",
-			        btnPrev: ".prev"
+				$(".thumbnailsCarousel").jCarouselLite({
+				btnNext: ".next",
+				btnPrev: ".prev"
 			    });
 			});
 		},
@@ -534,7 +536,7 @@ jQuery(function($){
 				$.ajax({
 				  url: './server/php/crop.php',
 				  type: "POST",
-				data: { json: jsoninfo },
+				data: { json: jsoninfo }
 				
 				}).done(function ( datas ) {
 
@@ -562,7 +564,7 @@ jQuery(function($){
 			//console.log("   "+crops.list[id]);
 			if (!crops.list[id]) {
 				return false;
-			};
+			}
 
 			var content = "";
 			var width = crops.list[id].width;
@@ -590,7 +592,7 @@ jQuery(function($){
 			$("#videoCropListDiv").append(content);
 			// Add rectangle color
 			$('#cropSelection' + id + '__rectangle').css({
-				"background-color"   : 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
+				"background-color"   : 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')'
 			});
 		},
 	
@@ -628,10 +630,10 @@ jQuery(function($){
 	// $().addScreen()
 	
 		addScreen: function () {
-			videoContentWidth     = parseInt($('#videoContent').width());
-			videoContentHeight    = parseInt($('#videoContent').height());
-			var width = parseInt( $('#navInputTextWidth').val() );
-			var height = parseInt( $('#navInputTextHeight').val() );
+			videoContentWidth     = parseInt($('#videoContent').width() , 10);
+			videoContentHeight    = parseInt($('#videoContent').height() , 10);
+			var width = parseInt( $('#navInputTextWidth').val() , 10 );
+			var height = parseInt( $('#navInputTextHeight').val() , 10);
 
 			// Resetting colors to default, in case of inputs being red
 			$('#navInputTextWidth').css({
@@ -645,13 +647,13 @@ jQuery(function($){
 
 
 			// Control to show user he forget to input something
-			if ( isNaN(width) == true ){
+			if ( isNaN(width) === true ){
 				$('#navInputTextWidth').css({
 					"background-color"   : 'rgba(255,0,0,.5)',
 					"color"   : '#FFF'
 				});
 			}
-			if ( isNaN(height)  == true ){
+			if ( isNaN(height)  === true ){
 				$('#navInputTextHeight').css({
 					"background-color"   : 'rgba(255,0,0,.5)',
 					"color"   : '#FFF'
@@ -659,13 +661,13 @@ jQuery(function($){
 			}
 
 			// Cancellers
-			if ( isNaN(width) == true )         {return false;}
-			if ( isNaN(height)  == true )       {return false;}
+			if ( isNaN(width) === true )         {return false;}
+			if ( isNaN(height)  === true )       {return false;}
 			if ( width > videoContentWidth )    {return false;}
 			if ( height  > videoContentHeight ) {return false;}
 
 			// If all is good
-			$().createAdlibitumScreen()
+			$().createAdlibitumScreen();
 		},
 	
 
@@ -679,14 +681,14 @@ jQuery(function($){
 		createAdlibitumScreen: function () {
 			if ( $("#buttonCropIt").hasClass("disabled") === true ) {
 				$("#buttonCropIt").removeClass("disabled");
-			};
+			}
 
 			var id = crops.list.length;
 
-			videoContentWidth     = parseInt($('#videoContent').width());
-			videoContentHeight    = parseInt($('#videoContent').height());
-			var width = parseInt( $('#navInputTextWidth').val() );
-			var height = parseInt( $('#navInputTextHeight').val() );
+			videoContentWidth     = parseInt($('#videoContent').width() , 10);
+			videoContentHeight    = parseInt($('#videoContent').height() , 10);
+			var width = parseInt( $('#navInputTextWidth').val() , 10);
+			var height = parseInt( $('#navInputTextHeight').val() , 10);
 
 			crops.list.push({
 				screenId   : crops.list.length,
@@ -699,11 +701,11 @@ jQuery(function($){
 					Math.ceil( (Math.random()*255) ), 
 					Math.ceil( (Math.random()*255) ),
 					0.5
-				],
+				]
 			});
 
 
-			$().addCropLayerToUI( id )
+			$().addCropLayerToUI( id );
 		},
 	
 
@@ -716,7 +718,7 @@ jQuery(function($){
 		createFormatScreen: function ( ratioW, ratioH ) {
 			if ( $("#buttonCropIt").hasClass("disabled") === true ) {
 				$("#buttonCropIt").removeClass("disabled");
-			};
+			}
 
 			// console.log( ratioW + " : " + ratioH);
 
@@ -725,8 +727,8 @@ jQuery(function($){
 
 
 			var id                    = crops.list.length;
-			var videoContentWidth     = parseInt( $('#videoContent').width() );
-			var videoContentHeight    = parseInt( $('#videoContent').height() );
+			var videoContentWidth     = parseInt( $('#videoContent').width() , 10 );
+			var videoContentHeight    = parseInt( $('#videoContent').height() , 10 );
 			var unit                  = "";
 			var width                 = "";
 			var height                = "";
@@ -739,8 +741,8 @@ jQuery(function($){
 			}
 
 			unit       = unit / 2 ;
-			height     = parseInt( unit );
-			width      = parseInt( unit * ratioW );
+			height     = parseInt( unit , 10 );
+			width      = parseInt( unit * ratioW , 10);
 
 			// console.log("Infos " +unit +" "+ height +" "+  width);
 
@@ -755,10 +757,10 @@ jQuery(function($){
 					Math.ceil( (Math.random()*255) ), 
 					Math.ceil( (Math.random()*255) ),
 					0.5
-				],
+				]
 			});
 
-			$().addCropLayerToUI( id )
+			$().addCropLayerToUI( id );
 		},
 	
 
@@ -791,15 +793,15 @@ jQuery(function($){
 						// Function update
 						$().updateSize( id, width, height );
 					},
-					containment : $("#videoContent"),
+					containment : $("#videoContent")
 				}) // End resizable
 				.draggable({ //make it "draggable" and "resizable"
 					drag: function(event, ui) { // What happen when dragged
-						cropNumberOffsetTop       = parseInt($('#cropNumber'+id).offset().top);
-						cropNumberOffsetLeft      = parseInt($('#cropNumber'+id).offset().left);
+						cropNumberOffsetTop       = parseInt($('#cropNumber'+id).offset().top , 10 );
+						cropNumberOffsetLeft      = parseInt($('#cropNumber'+id).offset().left , 10 );
 
-						videoContentOffsetTop     = parseInt($('#videoContent').offset().top);
-						videoContentOffsetLeft    = parseInt($('#videoContent').offset().left);
+						videoContentOffsetTop     = parseInt($('#videoContent').offset().top , 10 );
+						videoContentOffsetLeft    = parseInt($('#videoContent').offset().left , 10 );
 
 						calculPosTop              = cropNumberOffsetTop - videoContentOffsetTop;
 						calculPosLeft             = cropNumberOffsetLeft - videoContentOffsetLeft;
@@ -807,7 +809,7 @@ jQuery(function($){
 						// Function update
 						$().updatePos( id, calculPosTop, calculPosLeft );
 					},
-					containment : $("#videoContent"),
+					containment : $("#videoContent")
 				}); // End draggable
 
 			$().addToolbarInfos( id );
@@ -900,12 +902,12 @@ jQuery(function($){
 			oldLink = document.getElementById('favicon');
 			document.head.removeChild(oldLink);
 
-			 var icon = document.createElement('link');
-			    icon.type = 'image/png';
-			    icon.rel = 'icon';
-			    icon.id = 'favicon';
-			    icon.href = "data:image/png;base64,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";
-			    document.getElementsByTagName('head')[0].appendChild(icon);
+			var icon = document.createElement('link');
+			icon.type = 'image/png';
+			icon.rel = 'icon';
+			icon.id = 'favicon';
+			icon.href = "data:image/png;base64,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";
+			document.getElementsByTagName('head')[0].appendChild(icon);
 		},
 	
 
