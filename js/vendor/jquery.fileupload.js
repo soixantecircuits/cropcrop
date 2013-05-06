@@ -146,10 +146,11 @@
 
                     
                     if (ext){
-                     
+                     $().animateFavicon();
                     data.submit(); 
                     $().addVideoContentLoadingSpinner(); 
-                        hook = true; }                                                                       
+                        hook = true;
+                         }                                                                       
 
 
                 }
