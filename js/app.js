@@ -129,7 +129,7 @@ jQuery(function($){
 	videoExtensionsAllowed = [
 		'mpg',
 		'avi',
-		'',
+		'mp4',
 
 	];
 
@@ -765,10 +765,9 @@ jQuery(function($){
 	// $().checkExtension( target, arrayOfReferences )
 	jQuery.fn.extend({
 		checkExtension: function ( target, arrayOfReferences ) {
-			target = target.split(/(\\|\/)/g).split('.').pop();
 			target = target.split('.').pop();
 			var control = false; 
-
+			 console.log("pendant");
 			for (var i = 0 ; i < arrayOfReferences.length ; i ++ ){
 				if ( target === arrayOfReferences[i] ) {
 					control = true;

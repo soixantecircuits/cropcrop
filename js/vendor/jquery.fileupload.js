@@ -141,18 +141,13 @@
                 if (data.autoUpload || (data.autoUpload !== false &&
                         ($(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload')).options.autoUpload)) {
+                        
+            var ext =  $().checkExtension( data.files[0].name, videoExtensionsAllowed )
 
-
-
-                    var ext = data.files[0].name.split('.').pop();
-                if(ext != (('mp4') || ('avi') || ('mpg') || ('mpeg')) )  {
-                alert("not good extension");
-                                                                            }
-                    else {
-
-                    data.submit(); 
-
-                                                                            }
+                    
+                    if (ext){
+                     
+                    data.submit(); }                                                                       
 
 
                 }
