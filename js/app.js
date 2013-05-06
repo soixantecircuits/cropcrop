@@ -1,9 +1,11 @@
 jQuery(function($){
 	// "use strict";
 
-	/**********************/
-	/* old upload.js  */
-	/**********************/
+	/*****************/
+	/*               */
+	/*  upload part  */
+	/*               */
+	/*****************/
 
 
 	$(function () {
@@ -63,13 +65,13 @@ jQuery(function($){
 	});
 
 
-/**********************/
-/**********************/
-/*   file upload      */
-/**********************/
+/***********************/
+/*                     */
+/*     file upload     */
+/*                     */
+/***********************/
 
 		$(function () {
-
 			// SCRIPT UPLOAD DONE
 			$('#fileupload').fileupload({
 				dataType: 'json',
@@ -97,7 +99,6 @@ jQuery(function($){
 				})
 			});
 
-
 			// script when subimitted file ! 
 			$('#fileupload').bind('fileuploadsubmit', function (e, data) { 
 				
@@ -107,8 +108,6 @@ jQuery(function($){
 					alert("not good extension");
 				}
 			});
-
-
 
 			$('#fileupload').bind('fileuploadprogress', function (e, data) {
 				var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -126,14 +125,14 @@ jQuery(function($){
 /**********************/
 
 
-	var serverPath = "server/php/";
-	var screensCropList = [];
-	var screensCropCount = 0; // Use to be an ID
-	videoInformations = {};
-	var crops = {};
+	var serverPath         = "server/php/";
+	var screensCropList    = [];
+	var screensCropCount   = 0; // Use to be an ID
+	var videoInformations  = {};
+	var crops              = {};
+	var dataAStocker       = "";
 	crops.title = "None";
 	crops.list = [];
-	dataAStocker = "";
 
 
 	/***********************************************/
@@ -144,8 +143,10 @@ jQuery(function($){
 	/*                                             */
 	/***********************************************/
 
-	  /*******************/
-	 /*  Hide elements  */
+	    /*******************/
+	   /*                 */
+	  /*  Hide elements  */
+	 /*                 */
 	/*******************/
 	$('#cropItProgressBar').hide();
 	$('#YourVideoToolbar').hide();
@@ -204,8 +205,10 @@ jQuery(function($){
 		$('#videoContentBackground').append('<div class="spinner large" role="progressbar"></div>');
 	});
 
-	  /********************************/
-	 /*  Mini thumbnails management  */
+	    /********************************/
+	   /*                              */
+	  /*  Mini thumbnails management  */
+	 /*                              */
 	/********************************/
 
 	$("#carouselContainer").on("click", "#mini1", function(event){
@@ -227,8 +230,10 @@ jQuery(function($){
 		});
 	});
 
-	  /***********************/
-	 /*  Select crop layer  */
+	    /***********************/
+	   /*                     */
+	  /*  Select crop layer  */
+	 /*                     */
 	/***********************/
 	$("#videoCropListDiv").on("click", ".videoCropListDivElement",function(event){
 		event.preventDefault();
@@ -240,8 +245,10 @@ jQuery(function($){
 		}
 	});
 
-	  /***************************/
-	 /*  Video format function  */
+	    /***************************/
+	   /*                         */
+	  /*  Video format function  */
+	 /*                         */
 	/***************************/
 	$("#secondMenu").on("click", "#buttonFormat1_1", function(event){
 		event.preventDefault();
@@ -268,8 +275,10 @@ jQuery(function($){
 		$().createFormatScreen( 1.618, 1 );
 	});
 
-	  /*******************************/
-	 /*  User can upload his photo  */
+	    /*******************************/
+	   /*                             */
+	  /*  User can upload his photo  */
+	 /*                             */
 	/*******************************/
 	$("#buttonUploadYourPhoto").click(function(event){
 		event.preventDefault();
