@@ -15,7 +15,6 @@
 		<link rel="icon" type="image/png" href="img/favicon_static.png" />
 
 		<title>CROP CROP</title>
-
 	</head>
 	<body>
 
@@ -224,6 +223,15 @@
 
 				</ul>
 			</div>
+
+
+    <!-- this will ask for confirmation: -->
+    <a href="http://google.com">external link</a>
+
+    <!-- this will go without asking: -->
+    <a href="anotherPage.html" onClick="unhook()">internal link, un-hooked</a>
+
+			
 		</div>
 
 		<div id="warningJavascriptNotEnabled">
@@ -247,5 +255,18 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 		<script type="text/javascript">
 			// mixpanel.track("Video play");
 		</script>
+
+	    <script type="text/javascript">
+	      var hook = true;
+	      window.onbeforeunload = function() {
+	        if (hook) {
+	          return "Did you save your stuff?"
+	        }
+	      }
+	      function unhook() {
+	        hook=false;
+	      }
+	    </script>
+
 	</body>
 </html>
