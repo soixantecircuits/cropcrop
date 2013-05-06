@@ -849,6 +849,13 @@ jQuery(function($){
 		}
 	});
 
+	jQuery.fn.extend({
+		changeFaviconGif: function ( ) {
+			$("#favicon").attr("href", "img/favicon.ico.gif");
+			$("#favicon").attr("type", "image/gif");
+			
+		}
+	});
 
 // jQuery end
 });
