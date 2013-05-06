@@ -358,3 +358,9 @@ body {
 #checksysInfo{
 	color: #5DC1FF;
 }
+#checksysError{
+	color: #F00;
+}
+#checksysOk{
+	color: #0F0;
+}

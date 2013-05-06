@@ -114,7 +114,7 @@ jQuery(function($){
 /**********************/
 /**********************/
 
-	 hook = false;
+	hook = false;
 
 	window.onbeforeunload = function() {
 		if (hook) {
