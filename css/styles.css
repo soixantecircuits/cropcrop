@@ -365,6 +365,7 @@ body {
 }
 
 #checksysInfo{
+	padding-left: 32px;
 	color: #5DC1FF;
 }
 #checksysError{
@@ -372,4 +373,7 @@ body {
 }
 #checksysOk{
 	color: #0F0;
+}
+#checksysImportant{
+	color: #FF0;
 }

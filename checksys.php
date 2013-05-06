@@ -42,8 +42,9 @@
 
 <?php
 
-echo 'CropCrop need "Server" folder to be writable and readable.<br><br>';
-echo 'Status of "Server" folder : ';
+echo '<h2>CROPCROP Server Check</h2>';
+echo 'CropCrop need " Server " folders to be <span id="checksysImportant">writable</span> and <span id="checksysImportant">readable</span>.<br><br>';
+echo 'Server permissions : ';
 
 if (is_writable('server') && is_readable('server')) {
     echo ' .................................................................................................................  <span id="checksysOk">OK : Writable and Readable</span>';
@@ -54,11 +55,11 @@ if (is_writable('server') && is_readable('server')) {
 echo "<br><br><br>";
 
 
-echo "Minimum Python version on server for CropCrop  is: Python 2.7.3  <br>";
+echo "<span id='checksysImportant'>Python 2.7.3</span> is get_required_files():   <br>";
 $output = shell_exec('python --version 2>&1');
-echo "Your actual version is : $output  <br> <br>";
+echo "Your actual version is : <pre id='checksysInfo'>$output</pre>";
 
-echo "MediaInfo version on server for CropCrop is : v0.7.52 <br>";
+echo "<span id='checksysImportant'>MediaInfo v0.7.52</span> is required: <br>";
 $output2 = shell_exec('mediainfo --version');
 echo "Your actual version is : ";
 
@@ -66,8 +67,8 @@ echo "<pre id='checksysInfo'>";
 echo shell_exec('mediainfo --version 2>&1');
 echo "</pre>";
 
-echo " <br> <br> FFMpeg is required on server for CropCrop, even if it is deprecated.<br>";
-echo "  Your actual version of FFMpeg is : <br> <pre id='checksysInfo'>";
+echo "<span id='checksysImportant'>FFMpeg 1.0</span> is required even if deprecated.<br>";
+echo "Your actual version of FFMpeg is : <br> <pre id='checksysInfo'>";
 
 
 
@@ -75,8 +76,8 @@ echo shell_exec('ffmpeg -version');
 
 echo "</pre>";
 
-echo " <br> <br> Zip version on server for CropCrop is : Zip 3.0 <br>";
-echo "Your actual version is :<pre>";
+echo "<span id='checksysImportant'>Zip</span> version on server for CropCrop is : Zip 3.0<br>";
+echo "Your actual version is :<pre id='checksysInfo'>";
 
 
 echo shell_exec('zip --version 2>&1');
