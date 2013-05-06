@@ -62,7 +62,7 @@ echo "MediaInfo version on server for CropCrop is : v0.7.52 <br>";
 $output2 = shell_exec('mediainfo --version');
 echo "Your actual version is : ";
 
-echo shell_exec('mediainfo --version');
+echo shell_exec('mediainfo --version 2>&1');
 
 echo " <br> <br> FFMpeg is required on server for CropCrop, even if it is deprecated.<br>";
 echo "  Your actual version of FFMpeg is : <br> <pre>";
