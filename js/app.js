@@ -59,7 +59,7 @@ jQuery(function($){
 				});
 			}
 		}, false);
-	});
+	
 
 
 
@@ -69,7 +69,7 @@ jQuery(function($){
 /*                     */
 /***********************/
 
-	$(function () {
+	
 		// SCRIPT UPLOAD DONE
 		$('#fileupload').fileupload({
 			dataType: 'json',
