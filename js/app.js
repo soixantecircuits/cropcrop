@@ -773,20 +773,14 @@ jQuery(function($){
 	jQuery.fn.extend({
 		checkExtension: function ( target, arrayOfReferences ) {
 
-			target = target.split(/(\\|\/)/g).pop();
-
-
-			target = target.split(/(\\|\/)/g).pop();
-
 			target = target.split('.').pop();
 			var control = false; 
-			 console.log("pendant");
+			 
 			for (var i = 0 ; i < arrayOfReferences.length ; i ++ ){
 				if ( target === arrayOfReferences[i] ) {
 					control = true;
 				}
 			}
-
 			return control;
 		}
 	});
