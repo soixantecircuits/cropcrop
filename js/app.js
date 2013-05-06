@@ -201,14 +201,9 @@ jQuery(function($){
 	// When upload start
 	$("#fileupload").change(function(event){
 		event.preventDefault();
-		$('#videoContentCache').fadeIn();
 		var title = $("#fileupload").val();
 		title = title.split(/(\\|\/)/g).pop();
 		crops.title = title;
-
-		$('#videoContentCache').append('<div id="videoContentBackground"></div>');
-		$('#videoContentBackground').empty('');
-		$('#videoContentBackground').append('<div class="spinner large" role="progressbar"></div>');
 	});
 
 	    /********************************/
@@ -773,15 +768,36 @@ jQuery(function($){
 	jQuery.fn.extend({
 		checkExtension: function ( target, arrayOfReferences ) {
 
+			target = target.split(/(\\|\/)/g).pop();
+
+
+			target = target.split(/(\\|\/)/g).pop();
+
 			target = target.split('.').pop();
 			var control = false; 
-			 
+			 console.log("pendant");
 			for (var i = 0 ; i < arrayOfReferences.length ; i ++ ){
 				if ( target === arrayOfReferences[i] ) {
 					control = true;
 				}
 			}
+
 			return control;
+		}
+	});
+
+
+
+	//
+	// addVideoContentLoadingSpinner
+	//
+	// $().addVideoContentLoadingSpinner(  )
+	jQuery.fn.extend({
+		addVideoContentLoadingSpinner: function (  ) {
+			$('#videoContentCache').fadeIn();
+			$('#videoContentCache').append('<div id="videoContentBackground"></div>');
+			$('#videoContentBackground').empty('');
+			$('#videoContentBackground').append('<div class="spinner large" role="progressbar"></div>');
 		}
 	});
 

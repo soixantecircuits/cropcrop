@@ -231,7 +231,7 @@
     <!-- this will go without asking: -->
     <a href="anotherPage.html" onClick="unhook()">internal link, un-hooked</a>
 
-			
+
 		</div>
 
 		<div id="warningJavascriptNotEnabled">
