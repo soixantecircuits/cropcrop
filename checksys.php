@@ -38,61 +38,102 @@
 			<!-- HEADER END -->
 
 
-			<div id="checksysPhpContent">
+			<div id="body" class="checksysPhpContent">
 
-<h2 class="title">CROPCROP Server Check</h2>
-<p>
-	<span id="checksysImportant">CropCrop need server folders to be writable and readable</span>.
-</p>
-<p>
-	<span id='checksysInfo'>Server permissions : <span id='checksysImportant'>
-	<?php
-		if (is_writable('server') && is_readable('server')) {
-			echo '<span id="checksysOk">OK : Writable and Readable</span>';
-		}
-		else {
-			echo '<span id="checksysError">Folder non-writable or readable</span>';
-		}
-	?>
-</p>
+				<h2 class="title">CROPCROP Server Check</h2>
+				<p>
+					<span id="checksysImportant">CropCrop need server folders to be writable and readable</span>.
+				</p>
 
-<p>
-	<span id='checksysImportant'>Python 2.7.3</span> is required. Your actual version is : 
-</p>
-<p>
-	<?php
-		$output = shell_exec('python --version 2>&1');
-		echo "<pre id='checksysInfo'>$output</pre>";
-	?>
-</p>
-<?php
-echo "<span id='checksysImportant'>MediaInfo v0.7.52</span> is required. Your actual version is : <br>";
-$output2 = shell_exec('mediainfo --version');
 
-echo "<pre id='checksysInfo'>";
-echo shell_exec('mediainfo --version 2>&1');
-echo "</pre>";
+				<!-- Start Server Permission Control -->
+				<p>
+					<span id='checksysInfo'>Server permissions : <span id='checksysImportant'>
+					<?php
+						if (is_writable('server') && is_readable('server')) {
+							echo '<span id="checksysOk">OK : Writable and Readable</span>';
+						}
+						else {
+							echo '<span id="checksysError">Folder non-writable or readable</span>';
+						}
+					?>
+				</p>
+				<!-- End Server Permission Control -->
 
 
 
+				<!-- Start Python Version Control -->
+				<p>
+					<span id='checksysImportant'>Python 2.7.3</span> is required. Your actual version is : 
+				</p>
+				<p>
+					<?php
+						$output = shell_exec('python --version 2>&1');
+						echo "<pre id='checksysInfo'>$output</pre>";
+					?>
+				</p>
+				<!-- End Python Version Control -->
 
 
-echo "<span id='checksysImportant'>FFMpeg 1.0</span> is required even if deprecated. Your actual version is : <br>";
-echo "<br> <pre id='checksysInfo'>";
+
+				<!-- Start MediaInfo Version Control -->
+				<p>
+					<span id='checksysImportant'>MediaInfo v0.7.52</span> is required. Your actual version is :
+				</p>
+				<p>
+					<?php
+						$output = shell_exec('mediainfo --version 2>&1');
+						echo "<pre id='checksysInfo'>$output</pre>"
+					?>
+				</p>
+				<!-- End MediaInfo Version Control -->
+
+
+				
+				<!-- Start FFmpeg Version Control -->
+				<p>
+					<span id='checksysImportant'>FFMpeg 1.0</span> is required even if deprecated. Your actual version is :
+				</p>
+				<p>
+					<?php
+						$output = shell_exec('ffmpeg -version');
+						echo "<pre id='checksysInfo'>$output</pre>"
+					?>
+				</p>
+				<!-- End FFmpeg Version Control -->
 
 
 
-echo shell_exec('ffmpeg -version');
+				<!-- Start Zip Version Control -->
+				<p>
+					<span id='checksysImportant'>Zip 3.0</span> is required. Your actual version is :<br />
+				</p>
+				<p>
+					<?php
+						$output = shell_exec('zip --version 2>&1');
+						echo "<pre id='checksysInfo'>$output</pre>"
+					?>
+				</p>
+				<!-- End Zip Version Control -->
 
-echo "</pre>";
-
-echo "<span id='checksysImportant'>Zip 3.0</span> is required. Your actual version is :<br>";
-echo "<pre id='checksysInfo'>";
+			</div>
 
 
-echo shell_exec('zip --version 2>&1');
-?>
-</p>
+			<!-- BODY END -->
+				
+
+			<div id="footer">
+			<footer>
+				<div id="footerContent">
+					<p>
+						<a class="link dark" href="http://vimeo.com/soixantecircuits/videos/">&#169; 2013 Soixante circuits | All Rights Reserved</a>
+					</p>
+					<p>
+						<a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_blue.png" alt="Mobile Analytics" /></a>
+					</p>
+				</div>
+			</footer>
+			</div>
 
 	</body>
 </html>
