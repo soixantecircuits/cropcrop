@@ -70,6 +70,7 @@
 						$output = shell_exec('python --version 2>&1');
 						if ( preg_match( "command not found" , $output ) ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
+							echo "1";
 						} else {
 							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
 						}
@@ -88,6 +89,7 @@
 						$output = shell_exec('mediainfo --version 2>&1');
 						if ( preg_match( "command not found" , $output ) ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
+							echo "1";
 						} else {
 							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
 						}
@@ -106,6 +108,7 @@
 						$output = shell_exec('ffmpeg -version');
 						if ( preg_match( "command not found" , $output ) ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
+							echo "1";
 						} else {
 							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
 						}
@@ -124,6 +127,7 @@
 						$output = shell_exec('zip --version 2>&1');
 						if ( preg_match( "command not found" , $output ) ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
+							echo "1";
 						} else {
 							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
 						}
