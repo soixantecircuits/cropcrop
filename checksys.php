@@ -68,7 +68,7 @@
 				<p>
 					<?php
 						$output = shell_exec('python --version 2>&1');
-						if ( strpos( "command not found" , $output ) == true ) {
+						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
 						} else {
 							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
@@ -86,7 +86,7 @@
 				<p>
 					<?php
 						$output = shell_exec('mediainfo --version 2>&1');
-						if ( strpos( "command not found" , $output ) == true ) {
+						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
 						} else {
 							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
@@ -104,7 +104,7 @@
 				<p>
 					<?php
 						$output = shell_exec('ffmpeg -version');
-						if ( strpos( "command not found" , $output ) == true ) {
+						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
 						} else {
 							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
@@ -122,7 +122,7 @@
 				<p>
 					<?php
 						$output = shell_exec('zip --version 2>&1');
-						if ( strpos( "command not found" , $output ) == true ) {
+						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
 						} else {
 							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
