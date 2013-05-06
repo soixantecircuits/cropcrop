@@ -129,16 +129,15 @@ jQuery(function($){
 	videoExtensionsAllowed = [
 		'mpg',
 		'avi',
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		'mp4',
 
-=======
+
 		'',
->>>>>>> 18fd92e8bccbed3e5a45af7487ebff73be3c2f3d
-=======
+
+
 		'',
->>>>>>> 18fd92e8bccbed3e5a45af7487ebff73be3c2f3d
+
 	];
 
 
