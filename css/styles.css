@@ -75,13 +75,16 @@ body {
 		width: 960px;
 		margin: auto;
 		text-transform: uppercase;}
-			.bg-slategray .title {
+			.bg-slategray .custom.title {
 				color           : #D4D7D7;
 				text-shadow     : none;
 				padding-top     : 10px;
 				font-family     : "source-l";
 				font-size       : 35px;
 				margin          : 0;}
+				h1 a{
+					display: block;
+					color           : #D4D7D7;}
 			.customh2{
 				margin-top: 0;
 				font-family: "source";

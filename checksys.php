@@ -30,7 +30,7 @@
 						<li><a href="https://www.facebook.com/pages/Soixante-circuits/148341911906454" title="Find us on Facebook"><img src="img/logoFacebook.png" /></a></li>
 						<li><a href="#"  title="Help"><img src="img/logoHelp.png" /></a></li>
 					</ul>
-					<h1 class="title">Crop crop <span id="betaText">(BETA)</span></h1>
+					<h1 class="custom title"><a href="./index.php" title="Go Home">Crop crop <span id="betaText">(BETA)</span></a></h1>
 					<h2 class="customh2">Video cropping made easy</h2>
 				</div>
 			</header>
@@ -41,20 +41,19 @@
 			<div id="body" class="checksysPhpContent">
 
 				<h2 class="title">CROPCROP Server Check</h2>
-				<p>
-					<span id="checksysImportant">CropCrop need server folders to be writable and readable</span>.
-				</p>
 
 
 				<!-- Start Server Permission Control -->
 				<p>
-					<span id='checksysInfo'>Server permissions : <span id='checksysImportant'>
+					<span id="checksysImportant">CropCrop need server folders to be writable and readable</span>.
+				</p>
+				<p>
 					<?php
 						if (is_writable('server') && is_readable('server')) {
-							echo '<span id="checksysOk">OK : Writable and Readable</span>';
+							echo '<pre><span id="checksysInfo">Server permissions : <span id="checksysImportant"><span id="checksysOk">Writable and Readable</span></pre>';
 						}
 						else {
-							echo '<span id="checksysError">Folder non-writable or readable</span>';
+							echo '<pre><span id="checksysInfo">Server permissions : <span id="checksysImportant"><span id="checksysError">Folder non-writable or readable</span></pre>';
 						}
 					?>
 				</p>
