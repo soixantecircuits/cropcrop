@@ -340,6 +340,7 @@ body {
 	margin-top: -8px;}
 
 #betaText{
-	position: absolute;
-	margin-top: 18px;
-	margin-left: 190px;}
+	vertical-align: super;
+	font-family: "source";
+	color: #5DC1FF;
+	font-size: 14px;}
