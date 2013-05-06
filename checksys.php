@@ -52,8 +52,11 @@
 						if (is_writable('server') && is_readable('server')) {
 							echo '<pre><span class="checksysPadding checksysInfo">Server permissions : <span class="checksysImportant"><span class="checksysOk">Writable and Readable</span></pre>';
 						}
-						else {
-							echo '<pre><span class="checksysPadding checksysInfo">Server permissions : <span class="checksysImportant"><span class="checksysError">Folder non-writable or readable</span></pre>';
+						else if (is_writable('server') == false){
+							echo '<pre>z<span class="checksysPadding checksysInfo">Server permissions : <span class="checksysImportant"><span class="checksysError">Folder non-writable or readable</span></pre>';
+						}
+						else if (is_readable('server') == false){
+							echo '<pre>z<span class="checksysPadding checksysInfo">Server permissions : <span class="checksysImportant"><span class="checksysError">Folder non-writable or readable</span></pre>';
 						}
 					?>
 				</p>

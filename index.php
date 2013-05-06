@@ -84,9 +84,9 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							Autocrop
 						</p>-->
 
-						<p>
+						<p id="autoCropOnOff" class="disabled">
 							<label id="autoCropCheckboxLabel" for="autoCropCheckbox">Autocrop</label>
-							<input type="checkbox" class="slide-switch dark disabled" id="autoCropCheckbox">
+							<input type="checkbox" class="slide-switch dark" id="autoCropCheckbox">
 							<label for="autoCropCheckbox">
 								<span class="wrapper">
 									<span class="on">ON</span>
@@ -154,8 +154,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							<a role="button" class="button start dark large disabled" id="buttonFormat1_1" >1 : 1</a>
 							<a role="button" class="button inside dark large disabled" id="buttonFormat3_2" >3 : 2</a>
 							<a role="button" class="button inside dark large disabled" id="buttonFormat4_3" >4 : 3</a>
-							<a role="button" class="button inside dark large disabled" id="buttonFormat16_9" >16 : 9</a>
 							<a role="button" class="button inside dark large disabled" id="buttonFormat5_3" >5 : 3</a>
+							<a role="button" class="button inside dark large disabled" id="buttonFormat16_9" >16 : 9</a>
 							<a role="button" class="button end dark large disabled" id="buttonFormat16_10" >16 : 10</a>
 						</span>
 					</p>

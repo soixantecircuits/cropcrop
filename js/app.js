@@ -427,7 +427,7 @@ jQuery(function($) {
 			$("#navInputTextWidth").removeClass("disabled");
 			$("#navInputTextHeight").removeClass("disabled");
 			$("#buttonAddScreen").removeClass("disabled");
-			$("#autoCropCheckbox").removeClass("disabled");
+			$("#autoCropOnOff").removeClass("disabled");
 			$("#buttonYourVideo").removeClass("disabled");
 			$("#carouselPrev").removeClass("disabled");
 			$("#carouselNext").removeClass("disabled");
@@ -906,9 +906,6 @@ jQuery(function($) {
 	});
 	// jQuery end
 });
-
-
-// $("#autoCropCheckbox").is(':checked');
 
 
 
