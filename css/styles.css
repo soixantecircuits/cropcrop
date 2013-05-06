@@ -344,3 +344,9 @@ body {
 	font-family: "source";
 	color: #5DC1FF;
 	font-size: 14px;}
+
+#checksysPhpContent{
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}

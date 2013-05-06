@@ -1,7 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<meta name="msapplication-TileColor" content="#494D4E" />
+		<meta name="msapplication-TileImage" content="css/images-interface/logo.png" />
+		<meta content="application/xhtml+xml; charset=UTF-8" http-equiv="Content-Type" />
+		
+		<link rel="stylesheet" media="screen" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="css/topcoat-desktop-min.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="css/jquery-ui.css" />
+		<link rel="stylesheet" media="screen" type="text/css" href="css/styles.css" />
+		
+		<link rel="icon" type="image/png" href="img/favicon_static.png" />
+
+		<title>CROP CROP</title>
+	</head>
+	<body>
+
+
+		<div id="container" class="bg-slategray">
+
+
+			<div id="header">
+			<header>
+				<div id="headerContent">
+					<ul>
+						<li><a href="https://github.com/soixantecircuits/cropcrop/" title="Project on GitHub"><img src="img/logoGitHub.png" /></a></li>
+						<li><a href="https://www.facebook.com/pages/Soixante-circuits/148341911906454" title="Find us on Facebook"><img src="img/logoFacebook.png" /></a></li>
+						<li><a href="#"  title="Help"><img src="img/logoHelp.png" /></a></li>
+					</ul>
+					<h1 class="title">Crop crop <span id="betaText">(BETA)</span></h1>
+					<h2>Video cropping made easy</h2>
+				</div>
+			</header>
+			</div>
+			<!-- HEADER END -->
+
+
+			<div id="checksysPhpContent">
+
 <?php
 
- echo 'CropCrop need "Server" folder to be writable and readable.<br><br>';
- echo 'Status of "Server" folder : ';
+echo 'CropCrop need "Server" folder to be writable and readable.<br><br>';
+echo 'Status of "Server" folder : ';
 
 if (is_writable('server') && is_readable('server')) {
     echo ' Writable and Readable.';
@@ -39,9 +81,8 @@ echo shell_exec('zip --version 2>&1');
 echo ""
 
 
+?>
 
 
-
-
-
- ?>
+	</body>
+</html>

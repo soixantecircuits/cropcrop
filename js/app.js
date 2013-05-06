@@ -7,7 +7,6 @@ jQuery(function($){
 	/*               */
 	/*****************/
 
-
 	$(function () {
 		var input = document.getElementById("images"), 
 			formdata = false;
@@ -58,11 +57,10 @@ jQuery(function($){
 					if( console && console.log ) {
 					}
 				});
-						
-
 			}
 		}, false);
 	});
+
 
 
 /***********************/
@@ -71,54 +69,48 @@ jQuery(function($){
 /*                     */
 /***********************/
 
-		$(function () {
-			// SCRIPT UPLOAD DONE
-			$('#fileupload').fileupload({
-				dataType: 'json',
-				done: function (e, data) {
-					$.each ( data.result.files, function (index, file) {
-						// $('<p/>').text(file.name).appendTo(document.body);
-					});
-				}
-			});
-
-			// SCRIPT WHEN UPLOAD DONE
-			$('#fileupload').bind('fileuploaddone', function (e, data) {
-				$.each(data.result.files, function (index, file) {
-					var _self=this;
-
-					$.ajax({
-						url: './server/php/test.php',
-						type: "POST",
-						data : _self,
-					
-					}).done(function ( response ) {
-						dataAStocker = _self;
-						$().updateVideoInformations( response );
-					});
-				})
-			});
-
-			// script when subimitted file ! 
-			$('#fileupload').bind('fileuploadsubmit', function (e, data) { 
-				
-				var ext = data.files[0].name.split('.').pop();
-
-				if(ext != (('mp4') || ('avi') || ('mpg') || ('mpeg')) )  {
-					alert("not good extension");
-				}
-			});
-
-			$('#fileupload').bind('fileuploadprogress', function (e, data) {
-				var progress = parseInt(data.loaded / data.total * 100, 10);
-				$('#progress .bar').css(
-					'width', progress + '%'
-				);
-				$("#progressBarText").text("Downloading your video file : "+progress+" %");
-   			});
-
-			// $("#autoCropCheckbox").is(':checked');
+	$(function () {
+		// SCRIPT UPLOAD DONE
+		$('#fileupload').fileupload({
+			dataType: 'json',
+			done: function (e, data) {
+				$.each ( data.result.files, function (index, file) {
+					// $('<p/>').text(file.name).appendTo(document.body);
+				});
+			}
 		});
+			// SCRIPT WHEN UPLOAD DONE
+		$('#fileupload').bind('fileuploaddone', function (e, data) {
+			$.each(data.result.files, function (index, file) {
+				var _self=this;
+					$.ajax({
+					url: './server/php/test.php',
+					type: "POST",
+					data : _self,
+				
+				}).done(function ( response ) {
+					dataAStocker = _self;
+					$().updateVideoInformations( response );
+				});
+			})
+		});
+			// script when subimitted file ! 
+		$('#fileupload').bind('fileuploadsubmit', function (e, data) { 
+			
+			var ext = data.files[0].name.split('.').pop();
+				if(ext != (('mp4') || ('avi') || ('mpg') || ('mpeg')) )  {
+				alert("not good extension");
+			}
+		});
+		$('#fileupload').bind('fileuploadprogress', function (e, data) {
+			var progress = parseInt(data.loaded / data.total * 100, 10);
+			$('#progress .bar').css(
+				'width', progress + '%'
+			);
+			$("#progressBarText").text("Downloading your video file : "+progress+" %");
+  		});
+	});
+
 /**********************/
 /**********************/
 /**********************/
@@ -133,6 +125,13 @@ jQuery(function($){
 	var dataAStocker       = "";
 	crops.title = "None";
 	crops.list = [];
+
+	videoExtensionsAllowed = [
+		'mpg',
+		'avi',
+		'',
+
+	];
 
 
 	/***********************************************/
@@ -759,11 +758,34 @@ jQuery(function($){
 	});
 
 
+
+	//
+	// CHECK FOR EXTENSIONS
+	//
+	// $().checkExtension( target, arrayOfReferences )
+	jQuery.fn.extend({
+		checkExtension: function ( target, arrayOfReferences ) {
+			target = target.split(/(\\|\/)/g).split('.').pop();
+			target = target.split('.').pop();
+			var control = false; 
+
+			for (var i = 0 ; i < arrayOfReferences.length ; i ++ ){
+				if ( target === arrayOfReferences[i] ) {
+					control = true;
+				}
+			}
+
+			return control;
+		}
+	});
+
+
 // jQuery end
 });
 
 
 
+		// $("#autoCropCheckbox").is(':checked');
 
 
 
