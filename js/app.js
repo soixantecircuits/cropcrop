@@ -73,12 +73,37 @@ jQuery(function($){
 		// SCRIPT UPLOAD DONE
 		$('#fileupload').fileupload({
 			dataType: 'json',
+
+			 add: function (e, data) {
+                if (data.autoUpload || (data.autoUpload !== false &&
+                        ($(this).data('blueimp-fileupload') ||
+                        $(this).data('fileupload')).options.autoUpload)) {
+                        
+            var ext =  $().checkExtension( data.files[0].name, videoExtensionsAllowed )
+
+                    
+                    if (ext){
+                     $().animateFavicon();
+                    data.submit(); 
+                    $().addVideoContentLoadingSpinner(); 
+                        hook = true;
+                         }
+                    else {       $().displayModal( "Uploading error", "Please select a video file." )
+								//$().hideModal()    
+                         }                                                                       
+
+
+                }
+            }, 
 			done: function (e, data) {
 				$.each ( data.result.files, function (index, file) {
 					// $('<p/>').text(file.name).appendTo(document.body);
 				});
 			}
 		});
+
+
+
 			// SCRIPT WHEN UPLOAD DONE
 		$('#fileupload').bind('fileuploaddone', function (e, data) {
 			$.each(data.result.files, function (index, file) {

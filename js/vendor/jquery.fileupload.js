@@ -137,24 +137,13 @@
             // data.submit() returns a Promise object and allows to attach additional
             // handlers using jQuery's Deferred callbacks:
             // data.submit().done(func).fail(func).always(func);
-            add: function (e, data) {
+            
+            /*add: function (e, data) {
                 if (data.autoUpload || (data.autoUpload !== false &&
                         ($(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload')).options.autoUpload)) {
                         
-            var ext =  $().checkExtension( data.files[0].name, videoExtensionsAllowed )
-
-                    
-                    if (ext){
-                     $().animateFavicon();
-                    data.submit(); 
-                    $().addVideoContentLoadingSpinner(); 
-                        hook = true;
-                         }                                                                       
-
-
-                }
-            },
+            }, */
 
             // Other callbacks:
 
