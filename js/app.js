@@ -11,12 +11,11 @@ jQuery(function($) {
 			formdata = false;
 
 		function showUploadedItem(source) {
-			var list = document.getElementById("image-list"),
-				li = document.createElement("li"),
-				img = document.createElement("img");
+			li = document.createElement("li"),
+			img = document.createElement("img");
 			img.src = source;
 			li.appendChild(img);
-			list.appendChild(li);
+			$("#image-list").appendChild(li);
 		}
 
 		if (window.FormData) {
@@ -51,7 +50,7 @@ jQuery(function($) {
 
 			if (formdata) {
 				$.ajax({
-					url: "./server/php/upload.php",
+					url: "server/php/upload.php",
 					type: "POST",
 					data: formdata,
 					processData: false,
@@ -89,11 +88,6 @@ jQuery(function($) {
 						//$().hideModal()    
 					}
 				}
-			},
-			done: function(e, data) {
-				$.each(data.result.files, function(index, file) {
-					// $('<p/>').text(file.name).appendTo(document.body);
-				});
 			}
 		});
 
@@ -102,7 +96,7 @@ jQuery(function($) {
 			$.each(data.result.files, function(index, file) {
 				var _self = this;
 				$.ajax({
-					url: './server/php/test.php',
+					url: 'server/php/test.php',
 					type: "POST",
 					data: _self
 
@@ -127,8 +121,7 @@ jQuery(function($) {
 		});
 	});
 
-	/**********************/
-	/**********************/
+
 
 	hook = false;
 
@@ -137,8 +130,7 @@ jQuery(function($) {
 			return "Video uploaded, are you sure?";
 		}
 	};
-	/**********************/
-	/**********************/
+
 
 	var serverPath = "server/php/";
 	var screensCropList = [];
@@ -172,28 +164,13 @@ jQuery(function($) {
 
 
 
-	/***********************************************/
-	/*                                             */
-	/*                                             */
-	/*                  INTERFACE                  */
-	/*                                             */
-	/*                                             */
-	/***********************************************/
+	$('#cropItProgressBar,#YourVideoToolbar,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
 
-	/*******************/
-	/*                 */
-	/*  Hide elements  */
-	/*                 */
-	/*******************/
-	$('#cropItProgressBar').hide();
-	$('#YourVideoToolbar').hide();
-	$('#hiddenElements').hide();
-	$('#cache').hide();
-	$('#informationModal').hide();
-	$('#warningJavascriptNotEnabled').hide();
 
 	/* Tool box */
 	var isShown = 0;
+
+
 	$('#buttonYourVideo').click(function(event) {
 		event.preventDefault();
 
@@ -239,75 +216,65 @@ jQuery(function($) {
 		crops.title = title;
 	});
 
-	/********************************/
-	/*                              */
-	/*  Mini thumbnails management  */
-	/*                              */
-	/********************************/
 
-	$("#carouselContainer").on("click", "#mini1", function(event) {
+	$("#carouselContainer").on("click", function(event) {
+		var currentId = $(event.target).attr('id');
 		event.preventDefault();
-		$("#videoContent").css({
-			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails1 + ")"
-		});
-	});
-	$("#carouselContainer").on("click", "#mini2", function(event) {
-		event.preventDefault();
-		$("#videoContent").css({
-			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails2 + ")"
-		});
-	});
-	$("#carouselContainer").on("click", "#mini3", function(event) {
-		event.preventDefault();
-		$("#videoContent").css({
-			"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails3 + ")"
-		});
+		switch (currentId) {
+			case "mini1":
+				$("#videoContent").css({
+					"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails1 + ")"
+				});
+				break;
+			case "mini2":
+				$("#videoContent").css({
+					"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails2 + ")"
+				});
+				break;
+			case "mini3":
+				$("#videoContent").css({
+					"background-image": "url(" + serverPath + thumnbnailsinfos.message.thumbnails3 + ")"
+				});
+				break;
+		}
 	});
 
-	/***********************/
-	/*                     */
-	/*  Select crop layer  */
-	/*                     */
-	/***********************/
+
 	$("#videoCropListDiv").on("click", ".videoCropListDivElement", function(event) {
 		event.preventDefault();
 		var id = $(this).attr("id");
 		if ($("#cropNumber" + id).hasClass("topLayer") === false) {
 			$(".topLayer").removeClass("topLayer");
-			$("#cropNumber" + id).addClass("topLayer");
-			$("#cropNumber" + id).effect("highlight", {}, 1000);
+			$("#cropNumber" + id).addClass("topLayer").effect("highlight", {}, 1000);
 		}
 	});
 
-	/***************************/
-	/*                         */
-	/*  Video format function  /
-	/*                         */
-	/***************************/
-	$("#secondMenu").on("click", "#buttonFormat1_1", function(event) {
+	$("#secondMenu").on("click", function(event) {
+		var currentId = $(event.target).attr('id');
 		event.preventDefault();
-		$().createFormatScreen(1, 1);
+		switch (currentId) {
+			case "buttonFormat1_1":
+				$().createFormatScreen(1, 1);
+				break;
+			case "buttonFormat3_2":
+				$().createFormatScreen(1.5, 1);
+				break;
+			case "buttonFormat4_3":
+				$().createFormatScreen(1.33, 1);
+				break;
+			case "buttonFormat16_9":
+				$().createFormatScreen(1.77, 1);
+				break;
+			case "buttonFormat5_3":
+				$().createFormatScreen(1.66, 1);
+				break;
+			case "buttonFormat16_10":
+				$().createFormatScreen(1.618, 1);
+				break;
+		}
 	});
-	$("#secondMenu").on("click", "#buttonFormat3_2", function(event) {
-		event.preventDefault();
-		$().createFormatScreen(1.5, 1);
-	});
-	$("#secondMenu").on("click", "#buttonFormat4_3", function(event) {
-		event.preventDefault();
-		$().createFormatScreen(1.33, 1);
-	});
-	$("#secondMenu").on("click", "#buttonFormat16_9", function(event) {
-		event.preventDefault();
-		$().createFormatScreen(1.77, 1);
-	});
-	$("#secondMenu").on("click", "#buttonFormat5_3", function(event) {
-		event.preventDefault();
-		$().createFormatScreen(1.66, 1);
-	});
-	$("#secondMenu").on("click", "#buttonFormat16_10", function(event) {
-		event.preventDefault();
-		$().createFormatScreen(1.618, 1);
-	});
+
+
 
 	/*******************************/
 	/*                             */
@@ -351,8 +318,6 @@ jQuery(function($) {
 			$().enableUserInterface();
 
 			$().thumbnails();
-			// Update Carousel
-			//$().createCarousel();
 		},
 
 
@@ -363,7 +328,7 @@ jQuery(function($) {
 
 
 			$.ajax({
-				url: './server/php/test2.php',
+				url: 'server/php/test2.php',
 				type: "POST",
 				data: dataAStocker
 
@@ -409,6 +374,11 @@ jQuery(function($) {
 			});
 
 			// Update infos content
+			$().updateInterface();
+		},
+
+
+		updateInterface: function() {
 			$("#videoInformationsTitle").text(videoInformations.message.filename);
 			$("#videoInformationsWidth").text(videoInformations.message.width);
 			$("#videoInformationsHeight").text(videoInformations.message.height);
@@ -416,30 +386,14 @@ jQuery(function($) {
 			$("#videoInformationsFPS").text(videoInformations.message.frameRate);
 		},
 
-
-
 		//
 		// Enable user interface
 		//
 		// $().enableUserInterface()
 
 		enableUserInterface: function() {
-			$("#navInputTextWidth").removeClass("disabled");
-			$("#navInputTextHeight").removeClass("disabled");
-			$("#buttonAddScreen").removeClass("disabled");
-			$("#autoCropCheckbox").removeClass("disabled");
-			$("#buttonYourVideo").removeClass("disabled");
-			$("#carouselPrev").removeClass("disabled");
-			$("#carouselNext").removeClass("disabled");
+			$(".disabled").removeClass("disabled");
 
-			// Toolbar 2
-			$("#buttonUploadYourPhoto").removeClass("disabled");
-			$("#buttonFormat1_1").removeClass("disabled");
-			$("#buttonFormat3_2").removeClass("disabled");
-			$("#buttonFormat4_3").removeClass("disabled");
-			$("#buttonFormat16_9").removeClass("disabled");
-			$("#buttonFormat5_3").removeClass("disabled");
-			$("#buttonFormat16_10").removeClass("disabled");
 		},
 
 
@@ -450,14 +404,7 @@ jQuery(function($) {
 		// $().disableUserInterface()
 
 		disableUserInterface: function() {
-			$("#navInputTextWidth").addClass("disabled");
-			$("#navInputTextHeight").addClass("disabled");
-			$("#buttonAddScreen").addClass("disabled");
-			$("#buttonCropIt").addClass("disabled");
-			$("#autoCropCheckbox").addClass("disabled");
-			$("#buttonYourVideo").addClass("disabled");
-			$("#carouselPrev").addClass("disabled");
-			$("#carouselNext").addClass("disabled");
+			$(".button inside dark large disabled", ".button end dark large disabled").addClass("disabled");
 
 			if (isShown === 1) {
 				$('#YourVideoToolbar').slideUp();
@@ -465,12 +412,6 @@ jQuery(function($) {
 				isShown = 0;
 			}
 
-			// Toolbar 2
-			$("#buttonUploadYourPhoto").addClass("disabled");
-			$("#buttonFormat1:1").addClass("disabled");
-			$("#buttonFormat4:3").addClass("disabled");
-			$("#buttonFormat16:9").addClass("disabled");
-			$("#buttonFormat16:10").addClass("disabled");
 		},
 
 
@@ -513,7 +454,7 @@ jQuery(function($) {
 
 			var jsoninfo = jsondata;
 			$.ajax({
-				url: './server/php/crop.php',
+				url: 'server/php/crop.php',
 				type: "POST",
 				data: {
 					json: jsoninfo
@@ -524,8 +465,7 @@ jQuery(function($) {
 				$("#progressBarText").text("Your videos are ready to download");
 				$('#buttonDownloadIt').attr("href", "server/php/download.php?filename=" + datas);
 				$('#buttonDownloadItInput').removeClass("disabled");
-				$("#buttonYourVideo").effect("highlight", {}, 1000);
-				$("#buttonDownloadItInput").effect("highlight", {}, 1000);
+				$("#buttonYourVideo,#buttonDownloadItInput").effect("highlight", {}, 1000);
 				$("#cropItProgressBar").hide();
 				$("#buttonCropIt").fadeIn();
 				$('html').timer('stop');
@@ -575,11 +515,6 @@ jQuery(function($) {
 			});
 		},
 
-		//
-		// UPDATE SIZE
-		//
-		// $().updateSize( id, width, height )
-
 		updateSize: function(id, width, height) {
 			crops.list[id].width = width;
 			crops.list[id].height = height;
@@ -587,23 +522,12 @@ jQuery(function($) {
 			$('#inputHeight' + id).attr("placeholder", "H : " + crops.list[id].height);
 		},
 
-
-		//
-		// UPDATE POS
-		//
-		// $().updatePos( id, top, left )
-
 		updatePos: function(id, top, left) {
 			crops.list[id].marginTop = calculPosTop;
 			crops.list[id].marginLeft = calculPosLeft;
 			$('#inputTop' + id).attr("placeholder", "T : " + crops.list[id].marginTop);
 			$('#inputLeft' + id).attr("placeholder", "L : " + crops.list[id].marginLeft);
 		},
-
-		//
-		// ADD SCREEN
-		//
-		// $().addScreen()
 
 		addScreen: function() {
 			videoContentWidth = parseInt($('#videoContent').width(), 10);
@@ -687,16 +611,11 @@ jQuery(function($) {
 			$().addCropLayerToUI(id);
 		},
 
-		//
-		// CREATE FORMAT SCREEN
-		//
-		// $().createFormatScreen( ratioW, ratioH )
-
 		createFormatScreen: function(ratioW, ratioH) {
 			if ($("#buttonCropIt").hasClass("disabled") === true) {
 				$("#buttonCropIt").removeClass("disabled");
 			}
-			
+
 			ratioW = parseFloat(ratioW);
 			ratioH = parseFloat(ratioH);
 
@@ -810,52 +729,34 @@ jQuery(function($) {
 		// $().addVideoContentLoadingSpinner(  )
 
 		addVideoContentLoadingSpinner: function() {
-			$('#videoContentCache').fadeIn();
-			$('#videoContentCache').append('<div id="videoContentBackground"></div>');
-			$('#videoContentBackground').empty('');
-			$('#videoContentBackground').append('<div class="spinner large" role="progressbar"></div>');
+			$('#videoContentCache').fadeIn().append('<div id="videoContentBackground"></div>');
+			$('#videoContentBackground').empty('').append('<div class="spinner large" role="progressbar"></div>');
+
 		},
 
-
-
-		//
-		// DISPLAY MODAL WITH DESIRED INFORMATIONS
-		//
-		// $().displayModal( title, text )
 
 		displayModal: function(title, text) {
 			var titleId = "informationModalContentTitle";
 			var textId = "informationModalContentText";
 
-			$("#" + titleId).empty();
-			$("#" + textId).empty();
-			$("#" + titleId).append(title);
-			$("#" + textId).append(text);
+			$("#" + titleId).empty().append(title);
+			$("#" + textId).empty().append(text);
 			$('#cache').fadeIn();
 			$('#informationModal').slideDown();
 		},
 
 
 
-		//
-		// HIDE MODALE WINDOW
-		//
-		// $().hideModal( )
-
 		hideModal: function() {
 			$('#informationModal').slideUp();
 			$('#cache').fadeOut();
 		},
 
-		//
-		// defaultFavicon
-		//
-		// $().defaultFavicon();
+
 
 		defaultFavicon: function() {
 			oldLink = document.getElementById('favicon');
 			document.head.removeChild(oldLink);
-
 			var icon = document.createElement('link');
 			icon.type = 'image/png';
 			icon.rel = 'icon';
@@ -864,10 +765,7 @@ jQuery(function($) {
 			document.getElementsByTagName('head')[0].appendChild(icon);
 		},
 
-		//
-		// changeFavicon
-		//
-		// $().changeFavicon( newPath );
+
 
 		changeFavicon: function(newPath) {
 			oldLink = document.getElementById('favicon');
@@ -883,10 +781,7 @@ jQuery(function($) {
 			$("#favicon").attr("href", newPath);
 		},
 
-		//
-		// Animated favicon
-		//
-		// $().animateFavicon();
+
 
 		animateFavicon: function() {
 			var i = 0;
