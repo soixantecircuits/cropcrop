@@ -379,7 +379,7 @@ jQuery(function($) {
 		},
 
 		addToolbarInfos: function(id) {
-			console.log("   "+crops.list[id].color[0] );
+			// console.log(id);
 			if (!crops.list[id]) {
 				return false;
 			}
@@ -389,22 +389,17 @@ jQuery(function($) {
 			var height = crops.list[id].height;
 			var marginTop = crops.list[id].marginTop;
 			var marginLeft = crops.list[id].marginLeft;
-
-			var content = $("#videoCropListDivElementModel").clone();
+			content = $("#videoCropListDivElementModel").clone();
+			content.attr("id", "videoCropListDivElement"+id);
 			content.find("#cropSelection2 p").text(id +" .");
-
 			content.find("#inputWidthid").attr("id", "inputWidth" + id);
 			content.find("#inputWidth" + id).attr("placeholder", "W : " + width);
-
 			content.find("#inputHeightid").attr("id", "inputHeight" + id);
 			content.find("#inputHeight" + id).attr("placeholder", "H : " + height);
-
 			content.find("#inputTopid").attr("id", "inputTop" + id);
 			content.find("#inputTop" + id).attr("placeholder", "T : " + marginTop);
-
 			content.find("#inputLeftid").attr("id", "inputLeft" + id);
 			content.find("#inputLeft" + id).attr("placeholder", "L : " + marginLeft);
-
 			content.find("#cropSelectionid__rectangle").attr("id", "rectangle" + id);
 
 
