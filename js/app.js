@@ -11,13 +11,6 @@ jQuery(function($) {
 		var input = $("#images"),
 			formdata = false;
 
-		// function showUploadedItem(source) {
-		// 	li = document.createElement("li"),
-		// 	img = document.createElement("img");
-		// 	img.src = source;
-		// 	li.appendChild(img);
-		// 	$("#image-list").appendChild(li);
-		// }
 
 		if (window.FormData) {
 			formdata = new FormData();
@@ -48,9 +41,6 @@ jQuery(function($) {
 				}
 			}
 
-			// reader.onloadend = function(e) {
-			// 	showUploadedItem(e.target.result, file.fileName);
-			// };
 
 			if (formdata) {
 				$.ajax({
@@ -210,10 +200,10 @@ jQuery(function($) {
 		event.preventDefault();
 		$().addScreen();
 	});
-	
+
 	$("#autoCropCheckbox").click(function(event) {
 		autoCropEnabled = $('#autoCropCheckbox').is(':checked');
-		$().rebuildInterface( autoCropEnabled );
+		$().rebuildInterface(autoCropEnabled);
 	});
 
 	// When upload start
@@ -259,7 +249,7 @@ jQuery(function($) {
 
 	$("#secondMenu").on("click", function(event) {
 		event.preventDefault();
-		$().createFormatScreen($(event.target).data('width'),$(event.target).data('height'));
+		$().createFormatScreen($(event.target).data('width'), $(event.target).data('height'));
 	});
 
 
@@ -507,10 +497,10 @@ jQuery(function($) {
 		updateSlavesInformations: function() {
 			var videoContentWidth = parseInt($('#videoContent').width(), 10);
 			var videoContentHeight = parseInt($('#videoContent').height(), 10);
-			var width = parseInt($("#cropNumber4").width());
-			var height = parseInt($("#cropNumber4").height());
-			var marginFromLeft = parseInt($("#cropNumber4").position().left);
-			var marginFromTop = parseInt($("#cropNumber4").position().top);
+			var width = parseInt($("#cropNumber4").width(), 10);
+			var height = parseInt($("#cropNumber4").height(), 10);
+			var marginFromLeft = parseInt($("#cropNumber4").position().left, 10);
+			var marginFromTop = parseInt($("#cropNumber4").position().top, 10);
 			var longLeft = marginFromLeft + width;
 			var longTop = marginFromTop + height;
 			var rightSquareWidth = (videoContentWidth - longLeft);
@@ -541,12 +531,12 @@ jQuery(function($) {
 			$('#inputHeight' + id).attr("placeholder", "H : " + crops.list[id].height);
 			$('#inputTop' + id).attr("placeholder", "T : " + crops.list[id].marginTop);
 			$('#inputLeft' + id).attr("placeholder", "L : " + crops.list[id].marginLeft);
-			$("#cropNumber"+id).css({
+			$("#cropNumber" + id).css({
 				width: crops.list[id].width,
 				height: crops.list[id].height,
 				top: crops.list[id].marginTop,
 				left: crops.list[id].marginLeft
-			})
+			});
 		},
 
 		addScreen: function() {
@@ -632,8 +622,8 @@ jQuery(function($) {
 		},
 
 		createFormatScreen: function(ratioW, ratioH) {
-			
-			
+
+
 			if ($("#buttonCropIt").hasClass("disabled") === true) {
 				$("#buttonCropIt").removeClass("disabled");
 			}
@@ -683,7 +673,7 @@ jQuery(function($) {
 			if ($("#buttonCropIt").hasClass("disabled") === true) {
 				$("#buttonCropIt").removeClass("disabled");
 			}
-			
+
 			ratioW = parseFloat(ratioW);
 			ratioH = parseFloat(ratioH);
 
@@ -696,16 +686,16 @@ jQuery(function($) {
 			var colorArray = [];
 
 			if (videoContentWidth > videoContentHeight) {
-				unit = ( videoContentHeight );
+				unit = (videoContentHeight);
 			} else {
-				unit = ( videoContentWidth );
+				unit = (videoContentWidth);
 			}
 
 			unit = unit / 2;
 			height = parseInt(unit, 10);
 			width = parseInt(unit * ratioW, 10);
-			var marginFromLeft = ( (videoContentWidth / 2) - (width / 2) );
-			var marginFromTop = ( (videoContentHeight / 2) - (height / 2) );
+			var marginFromLeft = ((videoContentWidth / 2) - (width / 2));
+			var marginFromTop = ((videoContentHeight / 2) - (height / 2));
 			var longLeft = marginFromLeft + width;
 			var longTop = marginFromTop + height;
 			var rightSquareWidth = (videoContentWidth - longLeft);
@@ -725,8 +715,8 @@ jQuery(function($) {
 				Math.ceil(255),
 				0.5]
 			});
-			$().addCropSlaveLayerToUI(crops.list.length -1);
-			
+			$().addCropSlaveLayerToUI(crops.list.length - 1);
+
 			/* Number 1 */
 			/* Position 01 */
 			crops.list.push({
@@ -741,8 +731,8 @@ jQuery(function($) {
 				Math.ceil(255),
 				0.5]
 			});
-			$().addCropSlaveLayerToUI(crops.list.length -1);
-			
+			$().addCropSlaveLayerToUI(crops.list.length - 1);
+
 			/* Number 2 */
 			/* Position 02 */
 			crops.list.push({
@@ -757,7 +747,7 @@ jQuery(function($) {
 				Math.ceil(255),
 				0.5]
 			});
-			$().addCropSlaveLayerToUI(crops.list.length -1);
+			$().addCropSlaveLayerToUI(crops.list.length - 1);
 
 			/* Number 3 */
 			/* Position 10 */
@@ -773,7 +763,7 @@ jQuery(function($) {
 				Math.ceil(255),
 				0.5]
 			});
-			$().addCropSlaveLayerToUI(crops.list.length -1);
+			$().addCropSlaveLayerToUI(crops.list.length - 1);
 
 			/* Number 4 MASTER */
 			/* Position 11 */
@@ -789,8 +779,8 @@ jQuery(function($) {
 				Math.ceil(192),
 				0.5]
 			});
-			$().addCropMasterLayerToUI(crops.list.length -1);
-			
+			$().addCropMasterLayerToUI(crops.list.length - 1);
+
 			/* Number 5 */
 			/* Position 12 */
 			crops.list.push({
@@ -805,7 +795,7 @@ jQuery(function($) {
 				Math.ceil(255),
 				0.5]
 			});
-			$().addCropSlaveLayerToUI(crops.list.length -1);
+			$().addCropSlaveLayerToUI(crops.list.length - 1);
 
 			/* Number 6 */
 			/* Position 20 */
@@ -821,8 +811,8 @@ jQuery(function($) {
 				Math.ceil(255),
 				0.5]
 			});
-			$().addCropSlaveLayerToUI(crops.list.length -1);
-			
+			$().addCropSlaveLayerToUI(crops.list.length - 1);
+
 			/* Number 7 */
 			/* Position 21 */
 			crops.list.push({
@@ -837,8 +827,8 @@ jQuery(function($) {
 				Math.ceil(255),
 				0.5]
 			});
-			$().addCropSlaveLayerToUI(crops.list.length -1);
-			
+			$().addCropSlaveLayerToUI(crops.list.length - 1);
+
 			/* Number 8 */
 			/* Position 22 */
 			crops.list.push({
@@ -853,7 +843,7 @@ jQuery(function($) {
 				Math.ceil(255),
 				0.5]
 			});
-			$().addCropSlaveLayerToUI(crops.list.length -1);
+			$().addCropSlaveLayerToUI(crops.list.length - 1);
 		},
 
 		//
@@ -1064,8 +1054,8 @@ jQuery(function($) {
 		//
 		// $().rebuildInterface();
 
-		rebuildInterface: function( bool ) {
-			if(typeof (bool) != "boolean"){
+		rebuildInterface: function(bool) {
+			if (typeof(bool) != "boolean") {
 				return false;
 			}
 
@@ -1078,11 +1068,11 @@ jQuery(function($) {
 			// Activate or desactivate Add Screen function
 			if (bool === true) {
 				$("#navInputTextWidth,#navInputTextHeight,#buttonAddScreen").addClass("disabled");
-				$().createAutoCropScreens( 1, 1 );
-			};
+				$().createAutoCropScreens(1, 1);
+			}
 			if (bool === false) {
 				$("#navInputTextWidth,#navInputTextHeight,#buttonAddScreen").removeClass("disabled");
-			};
+			}
 		}
 	});
 	// jQuery end
@@ -1099,22 +1089,22 @@ String.prototype.replaceAll = function(token, newToken, ignoreCase) {
 	var str = this + "";
 	var i = -1;
 
-	if (typeof token === "string") {
+	if (typeof token === "string")
 
-		if (ignoreCase) {
+	if (ignoreCase) {
 
-			_token = token.toLowerCase(); 
+		_token = token.toLowerCase();
 
-			while ((
-			i = str.toLowerCase().indexOf(
-			token, i >= 0 ? i + newToken.length : 0)) !== -1) {
-				str = str.substring(0, i) + newToken + str.substring(i + token.length);
-			}
-
-		} else {
-			return this.split(token).join(newToken);
+		while ((
+		i = str.toLowerCase().indexOf(
+		token, i >= 0 ? i + newToken.length : 0)) !== -1) {
+			str = str.substring(0, i) + newToken + str.substring(i + token.length);
 		}
 
+	} else {
+		return this.split(token).join(newToken);
 	}
-	return str;
+
+};
+return str;
 };
