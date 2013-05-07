@@ -133,11 +133,10 @@ jQuery(function($) {
 
 
 	var serverPath = "server/php/";
-	var screensCropList = [];
-	var screensCropCount = 0; // Use to be an ID
 	var videoInformations = {};
 	var crops = {};
 	var dataAStocker = "";
+	var autoCropEnabled = false;
 	crops.title = "None";
 	crops.list = [];
 
@@ -206,6 +205,11 @@ jQuery(function($) {
 	$("#addScreenForm").submit(function(event) {
 		event.preventDefault();
 		$().addScreen();
+	});
+	
+	$("#autoCropCheckbox").click(function(event) {
+		autoCropEnabled = $('#autoCropCheckbox').is(':checked');
+		$().rebuildInterface( autoCropEnabled );
 	});
 
 	// When upload start
@@ -491,6 +495,55 @@ jQuery(function($) {
 			$('#inputTop' + id).attr("placeholder", "T : " + crops.list[id].marginTop);
 			$('#inputLeft' + id).attr("placeholder", "L : " + crops.list[id].marginLeft);
 		},
+		//
+		// UPDATE SLAVES SIZE
+		//
+		// $().updateSlavesInformations()
+
+		updateSlavesInformations: function() {
+			var videoContentWidth = parseInt($('#videoContent').width(), 10);
+			var videoContentHeight = parseInt($('#videoContent').height(), 10);
+			var width = parseInt($("#cropNumber4").width());
+			var height = parseInt($("#cropNumber4").height());
+			var marginFromLeft = parseInt($("#cropNumber4").position().left);
+			var marginFromTop = parseInt($("#cropNumber4").position().top);
+			var longLeft = marginFromLeft + width;
+			var longTop = marginFromTop + height;
+			var rightSquareWidth = (videoContentWidth - longLeft);
+			var underHeight = (videoContentHeight - longTop);
+
+			$().updateSlaveInformations(0, marginFromLeft, marginFromTop, 0, 0);
+			$().updateSlaveInformations(1, width, marginFromTop, 0, marginFromLeft);
+			$().updateSlaveInformations(2, rightSquareWidth, marginFromTop, 0, longLeft);
+			$().updateSlaveInformations(3, marginFromLeft, height, marginFromTop, 0);
+			$().updateSlaveInformations(4, width, height, marginFromTop, marginFromLeft); // 4 is MASTER
+			$().updateSlaveInformations(5, rightSquareWidth, height, marginFromTop, longLeft);
+			$().updateSlaveInformations(6, marginFromLeft, underHeight, longTop, 0);
+			$().updateSlaveInformations(7, width, underHeight, longTop, marginFromLeft);
+			$().updateSlaveInformations(8, rightSquareWidth, underHeight, longTop, longLeft);
+		},
+
+		//
+		// UPDATE SLAVE INFORMATIONS
+		//
+		// $().updateSlaveInformations(id, width, height, top, left)
+
+		updateSlaveInformations: function(id, width, height, top, left) {
+			crops.list[id].width = width;
+			crops.list[id].height = height;
+			crops.list[id].marginTop = top;
+			crops.list[id].marginLeft = left;
+			$('#inputWidth' + id).attr("placeholder", "W : " + crops.list[id].width);
+			$('#inputHeight' + id).attr("placeholder", "H : " + crops.list[id].height);
+			$('#inputTop' + id).attr("placeholder", "T : " + crops.list[id].marginTop);
+			$('#inputLeft' + id).attr("placeholder", "L : " + crops.list[id].marginLeft);
+			$("#cropNumber"+id).css({
+				width: crops.list[id].width,
+				height: crops.list[id].height,
+				top: crops.list[id].marginTop,
+				left: crops.list[id].marginLeft
+			})
+		},
 
 		addScreen: function() {
 			videoContentWidth = parseInt($('#videoContent').width(), 10);
@@ -618,6 +671,188 @@ jQuery(function($) {
 		},
 
 		//
+		// CREATE AUTOCROP SCREENS
+		//
+		// $().createAutoCropScreens(ratioW, ratioH)
+
+		createAutoCropScreens: function(ratioW, ratioH) {
+			if ($("#buttonCropIt").hasClass("disabled") === true) {
+				$("#buttonCropIt").removeClass("disabled");
+			}
+			
+			ratioW = parseFloat(ratioW);
+			ratioH = parseFloat(ratioH);
+
+			var id = 0;
+			var videoContentWidth = parseInt($('#videoContent').width(), 10);
+			var videoContentHeight = parseInt($('#videoContent').height(), 10);
+			var unit = "";
+			var width = "";
+			var height = "";
+			var colorArray = [];
+
+			if (videoContentWidth > videoContentHeight) {
+				unit = ( videoContentHeight );
+			} else {
+				unit = ( videoContentWidth );
+			}
+
+			unit = unit / 2;
+			height = parseInt(unit, 10);
+			width = parseInt(unit * ratioW, 10);
+			var marginFromLeft = ( (videoContentWidth / 2) - (width / 2) );
+			var marginFromTop = ( (videoContentHeight / 2) - (height / 2) );
+			var longLeft = marginFromLeft + width;
+			var longTop = marginFromTop + height;
+			var rightSquareWidth = (videoContentWidth - longLeft);
+			var underHeight = (videoContentHeight - longTop);
+
+			/* Number 0 */
+			/* Position 00 */
+			crops.list.push({
+				screenId: crops.list.length,
+				width: marginFromLeft,
+				height: marginFromTop,
+				marginLeft: 0,
+				marginTop: 0,
+				color: [
+				Math.ceil(192),
+				Math.ceil(255),
+				Math.ceil(255),
+				0.5]
+			});
+			$().addCropSlaveLayerToUI(crops.list.length -1);
+			
+			/* Number 1 */
+			/* Position 01 */
+			crops.list.push({
+				screenId: crops.list.length,
+				width: width,
+				height: marginFromTop,
+				marginLeft: marginFromLeft,
+				marginTop: 0,
+				color: [
+				Math.ceil(128),
+				Math.ceil(255),
+				Math.ceil(255),
+				0.5]
+			});
+			$().addCropSlaveLayerToUI(crops.list.length -1);
+			
+			/* Number 2 */
+			/* Position 02 */
+			crops.list.push({
+				screenId: crops.list.length,
+				width: rightSquareWidth,
+				height: underHeight,
+				marginLeft: longLeft,
+				marginTop: 0,
+				color: [
+				Math.ceil(192),
+				Math.ceil(255),
+				Math.ceil(255),
+				0.5]
+			});
+			$().addCropSlaveLayerToUI(crops.list.length -1);
+
+			/* Number 3 */
+			/* Position 10 */
+			crops.list.push({
+				screenId: crops.list.length,
+				width: marginFromLeft,
+				height: height,
+				marginLeft: 0,
+				marginTop: marginFromTop,
+				color: [
+				Math.ceil(128),
+				Math.ceil(255),
+				Math.ceil(255),
+				0.5]
+			});
+			$().addCropSlaveLayerToUI(crops.list.length -1);
+
+			/* Number 4 MASTER */
+			/* Position 11 */
+			crops.list.push({
+				screenId: crops.list.length,
+				width: width,
+				height: height,
+				marginLeft: marginFromLeft,
+				marginTop: marginFromTop,
+				color: [
+				Math.ceil(255),
+				Math.ceil(128),
+				Math.ceil(192),
+				0.5]
+			});
+			$().addCropMasterLayerToUI(crops.list.length -1);
+			
+			/* Number 5 */
+			/* Position 12 */
+			crops.list.push({
+				screenId: crops.list.length,
+				width: rightSquareWidth,
+				height: height,
+				marginLeft: longLeft,
+				marginTop: marginFromTop,
+				color: [
+				Math.ceil(128),
+				Math.ceil(255),
+				Math.ceil(255),
+				0.5]
+			});
+			$().addCropSlaveLayerToUI(crops.list.length -1);
+
+			/* Number 6 */
+			/* Position 20 */
+			crops.list.push({
+				screenId: crops.list.length,
+				width: marginFromLeft,
+				height: marginFromTop,
+				marginLeft: 0,
+				marginTop: longTop,
+				color: [
+				Math.ceil(192),
+				Math.ceil(255),
+				Math.ceil(255),
+				0.5]
+			});
+			$().addCropSlaveLayerToUI(crops.list.length -1);
+			
+			/* Number 7 */
+			/* Position 21 */
+			crops.list.push({
+				screenId: crops.list.length,
+				width: width,
+				height: marginFromTop,
+				marginLeft: marginFromLeft,
+				marginTop: longTop,
+				color: [
+				Math.ceil(128),
+				Math.ceil(255),
+				Math.ceil(255),
+				0.5]
+			});
+			$().addCropSlaveLayerToUI(crops.list.length -1);
+			
+			/* Number 8 */
+			/* Position 22 */
+			crops.list.push({
+				screenId: crops.list.length,
+				width: rightSquareWidth,
+				height: underHeight,
+				marginLeft: longLeft,
+				marginTop: longTop,
+				color: [
+				Math.ceil(192),
+				Math.ceil(255),
+				Math.ceil(255),
+				0.5]
+			});
+			$().addCropSlaveLayerToUI(crops.list.length -1);
+		},
+
+		//
 		// ADD CROP LAYER TO UI
 		//
 		// $().addCropLayerToUI( id )
@@ -659,6 +894,60 @@ jQuery(function($) {
 
 					// Function update
 					$().updatePos(id, calculPosTop, calculPosLeft);
+				},
+				containment: $("#videoContent")
+			}); // End draggable
+
+			$().addToolbarInfos(id);
+		},
+
+		//
+		// ADD CROP LAYER TO UI
+		//
+		// $().addCropSlaveLayerToUI( id )
+
+		addCropSlaveLayerToUI: function(id) {
+
+			$('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
+			$('#cropNumber' + id).css({
+				'position': 'absolute',
+				"background-color": 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
+				'top': crops.list[id].marginTop + "px",
+				'left': crops.list[id].marginLeft + "px",
+				'width': crops.list[id].width + "px",
+				'height': crops.list[id].height + "px"
+			});
+			$().addToolbarInfos(id);
+		},
+
+		//
+		// ADD CROP MASTER LAYER TO UI
+		//
+		// $().addCropMasterLayerToUI( id )
+
+		addCropMasterLayerToUI: function(id) {
+
+			$('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
+			$('#cropNumber' + id).css({
+				'position': 'absolute',
+				"background-color": 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
+				'top': crops.list[id].marginTop + "px",
+				'left': crops.list[id].marginLeft + "px",
+				'width': crops.list[id].width + "px",
+				'height': crops.list[id].height + "px"
+			});
+
+			// Draggable, resizable
+			$('#cropNumber' + id)
+				.resizable({
+				resize: function(event, ui) {
+					$().updateSlavesInformations();
+				},
+				containment: $("#videoContent")
+			}) // End resizable
+			.draggable({ //make it "draggable" and "resizable"
+				drag: function(event, ui) { // What happen when dragged
+					$().updateSlavesInformations();
 				},
 				containment: $("#videoContent")
 			}); // End draggable
@@ -762,6 +1051,36 @@ jQuery(function($) {
 
 				}
 			});
+		},
+
+		//
+		// Animated favicon
+		//
+		// $().rebuildInterface();
+
+		rebuildInterface: function( bool ) {
+			if(typeof (bool) != "boolean"){
+				return false;
+			}
+
+			// Reset all crops
+			crops.list = [];
+			// Reset interface 
+			$("#videoCropListDiv").empty();
+			$("#videoContent").empty();
+
+			// Activate or desactivate Add Screen function
+			if (bool === true) {
+				$("#navInputTextWidth").addClass("disabled");
+				$("#navInputTextHeight").addClass("disabled");
+				$("#buttonAddScreen").addClass("disabled");
+				$().createAutoCropScreens( 1, 1 );
+			};
+			if (bool === false) {
+				$("#navInputTextWidth").removeClass("disabled");
+				$("#navInputTextHeight").removeClass("disabled");
+				$("#buttonAddScreen").removeClass("disabled");
+			};
 		}
 	});
 	// jQuery end
