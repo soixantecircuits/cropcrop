@@ -7,24 +7,28 @@ jQuery(function($) {
 	/*               */
 	/*****************/
 	$(function() {
-		var input = document.getElementById("images"),
+		//var input = document.getElementById("images"),
+		var input = $("#images"),
 			formdata = false;
 
-		function showUploadedItem(source) {
-			li = document.createElement("li"),
-			img = document.createElement("img");
-			img.src = source;
-			li.appendChild(img);
-			$("#image-list").appendChild(li);
-		}
+		// function showUploadedItem(source) {
+		// 	li = document.createElement("li"),
+		// 	img = document.createElement("img");
+		// 	img.src = source;
+		// 	li.appendChild(img);
+		// 	$("#image-list").appendChild(li);
+		// }
 
 		if (window.FormData) {
 			formdata = new FormData();
-			document.getElementById("btn").style.display = "none";
+			// $("#btn").style.display = "none";
 		}
 
-		input.addEventListener("change", function(evt) {
-			document.getElementById("response").innerHTML = "Uploading . . .";
+		// input.addEventListener("change", function(evt) {
+		input.change(function(evt) {
+			// document.getElementById("response").innerHTML = "Uploading . . .";
+			console.log("ok");
+			$("#response").text("Uploading . . .");
 			var i = 0,
 				len = this.files.length,
 				img, reader, file;
@@ -44,9 +48,9 @@ jQuery(function($) {
 				}
 			}
 
-			reader.onloadend = function(e) {
-				showUploadedItem(e.target.result, file.fileName);
-			};
+			// reader.onloadend = function(e) {
+			// 	showUploadedItem(e.target.result, file.fileName);
+			// };
 
 			if (formdata) {
 				$.ajax({
@@ -59,7 +63,7 @@ jQuery(function($) {
 					if (console && console.log) {}
 				});
 			}
-		}, false);
+		});
 
 		/***********************/
 		/*                     */
@@ -1009,7 +1013,8 @@ jQuery(function($) {
 
 
 		defaultFavicon: function() {
-			oldLink = document.getElementById('favicon');
+			// oldLink = document.getElementById('favicon');
+			oldLink = $('#favicon');
 			document.head.removeChild(oldLink);
 			var icon = document.createElement('link');
 			icon.type = 'image/png';
@@ -1022,7 +1027,8 @@ jQuery(function($) {
 
 
 		changeFavicon: function(newPath) {
-			oldLink = document.getElementById('favicon');
+			// oldLink = document.getElementById('favicon');
+			oldLink = $('#favicon');
 			document.head.removeChild(oldLink);
 
 			var icon = document.createElement('link');
