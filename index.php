@@ -151,12 +151,12 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							<a id="buttonUploadYourPhoto" class="button large dark disabled" role="button">Upload your photo</a>
 						</span>
 						<span class="button-group large">
-							<a role="button" class="button start dark large disabled" id="buttonFormat1_1" >1 : 1</a>
-							<a role="button" class="button inside dark large disabled" id="buttonFormat3_2" >3 : 2</a>
-							<a role="button" class="button inside dark large disabled" id="buttonFormat4_3" >4 : 3</a>
-							<a role="button" class="button inside dark large disabled" id="buttonFormat5_3" >5 : 3</a>
-							<a role="button" class="button inside dark large disabled" id="buttonFormat16_9" >16 : 9</a>
-							<a role="button" class="button end dark large disabled" id="buttonFormat16_10" >16 : 10</a>
+							<a role="button" class="button start dark large disabled" id="buttonFormat1_1"  data-width="1" data-height="1"  >1 : 1</a>
+							<a role="button" class="button inside dark large disabled" id="buttonFormat3_2" data-width="3" data-height="2"  >3 : 2</a>
+							<a role="button" class="button inside dark large disabled" id="buttonFormat4_3" data-width="4" data-height="3" >4 : 3</a>
+							<a role="button" class="button inside dark large disabled" id="buttonFormat5_3" data-width="5" data-height="3" >5 : 3</a>
+							<a role="button" class="button inside dark large disabled" id="buttonFormat16_9" data-width="16" data-height="9" >16 : 9</a>
+							<a role="button" class="button end dark large disabled" id="buttonFormat16_10" data-width="16" data-height="10" >16 : 10</a>
 						</span>
 					</p>
 				</div>

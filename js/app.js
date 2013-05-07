@@ -250,28 +250,8 @@ jQuery(function($) {
 	});
 
 	$("#secondMenu").on("click", function(event) {
-		var currentId = $(event.target).attr('id');
 		event.preventDefault();
-		switch (currentId) {
-			case "buttonFormat1_1":
-				$().createFormatScreen(1, 1);
-				break;
-			case "buttonFormat3_2":
-				$().createFormatScreen(1.5, 1);
-				break;
-			case "buttonFormat4_3":
-				$().createFormatScreen(1.33, 1);
-				break;
-			case "buttonFormat16_9":
-				$().createFormatScreen(1.77, 1);
-				break;
-			case "buttonFormat5_3":
-				$().createFormatScreen(1.66, 1);
-				break;
-			case "buttonFormat16_10":
-				$().createFormatScreen(1.618, 1);
-				break;
-		}
+		$().createFormatScreen($(event.target).data('height'),$(this).data('width'));
 	});
 
 
