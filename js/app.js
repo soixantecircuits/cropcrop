@@ -251,7 +251,7 @@ jQuery(function($) {
 
 	$("#secondMenu").on("click", function(event) {
 		event.preventDefault();
-		$().createFormatScreen($(event.target).data('height'),$(this).data('width'));
+		$().createFormatScreen($(event.target).data('width'),$(event.target).data('height'));
 	});
 
 
@@ -357,25 +357,6 @@ jQuery(function($) {
 		enableUserInterface: function() {
 
 			$(".disabled").removeClass("disabled");
-
-
-			$("#navInputTextWidth").removeClass("disabled");
-			$("#navInputTextHeight").removeClass("disabled");
-			$("#buttonAddScreen").removeClass("disabled");
-			$("#autoCropOnOff").removeClass("disabled");
-			$("#buttonYourVideo").removeClass("disabled");
-			$("#carouselPrev").removeClass("disabled");
-			$("#carouselNext").removeClass("disabled");
-
-			// Toolbar 2
-			$("#buttonUploadYourPhoto").removeClass("disabled");
-			$("#buttonFormat1_1").removeClass("disabled");
-			$("#buttonFormat3_2").removeClass("disabled");
-			$("#buttonFormat4_3").removeClass("disabled");
-			$("#buttonFormat16_9").removeClass("disabled");
-			$("#buttonFormat5_3").removeClass("disabled");
-			$("#buttonFormat16_10").removeClass("disabled");
-
 		},
 
 
@@ -594,6 +575,8 @@ jQuery(function($) {
 		},
 
 		createFormatScreen: function(ratioW, ratioH) {
+			
+			
 			if ($("#buttonCropIt").hasClass("disabled") === true) {
 				$("#buttonCropIt").removeClass("disabled");
 			}
