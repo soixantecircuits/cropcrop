@@ -82,6 +82,24 @@
 
 
 
+
+				<p>
+					<span class='checksysImportant'>Python 3.2.3</span> is required. Your actual version is : 
+				</p>
+				<p>
+					<?php
+						$output = shell_exec('python3 --version 2>&1');
+						if ( strpos(  $output , "command not found" ) == true ) {
+							echo "<pre class='checksysPadding checksysError'>$output</pre>";
+						} else {
+							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
+						}
+					?>
+				</p>
+
+
+
+
 				<!-- Start MediaInfo Version Control -->
 				<p>
 					<span class='checksysImportant'>MediaInfo v0.7.52</span> is required. Your actual version is :
