@@ -54,6 +54,11 @@ jQuery(function($) {
 			}
 		});
 
+
+		
+
+		
+
 		/***********************/
 		/*                     */
 		/*     file upload     */
@@ -381,14 +386,18 @@ jQuery(function($) {
 		// $().createCarousel()
 
 		createCarousel: function() {
-			$("#carouselContainer").empty();
 
-			carouselContent = "";
-			carouselContent += '<li><img id="mini1" src="server/php/' + thumnbnailsinfos.message.mini1 + '" alt="" width="' + thumnbnailsinfos.message.miniwidth + '" height="' + thumnbnailsinfos.message.miniheight + '" ></li>';
-			carouselContent += '<li><img id="mini2" src="server/php/' + thumnbnailsinfos.message.mini2 + '" alt="" width="' + thumnbnailsinfos.message.miniwidth + '" height="' + thumnbnailsinfos.message.miniheight + '" ></li>';
-			carouselContent += '<li><img id="mini3" src="server/php/' + thumnbnailsinfos.message.mini3 + '" alt="" width="' + thumnbnailsinfos.message.miniwidth + '" height="' + thumnbnailsinfos.message.miniheight + '" ></li>';
+			$("#mini1").attr('src',"server/php/" + thumnbnailsinfos.message.mini1);
+			$("#mini1").attr('width',thumnbnailsinfos.message.miniwidth);  
+			$("#mini1").attr('height',thumnbnailsinfos.message.miniheight);  
 
-			$("#carouselContainer").append(carouselContent);
+			$("#mini2").attr('src',"server/php/" + thumnbnailsinfos.message.mini2);
+			$("#mini2").attr('width',thumnbnailsinfos.message.miniwidth);  
+			$("#mini2").attr('height',thumnbnailsinfos.message.miniheight);
+
+			$("#mini3").attr('src',"server/php/" + thumnbnailsinfos.message.mini3);
+			$("#mini3").attr('width',thumnbnailsinfos.message.miniwidth);  
+			$("#mini3").attr('height',thumnbnailsinfos.message.miniheight);			
 
 			$(function() {
 				$(".thumbnailsCarousel").jCarouselLite({
@@ -1001,8 +1010,8 @@ jQuery(function($) {
 
 
 		defaultFavicon: function() {
-			// oldLink = document.getElementById('favicon');
-			oldLink = $('#favicon');
+			 oldLink = document.getElementById('favicon');
+			
 			document.head.removeChild(oldLink);
 			var icon = document.createElement('link');
 			icon.type = 'image/png';
@@ -1015,8 +1024,8 @@ jQuery(function($) {
 
 
 		changeFavicon: function(newPath) {
-			// oldLink = document.getElementById('favicon');
-			oldLink = $('#favicon');
+
+			oldLink = document.getElementById('favicon');
 			document.head.removeChild(oldLink);
 
 			var icon = document.createElement('link');
@@ -1078,10 +1087,7 @@ jQuery(function($) {
 
 
 
-/**
- * ReplaceAll by Fagner Brack (MIT Licensed)
- * Replaces all occurrences of a substring in a string
- */
+
 String.prototype.replaceAll = function(token, newToken, ignoreCase) {
 	var _token;
 	var str = this + "";
