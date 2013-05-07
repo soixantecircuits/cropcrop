@@ -1,122 +1,94 @@
 jQuery(function($) {
-	// "use strict";
-
-	/*****************/
-	/*               */
-	/*  upload part  */
-	/*               */
-	/*****************/
-		//var input = document.getElementById("images"),
-		var input = $("#images"),
-			formdata = false;
 
 
-		if (window.FormData) {
-			formdata = new FormData();
-			// $("#btn").style.display = "none";
+
+	var input = $("#images"),
+		formdata = false;
+
+	if (window.FormData) {
+		formdata = new FormData();
+	}
+
+	input.change(function(evt) {
+
+		var i = 0,
+			len = this.files.length,
+			img, reader, file;
+
+		for (; i < len; i++) {
+			file = this.files[i];
+
+			if ( !! file.type.match(/image.*/)) {
+				if (window.FileReader) {
+					reader = new FileReader();
+
+					reader.readAsDataURL(file);
+				}
+				if (formdata) {
+					formdata.append("images[]", file);
+				}
+			}
 		}
 
-		// input.addEventListener("change", function(evt) {
-		input.change(function(evt) {
-			// document.getElementById("response").innerHTML = "Uploading . . .";
-			console.log("ok");
-			$("#response").text("Uploading . . .");
-			var i = 0,
-				len = this.files.length,
-				img, reader, file;
+		if (formdata) {
+			$.ajax({
+				url: "server/php/upload.php",
+				type: "POST",
+				data: formdata,
+				processData: false,
+				contentType: false
+			}).done(function(data) {});
+		}
+	});
 
-			for (; i < len; i++) {
-				file = this.files[i];
+	$('#fileupload').fileupload({
+		dataType: 'json',
 
-				if ( !! file.type.match(/image.*/)) {
-					if (window.FileReader) {
-						reader = new FileReader();
+		add: function(e, data) {
+			if (data.autoUpload || (data.autoUpload !== false && ($(this).data('blueimp-fileupload') || $(this).data('fileupload')).options.autoUpload)) {
 
-						reader.readAsDataURL(file);
-					}
-					if (formdata) {
-						formdata.append("images[]", file);
-					}
+				var ext = $().checkExtension(data.files[0].name, videoExtensionsAllowed);
+
+				if (ext) {
+					$().animateFavicon();
+					data.submit();
+					$().addVideoContentLoadingSpinner();
+					hook = true;
+				} else {
+					$().displayModal("Uploading error", "Please select a video file.");
 				}
 			}
+		}
+	});
 
 
-			if (formdata) {
-				$.ajax({
-					url: "server/php/upload.php",
-					type: "POST",
-					data: formdata,
-					processData: false,
-					contentType: false
-				}).done(function(data) {
-					if (console && console.log) {}
-				});
-			}
-		});
+	$('#fileupload').bind('fileuploaddone', function(e, data) {
+		$.each(data.result.files, function(index, file) {
+			var _self = this;
+			$.ajax({
+				url: 'server/php/test.php',
+				type: "POST",
+				data: _self
 
-
-		
-
-		
-
-		/***********************/
-		/*                     */
-		/*     file upload     */
-		/*                     */
-		/***********************/
-
-
-		// SCRIPT UPLOAD DONE
-		$('#fileupload').fileupload({
-			dataType: 'json',
-
-			add: function(e, data) {
-				if (data.autoUpload || (data.autoUpload !== false && ($(this).data('blueimp-fileupload') || $(this).data('fileupload')).options.autoUpload)) {
-
-					var ext = $().checkExtension(data.files[0].name, videoExtensionsAllowed);
-
-
-					if (ext) {
-						$().animateFavicon();
-						data.submit();
-						$().addVideoContentLoadingSpinner();
-						hook = true;
-					} else {
-						$().displayModal("Uploading error", "Please select a video file.");
-						//$().hideModal()    
-					}
-				}
-			}
-		});
-
-		// SCRIPT WHEN UPLOAD DONE
-		$('#fileupload').bind('fileuploaddone', function(e, data) {
-			$.each(data.result.files, function(index, file) {
-				var _self = this;
-				$.ajax({
-					url: 'server/php/test.php',
-					type: "POST",
-					data: _self
-
-				}).done(function(response) {
-					dataAStocker = _self;
-					$().updateVideoInformations(response);
-				});
+			}).done(function(response) {
+				dataAStocker = _self;
+				$().updateVideoInformations(response);
 			});
 		});
+	});
 
-		$('#fileupload').bind('fileuploadprogress', function(e, data) {
-			var progress = parseInt(data.loaded / data.total * 100, 10);
-			$('#progress .bar').css(
-				'width', progress + '%'
+	$('#fileupload').bind('fileuploadprogress', function(e, data) {
+		var progress = parseInt(data.loaded / data.total * 100, 10);
+		$('#progress .bar').css(
+			'width', progress + '%'
 
-			);
-			$("#progressBarText").text("Downloading your video file : " + progress + " %");
-			if (progress == 100) {
-				$("#progressBarText").text("Creating thumbnails...");
+		);
+		$("#progressBarText").text("Downloading your video file : " + progress + " %");
+		if (progress == 100) {
+			$("#progressBarText").text("Creating thumbnails...");
 
-			}
-		});
+		}
+	});
 
 
 
@@ -162,8 +134,6 @@ jQuery(function($) {
 
 	$('#cropItProgressBar,#YourVideoToolbar,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
 
-
-	/* Tool box */
 	var isShown = 0;
 
 
@@ -209,7 +179,6 @@ jQuery(function($) {
 		$().rebuildInterface(autoCropEnabled);
 	});
 
-	// When upload start
 	$("#fileupload").change(function(event) {
 		event.preventDefault();
 		var title = $("#fileupload").val();
@@ -217,14 +186,12 @@ jQuery(function($) {
 		crops.title = title;
 	});
 
-
 	$("#carouselContainer").on("click", function(event) {
-		event.preventDefault();		
-				$("#videoContent").css({
-					"background-image": "url(" + $(event.target).data('big')+")"
-				});		
+		event.preventDefault();
+		$("#videoContent").css({
+			"background-image": "url(" + $(event.target).data('big') + ")"
+		});
 	});
-
 
 	$("#videoCropListDiv").on("click", ".videoCropListDivElement", function(event) {
 		event.preventDefault();
@@ -239,8 +206,6 @@ jQuery(function($) {
 		event.preventDefault();
 		$().createFormatScreen($(event.target).data('width'), $(event.target).data('height'));
 	});
-
-
 
 	$("#buttonUploadYourPhoto").click(function(event) {
 		event.preventDefault();
@@ -265,7 +230,6 @@ jQuery(function($) {
 
 			// Enable to user the use of interface
 			$().enableUserInterface();
-
 			$().thumbnails();
 		},
 
@@ -293,13 +257,6 @@ jQuery(function($) {
 
 		},
 
-
-
-		//
-		// Enable user interface
-		//
-		// $().displayContent()
-
 		displayContent: function() {
 			var img = new Image();
 			var bgImgUrl = serverPath + videoInformations.message.thumbnails1;
@@ -322,7 +279,6 @@ jQuery(function($) {
 				}, 1000, "easeOutCirc");
 			});
 
-			// Update infos content
 			$().updateInterface();
 		},
 
@@ -363,29 +319,22 @@ jQuery(function($) {
 
 		},
 
-
-
-		//
-		// createCarousel
-		//
-		// $().createCarousel()
-
 		createCarousel: function() {
 
-			$("#mini1,#mini2,#mini3").attr('width',thumnbnailsinfos.message.miniwidth);  
-			$("#mini1,#mini2,#mini3").attr('height',thumnbnailsinfos.message.miniheight);
+			$("#mini1,#mini2,#mini3").attr('width', thumnbnailsinfos.message.miniwidth);
+			$("#mini1,#mini2,#mini3").attr('height', thumnbnailsinfos.message.miniheight);
 
-			$("#mini1").attr('src',"server/php/" + thumnbnailsinfos.message.mini1);
-			
-			$("#mini1").attr('data-big',serverPath + thumnbnailsinfos.message.thumbnails1);  
+			$("#mini1").attr('src', "server/php/" + thumnbnailsinfos.message.mini1);
 
-			$("#mini2").attr('src',"server/php/" + thumnbnailsinfos.message.mini2);
-			
-			$("#mini2").attr('data-big',serverPath + thumnbnailsinfos.message.thumbnails2); 
+			$("#mini1").attr('data-big', serverPath + thumnbnailsinfos.message.thumbnails1);
 
-			$("#mini3").attr('src',"server/php/" + thumnbnailsinfos.message.mini3);
-			
-			$("#mini3").attr('data-big',serverPath + thumnbnailsinfos.message.thumbnails3); 			
+			$("#mini2").attr('src', "server/php/" + thumnbnailsinfos.message.mini2);
+
+			$("#mini2").attr('data-big', serverPath + thumnbnailsinfos.message.thumbnails2);
+
+			$("#mini3").attr('src', "server/php/" + thumnbnailsinfos.message.mini3);
+
+			$("#mini3").attr('data-big', serverPath + thumnbnailsinfos.message.thumbnails3);
 
 			$(function() {
 				$(".thumbnailsCarousel").jCarouselLite({
@@ -504,11 +453,6 @@ jQuery(function($) {
 			$().updateSlaveInformations(7, width, underHeight, longTop, marginFromLeft);
 			$().updateSlaveInformations(8, rightSquareWidth, underHeight, longTop, longLeft);
 		},
-
-		//
-		// UPDATE SLAVE INFORMATIONS
-		//
-		// $().updateSlaveInformations(id, width, height, top, left)
 
 		updateSlaveInformations: function(id, width, height, top, left) {
 			crops.list[id].width = width;
@@ -652,7 +596,7 @@ jQuery(function($) {
 			$().addCropLayerToUI(id);
 		},
 
-	
+
 
 		createAutoCropScreens: function(ratioW, ratioH) {
 			if ($("#buttonCropIt").hasClass("disabled") === true) {
@@ -945,7 +889,6 @@ jQuery(function($) {
 
 			target = target.split('.').pop();
 			var control = false;
-
 			for (var i = 0; i < arrayOfReferences.length; i++) {
 				if (target === arrayOfReferences[i]) {
 					control = true;
@@ -953,13 +896,6 @@ jQuery(function($) {
 			}
 			return control;
 		},
-
-
-
-		//
-		// Add Video Content Loading Spinner
-		//
-		// $().addVideoContentLoadingSpinner(  )
 
 		addVideoContentLoadingSpinner: function() {
 			$('#videoContentCache').fadeIn().append('<div id="videoContentBackground"></div>');
@@ -978,18 +914,13 @@ jQuery(function($) {
 			$('#informationModal').slideDown();
 		},
 
-
-
 		hideModal: function() {
 			$('#informationModal').slideUp();
 			$('#cache').fadeOut();
 		},
 
-
-
 		defaultFavicon: function() {
-			 $('#favicon').remove();
-
+			$('#favicon').remove();
 			var icon = document.createElement('link');
 			icon.type = 'image/png';
 			icon.rel = 'icon';
@@ -998,23 +929,17 @@ jQuery(function($) {
 			$('head').append(icon);
 		},
 
-
-
 		changeFavicon: function(newPath) {
 
 			$('#favicon').remove();
-
 			var icon = document.createElement('link');
 			icon.type = 'image/png';
 			icon.rel = 'icon';
 			icon.id = 'favicon';
 			icon.href = newPath;
 			$('head').append(icon);
-
 			$("#favicon").attr("href", newPath);
 		},
-
-
 
 		animateFavicon: function() {
 			var i = 0;
@@ -1027,15 +952,9 @@ jQuery(function($) {
 					if (i == 15) {
 						i = 0;
 					}
-
 				}
 			});
 		},
-
-		//
-		// Animated favicon
-		//
-		// $().rebuildInterface();
 
 		rebuildInterface: function(bool) {
 			if (typeof(bool) != "boolean") {
@@ -1060,7 +979,6 @@ jQuery(function($) {
 	});
 	// jQuery end
 });
-
 
 
 

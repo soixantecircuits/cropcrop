@@ -197,8 +197,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						<button id="carouselNext" class="button dark next disabled"> >> </button>
 						<div class="thumbnailsCarousel">
 							<ul id="carouselContainer">
-								<li><img id="mini1" src="" alt="" width="" height="" ></li>
-								<li><img id="mini2" src="" alt="" width="" height="" ></li>
+								<li><img id="mini1" src="" alt="" width="" height="" data-big=""></li>
+								<li><img id="mini2" src="" alt="" width="" height="" data-big=""></li>
 								<li><img id="mini3" src="" alt="" width="" height="" data-big="" ></li>
 							</ul>
 						</div>
