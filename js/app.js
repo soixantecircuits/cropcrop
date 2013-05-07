@@ -1,114 +1,14 @@
 jQuery(function($) {
-
-
-
-	var input = $("#images"),
-		formdata = false;
-
-	if (window.FormData) {
-		formdata = new FormData();
-	}
-
-	input.change(function(evt) {
-
-		var i = 0,
-			len = this.files.length,
-			img, reader, file;
-
-		for (; i < len; i++) {
-			file = this.files[i];
-
-			if ( !! file.type.match(/image.*/)) {
-				if (window.FileReader) {
-					reader = new FileReader();
-
-					reader.readAsDataURL(file);
-				}
-				if (formdata) {
-					formdata.append("images[]", file);
-				}
-			}
-		}
-
-		if (formdata) {
-			$.ajax({
-				url: "server/php/upload.php",
-				type: "POST",
-				data: formdata,
-				processData: false,
-				contentType: false
-			}).done(function(data) {});
-		}
-	});
-
-	$('#fileupload').fileupload({
-		dataType: 'json',
-
-		add: function(e, data) {
-			if (data.autoUpload || (data.autoUpload !== false && ($(this).data('blueimp-fileupload') || $(this).data('fileupload')).options.autoUpload)) {
-
-				var ext = $().checkExtension(data.files[0].name, videoExtensionsAllowed);
-
-				if (ext) {
-					$().animateFavicon();
-					data.submit();
-					$().addVideoContentLoadingSpinner();
-					hook = true;
-				} else {
-					$().displayModal("Uploading error", "Please select a video file.");
-				}
-			}
-		}
-	});
-
-
-	$('#fileupload').bind('fileuploaddone', function(e, data) {
-		$.each(data.result.files, function(index, file) {
-			var _self = this;
-			$.ajax({
-				url: 'server/php/test.php',
-				type: "POST",
-				data: _self
-
-			}).done(function(response) {
-				dataAStocker = _self;
-				$().updateVideoInformations(response);
-			});
-		});
-	});
-
-	$('#fileupload').bind('fileuploadprogress', function(e, data) {
-		var progress = parseInt(data.loaded / data.total * 100, 10);
-		$('#progress .bar').css(
-			'width', progress + '%'
-
-		);
-		$("#progressBarText").text("Downloading your video file : " + progress + " %");
-		if (progress == 100) {
-			$("#progressBarText").text("Creating thumbnails...");
-
-		}
-	});
-
-
-
-	hook = false;
-
-	window.onbeforeunload = function() {
-		if (hook) {
-			return "Video uploaded, are you sure?";
-		}
-	};
-
-
+	var formdata = false;
 	var serverPath = "server/php/";
 	var videoInformations = {};
-	 crops = {};
+	var crops = {};
 	var dataAStocker = "";
 	var autoCropEnabled = false;
+	var isCropMenuShown = 0;
+	closeTabWithoutWarning = false;
 	crops.title = "None";
 	crops.list = [];
-
 	videoExtensionsAllowed = [
 		'mpg',
 		'avi',
@@ -131,24 +31,104 @@ jQuery(function($) {
 		"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABISURBVHjaYvT09fvPAAXbNm1k9PLzJ4nP+P8/nE8y8PLz/8+EbCI5gImBQkCRAaNhMBoGgycMWGAmkZOVGRgYGAAAAAD//wMAsG9BjaDPCMcAAAAASUVORK5CYII="];
 
 
+	$("#images").change(function(evt) {
+		if (window.FormData) {
+			formdata = new FormData();
+		}
+		var i = 0,
+			len = this.files.length,
+			img, reader, file;
+		for (; i < len; i++) {
+			file = this.files[i];
+
+			if ( !! file.type.match(/image.*/)) {
+				if (window.FileReader) {
+					reader = new FileReader();
+
+					reader.readAsDataURL(file);
+				}
+				if (formdata) {
+					formdata.append("images[]", file);
+				}
+			}
+		}
+		if (formdata) {
+			$.ajax({
+				url: "server/php/upload.php",
+				type: "POST",
+				data: formdata,
+				processData: false,
+				contentType: false
+			}).done(function(data) {});
+		}
+	});
+
+	$('#fileupload').fileupload({
+		dataType: 'json',
+
+		add: function(e, data) {
+			if (data.autoUpload || (data.autoUpload !== false && ($(this).data('blueimp-fileupload') || $(this).data('fileupload')).options.autoUpload)) {
+				var ext = $().checkExtension(data.files[0].name, videoExtensionsAllowed);
+				if (ext) {
+					$().animateFavicon();
+					data.submit();
+					$().addVideoContentLoadingSpinner();
+					closeTabWithoutWarning = true;
+				} else {
+					$().displayModal("Uploading error", "Please select a video file.");
+				}
+			}
+		}
+	});
+
+	$('#fileupload').bind('fileuploaddone', function(e, data) {
+		$.each(data.result.files, function(index, file) {
+			var _self = this;
+			$.ajax({
+				url: 'server/php/test.php',
+				type: "POST",
+				data: _self
+			}).done(function(response) {
+				dataAStocker = _self;
+				$().updateVideoInformations(response);
+			});
+		});
+	});
+
+	$('#fileupload').bind('fileuploadprogress', function(e, data) {
+		var progress = parseInt(data.loaded / data.total * 100, 10);
+		$('#progress .bar').css(
+			'width', progress + '%'
+		);
+		$("#progressBarText").text("Downloading your video file : " + progress + " %");
+		if (progress == 100) {
+			$("#progressBarText").text("Creating thumbnails...");
+		}
+	});
+
+
+	window.onbeforeunload = function() {
+		if (closeTabWithoutWarning) {
+			return "Video uploaded, are you sure?";
+		}
+	};
+
 
 	$('#cropItProgressBar,#YourVideoToolbar,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
-
-	var isShown = 0;
 
 
 	$('#buttonYourVideo').click(function(event) {
 		event.preventDefault();
 
-		if (isShown === 0) {
+		if (isCropMenuShown === 0) {
 			event.preventDefault();
 			$('#YourVideoToolbar').slideDown();
 			$('#triangle').toggleClass('up');
-			isShown = 1;
+			isCropMenuShown = 1;
 		} else {
 			$('#YourVideoToolbar').slideUp();
 			$('#triangle').toggleClass('up');
-			isShown = 0;
+			isCropMenuShown = 0;
 		}
 	});
 
@@ -311,10 +291,10 @@ jQuery(function($) {
 		disableUserInterface: function() {
 			$(".button inside dark large disabled", ".button end dark large disabled").addClass("disabled");
 
-			if (isShown === 1) {
+			if (isCropMenuShown === 1) {
 				$('#YourVideoToolbar').slideUp();
 				$('#triangle').toggleClass('up');
-				isShown = 0;
+				isCropMenuShown = 0;
 			}
 
 		},
