@@ -6,7 +6,6 @@ jQuery(function($) {
 	/*  upload part  */
 	/*               */
 	/*****************/
-	$(function() {
 		//var input = document.getElementById("images"),
 		var input = $("#images"),
 			formdata = false;
@@ -113,7 +112,6 @@ jQuery(function($) {
 
 			}
 		});
-	});
 
 
 
@@ -1104,7 +1102,5 @@ String.prototype.replaceAll = function(token, newToken, ignoreCase) {
 	} else {
 		return this.split(token).join(newToken);
 	}
-
-};
-return str;
+	return str;
 };
