@@ -441,13 +441,6 @@ jQuery(function($) {
 			});
 		},
 
-
-
-		//
-		// addToolbarInfos
-		//
-		// $().addToolbarInfos( id )
-
 		addToolbarInfos: function(id) {
 			//console.log("   "+crops.list[id]);
 			if (!crops.list[id]) {
@@ -671,10 +664,7 @@ jQuery(function($) {
 			$().addCropLayerToUI(id);
 		},
 
-		//
-		// CREATE AUTOCROP SCREENS
-		//
-		// $().createAutoCropScreens(ratioW, ratioH)
+	
 
 		createAutoCropScreens: function(ratioW, ratioH) {
 			if ($("#buttonCropIt").hasClass("disabled") === true) {
@@ -1010,9 +1000,8 @@ jQuery(function($) {
 
 
 		defaultFavicon: function() {
-			 oldLink = document.getElementById('favicon');
-			
-			document.head.removeChild(oldLink);
+			 $('#favicon').remove();
+			 
 			var icon = document.createElement('link');
 			icon.type = 'image/png';
 			icon.rel = 'icon';
@@ -1025,8 +1014,7 @@ jQuery(function($) {
 
 		changeFavicon: function(newPath) {
 
-			oldLink = document.getElementById('favicon');
-			document.head.removeChild(oldLink);
+			$('#favicon').remove();
 
 			var icon = document.createElement('link');
 			icon.type = 'image/png';
