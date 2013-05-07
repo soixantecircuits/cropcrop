@@ -131,7 +131,7 @@ jQuery(function($) {
 
 	var serverPath = "server/php/";
 	var videoInformations = {};
-	var crops = {};
+	 crops = {};
 	var dataAStocker = "";
 	var autoCropEnabled = false;
 	crops.title = "None";
@@ -430,7 +430,7 @@ jQuery(function($) {
 		},
 
 		addToolbarInfos: function(id) {
-			//console.log("   "+crops.list[id]);
+			console.log("   "+crops.list[id].color[0] );
 			if (!crops.list[id]) {
 				return false;
 			}
@@ -441,25 +441,28 @@ jQuery(function($) {
 			var marginTop = crops.list[id].marginTop;
 			var marginLeft = crops.list[id].marginLeft;
 
-			content += '<div class="videoCropListDivElement" id="' + id + '">';
-			content += '<div id="cropSelection2" class="videoCropListDivElementContent">';
-			content += '<p>' + id + ' . </p>';
-			content += '</div>';
-			content += '<div id="cropSelection' + id + '__rectangle" class="rectangle videoCropListDivElementContent"></div>';
-			content += '<div class="videoCropListDivElementContent inputContainer">';
-			content += '<input type="text" id="inputWidth' + id + '" placeholder="W : ' + width + '" />';
-			content += '<input type="text" id="inputHeight' + id + '" placeholder="H : ' + height + '" />';
-			content += '</div>';
-			content += '<div class="videoCropListDivElementContent inputContainer">';
-			content += '<input type="text" id="inputTop' + id + '" placeholder="T : ' + marginTop + '" />';
-			content += '<input type="text" id="inputLeft' + id + '" placeholder="L : ' + marginLeft + '" />';
-			content += '</div>';
-			content += '</div>';
+			var content = $("#videoCropListDivElementModel").clone();
+			content.find("#cropSelection2 p").text(id +" .");
+
+			content.find("#inputWidthid").attr("id", "inputWidth" + id);
+			content.find("#inputWidth" + id).attr("placeholder", "W : " + width);
+
+			content.find("#inputHeightid").attr("id", "inputHeight" + id);
+			content.find("#inputHeight" + id).attr("placeholder", "H : " + height);
+
+			content.find("#inputTopid").attr("id", "inputTop" + id);
+			content.find("#inputTop" + id).attr("placeholder", "T : " + marginTop);
+
+			content.find("#inputLeftid").attr("id", "inputLeft" + id);
+			content.find("#inputLeft" + id).attr("placeholder", "L : " + marginLeft);
+
+			content.find("#cropSelectionid__rectangle").attr("id", "rectangle" + id);
+
 
 			// Add to UI
 			$("#videoCropListDiv").append(content);
 			// Add rectangle color
-			$('#cropSelection' + id + '__rectangle').css({
+			$("#rectangle" + id).css({
 				"background-color": 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')'
 			});
 		},

@@ -244,6 +244,22 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 				</ul>
 			</div>
+
+			<div class="videoCropListDivElement" id="videoCropListDivElementModel">
+				<div id="cropSelection2" class="videoCropListDivElementContent">
+					<p>id . </p>
+				</div>
+				<div id="cropSelectionid__rectangle" class="rectangle videoCropListDivElementContent">
+				</div>
+				<div class="videoCropListDivElementContent inputContainer">
+					<input type="text" id="inputWidthid" placeholder="W : ' + width + '" />
+					<input type="text" id="inputHeightid" placeholder="H : ' + height + '" />
+				</div>
+				<div class="videoCropListDivElementContent inputContainer">
+					<input type="text" id="inputTopid" placeholder="T : ' + marginTop + '" />
+					<input type="text" id="inputLeftid" placeholder="L : ' + marginLeft + '" />
+				</div>
+			</div>
 		</div>
 
 		
