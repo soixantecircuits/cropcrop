@@ -819,7 +819,7 @@ String.prototype.replaceAll = function(token, newToken, ignoreCase) {
 
 		if (ignoreCase) {
 
-			_token = token.toLowerCase();
+			_token = token.toLowerCase(); 
 
 			while ((
 			i = str.toLowerCase().indexOf(
