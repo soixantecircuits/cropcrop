@@ -896,9 +896,9 @@ jQuery(function($) {
 		},
 
 		addVideoContentLoadingSpinner: function() {
+			// To conserve?
 			$('#videoContentCache').fadeIn().append('<div id="videoContentBackground"></div>');
 			$('#videoContentBackground').empty('').append('<div class="spinner large" role="progressbar"></div>');
-
 		},
 
 
