@@ -1077,15 +1077,11 @@ jQuery(function($) {
 
 			// Activate or desactivate Add Screen function
 			if (bool === true) {
-				$("#navInputTextWidth").addClass("disabled");
-				$("#navInputTextHeight").addClass("disabled");
-				$("#buttonAddScreen").addClass("disabled");
+				$("#navInputTextWidth,#navInputTextHeight,#buttonAddScreen").addClass("disabled");
 				$().createAutoCropScreens( 1, 1 );
 			};
 			if (bool === false) {
-				$("#navInputTextWidth").removeClass("disabled");
-				$("#navInputTextHeight").removeClass("disabled");
-				$("#buttonAddScreen").removeClass("disabled");
+				$("#navInputTextWidth,#navInputTextHeight,#buttonAddScreen").removeClass("disabled");
 			};
 		}
 	});
