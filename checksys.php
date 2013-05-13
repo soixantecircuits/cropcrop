@@ -78,7 +78,9 @@
 							list($un, $deux, $trois) = split('[.]', $output);
 							list($useless, $un) = split('[ ]', $un);
 
-							if(($un < 2) || ($deux<7) || ($trois<3)  ){ echo("false");} else {echo("well");}
+							if(((int)$un >= 2) && ((int)$deux>=7) && ((int)$trois>=3)) { echo("well");} else { echo("false");}
+
+							
 
 							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
 						}
