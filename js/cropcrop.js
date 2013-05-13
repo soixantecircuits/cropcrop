@@ -100,10 +100,7 @@
      * Set usage: $('#el').demoplugin('option', 'key', value);
      */
     function updateCropsTitle (title) {
-        console.log(title);
         crops.title = title;
-        console.log("test");
-        console.log(crops.title);
     }
  
     /**
@@ -264,7 +261,7 @@
 
         function sendCrop () {
             var jsondata = crops;
-            console.log(crops.title);
+            // console.log(crops.title);
             $("#buttonCropIt").hide();
             $("#cropItProgressBar").fadeIn();
 
