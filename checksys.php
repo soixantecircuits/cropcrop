@@ -140,11 +140,16 @@
 					<?php
 						$output = shell_exec('ffmpeg 2>&1');
 						$str = strtok($output, "\n");
-						if ( strpos(  $str , "command not found" ) == true ) {
+						list($un) = split('[.]', $str);
+						$last = substr($un, -1);
+
+
+						if ( strpos(  $output , "command not found" ) == true ) {
+							echo "<pre class='checksysPadding checksysError'>FFmpeg is not installed.</pre>";
+						} else if ($last != 1) {
 							echo "<pre class='checksysPadding checksysError'>$str</pre>";
-						} else {
-							echo "<pre class='checksysPadding'>$str</pre>";
 						}
+						else { echo "<pre class='checksysPadding'>$str</pre>";  }
 					?>
 				</p>
 				<!-- End FFmpeg Version Control -->
