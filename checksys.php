@@ -163,10 +163,18 @@
 				<p>
 					<?php
 						$output = shell_exec('zip --version 2>&1');
+						
 						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
 						} else {
-							echo "<pre class='checksysPadding'>$output</pre>";
+
+							$arr = explode("\n", $output);
+							
+							list($un) = split('[.]', $arr[1]);
+							$last = substr($un, -1);
+
+							if ($last != 3){  echo "<pre class='checksysPadding checksysError'>$arr[1]</pre>";  }
+							else echo "<pre class='checksysPadding'>$arr[1]</pre>";
 						}
 					?>
 				</p>
