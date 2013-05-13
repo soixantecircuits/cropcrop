@@ -50,14 +50,11 @@
 				<p>
 					<?php
 						if (is_writable('server') && is_readable('server')) {
-							echo '<pre><span class="checksysPadding checksysInfo">Server permissions : <span class="checksysImportant"><span class="checksysOk">Writable and Readable</span></pre>';
+							echo '<span class="checksysPadding checksysInfo">Server permissions : </span> Writable and Readable';
 						}
-						else if (is_writable('server') == false){
-							echo '<pre>z<span class="checksysPadding checksysInfo">Server permissions : <span class="checksysImportant"><span class="checksysError">Folder non-writable or readable</span></pre>';
-						}
-						else if (is_readable('server') == false){
-							echo '<pre>z<span class="checksysPadding checksysInfo">Server permissions : <span class="checksysImportant"><span class="checksysError">Folder non-writable or readable</span></pre>';
-						}
+						else if ((is_writable('server') == false) || (is_readable('server') == false)){
+							echo '<span class="checksysPadding checksysInfo">Server permissions : <span class="checksysImportant"><span class="checksysError">Folder non-writable or readable</span>';
+						}						
 					?>
 				</p>
 				<!-- End Server Permission Control -->
@@ -78,7 +75,7 @@
 							list($un, $deux, $trois) = split('[.]', $output);
 							list($useless, $un) = split('[ ]', $un);
 
-							if(((int)$un >= 2) && ((int)$deux>=7) && ((int)$trois>=3)) { echo"<pre class='checksysPadding checksysOk'>$output</pre>";}
+							if(((int)$un >= 2) && ((int)$deux>=7) && ((int)$trois>=3)) {  echo "<pre>". $output . "</pre>";}
 
 							 else {  echo"<pre class='checksysPadding checksysError'>$output</pre>"; }
 
@@ -106,7 +103,7 @@
 							list($un, $deux, $trois) = split('[.]', $output);
 							list($useless, $un) = split('[ ]', $un);
 
-							if(((int)$un >= 3) && ((int)$deux>=2) && ((int)$trois>=3)) { echo"<pre class='checksysPadding checksysOk'>$output</pre>";}
+							if(((int)$un >= 3) && ((int)$deux>=2) && ((int)$trois>=3)) { echo "   ". $output;}
 
 							 else {  echo"<pre class='checksysPadding checksysError'>$output</pre>"; }
 
