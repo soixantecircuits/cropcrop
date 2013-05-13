@@ -45,7 +45,7 @@
 
 				<!-- Start Server Permission Control -->
 				<p>
-					<span class="checksysImportant">CropCrop need server folder to be writable and readable</span>.
+					<span class="checksysImportant">CropCrop need server folders to be writable and readable</span>.
 				</p>
 				<p>
 					<?php
