@@ -40,7 +40,7 @@
 
 			<div id="body" class="checksysPhpContent">
 
-				<h2 class="title">CROPCROP Server Check</h2>
+				<h2 class="custom title h2">CROPCROP Server Check</h2>
 
 
 				<!-- Start Server Permission Control -->
@@ -50,10 +50,10 @@
 				<p>
 					<?php
 						if (is_writable('server') && is_readable('server')) {
-							echo '<span class="checksysPadding checksysInfo">Server permissions : </span> Writable and Readable';
+							echo '<span class="checksysPadding">Server permissions : </span> Writable and Readable';
 						}
 						else if ((is_writable('server') == false) || (is_readable('server') == false)){
-							echo '<span class="checksysPadding checksysInfo">Server permissions : <span class="checksysImportant"><span class="checksysError">Folder non-writable or readable</span>';
+							echo '<span class="checksysPadding">Server permissions : <span class="checksysImportant"><span class="checksysError">Folder non-writable or readable</span>';
 						}						
 					?>
 				</p>
@@ -63,7 +63,7 @@
 
 				<!-- Start Python Version Control -->
 				<p>
-					<span class='checksysImportant'>Python 2.7.3</span> is required. Your actual version is : 
+					<span class='checksysImportant'>Python 2.7.3</span><strong class="checksysInfo"> is required. Your actual version is : </strong>
 				</p>
 				<p>
 					<?php
@@ -71,17 +71,15 @@
 						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
 						} else {
-
 							list($un, $deux, $trois) = split('[.]', $output);
 							list($useless, $un) = split('[ ]', $un);
 
-							if(((int)$un >= 2) && ((int)$deux>=7) && ((int)$trois>=3)) {  echo "<pre>". $output . "</pre>";}
-
-							 else {  echo"<pre class='checksysPadding checksysError'>$output</pre>"; }
-
-							
-
-							
+							if(((int)$un >= 2) && ((int)$deux>=7) && ((int)$trois>=3)) {
+								echo "<pre class='checksysPadding'>". $output . "</pre>";
+							}
+							else {
+								echo"<pre class='checksysPadding checksysError'>$output</pre>";
+							}							
 						}
 					?>
 				</p>
@@ -91,7 +89,7 @@
 
 
 				<p>
-					<span class='checksysImportant'>Python 3.2.3</span> is required. Your actual version is : 
+					<span class='checksysImportant'>Python 3.2.3</span><strong class="checksysInfo"> is required. Your actual version is : </strong>
 				</p>
 				<p>
 					<?php
@@ -103,10 +101,12 @@
 							list($un, $deux, $trois) = split('[.]', $output);
 							list($useless, $un) = split('[ ]', $un);
 
-							if(((int)$un >= 3) && ((int)$deux>=2) && ((int)$trois>=3)) { echo "   ". $output;}
-
-							 else {  echo"<pre class='checksysPadding checksysError'>$output</pre>"; }
-
+							if(((int)$un >= 3) && ((int)$deux>=2) && ((int)$trois>=3)) {
+								echo "<pre class='checksysPadding'>". $output."</pre>";
+							}
+							else {
+							 	echo"<pre class='checksysPadding checksysError'>$output</pre>";
+							}
 						}
 					?>
 				</p>
@@ -116,7 +116,7 @@
 
 				<!-- Start MediaInfo Version Control -->
 				<p>
-					<span class='checksysImportant'>MediaInfo v0.7.52</span> is required. Your actual version is :
+					<span class='checksysImportant'>MediaInfo v0.7.52</span><strong class="checksysInfo"> is required. Your actual version is :</strong>
 				</p>
 				<p>
 					<?php
@@ -124,7 +124,7 @@
 						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
 						} else {
-							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
+							echo "<pre class='checksysPadding'>$output</pre>";
 						}
 					?>
 				</p>
@@ -134,7 +134,7 @@
 				
 				<!-- Start FFmpeg Version Control -->
 				<p>
-					<span class='checksysImportant'>FFMpeg 1.0</span> is required even if deprecated. Your actual version is :
+					<span class='checksysImportant'>FFMpeg 1.0</span><strong class="checksysInfo"> is required even if deprecated. Your actual version is :</strong>
 				</p>
 				<p>
 					<?php
@@ -142,7 +142,7 @@
 						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
 						} else {
-							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
+							echo "<pre class='checksysPadding'>$output</pre>";
 						}
 					?>
 				</p>
@@ -152,7 +152,7 @@
 
 				<!-- Start Zip Version Control -->
 				<p>
-					<span class='checksysImportant'>Zip 3.0</span> is required. Your actual version is :<br />
+					<span class='checksysImportant'>Zip 3.0</span><strong class="checksysInfo"> is required. Your actual version is :<br /></strong>
 				</p>
 				<p>
 					<?php
@@ -160,7 +160,7 @@
 						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
 						} else {
-							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
+							echo "<pre class='checksysPadding'>$output</pre>";
 						}
 					?>
 				</p>

@@ -370,16 +370,24 @@ body {
 .checksysPadding {
 	padding-left: 32px;
 }
-
 .checksysInfo{
+	color: #FFF;
+}
+.checksys{
 	color: #5DC1FF;
 }
 .checksysError{
 	color: #F00;
 }
-.checksysOk{
-	color: #0F0;
-}
 .checksysImportant{
 	color: #5DC1FF;
 }
+.bg-slategray .custom.title {
+	color           : #D4D7D7;
+	text-shadow     : none;
+	padding-top     : 10px;
+	font-family     : "source-l";
+	font-size       : 35px;
+	margin          : 0;}
+.bg-slategray .custom.title.h2{
+	font-size       : 20px;}
