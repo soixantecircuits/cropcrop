@@ -29,6 +29,7 @@ b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 		<!-- Our scripts :D -->
+		<script type="text/javascript" src="js/cropcrop.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 
 		<script type="text/javascript">
@@ -150,7 +151,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						<span class="button-group large">
 							<a id="buttonUploadYourPhoto" class="button large dark disabled" role="button">Upload your photo</a>
 						</span>
-						<span class="button-group large">
+						<span class="button-group large" id="secondMenuButtons">
 							<a role="button" class="button start dark large disabled" id="buttonFormat1_1"  data-width="1" data-height="1"  >1 : 1</a>
 							<a role="button" class="button inside dark large disabled" id="buttonFormat3_2" data-width="1.5" data-height="1"  >3 : 2</a>
 							<a role="button" class="button inside dark large disabled" id="buttonFormat4_3" data-width="1.33" data-height="1" >4 : 3</a>
