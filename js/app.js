@@ -46,6 +46,9 @@ jQuery(function($) {
 			if (data.autoUpload || (data.autoUpload !== false && ($(this).data('blueimp-fileupload') || $(this).data('fileupload')).options.autoUpload)) {
 				var ext = cropmodule.cropcrop("checkExtension", data.files[0].name, videoExtensionsAllowed);
 				if (ext) {
+		// var title = $("#fileupload").val();
+		// title = title.split(/(\\|\/)/g).pop();
+		cropmodule.cropcrop("updateCropsTitle", data.files[0].name);
 					cropmodule.cropcrop("animateFavicon");
 					data.submit();
 					cropmodule.cropcrop("addVideoContentLoadingSpinner");
@@ -117,7 +120,7 @@ jQuery(function($) {
 		event.preventDefault();
 		$("#progressBarText").text("Croping your video, please wait....");
 		$('html').timer('start');
-		cropmodule.cropcrop("sendCrop", crops);
+		cropmodule.cropcrop("sendCrop");
 	});
 
 	$('#cache').click(function(event) {
@@ -137,9 +140,6 @@ jQuery(function($) {
 
 	$("#fileupload").change(function(event) {
 		event.preventDefault();
-		var title = $("#fileupload").val();
-		title = title.split(/(\\|\/)/g).pop();
-		crops.title = title;
 	});
 
 	$("#carouselContainer").on("click", function(event) {
