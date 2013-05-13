@@ -1,5 +1,6 @@
 *.py[cod]
 *~
+*.mp4
 # C extensions
 *.so
 
