@@ -74,6 +74,12 @@
 						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
 						} else {
+
+							list($un, $deux, $trois) = split('[.]', $output);
+							list($useless, $un) = split('[ ]', $un);
+
+							if(($un < 2) || ($deux<7) || ($trois<3)  ){ echo("false");} else {echo("well");}
+
 							echo "<pre class='checksysPadding checksysOk'>$output</pre>";
 						}
 					?>
