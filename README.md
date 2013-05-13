@@ -4,6 +4,7 @@ CROPCROP
 Description
 -----------
 A tool for cropping video easily online.
+
 1. Uplaod your Video file
 2. wait for thumbnails to be created, then pick it to work with
 3. draw your screens on the displayed thumbnail
