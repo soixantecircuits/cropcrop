@@ -146,7 +146,7 @@
 
 						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>FFmpeg is not installed.</pre>";
-						} else if ($last != 1) {
+						} else if (($last != 1)  || strpos(  $str , "FFmpeg version SVN" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$str</pre>";
 						}
 						else { echo "<pre class='checksysPadding'>$str</pre>";  }
