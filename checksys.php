@@ -95,7 +95,10 @@
 						if ( strpos(  $output , "command not found" ) == true ) {
 							echo "<pre class='checksysPadding checksysError'>$output</pre>";
 						} else {
-							echo "<pre class='checksysPadding'>$output</pre>";
+
+							$arr = explode("\n", $output);
+
+							echo "<pre class='checksysPadding'>$arr[1]</pre>";
 						}
 					?>
 				</p>
