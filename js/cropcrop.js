@@ -13,6 +13,7 @@
    */
   function Plugin(element, options) {
     // References to DOM and jQuery versions of element.
+    photoEnabled = false;
     serverPath = "server/php/";
     videoInformations = {};
     dataAStocker = "";
@@ -213,7 +214,7 @@
         // enableUserInterface()
 
         function enableUserInterface () {
-            $(".disabled").not("#buttonCropIt").removeClass("disabled");
+            $(".disabled").not("#buttonCropIt").not("#photoOnOffContainer").removeClass("disabled");
         }
 
 
@@ -883,13 +884,27 @@
         }
 
         function enablePhotoLayer ( imagePath ) {
-            console.log("enablePhotoLayer");
-            
+            $("#photoOnOffContainer").removeClass("disabled");
             $("#videoPhotoBackground").css({
                 "background-image":"url('" + imagePath + "')", 
-                "opacity":"0.5"
+                "opacity":"0"
             });
+        }
 
+        function displayPhotoLayer ( bool ) {
+            if (typeof(bool) != "boolean") {
+                return false;
+            }
+            if (bool === true) {
+                $("#videoPhotoBackground").css({
+                    "opacity":"0.5"
+                });
+            }
+            if (bool === false) {
+                $("#videoPhotoBackground").css({
+                    "opacity":"0"
+                });
+            }
         }
  
     // Initialize the plugin instance.
@@ -913,6 +928,7 @@
         createFormatScreen : createFormatScreen,
         updateCropsTitle : updateCropsTitle,
         enablePhotoLayer : enablePhotoLayer,
+        displayPhotoLayer : displayPhotoLayer,
 
     };
   }

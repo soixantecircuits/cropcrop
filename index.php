@@ -80,11 +80,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 					<!-- Zone autocrop -->
 					<div class="navElement" id="autoCropCheckboxDiv">
-						<!--<p>
-							<input id="autoCropCheckbox" type="checkbox" class="disabled" />
-							Autocrop
-						</p>-->
-
 						<p id="autoCropOnOff" class="disabled">
 							<label id="autoCropCheckboxLabel" for="autoCropCheckbox">Autocrop</label>
 							<input type="checkbox" class="slide-switch dark" id="autoCropCheckbox">

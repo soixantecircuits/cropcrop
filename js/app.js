@@ -161,11 +161,16 @@ jQuery(function($) {
 	});
 
 	$("#secondMenu").on("click", function(event) {
-		event.preventDefault();
 		if (($(event.target).data('width') && $(event.target).data('height'))) {
 			console.log($(event.target).data('width'));
 			cropmodule.cropcrop("createFormatScreen", $(event.target).data('width'), $(event.target).data('height'));
 		};
+	});
+
+	$("#photoCheckbox").click(function(event) {
+		console.log("test");
+		photoEnabled = $('#photoCheckbox').is(':checked');
+		cropmodule.cropcrop("displayPhotoLayer", photoEnabled);
 	});
 
 	$("#buttonUploadYourPhoto").click(function(event) {
@@ -176,9 +181,6 @@ jQuery(function($) {
 		event.preventDefault();
 		$("#btn").submit();
 	});
-
-
-	
 	// jQuery end
 });
 
