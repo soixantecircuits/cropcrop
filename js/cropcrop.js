@@ -880,6 +880,16 @@
                 $("#navInputTextWidth,#navInputTextHeight,#buttonAddScreen").removeClass("disabled");
             }
         }
+
+        function enablePhotoLayer ( imagePath ) {
+            console.log("enablePhotoLayer");
+            
+            $("#videoPhotoBackground").css({
+                "background-image":"url('" + imagePath + "')", 
+                "opacity":"0.5"
+            });
+
+        }
  
     // Initialize the plugin instance.
     init();
@@ -901,6 +911,7 @@
         rebuildInterface : rebuildInterface,
         createFormatScreen : createFormatScreen,
         updateCropsTitle : updateCropsTitle,
+        enablePhotoLayer : enablePhotoLayer,
 
     };
   }

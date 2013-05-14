@@ -36,8 +36,7 @@ jQuery(function($) {
 				processData: false,
 				contentType: false
 			}).done(function(data) {
-				console.log(data);
-					cropmodule.cropcrop("enablePhotoLayer",data);
+                cropmodule.cropcrop("enablePhotoLayer",data);
 			});
 		}
 	});
@@ -163,7 +162,10 @@ jQuery(function($) {
 
 	$("#secondMenu").on("click", function(event) {
 		event.preventDefault();
-		cropmodule.cropcrop("createFormatScreen", $(event.target).data('width'), $(event.target).data('height'));
+		if (($(event.target).data('width') && $(event.target).data('height'))) {
+			console.log($(event.target).data('width'));
+			cropmodule.cropcrop("createFormatScreen", $(event.target).data('width'), $(event.target).data('height'));
+		};
 	});
 
 	$("#buttonUploadYourPhoto").click(function(event) {

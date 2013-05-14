@@ -151,6 +151,17 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						<span class="button-group large">
 							<a id="buttonUploadYourPhoto" class="button large dark disabled" role="button">Upload your photo</a>
 						</span>
+						<span id="photoOnOffContainer" class="disabled">
+							<label id="photoCheckboxLabel" for="photoCheckbox">Photo</label>
+							<input type="checkbox" class="slide-switch dark" id="photoCheckbox">
+							<label for="photoCheckbox">
+								<span class="wrapper">
+									<span class="on">ON</span>
+									<span class="switch"></span>
+									<span class="off">OFF</span>
+								</span>
+							</label>
+				   		</span>
 						<span class="button-group large" id="secondMenuButtons">
 							<a role="button" class="button start dark large disabled" id="buttonFormat1_1"  data-width="1" data-height="1"  >1 : 1</a>
 							<a role="button" class="button inside dark large disabled" id="buttonFormat3_2" data-width="1.5" data-height="1"  >3 : 2</a>
@@ -181,6 +192,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 				<!-- VIDEO AREA -->
 				<div id="videoContent">
+					<div id="videoPhotoBackground">
+					</div>
 					<div id="videoContentCache">
 						<div id="videoContentBackground">
 							<img src="img/camera.png">
