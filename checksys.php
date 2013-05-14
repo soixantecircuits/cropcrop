@@ -108,7 +108,7 @@
 				
 				<!-- Start FFmpeg Version Control -->
 				<p>
-					<span class='checksysImportant'>FFMpeg 1.0</span><strong class="checksysInfo"> is. Your actual version is :</strong>
+					<span class='checksysImportant'>FFMpeg 1.0</span><strong class="checksysInfo"> is required. Your actual version is :</strong>
 				</p>
 				<p>
 					<?php
