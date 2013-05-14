@@ -318,18 +318,25 @@ body {
 #progressContainer{
 	margin-right: auto;
 	margin-left: auto;
-	width: 960px;}
+	width: 220px;}
 	#progress{}
 		.bar {
 			margin: 0;
-		    height: 40px;
-		    background: green;}
+		    height: 30px;
+		    background: #5DC1FF;}
 		    .bar p {
 		    	margin: 0;
 				text-align: center;
-				font-size: 24px; }
+				font-size: 14px; }
 			    #progressBarTest {
 			    	margin: 0;}
+
+#progressBarText{
+	
+color : #FFF;
+font-size : 10 px;
+	}
+
 
 #main{
 	width: 0;

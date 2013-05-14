@@ -103,7 +103,15 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					<div id="yourVideoContent">
 						<a class="custom button large dark disabled" role="button" id="buttonYourVideo" href="#button"><span id="buttonYourVideo">Your Video</span><span id="triangle"></span></a>
 						
-						
+						<div id="progressContainer">
+							<div id="progress">
+								<div class="bar" style="width: 0%;">
+									<p>
+										<span id="progressBarText"></span>
+									</p>
+								</div>
+							</div>	
+						</div>		
 						<!-- TOOL BAR -->
 						<div id="YourVideoToolbar">
 
@@ -121,6 +129,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 									FPS : <span id="videoInformationsFPS">...</span>
 								</li>
 							</ul>
+
+
 
 							<div id="videoDownloadButtonDiv">
 								<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
@@ -168,15 +178,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					</p>
 				</div>
 
-				<div id="progressContainer">
-					<div id="progress">
-						<div class="bar" style="width: 0%;">
-							<p>
-								<span id="progressBarText"></span>
-							</p>
-						</div>
-					</div>	
-				</div>		
+				
 
 
 
