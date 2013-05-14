@@ -312,6 +312,7 @@
             content.find("#inputLeftid").attr("id", "inputLeft" + id);
             content.find("#inputLeft" + id).attr("placeholder", "L : " + marginLeft);
             content.find("#cropSelectionid__rectangle").attr("id", "rectangle" + id);
+            content.find("#cropSelectionid__destroyer").attr("id", "destroyer" + id);
 
 
             // Add to UI
@@ -910,6 +911,10 @@
                 });
             }
         }
+
+        function destroyCrop ( id ) {
+            
+        }
  
     // Initialize the plugin instance.
     init();
@@ -933,6 +938,7 @@
         updateCropsTitle : updateCropsTitle,
         enablePhotoLayer : enablePhotoLayer,
         displayPhotoLayer : displayPhotoLayer,
+        destroyCrop : destroyCrop,
 
     };
   }

@@ -164,7 +164,7 @@ jQuery(function($) {
 
 	$("#secondMenu").on("click", function(event) {
 		if (($(event.target).data('width') && $(event.target).data('height'))) {
-			console.log($(event.target).data('width'));
+			// console.log($(event.target).data('width'));
 			cropmodule.cropcrop("createFormatScreen", $(event.target).data('width'), $(event.target).data('height'));
 		};
 	});
@@ -181,6 +181,13 @@ jQuery(function($) {
 	$("#yourPhotoUpload").change(function(event) {
 		event.preventDefault();
 		$("#btn").submit();
+	});
+
+	$("#videoCropListDiv").on("click", ".cropDestroyerContainer", function(event) {
+		event.preventDefault();
+		var id = $(this).attr("id");
+		id = id.replace("destroyer", "");
+		cropmodule.cropcrop("destroyCrop", id);
 	});
 	// jQuery end
 });
