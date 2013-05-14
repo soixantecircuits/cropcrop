@@ -13,7 +13,7 @@ A tool for cropping video easily online.
 
 Server Depedencies
 -----------
-Execute install.sh script in the root folder to install all dependencies required.
+Execute install.sh script ( CropCrop root folder ) to install all dependencies required.
 
  =>    sh install.sh
 
