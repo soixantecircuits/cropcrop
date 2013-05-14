@@ -38,7 +38,8 @@
     videoExtensionsAllowed = [
         'mpg',
         'avi',
-        'mp4'];
+        'mp4',
+        'mov'];
     crops = {};
     crops.list = [];
 
