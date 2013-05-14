@@ -158,7 +158,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						</span>
 						<span id="photoOnOffContainer" class="disabled">
 							<label id="photoCheckboxLabel" for="photoCheckbox">Photo</label>
-							<input type="checkbox" class="slide-switch dark" id="photoCheckbox">
+							<input type="checkbox" checked="checked" class="slide-switch dark" id="photoCheckbox">
 							<label for="photoCheckbox">
 								<span class="wrapper">
 									<span class="on">ON</span>
@@ -189,6 +189,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 				<!-- VIDEO AREA -->
 				<div id="videoContent">
+					<div id="cropsContainer">
+					</div>
 					<div id="videoPhotoBackground">
 					</div>
 					<div id="videoContentCache">

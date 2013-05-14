@@ -13,8 +13,9 @@
    */
   function Plugin(element, options) {
     // References to DOM and jQuery versions of element.
-    photoEnabled = false;
+    photoEnabled = true;
     serverPath = "server/php/";
+    photoPath = "server/php/";
     videoInformations = {};
     dataAStocker = "";
     autoCropEnabled = false;
@@ -688,7 +689,7 @@
 
         function addCropLayerToUI (id) {
 
-            $('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
+            $('#cropsContainer').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
             $('#cropNumber' + id).css({
                 'position': 'absolute',
                 "background-color": 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
@@ -737,7 +738,7 @@
 
         function addCropSlaveLayerToUI (id) {
 
-            $('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
+            $('#cropsContainer').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
             $('#cropNumber' + id).css({
                 'position': 'absolute',
                 "background-color": 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
@@ -756,7 +757,7 @@
 
         function addCropMasterLayerToUI (id) {
 
-            $('#videoContent').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
+            $('#cropsContainer').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
             $('#cropNumber' + id).css({
                 'position': 'absolute',
                 "background-color": 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')',
@@ -871,7 +872,7 @@
             crops.list = [];
             // Reset interface 
             $("#videoCropListDiv").empty();
-            $("#videoContent").empty();
+            $(".cropLayer").remove();
 
             // Activate or desactivate Add Screen function
             if (bool === true) {
@@ -884,9 +885,10 @@
         }
 
         function enablePhotoLayer ( imagePath ) {
+            photoPath = imagePath;
             $("#photoOnOffContainer").removeClass("disabled");
             $("#videoPhotoBackground").css({
-                "background-image":"url('" + imagePath + "')", 
+                "background-image":"url('" + photoPath + "')", 
                 "opacity":"0"
             });
         }
@@ -897,11 +899,13 @@
             }
             if (bool === true) {
                 $("#videoPhotoBackground").css({
+                   "background-image":"url('" + photoPath + "')", 
                     "opacity":"0.5"
                 });
             }
             if (bool === false) {
                 $("#videoPhotoBackground").css({
+                    "background-image":"url('" + photoPath + "')", 
                     "opacity":"0"
                 });
             }

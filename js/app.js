@@ -37,6 +37,8 @@ jQuery(function($) {
 				contentType: false
 			}).done(function(data) {
                 cropmodule.cropcrop("enablePhotoLayer",data);
+				photoEnabled = $('#photoCheckbox').is(':checked');
+				cropmodule.cropcrop("displayPhotoLayer", photoEnabled);
 			});
 		}
 	});
@@ -168,7 +170,6 @@ jQuery(function($) {
 	});
 
 	$("#photoCheckbox").click(function(event) {
-		console.log("test");
 		photoEnabled = $('#photoCheckbox').is(':checked');
 		cropmodule.cropcrop("displayPhotoLayer", photoEnabled);
 	});
