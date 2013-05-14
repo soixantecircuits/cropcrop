@@ -35,7 +35,10 @@ jQuery(function($) {
 				data: formdata,
 				processData: false,
 				contentType: false
-			}).done(function(data) {});
+			}).done(function(data) {
+				console.log(data);
+					cropmodule.cropcrop("enablePhotoLayer",data);
+			});
 		}
 	});
 
