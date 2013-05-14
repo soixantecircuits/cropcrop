@@ -18,7 +18,7 @@ Server Configuration
 
 To properly work, CROPCROP require softwares.
 
-* Python 3.2
+* Python 3.0
 * FFmpeg 1.0
 * MediaInfo
 * zip 3.0
