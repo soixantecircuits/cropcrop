@@ -9,6 +9,10 @@
  * Licensed under the MIT license:
  * http://www.opensource.org/licenses/MIT
  */
+ini_set('upload_max_filesize', '100M');
+ini_set('post_max_size', '100M');
+
+
 
 class UploadHandler
 {
