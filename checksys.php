@@ -89,7 +89,7 @@
 
 
 				<p>
-					<span class='checksysImportant'>Python 3.2.3</span><strong class="checksysInfo"> is required. Your actual version is : </strong>
+					<span class='checksysImportant'>Python 3.0.0</span><strong class="checksysInfo"> is required. Your actual version is : </strong>
 				</p>
 				<p>
 					<?php
@@ -101,7 +101,7 @@
 							list($un, $deux, $trois) = split('[.]', $output);
 							list($useless, $un) = split('[ ]', $un);
 
-							if(((int)$un >= 3) && ((int)$deux>=2) && ((int)$trois>=3)) {
+							if(((int)$un >= 3) && ((int)$deux>=0) && ((int)$trois>=0)) {
 								echo "<pre class='checksysPadding'>". $output."</pre>";
 							}
 							else {
