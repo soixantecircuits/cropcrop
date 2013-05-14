@@ -59,35 +59,6 @@
 				</p>
 				<!-- End Server Permission Control -->
 
-
-
-				<!-- Start Python Version Control -->
-				<p>
-					<span class='checksysImportant'>Python 2.7.3</span><strong class="checksysInfo"> is required. Your actual version is : </strong>
-				</p>
-				<p>
-					<?php
-						$output = shell_exec('python --version 2>&1');
-						if ( strpos(  $output , "command not found" ) == true ) {
-							echo "<pre class='checksysPadding checksysError'>$output</pre>";
-						} else {
-							list($un, $deux, $trois) = split('[.]', $output);
-							list($useless, $un) = split('[ ]', $un);
-
-							if(((int)$un >= 2) && ((int)$deux>=7) && ((int)$trois>=3)) {
-								echo "<pre class='checksysPadding'>". $output . "</pre>";
-							}
-							else {
-								echo"<pre class='checksysPadding checksysError'>$output</pre>";
-							}							
-						}
-					?>
-				</p>
-				<!-- End Python Version Control -->
-
-
-
-
 				<p>
 					<span class='checksysImportant'>Python 3.0.0</span><strong class="checksysInfo"> is required. Your actual version is : </strong>
 				</p>
