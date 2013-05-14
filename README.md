@@ -11,29 +11,29 @@ A tool for cropping video easily online.
 4. push ' Crop It '
 5. wait for the zip folder with your cropped videos !
 
-Server Depedencies
-------------------
-Execute install.sh script ( CropCrop root folder ) to install all dependencies required.
+Server Configuration
+--------------------
 
- =>    sh install.sh
+### Sofwares
 
-Softwares :
+To properly work, CROPCROP require softwares.
+
 * Python 3.2
 * FFmpeg 1.0
 * MediaInfo
 * zip 3.0
 
-Server Installation
--------------------
+To facilitate the installation, the install.sh script ( CropCrop root folder ) will install thoses softwares (Debian based).
 
-* Refers to the checksys.php
+	sh install.sh
 
-Server configuration
---------------------
+If you wish to install yourself the softwares, you can refers to the checksys.php wich will give you informations about installed versions.
+
+### Configuration
 
 * allow python3 script
 * give writing permissions
 
-FFmpeg
-------
+### Note about FFmpeg
+
 It actually exists two "versions" of FFmpeg : FFmpeg by the dev of FFmpeg, and a fork called Libav included by default in Debian packages. Because Libav still use the call command ffmpeg for historical and compatibility reasons, it may lost users on the version they have and the one we want. We want FFmpeg by the developpers of FFmpeg, and it must be installed by the source code from ffmpeg.org/releases/ .
