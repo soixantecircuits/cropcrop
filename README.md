@@ -19,16 +19,14 @@ Execute install.sh script ( CropCrop root folder ) to install all dependencies r
 
 Softwares :
 * Python 3.2
-* FFmpeg
+* FFmpeg 1.0
 * MediaInfo
-* zip
-
+* zip 3.0
 
 Server Installation
 -------------------
 
 * Refers to the checksys.php
-
 
 Server configuration
 --------------------
@@ -36,5 +34,6 @@ Server configuration
 * allow python3 script
 * give writing permissions
 
-
-
+FFmpeg
+------
+It actually exist two "versions" of FFmpeg : FFmpeg by the dev of FFmpeg, and a fork called Libav included by default in Debian packages, still using the call command ffmpeg for historical reason. But we want FFmpeg by the developpers of FFmpeg, and it must be installed by the the source code from ffmpeg.org/releases/ .
