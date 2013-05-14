@@ -709,7 +709,7 @@
                     // Function update
                     updateSize(id, width, height);
                 },
-                containment: $("#videoContent")
+                containment: $("#cropsContainer")
             }) // End resizable
             .draggable({ //make it "draggable" and "resizable"
                 drag: function(event, ui) { // What happen when dragged
@@ -725,7 +725,7 @@
                     // Function update
                     updatePos(id, calculPosTop, calculPosLeft);
                 },
-                containment: $("#videoContent")
+                containment: $("#cropsContainer")
             }); // End draggable
 
             addToolbarInfos(id);
@@ -773,13 +773,13 @@
                 resize: function(event, ui) {
                     updateSlavesInformations();
                 },
-                containment: $("#videoContent")
+                containment: $("#cropsContainer")
             }) // End resizable
             .draggable({ //make it "draggable" and "resizable"
                 drag: function(event, ui) { // What happen when dragged
                     updateSlavesInformations();
                 },
-                containment: $("#videoContent")
+                containment: $("#cropsContainer")
             }); // End draggable
 
             addToolbarInfos(id);
