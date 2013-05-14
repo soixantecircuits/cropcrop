@@ -11,20 +11,23 @@ A tool for cropping video easily online.
 4. push ' Crop It '
 5. wait for the zip folder with your cropped videos !
 
-
-
-Server Installation
------------
-Refers to the checksys.php
-
-
 Server Depedencies
 -----------
+Execute install.sh script in the root folder to install all dependencies required.
+
+ =>    sh install.sh
+
 Softwares :
 * Python 3.2
 * FFmpeg
 * MediaInfo
 * zip
+
+
+Server Installation
+-----------
+* Refers to the checksys.php
+
 
 Server configuration
 -----------
