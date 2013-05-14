@@ -36,4 +36,4 @@ Server configuration
 
 FFmpeg
 ------
-It actually exist two "versions" of FFmpeg : FFmpeg by the dev of FFmpeg, and a fork called Libav included by default in Debian packages, still using the call command ffmpeg for historical reason. But we want FFmpeg by the developpers of FFmpeg, and it must be installed by the the source code from ffmpeg.org/releases/ .
+It actually exist two "versions" of FFmpeg : FFmpeg by the dev of FFmpeg, and a fork called Libav included by default in Debian packages, still using the call command ffmpeg for historical reason. But we want FFmpeg by the developpers of FFmpeg, and it must be installed by the source code from ffmpeg.org/releases/ .
