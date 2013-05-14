@@ -270,6 +270,11 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					<input type="text" id="inputTopid" placeholder="T : ' + marginTop + '" />
 					<input type="text" id="inputLeftid" placeholder="L : ' + marginLeft + '" />
 				</div>
+				<div class="videoCropListDivElementContent deleteContainer">
+					<p class="cropDestroyerContainer">
+						<span class="cropDestroyer">X</span>
+					</p>
+				</div>
 			</div>
 		</div>
 

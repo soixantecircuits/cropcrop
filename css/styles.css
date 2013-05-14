@@ -428,3 +428,22 @@ font-size : 10 px;
 	margin-top: 3px;
 	display: inline-block;
 }
+
+.cropDestroyerContainer{
+	color: #FFF;
+	background-color: #F00;
+	-webkit-border-radius: 50px;
+    border-radius: 50px;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.cropDestroyer{
+	position: absolute;
+	text-align: center;
+	margin-top: -16px;
+	margin-left: -4px;
+}
