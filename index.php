@@ -54,7 +54,9 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 									</p>								
 								</div>
 							</div>	
-						</div>		
+						</div>	
+
+
 				<div id="nav">
 				<nav>
 					<!-- Bouton upload -->
@@ -170,6 +172,42 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 			<button type="button" id ="bulkExcel" value="Excel">
 			<button type="button" id ="bulkJson" value="jSon">
 			</div>
+
+
+			<div id="toolsContainer">
+				<!-- Button -->
+				<div id="falseButtonForNow">
+				</div>
+ 
+				<!-- First Container -->
+				<div id="toolsFirstContainer">
+					<ul class="toolsContainerMenu">
+						<li class="selectedMenu"><h3>Your video</h3></li>
+						<li><h3>AutoCrop</h3></li>
+					</ul>
+					<div id="firstContainerPanel1" class="panel selectedPanel">
+						
+
+
+					</div>
+					<div id="firstContainerPanel2" class="panel">
+
+					</div>
+				</div>
+
+				<!-- Second Container -->
+				<div id="toolsSecondContainer">
+					<div id="secondContainerPanel1" class="panel">
+						<h3>Add screen</h3>
+
+					</div>
+					<div id="secondContainerPanel2" class="panel">
+						<h3>Add photo</h3>
+
+					</div>
+				</div>
+			</div>
+
 
 
 				<!-- VIDEO AREA -->
