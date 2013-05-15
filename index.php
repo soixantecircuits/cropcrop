@@ -105,10 +105,10 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						
 						<div id="progressContainer">
 							<div id="progress">
-								<div class="bar" style="width: 0%;">
-									<p>
+								<p>
 										<span id="progressBarText"></span>
 									</p>
+								<div class="bar" style="width: 0%;">									
 								</div>
 							</div>	
 						</div>		
