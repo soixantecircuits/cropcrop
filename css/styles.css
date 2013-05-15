@@ -148,30 +148,6 @@ body {
 				text-align: left;
 				width: 220px;
 				display: inline-block;}
-				#buttonYourVideo{
-					min-width: 190px}
-					#triangle {
-						margin-top: 25px;
-						display: inline-block;
-						width: 0px; 
-						height: 0px; 
-						margin-left: 33px;
-						border-left: 7px solid transparent;
-						border-right: 7px solid transparent;
-						border-top: 7px solid #5DC1FF;
-						-webkit-transition: all 500ms ease-in-out;
-				        -moz-transition: all 500ms ease-in-out;
-				        -o-transition: all 500ms ease-in-out;
-				        -ms-transition: all 500ms ease-in-out;}
-						#triangle.up {
-						    -webkit-transform: rotate(180deg);
-						       -moz-transform: rotate(180deg);
-						        -ms-transform: rotate(180deg);
-						         -o-transform: rotate(180deg);
-						            transform: rotate(180deg);
-						               /* IE6–IE9 */
-						               filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.9914448613738104, M12=-0.13052619222005157,M21=0.13052619222005157, M22=0.9914448613738104, sizingMethod='auto expand');
-						                 zoom: 1;}
 				#YourVideoToolbar{
 					position: relative;
 					-webkit-box-shadow         : 1px 2px 1px 1px #3D3E40;
@@ -418,55 +394,78 @@ font-size : 10 px;
 }
 
 /* Bob */
-#toolsContainer{
+#toolsMainContainer{
 	z-index: 500;
 	position: fixed;
 	border: 3px solid rgba(222,226,225,.3);
 	width: 224px;
 	top: 25%;
 	right: 50%;}
-	#thumbnailsContainer{
-		width: 224px;}
-		#thumbnailsList{
-			text-align: center;
-			margin: auto;}
-			.thumbnailsCarousel{
-				min-height: 42px; 
-				margin: auto;}
-				#carouselContainer li:first-child{
-					margin-left: -40px;}
-				#carouselContainer li{
-					margin: 0;
-					float: left;
-					width: 74px;
-					height: 42px;
-					background-color: #3B3F41;
-					cursor: pointer;
-				    -webkit-transition: all .8s; 
-					   -moz-transition: all .8s; 
-				         -o-transition: all .8s; 
-				            transition: all .8s;
-					opacity: 0.5;}
-				#carouselContainer li:hover{
-				    -webkit-transition: all .1s; 
-					   -moz-transition: all .1s; 
-				         -o-transition: all .1s; 
-				            transition: all .1s;
-					opacity: 1;}
 	#falseButtonForNow{
+		cursor: move;
 		height: 30px;
 		background-color: #494D4E;}
+	#buttonYourVideo{}
+		#sphere {
+			background-color: #fff;
+			display: inline-block;
+			width: 16px; 
+			height: 16px; 
+			-webkit-border-radius: 50px;
+			border-radius: 50px;
+			-webkit-transition: all 500ms ease-in-out;
+	        -moz-transition: all 500ms ease-in-out;
+	        -o-transition: all 500ms ease-in-out;
+	        -ms-transition: all 500ms ease-in-out;}
+			#triangle.up {
+			    -webkit-transform: rotate(180deg);
+			       -moz-transform: rotate(180deg);
+			        -ms-transform: rotate(180deg);
+			         -o-transform: rotate(180deg);
+			            transform: rotate(180deg);
+			               /* IE6–IE9 */
+			               filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.9914448613738104, M12=-0.13052619222005157,M21=0.13052619222005157, M22=0.9914448613738104, sizingMethod='auto expand');
+			                 zoom: 1;}
 	.toolsContainer{
 		border-top: 3px solid rgba(222,226,225,.3);
 		background-color: #494D4E;}
 	#toolsFirstContainer{
 		height: 194px;}
 		#firstContainerPanel1{}
+			#thumbnailsContainer{
+				width: 224px;}
+				#thumbnailsList{
+					text-align: center;
+					margin: auto;}
+					.thumbnailsCarousel{
+						min-height: 42px; 
+						margin: auto;}
+						#carouselContainer li:first-child{
+							margin-left: -40px;}
+						#carouselContainer li{
+							margin: 0;
+							float: left;
+							width: 74px;
+							height: 42px;
+							background-color: #3B3F41;
+							cursor: pointer;
+						    -webkit-transition: all .8s; 
+							   -moz-transition: all .8s; 
+						         -o-transition: all .8s; 
+						            transition: all .8s;
+							opacity: 0.5;}
+						#carouselContainer li:hover{
+						    -webkit-transition: all .1s; 
+							   -moz-transition: all .1s; 
+						         -o-transition: all .1s; 
+						            transition: all .1s;
+							opacity: 1;}
 			#videoInformationsDiv{
 				z-index                : 999;
 				list-style-type        : none;
 				padding-top            : 10px; 
-				padding-bottom         : 10px; 
+				padding-bottom         : 10px;
+				padding-left           : 10px;
 				margin-top             : 0;
 				margin-bottom          : 0;}
 					#videoInformationsDiv ul li{
@@ -490,7 +489,10 @@ font-size : 10 px;
 		padding: 0px;
 		background-color: #3B3F41;
 		list-style: none;}
+	#toolsFirstContainer .toolsContainerMenu{
+		padding-top: 14px;}
 		.toolsContainerMenu li{
+			cursor: pointer;
 			margin: 0;
 			float: left;
 			margin-right: 5px;}

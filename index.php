@@ -46,15 +46,14 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 			<div id="body">
 				<div id="progressContainer">
-							<div id="progress">
-							
-								<div class="bar" style="width: 0%;">	
-									<p>
-										<span id="progressBarText"></span>
-									</p>								
-								</div>
-							</div>	
-						</div>	
+					<div id="progress">
+						<div class="bar" style="width: 0%;">	
+							<p>
+								<span id="progressBarText"></span>
+							</p>								
+						</div>
+					</div>	
+				</div>	
 
 			<div id="touslesmenus">
 				<div id="nav">
@@ -96,7 +95,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 					<!-- TOOL MENU -->
 					<div id="yourVideoContent">
-						<a class="custom button large dark disabled" role="button" id="buttonYourVideo" href="#button"><span id="buttonYourVideo">Your Video</span><span id="triangle"></span></a>
 						
 						
 						<!-- TOOL BAR -->
@@ -158,10 +156,31 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 
 
-			<div id="toolsContainer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<div id="toolsMainContainer">
 				<!-- Button -->
 				<div id="falseButtonForNow">
-				</div>
+					<img src="img/logoGitHub.png" /> Tools <span id="sphere"></span>
+				</div>	
  
 				<!-- First Container -->
 				<div id="toolsFirstContainer" class="toolsContainer">
@@ -216,11 +235,26 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					</div>
 					<div id="secondContainerPanel2" class="panel">
 						<p>
-							<p>Ŝomething else</p>
+							<p>Something else</p>
 						</p>
 					</div>
 				</div>
 			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
