@@ -443,3 +443,7 @@ font-size : 10 px;
 		text-align: center;
 		margin-top: -16px;
 		margin-left: -4px;}
+
+#footerContent p{
+	line-height: 25px;
+}

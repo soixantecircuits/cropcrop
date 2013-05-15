@@ -212,9 +212,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 			<footer>
 				<div id="footerContent">
 					<p>
-						<a class="link dark" href="http://vimeo.com/soixantecircuits/videos/">&#169; <?php echo date("Y"); ?>
-
- Soixante circuits | All Rights Reserved</a>
+						<a class="link dark" href="http://vimeo.com/soixantecircuits/videos/" target="_blank">&#169; <?php echo date("Y"); ?> Soixante circuits - All Rights Reserved</a> 
+						<a class="link dark" href="#" id="legalMentionsLink">Legal mentions</a>
 					</p>
 					<p>
 						<a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_blue.png" alt="Mobile Analytics" /></a>

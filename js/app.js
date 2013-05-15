@@ -193,6 +193,11 @@ jQuery(function($) {
 		id = id.replace("destroyer", "");
 		cropmodule.cropcrop("destroyCrop", id);
 	});
+
+	$("#legalMentionsLink").click(function(event) {
+		event.preventDefault();
+		cropmodule.cropcrop("displayModal", "Legal Mentions", "Legal mentions content.");
+	});
 	// jQuery end
 });
 
