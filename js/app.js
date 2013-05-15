@@ -36,7 +36,7 @@ jQuery(function($) {
 				processData: false,
 				contentType: false
 			}).done(function(data) {
-                cropmodule.cropcrop("enablePhotoLayer",data);
+				cropmodule.cropcrop("enablePhotoLayer", data);
 				photoEnabled = $('#photoCheckbox').is(':checked');
 				cropmodule.cropcrop("displayPhotoLayer", photoEnabled);
 			});
@@ -48,14 +48,14 @@ jQuery(function($) {
 
 		add: function(e, data) {
 			if (data.autoUpload || (data.autoUpload !== false && ($(this).data('blueimp-fileupload') || $(this).data('fileupload')).options.autoUpload)) {
-					extName = data.files[0].name;
-				console.log(extName.toLowerCase());				
-								
+				extName = data.files[0].name;
+				console.log(extName.toLowerCase());
+
 				var ext = cropmodule.cropcrop("checkExtension", extName.toLowerCase(), videoExtensionsAllowed);
 				if (ext) {
-		// var title = $("#fileupload").val();
-		// title = title.split(/(\\|\/)/g).pop();
-		cropmodule.cropcrop("updateCropsTitle", data.files[0].name);
+					// var title = $("#fileupload").val();
+					// title = title.split(/(\\|\/)/g).pop();
+					cropmodule.cropcrop("updateCropsTitle", data.files[0].name);
 					cropmodule.cropcrop("animateFavicon");
 					data.submit();
 					cropmodule.cropcrop("addVideoContentLoadingSpinner");
@@ -84,8 +84,7 @@ jQuery(function($) {
 	$('#fileupload').bind('fileuploadprogress', function(e, data) {
 		var progress = parseInt(data.loaded / data.total * 100, 10);
 		$('#progress .bar').css(
-			'width', progress + '%'
-		);
+			'width', progress + '%');
 		$("#progressBarText").text("Downloading your video file : " + progress + " %");
 		if (progress == 100) {
 			$("#progressBarText").text("Creating thumbnails...");
@@ -159,7 +158,7 @@ jQuery(function($) {
 	$("#videoCropListDiv").on("click", ".videoCropListDivElement", function(event) {
 		event.preventDefault();
 		var id = $(this).attr("id");
-		id= id.replace("videoCropListDivElement", "");
+		id = id.replace("videoCropListDivElement", "");
 		if ($("#cropNumber" + id).hasClass("topLayer") === false) {
 			$(".topLayer").removeClass("topLayer");
 			$("#cropNumber" + id).addClass("topLayer").effect("highlight", {}, 1000);
@@ -221,8 +220,6 @@ jQuery(function($) {
 	});
 	// jQuery end
 });
-
-
 
 
 

@@ -20,7 +20,7 @@
         photoPath = "server/php/";
         videoInformations = {};
         dataAStocker = "";
-        jsonBulk = "";
+
         autoCropEnabled = false;
         isCropMenuShown = 0;
         faviconAnimated = [
@@ -47,6 +47,9 @@
             'mov'];
         crops = {};
         crops.list = [];
+
+        jsonBulk = {};
+        jsonBulk.list = [];
 
         var el = element;
         var $el = $(element);
@@ -933,39 +936,36 @@
 
 
         function bulk(str) {
-            var jsonBulk = str;
-            jsonBulk = jsonBulk.replace(/[^a-zA-Z 0-9]+/g, ' ').replace(/ +(?= )/g, '');
 
-            if (jsonBulk.charAt(jsonBulk.length - 1) == ' ') {
-                jsonBulk = jsonBulk.slice(0, jsonBulk.length - 1);
+
+            str = str.replace(/[^a-zA-Z 0-9-*-_]+/g, ' ').replace(/ +(?= )/g, '');
+            var longElement = 4;
+
+            if (str.charAt(str.length - 1) == ' ') {
+                str = str.slice(0, str.length - 1);
             };
-            array = jsonBulk.split(' ');
+
+            array = str.split(' ');
+
             if ((array.length % 3) != 0) {
-                alert("non possible");
+                displayModal('Bulk Error', 'Your Excel Table is not valid');
             } else {
 
-                var json = '{"screens":[';
-                for (var i = 3; i < array.length; i++) {
-                    var id = i % 3;
 
-                    switch (id) {
-                        case 0:
-                            if (i == 3) {
-                                json += '{"screenId":"' + array[i] + '",';
-                            } else {
-                                json += ',{"screenId":"' + array[i] + '",';
-                            }
-                            break;
-                        case 1:
-                            json += '"width":"' + array[i] + '",';
-                            break;
-                        case 2:
-                            json += '"height":"' + array[i] + '"}';
-                            break;
+                for (var i = 0; i < array.length; i++) {
+                    if (i >= longElement) {
+                        if ((i % longElement == 0) && (i != array.length - 1)) {
+
+                            jsonBulk.list.push({
+                                BrandName: array[i],
+                                screenId: array[i + 1],
+                                width: array[i + 2],
+                                height: array[i + 3]
+                            });
+                        }
                     }
                 }
-                json += ']}';
-                alert(json);
+
             }
         }
         // Initialize the plugin instance.
@@ -991,7 +991,7 @@
             enablePhotoLayer: enablePhotoLayer,
             displayPhotoLayer: displayPhotoLayer,
             destroyCrop: destroyCrop,
-            bulk:bulk
+            bulk: bulk
 
         };
     }
