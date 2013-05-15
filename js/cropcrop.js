@@ -939,7 +939,7 @@
 
 
             str = str.replace(/[^a-zA-Z 0-9-*-_-+]+/g, ' ').replace(/ +(?= )/g, '');
-            var longElement = 4;
+            var longElement = 6;
 
             if (str.charAt(str.length - 1) == ' ') {
                 str = str.slice(0, str.length - 1);
@@ -947,7 +947,7 @@
 
             array = str.split(' ');
 
-            if ((array.length % 3) != 0) {
+            if ((array.length % longElement) != 0) {
                 displayModal('Bulk Error', 'Your Excel Table is not valid');
             } else {
 
@@ -960,7 +960,9 @@
                                 BrandName: array[i],
                                 screenId: array[i + 1],
                                 width: array[i + 2],
-                                height: array[i + 3]
+                                height: array[i + 3],
+                                marginLeft : array[i + 4],
+                                marginRight : array[i + 5]
                             });
                         }
                     }
@@ -970,7 +972,7 @@
         }
 
         function bulkJson(str) {
-            jsonBulk = jQuery.parseJSON(str)
+            jsonBulk = jQuery.parseJSON(str);
         }
         // Initialize the plugin instance.
         init();
