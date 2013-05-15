@@ -156,6 +156,7 @@ jQuery(function($) {
 	$("#videoCropListDiv").on("click", ".videoCropListDivElement", function(event) {
 		event.preventDefault();
 		var id = $(this).attr("id");
+		id= id.replace("videoCropListDivElement", "");
 		if ($("#cropNumber" + id).hasClass("topLayer") === false) {
 			$(".topLayer").removeClass("topLayer");
 			$("#cropNumber" + id).addClass("topLayer").effect("highlight", {}, 1000);

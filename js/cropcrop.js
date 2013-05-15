@@ -913,7 +913,9 @@
         }
 
         function destroyCrop ( id ) {
-            
+            $( "#cropNumber" + id ).remove();
+            crops.list[id] = null;
+
         }
  
     // Initialize the plugin instance.
