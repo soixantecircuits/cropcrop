@@ -49,7 +49,7 @@ jQuery(function($) {
 		add: function(e, data) {
 			if (data.autoUpload || (data.autoUpload !== false && ($(this).data('blueimp-fileupload') || $(this).data('fileupload')).options.autoUpload)) {
 					extName = data.files[0].name;
-				console.log(extName.toLowerCase());				
+				// console.log(extName.toLowerCase());				
 								
 				var ext = cropmodule.cropcrop("checkExtension", extName.toLowerCase(), videoExtensionsAllowed);
 				if (ext) {
