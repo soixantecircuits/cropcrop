@@ -162,11 +162,14 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 				
 
+				<div>
 
+					<textarea id="bulkArea">
+			</textarea>
 
+			<button type="button" id ="bulkButton">
 
-
-
+			</div>
 
 
 				<!-- VIDEO AREA -->
@@ -202,7 +205,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				</div>
 
 			</div>
-
+		
 
 			
 			<!-- BODY END -->

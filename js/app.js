@@ -214,8 +214,15 @@ jQuery(function($) {
 		event.preventDefault();
 		cropmodule.cropcrop("displayModal", "Legal Mentions", "Legal mentions content.");
 	});
+
+	$("#bulkButton").click(function(event) {
+		event.preventDefault();
+		cropmodule.cropcrop("bulk", $('#bulkArea').val());
+	});
 	// jQuery end
 });
+
+
 
 
 
