@@ -463,25 +463,29 @@ font-size : 10 px;
 	#falseButtonForNow{
 		height: 30px;
 		background-color: #494D4E;}
+	.toolsContainer{
+		border-top: 3px solid rgba(222,226,225,.5);
+		background-color: #494D4E;
+	}
 	#toolsFirstContainer{
-		border-top: 3px solid rgba(222,226,225,.5);
-		height: 210px;
-		background-color: #3B3F41}
+		height: 210px;}
 	#toolsSecondContainer{
-		border-top: 3px solid rgba(222,226,225,.5);
-		height: 126px;
-		background-color: #3B3F41}
+		height: 126px;}
 	.panel{
+		margin-top: 24px;
 		background-color: #494D4E;}
+		.selectedPanel{}
 	.toolsContainerMenu{
+		height: 24px;
+		width: 224px;
 		display: block;
 		float: left;
 		margin: 0;
 		padding: 0px;
+		background-color: #3B3F41;
 		list-style: none;}
 		.toolsContainerMenu li{
 			margin: 0;
-			height: 24px;
 			float: left;
 			margin-right: 5px;}
 			.selectedMenu{
