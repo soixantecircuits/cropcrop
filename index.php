@@ -197,12 +197,16 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 				<!-- Second Container -->
 				<div id="toolsSecondContainer">
+					<ul class="toolsContainerMenu">
+						<li class="selectedMenu"><h3>Add screen</h3></li>
+						<li><h3>Add photo</h3></li>
+					</ul>
 					<div id="secondContainerPanel1" class="panel">
-						<h3>Add screen</h3>
+						
 
 					</div>
 					<div id="secondContainerPanel2" class="panel">
-						<h3>Add photo</h3>
+						
 
 					</div>
 				</div>
