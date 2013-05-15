@@ -102,21 +102,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						<!-- TOOL BAR -->
 						<div id="YourVideoToolbar">
 
-							<ul id="videoInformationsDiv">
-								<li>
-									<strong><span id="videoInformationsTitle">...</span></strong>
-								</li>
-								<li>
-									Dimensions : <span id="videoInformationsWidth">...</span> x <span id="videoInformationsHeight">...</span>
-								</li>
-								<li>
-									Size : <span id="videoInformationsSize">...</span>
-								</li>
-								<li>
-									FPS : <span id="videoInformationsFPS">...</span>
-								</li>
-							</ul>
-
 							<div id="videoDownloadButtonDiv">
 								<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
 							</div>
@@ -181,32 +166,58 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				<!-- First Container -->
 				<div id="toolsFirstContainer" class="toolsContainer">
 					<ul class="toolsContainerMenu">
-						<li class="selectedMenu"><h3>Your video</h3></li>
-						<li><h3>AutoCrop</h3></li>
+						<li class="selectedMenu" id=""><h3>Your video</h3></li>
+						<li id=""><h3>AutoCrop</h3></li>
 					</ul>
 					<div id="firstContainerPanel1" class="panel selectedPanel">
-						<p>
-							Ceci est un test.
-						</p>
+						<ul id="videoInformationsDiv">
+							<li>
+								<strong><span id="videoInformationsTitle">...</span></strong>
+							</li>
+							<li>
+								Dimensions : <span id="videoInformationsWidth">...</span> x <span id="videoInformationsHeight">...</span>
+							</li>
+							<li>
+								Size : <span id="videoInformationsSize">...</span>
+							</li>
+							<li>
+								FPS : <span id="videoInformationsFPS">...</span>
+							</li>
+						</ul>
+						<div id="thumbnailsContainer">
+							<div id="thumbnailsList">
+								<!--
+								<button id="carouselPrev" class="button dark prev disabled"> << </button>
+								<button id="carouselNext" class="button dark next disabled"> >> </button>
+								-->
+								<div class="thumbnailsCarousel">
+									<ul id="carouselContainer">
+										<li><img id="mini1" src="" alt="" width="" height="" data-big=""></li>
+										<li><img id="mini2" src="" alt="" width="" height="" data-big=""></li>
+										<li><img id="mini3" src="" alt="" width="" height="" data-big="" ></li>
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div id="firstContainerPanel2" class="panel">
-
 					</div>
 				</div>
+				
 
 				<!-- Second Container -->
 				<div id="toolsSecondContainer" class="toolsContainer">
 					<ul class="toolsContainerMenu">
 						<li class="selectedMenu"><h3>Add screen</h3></li>
-						<li><h3>Add photo</h3></li>
+						<li id=""><h3>Add photo</h3></li>
 					</ul>
-					<div id="secondContainerPanel1" class="panel">
-						
-
+					<div id="secondContainerPanel1" class="panel selectedPanel">
+						<p>Something</p>
 					</div>
 					<div id="secondContainerPanel2" class="panel">
-						
-
+						<p>
+							<p>Ŝomething else</p>
+						</p>
 					</div>
 				</div>
 			</div>
@@ -226,22 +237,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 								Or just drag and drop your video here
 							</p>
 						</div>
-					</div>
-				</div>
-				
-				<div id="thumbnailsContainer">
-					<div id="thumbnailsList">
-
-						<button id="carouselPrev" class="button dark prev disabled"> << </button>
-						<button id="carouselNext" class="button dark next disabled"> >> </button>
-						<div class="thumbnailsCarousel">
-							<ul id="carouselContainer">
-								<li><img id="mini1" src="" alt="" width="" height="" data-big=""></li>
-								<li><img id="mini2" src="" alt="" width="" height="" data-big=""></li>
-								<li><img id="mini3" src="" alt="" width="" height="" data-big="" ></li>
-							</ul>
-						</div>
-
 					</div>
 				</div>
 

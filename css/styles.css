@@ -176,18 +176,6 @@ body {
 					position: relative;
 					-webkit-box-shadow         : 1px 2px 1px 1px #3D3E40;
 					box-shadow                 : 1px 2px 1px 1px #3D3E40;}
-					#videoInformationsDiv{
-						color                  : #000;
-						z-index                : 999;
-						background-color       : #5DC1FF;
-						list-style-type        : none;
-						padding-top            : 10px; 
-						padding-bottom         : 10px; 
-						margin-top             : 0;
-						margin-bottom          : 0;}
-							#videoInformationsDiv ul li{
-								display        : block;
-								margin         : 4px;}
 					#videoDownloadButtonDiv{
 						text-align             : center;
 						background-color       : #595B5A;
@@ -248,28 +236,6 @@ body {
 			z-index: 0;}
 			.topLayer{
 				z-index: 1;}
-	#thumbnailsContainer{
-		width: 100%;}
-		#thumbnailsList{
-			text-align: center;
-			width: 960px;
-			margin: auto;}
-			.thumbnailsCarousel{
-				min-height: 128px; 
-				margin: auto;}
-				#carouselContainer li{
-					cursor: pointer;
-				    -webkit-transition: all .8s; 
-					   -moz-transition: all .8s; 
-				         -o-transition: all .8s; 
-				            transition: all .8s;
-					opacity: 0.5;}
-				#carouselContainer li:hover{
-				    -webkit-transition: all .1s; 
-					   -moz-transition: all .1s; 
-				         -o-transition: all .1s; 
-				            transition: all .1s;
-					opacity: 1;}
 
 
 
@@ -399,8 +365,7 @@ font-size : 10 px;
 	font-size       : 20px;}
 
 #carouselContainer{
-	list-style-type: none;
-}
+	list-style-type: none;}
 
 #videoPhotoBackground{
 	z-index: 20;
@@ -456,25 +421,66 @@ font-size : 10 px;
 #toolsContainer{
 	z-index: 500;
 	position: fixed;
-	border: 3px solid rgba(222,226,225,.5);
+	border: 3px solid rgba(222,226,225,.3);
 	width: 224px;
 	top: 25%;
 	right: 50%;}
+	#thumbnailsContainer{
+		width: 224px;}
+		#thumbnailsList{
+			text-align: center;
+			margin: auto;}
+			.thumbnailsCarousel{
+				min-height: 42px; 
+				margin: auto;}
+				#carouselContainer li:first-child{
+					margin-left: -40px;}
+				#carouselContainer li{
+					margin: 0;
+					float: left;
+					width: 74px;
+					height: 42px;
+					background-color: #3B3F41;
+					cursor: pointer;
+				    -webkit-transition: all .8s; 
+					   -moz-transition: all .8s; 
+				         -o-transition: all .8s; 
+				            transition: all .8s;
+					opacity: 0.5;}
+				#carouselContainer li:hover{
+				    -webkit-transition: all .1s; 
+					   -moz-transition: all .1s; 
+				         -o-transition: all .1s; 
+				            transition: all .1s;
+					opacity: 1;}
 	#falseButtonForNow{
 		height: 30px;
 		background-color: #494D4E;}
 	.toolsContainer{
-		border-top: 3px solid rgba(222,226,225,.5);
-		background-color: #494D4E;
-	}
+		border-top: 3px solid rgba(222,226,225,.3);
+		background-color: #494D4E;}
 	#toolsFirstContainer{
-		height: 210px;}
+		height: 194px;}
+		#firstContainerPanel1{}
+			#videoInformationsDiv{
+				z-index                : 999;
+				list-style-type        : none;
+				padding-top            : 10px; 
+				padding-bottom         : 10px; 
+				margin-top             : 0;
+				margin-bottom          : 0;}
+					#videoInformationsDiv ul li{
+						display        : block;
+						margin         : 4px;}
 	#toolsSecondContainer{
-		height: 126px;}
+		height: 163px;}
 	.panel{
+		display: none;
 		margin-top: 24px;
 		background-color: #494D4E;}
-		.selectedPanel{}
+		.selectedPanel{
+			display: block;
+		}
 	.toolsContainerMenu{
 		height: 24px;
 		width: 224px;
