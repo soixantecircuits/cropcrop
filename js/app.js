@@ -212,7 +212,7 @@ jQuery(function($) {
 
 	$("#legalMentionsLink").click(function(event) {
 		event.preventDefault();
-		cropmodule.cropcrop("displayModal", "Legal Mentions", "Legal mentions content.");
+		cropmodule.cropcrop("displayModal", "Legal Mentions", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
 	});
 	// jQuery end
 });
