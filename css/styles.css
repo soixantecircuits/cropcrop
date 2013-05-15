@@ -318,11 +318,11 @@ body {
 #progressContainer{
 	margin-right: auto;
 	margin-left: auto;
-	width: 220px;}
+	width: 100%;}
 	#progress{}
 		.bar {
 			margin: 0;
-		    height: 30px;
+		    height: 25px;
 		    background: #5DC1FF;}
 		    .bar p {
 		    	margin: 0;
