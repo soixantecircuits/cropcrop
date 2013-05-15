@@ -300,10 +300,11 @@ body {
 	position: fixed;
 	z-index: 999;
 	padding: 10px;
-	height: 200px;
+	height: 400px;
 	width: 432px;
+	overflow-y: scroll;
 	text-align: center;
-	margin-top: -100px;
+	margin-top: -200px;
 	margin-left: -216px;
 	top: 50%;
 	left: 50%;}
@@ -446,4 +447,7 @@ font-size : 10 px;
 
 #footerContent p{
 	line-height: 25px;
+}
+#iconHelpUl{
+	text-align: left;
 }
