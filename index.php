@@ -185,9 +185,9 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						<li><h3>AutoCrop</h3></li>
 					</ul>
 					<div id="firstContainerPanel1" class="panel selectedPanel">
-						
-
-
+						<p>
+							p
+						</p>
 					</div>
 					<div id="firstContainerPanel2" class="panel">
 
