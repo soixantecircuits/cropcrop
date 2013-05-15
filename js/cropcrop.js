@@ -913,9 +913,9 @@
         }
 
         function destroyCrop ( id ) {
-            $( "#cropNumber" + id ).remove();
             crops.list[id] = null;
-
+            $( "#cropNumber" + id ).remove();
+            $( "#videoCropListDivElement" + id ).remove();
         }
  
     // Initialize the plugin instance.
@@ -927,20 +927,20 @@
       destroy: destroy,
       fooPublic: fooPublic,
       test: test,
-        checkExtension : checkExtension,
-        animateFavicon : animateFavicon,
-        addVideoContentLoadingSpinner : addVideoContentLoadingSpinner,
-        displayModal : displayModal,
-        updateVideoInformations : updateVideoInformations,
-        sendCrop : sendCrop,
-        hideModal : hideModal,
-        addScreen : addScreen,
-        rebuildInterface : rebuildInterface,
-        createFormatScreen : createFormatScreen,
-        updateCropsTitle : updateCropsTitle,
-        enablePhotoLayer : enablePhotoLayer,
-        displayPhotoLayer : displayPhotoLayer,
-        destroyCrop : destroyCrop,
+      checkExtension : checkExtension,
+      animateFavicon : animateFavicon,
+      addVideoContentLoadingSpinner : addVideoContentLoadingSpinner,
+      displayModal : displayModal,
+      updateVideoInformations : updateVideoInformations,
+      sendCrop : sendCrop,
+      hideModal : hideModal,
+      addScreen : addScreen,
+      rebuildInterface : rebuildInterface,
+      createFormatScreen : createFormatScreen,
+      updateCropsTitle : updateCropsTitle,
+      enablePhotoLayer : enablePhotoLayer,
+      displayPhotoLayer : displayPhotoLayer,
+      destroyCrop : destroyCrop,
 
     };
   }
