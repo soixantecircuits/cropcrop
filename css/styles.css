@@ -437,12 +437,9 @@ font-size : 10 px;
 	width: 15px;
 	height: 15px;
 	text-align: center;
-	cursor: pointer;
-}
-
-.cropDestroyer{
-	position: absolute;
-	text-align: center;
-	margin-top: -16px;
-	margin-left: -4px;
-}
+	cursor: pointer;}
+	.cropDestroyer{
+		position: absolute;
+		text-align: center;
+		margin-top: -16px;
+		margin-left: -4px;}
