@@ -48,15 +48,11 @@ jQuery(function($) {
 
 		add: function(e, data) {
 			if (data.autoUpload || (data.autoUpload !== false && ($(this).data('blueimp-fileupload') || $(this).data('fileupload')).options.autoUpload)) {
-<<<<<<< HEAD
-				extName = data.files[0].name;
-				console.log(extName.toLowerCase());
 
-=======
-					extName = data.files[0].name;
-				// console.log(extName.toLowerCase());				
-								
->>>>>>> 4fc2e91eeec0a6f9e553ba1fec2670ac86d9ac2b
+				extName = data.files[0].name;
+				//console.log(extName.toLowerCase());
+			
+
 				var ext = cropmodule.cropcrop("checkExtension", extName.toLowerCase(), videoExtensionsAllowed);
 				if (ext) {
 					// var title = $("#fileupload").val();
@@ -220,9 +216,14 @@ jQuery(function($) {
 		cropmodule.cropcrop("displayModal", "Legal Mentions", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
 	});
 
-	$("#bulkButton").click(function(event) {
+	$("#bulkExcel").click(function(event) {
 		event.preventDefault();
-		cropmodule.cropcrop("bulk", $('#bulkArea').val());
+		cropmodule.cropcrop("bulkExcel", $('#bulkArea').val());
+	});
+
+	$("#bulkJson").click(function(event) {
+		event.preventDefault();
+		cropmodule.cropcrop("bulkJson", $('#bulkArea').val());
 	});
 	// jQuery end
 });

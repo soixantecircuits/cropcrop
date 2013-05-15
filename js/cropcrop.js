@@ -935,7 +935,7 @@
         }
 
 
-        function bulk(str) {
+        function bulkExcel(str) {
 
 
             str = str.replace(/[^a-zA-Z 0-9-*-_-+]+/g, ' ').replace(/ +(?= )/g, '');
@@ -968,6 +968,10 @@
 
             }
         }
+
+        function bulkJson(str) {
+            jsonBulk = jQuery.parseJSON(str)
+        }
         // Initialize the plugin instance.
         init();
 
@@ -991,7 +995,8 @@
             enablePhotoLayer: enablePhotoLayer,
             displayPhotoLayer: displayPhotoLayer,
             destroyCrop: destroyCrop,
-            bulk: bulk
+            bulkExcel: bulkExcel,
+            bulkJson: bulkJson
 
         };
     }

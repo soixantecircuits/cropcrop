@@ -166,8 +166,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 			<textarea id="bulkArea"></textarea>
 
-			<button type="button" id ="bulkButton">
-
+			<button type="button" id ="bulkExcel" value="Excel">
+			<button type="button" id ="bulkJson" value="jSon">
 			</div>
 
 
