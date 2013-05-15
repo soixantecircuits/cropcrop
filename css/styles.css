@@ -429,8 +429,7 @@ font-size : 10 px;
 	.toolsContainer{
 		border-top: 3px solid rgba(222,226,225,.3);
 		background-color: #494D4E;}
-	#toolsFirstContainer{
-		height: 194px;}
+	#toolsFirstContainer{}
 		#firstContainerPanel1{}
 			#thumbnailsContainer{
 				width: 224px;}
@@ -471,8 +470,7 @@ font-size : 10 px;
 					#videoInformationsDiv ul li{
 						display        : block;
 						margin         : 4px;}
-	#toolsSecondContainer{
-		height: 163px;}
+	#toolsSecondContainer{}
 	.panel{
 		display: none;
 		margin-top: 24px;
