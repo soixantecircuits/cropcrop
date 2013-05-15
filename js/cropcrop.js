@@ -2,146 +2,157 @@
  * A jQuery plugin boilerplate.
  * Author: Jonathan Nicol @f6design
  */
-;(function($) { 
-  // Change this to your plugin name.
-  var pluginName = 'cropcrop';
+;
+(function($) {
+    // Change this to your plugin name.
+    var pluginName = 'cropcrop';
 
-   
-  /**
-   * Plugin object constructor.
-   * Implements the Revealing Module Pattern.
-   */
-  function Plugin(element, options) {
-    // References to DOM and jQuery versions of element.
-    photoEnabled = true;
-    serverPath = "server/php/";
-    photoPath = "server/php/";
-    videoInformations = {};
-    dataAStocker = "";
-    autoCropEnabled = false;
-    isCropMenuShown = 0;
-    faviconAnimated = [
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAxSURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDEQCEYNWDUgFEDqGQAAAAA//8DAK8NBxl86wmxAAAAAElFTkSuQmCC",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAA/SURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig2gPAwG3AujBowawMDAwAAAAAD//wMAuY0L+2i8gB4AAAAASUVORK5CYII=",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAA+SURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDQNqhMGAe2HUAAYGAAAAAP//AwDOOhDd/RF4aQAAAABJRU5ErkJggg==",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAA8SURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDYPRMKBOGAy4FwAAAAD//wMA7RQVv0mR8O0AAAAASUVORK5CYII=",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAA8SURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDYPRMBhEYUCJIQAAAAD//wMATC4Zi/we3uAAAAAASUVORK5CYII=",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABGSURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDYPRMBgcYcAIy87bNm1kRDaM2KwNAAAA//8DAHc4H6HtbyxcAAAAAElFTkSuQmCC",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABISURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDYPRMBgcYcAIy87bNm1kRDYMGx+bAQAAAAD//wMA6AAjoZhrTj0AAAAASUVORK5CYII=",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABJSURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDYPRMBgcYcAIy87bNm1kRDaMGD4DAwMDAAAA//8DABjXJ6G/y+xCAAAAAElFTkSuQmCC",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABNSURBVHja7JAxDgAQEAT3xOdInLdS+N5qSJRkW9NNM8VYKk4sRm+GR4wkFEL2KhUCROTAf/AfyA+yV8oP4i6N3uyM3TgATAAAAP//AwANSSmNk0j+4QAAAABJRU5ErkJggg==",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABVSURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDQMKw8DLz///EA+DbZs2Mg58GLDATNq2aSMjsmHE8BkYGBgAAAAA//8DAJW3LY19NxMbAAAAAElFTkSuQmCC",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABUSURBVHja7JAxDoAwDMTuqn6OSqRvTYZ8LywgMYJuKRLevHgwt90KJxlOvIRVBYU2bEqFBhE5ID0YNuvjDzKc/4MVHvSrlOG8x544ABwAAAD//wMALnAxjdQJznIAAAAASUVORK5CYII=",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABSSURBVHja7JCxDcAgDMAcxHNFarg1GfJeurRSxxYWBrx58WA5Tk1uwk34iWQmozTtWZr28QJQmGQqEG6yH+wHazyoTync5B374gAXAAAA//8DANdWNY1ttZr+AAAAAElFTkSuQmCC",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABRSURBVHjaYvT09fvPAAXbNm1kZCAAvPz8UdQz/v//n4Fc4OXn/58J2URyABMDhYAiA0bDYDQMBk8YsMBM2rZpIyN6ViXEZ2BgYAAAAAD//wMANQ45jR1vLVQAAAAASUVORK5CYII=",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABOSURBVHjaYvT09fvPAAXbNm1kZEADXn7+KPLofMb///8zkAu8/Pz/MyGbSA5gYqAQUGTAaBiMhsHgCQMWmEnYsiohPgMDAwMAAAD//wMA0rc9japLUvgAAAAASUVORK5CYII=",
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABISURBVHjaYvT09fvPAAXbNm1k9PLzJ4nP+P8/nE8y8PLz/8+EbCI5gImBQkCRAaNhMBoGgycMWGAmkZOVGRgYGAAAAAD//wMAsG9BjaDPCMcAAAAASUVORK5CYII="];
 
-    videoExtensionsAllowed = [
-        'mpg',
-        'avi',
-        'mp4',
-        'mov'];
-    crops = {};
-    crops.list = [];
+    /**
+     * Plugin object constructor.
+     * Implements the Revealing Module Pattern.
+     */
 
-    var el = element;
-    var $el = $(element);
- 
-    // Extend default options with those supplied by user.
-    options = $.extend({}, $.fn[pluginName].defaults, options);
- 
-    /**
-     * Initialize plugin.
-     */
-    function init() {
-    // Add any initialization logic here...
-        $("#yourVideoContent").draggable({
-            handle : "#buttonYourVideo"
-        });
-        hook('onInit');
-    }
- 
-    /**
-     * Example Public Method
-     */
-    function fooPublic() {
-      // Code goes here...
-    }
- 
-    /**
-     * Test method
-     */
-    function test(key) {
-      console.log("function test");
-      private(key);
-    }
- 
-    /**
-     * Test method
-     */
-    function private(key) {
-      console.log("function test");
-      console.log(key);
-      console.log(val);
-    }
- 
-    /**
-     * Get/set a plugin option.
-     * Get usage: $('#el').demoplugin('option', 'key');
-     * Set usage: $('#el').demoplugin('option', 'key', value);
-     */
-    function option (key, val) {
-      if (val) {
-        options[key] = val;
-      } else {
-        return options[key];
-      }
-    }
- 
-    /**
-     * Get/set a plugin option.
-     * Get usage: $('#el').demoplugin('option', 'key');
-     * Set usage: $('#el').demoplugin('option', 'key', value);
-     */
-    function updateCropsTitle (title) {
-        crops.title = title;
-    }
- 
-    /**
-     * Destroy plugin.
-     * Usage: $('#el').demoplugin('destroy');
-     */
-    function destroy() {
-      // Iterate over each matching element.
-      $el.each(function() {
-        var el = this;
-        var $el = $(this);
- 
-        // Add code to restore the element to its original state...
- 
-        hook('onDestroy');
-        // Remove Plugin instance from the element.
-        $el.removeData('plugin_' + pluginName);
-      });
-    }
- 
-    /**
-     * Callback hooks.
-     * Usage: In the defaults object specify a callback function:
-     * hookName: function() {}
-     * Then somewhere in the plugin trigger the callback:
-     * hook('hookName');
-     */
-    function hook(hookName) {
-      if (options[hookName] !== undefined) {
-        // Call the user defined function.
-        // Scope is set to the jQuery element we are operating on.
-        options[hookName].call(el);
-      }
-    }
+    function Plugin(element, options) {
+        // References to DOM and jQuery versions of element.
+        photoEnabled = true;
+        serverPath = "server/php/";
+        photoPath = "server/php/";
+        videoInformations = {};
+        dataAStocker = "";
+        jsonBulk = "";
+        autoCropEnabled = false;
+        isCropMenuShown = 0;
+        faviconAnimated = [
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAxSURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDEQCEYNWDUgFEDqGQAAAAA//8DAK8NBxl86wmxAAAAAElFTkSuQmCC",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAA/SURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig2gPAwG3AujBowawMDAwAAAAAD//wMAuY0L+2i8gB4AAAAASUVORK5CYII=",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAA+SURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDQNqhMGAe2HUAAYGAAAAAP//AwDOOhDd/RF4aQAAAABJRU5ErkJggg==",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAA8SURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDYPRMKBOGAy4FwAAAAD//wMA7RQVv0mR8O0AAAAASUVORK5CYII=",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAA8SURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDYPRMBhEYUCJIQAAAAD//wMATC4Zi/we3uAAAAAASUVORK5CYII=",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABGSURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDYPRMBgcYcAIy87bNm1kRDaM2KwNAAAA//8DAHc4H6HtbyxcAAAAAElFTkSuQmCC",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABISURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDYPRMBgcYcAIy87bNm1kRDYMGx+bAQAAAAD//wMA6AAjoZhrTj0AAAAASUVORK5CYII=",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABJSURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDYPRMBgcYcAIy87bNm1kRDaMGD4DAwMDAAAA//8DABjXJ6G/y+xCAAAAAElFTkSuQmCC",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABNSURBVHja7JAxDgAQEAT3xOdInLdS+N5qSJRkW9NNM8VYKk4sRm+GR4wkFEL2KhUCROTAf/AfyA+yV8oP4i6N3uyM3TgATAAAAP//AwANSSmNk0j+4QAAAABJRU5ErkJggg==",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABVSURBVHjaYvT09fvPAAXbNm1kZCARMP7//5+BEsDk5edPkQlMDBQCig0YDQMKw8DLz///EA+DbZs2Mg58GLDATNq2aSMjsmHE8BkYGBgAAAAA//8DAJW3LY19NxMbAAAAAElFTkSuQmCC",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABUSURBVHja7JAxDoAwDMTuqn6OSqRvTYZ8LywgMYJuKRLevHgwt90KJxlOvIRVBYU2bEqFBhE5ID0YNuvjDzKc/4MVHvSrlOG8x544ABwAAAD//wMALnAxjdQJznIAAAAASUVORK5CYII=",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABSSURBVHja7JCxDcAgDMAcxHNFarg1GfJeurRSxxYWBrx58WA5Tk1uwk34iWQmozTtWZr28QJQmGQqEG6yH+wHazyoTync5B374gAXAAAA//8DANdWNY1ttZr+AAAAAElFTkSuQmCC",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABRSURBVHjaYvT09fvPAAXbNm1kZCAAvPz8UdQz/v//n4Fc4OXn/58J2URyABMDhYAiA0bDYDQMBk8YsMBM2rZpIyN6ViXEZ2BgYAAAAAD//wMANQ45jR1vLVQAAAAASUVORK5CYII=",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABOSURBVHjaYvT09fvPAAXbNm1kZEADXn7+KPLofMb///8zkAu8/Pz/MyGbSA5gYqAQUGTAaBiMhsHgCQMWmEnYsiohPgMDAwMAAAD//wMA0rc9japLUvgAAAAASUVORK5CYII=",
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABISURBVHjaYvT09fvPAAXbNm1k9PLzJ4nP+P8/nE8y8PLz/8+EbCI5gImBQkCRAaNhMBoGgycMWGAmkZOVGRgYGAAAAAD//wMAsG9BjaDPCMcAAAAASUVORK5CYII="];
 
-    function updateVideoInformations (infos) {
+        videoExtensionsAllowed = [
+            'mpg',
+            'avi',
+            'mp4',
+            'mov'];
+        crops = {};
+        crops.list = [];
+
+        var el = element;
+        var $el = $(element);
+
+        // Extend default options with those supplied by user.
+        options = $.extend({}, $.fn[pluginName].defaults, options);
+
+        /**
+         * Initialize plugin.
+         */
+
+        function init() {
+            // Add any initialization logic here...
+            $("#yourVideoContent").draggable({
+                handle: "#buttonYourVideo"
+            });
+            hook('onInit');
+        }
+
+        /**
+         * Example Public Method
+         */
+
+        function fooPublic() {
+            // Code goes here...
+        }
+
+        /**
+         * Test method
+         */
+
+        function test(key) {
+            console.log("function test");
+            private(key);
+        }
+
+        /**
+         * Test method
+         */
+
+        function private(key) {
+            console.log("function test");
+            console.log(key);
+            console.log(val);
+        }
+
+        /**
+         * Get/set a plugin option.
+         * Get usage: $('#el').demoplugin('option', 'key');
+         * Set usage: $('#el').demoplugin('option', 'key', value);
+         */
+
+        function option(key, val) {
+            if (val) {
+                options[key] = val;
+            } else {
+                return options[key];
+            }
+        }
+
+        /**
+         * Get/set a plugin option.
+         * Get usage: $('#el').demoplugin('option', 'key');
+         * Set usage: $('#el').demoplugin('option', 'key', value);
+         */
+
+        function updateCropsTitle(title) {
+            crops.title = title;
+        }
+
+        /**
+         * Destroy plugin.
+         * Usage: $('#el').demoplugin('destroy');
+         */
+
+        function destroy() {
+            // Iterate over each matching element.
+            $el.each(function() {
+                var el = this;
+                var $el = $(this);
+
+                // Add code to restore the element to its original state...
+
+                hook('onDestroy');
+                // Remove Plugin instance from the element.
+                $el.removeData('plugin_' + pluginName);
+            });
+        }
+
+        /**
+         * Callback hooks.
+         * Usage: In the defaults object specify a callback function:
+         * hookName: function() {}
+         * Then somewhere in the plugin trigger the callback:
+         * hook('hookName');
+         */
+
+        function hook(hookName) {
+            if (options[hookName] !== undefined) {
+                // Call the user defined function.
+                // Scope is set to the jQuery element we are operating on.
+                options[hookName].call(el);
+            }
+        }
+
+        function updateVideoInformations(infos) {
 
             videoInformations = infos;
             videoInformations.message.filename = videoInformations.message.filename.replaceAll('\'', '');
@@ -160,7 +171,7 @@
 
         //THUMBNAILS CREATION
 
-    function thumbnails (infos) {
+        function thumbnails(infos) {
             $.ajax({
                 url: 'server/php/test2.php',
                 type: "POST",
@@ -177,7 +188,7 @@
             });
         }
 
-    function displayContent () {
+        function displayContent() {
             var img = new Image();
             var bgImgUrl = serverPath + videoInformations.message.thumbnails1;
             var infWidth = videoInformations.message.width;
@@ -203,7 +214,7 @@
         }
 
 
-        function updateInterface () {
+        function updateInterface() {
             $("#videoInformationsTitle").text(videoInformations.message.filename);
             $("#videoInformationsWidth").text(videoInformations.message.width);
             $("#videoInformationsHeight").text(videoInformations.message.height);
@@ -216,7 +227,7 @@
         //
         // enableUserInterface()
 
-        function enableUserInterface () {
+        function enableUserInterface() {
             $(".disabled").not("#buttonCropIt").not("#photoOnOffContainer").removeClass("disabled");
         }
 
@@ -227,7 +238,7 @@
         //
         // disableUserInterface()
 
-        function disableUserInterface () {
+        function disableUserInterface() {
             $(".button inside dark large disabled", ".button end dark large disabled").addClass("disabled");
 
             if (isCropMenuShown === 1) {
@@ -237,7 +248,7 @@
             }
         }
 
-        function createCarousel (thumnbnailsinfos) {
+        function createCarousel(thumnbnailsinfos) {
 
             $("#mini1,#mini2,#mini3").attr('width', thumnbnailsinfos.message.miniwidth);
             $("#mini1,#mini2,#mini3").attr('height', thumnbnailsinfos.message.miniheight);
@@ -264,7 +275,7 @@
         // sendCrop()
 
 
-        function sendCrop () {
+        function sendCrop() {
             var jsondata = crops;
             // console.log(crops.title);
             $("#buttonCropIt").hide();
@@ -291,7 +302,7 @@
             });
         }
 
-        function  addToolbarInfos (id) {
+        function addToolbarInfos(id) {
             // console.log(id);
             if (!crops.list[id]) {
                 return false;
@@ -303,8 +314,8 @@
             var marginTop = crops.list[id].marginTop;
             var marginLeft = crops.list[id].marginLeft;
             content = $("#videoCropListDivElementModel").clone();
-            content.attr("id", "videoCropListDivElement"+id);
-            content.find("#cropSelection2 p").text(id +" .");
+            content.attr("id", "videoCropListDivElement" + id);
+            content.find("#cropSelection2 p").text(id + " .");
             content.find("#inputWidthid").attr("id", "inputWidth" + id);
             content.find("#inputWidth" + id).attr("placeholder", "W : " + width);
             content.find("#inputHeightid").attr("id", "inputHeight" + id);
@@ -325,14 +336,14 @@
             });
         }
 
-        function updateSize (id, width, height) {
+        function updateSize(id, width, height) {
             crops.list[id].width = width;
             crops.list[id].height = height;
             $('#inputWidth' + id).attr("placeholder", "W : " + crops.list[id].width);
             $('#inputHeight' + id).attr("placeholder", "H : " + crops.list[id].height);
         }
 
-        function updatePos (id, top, left) {
+        function updatePos(id, top, left) {
             crops.list[id].marginTop = calculPosTop;
             crops.list[id].marginLeft = calculPosLeft;
             $('#inputTop' + id).attr("placeholder", "T : " + crops.list[id].marginTop);
@@ -343,7 +354,7 @@
         //
         // updateSlavesInformations()
 
-        function updateSlavesInformations () {
+        function updateSlavesInformations() {
             var videoContentWidth = parseInt($('#videoContent').width(), 10);
             var videoContentHeight = parseInt($('#videoContent').height(), 10);
             var width = parseInt($("#cropNumber4").width(), 10);
@@ -366,7 +377,7 @@
             updateSlaveInformations(8, rightSquareWidth, underHeight, longTop, longLeft);
         }
 
-        function updateSlaveInformations (id, width, height, top, left) {
+        function updateSlaveInformations(id, width, height, top, left) {
             crops.list[id].width = width;
             crops.list[id].height = height;
             crops.list[id].marginTop = top;
@@ -383,7 +394,7 @@
             });
         }
 
-        function addScreen () {
+        function addScreen() {
             videoContentWidth = parseInt($('#videoContent').width(), 10);
             videoContentHeight = parseInt($('#videoContent').height(), 10);
             var width = parseInt($('#navInputTextWidth').val(), 10);
@@ -436,7 +447,7 @@
         //
         // createAdlibitumScreen( parameter )
 
-        function createAdlibitumScreen () {
+        function createAdlibitumScreen() {
             if ($("#buttonCropIt").hasClass("disabled") === true) {
                 $("#buttonCropIt").removeClass("disabled");
             }
@@ -463,7 +474,7 @@
             addCropLayerToUI(id);
         }
 
-        function createFormatScreen (ratioW, ratioH) {
+        function createFormatScreen(ratioW, ratioH) {
 
 
             if ($("#buttonCropIt").hasClass("disabled") === true) {
@@ -508,7 +519,7 @@
 
 
 
-        function createAutoCropScreens (ratioW, ratioH) {
+        function createAutoCropScreens(ratioW, ratioH) {
             if ($("#buttonCropIt").hasClass("disabled") === true) {
                 $("#buttonCropIt").removeClass("disabled");
             }
@@ -690,7 +701,7 @@
         //
         // addCropLayerToUI( id )
 
-        function addCropLayerToUI (id) {
+        function addCropLayerToUI(id) {
 
             $('#cropsContainer').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
             $('#cropNumber' + id).css({
@@ -739,7 +750,7 @@
         //
         // addCropSlaveLayerToUI( id )
 
-        function addCropSlaveLayerToUI (id) {
+        function addCropSlaveLayerToUI(id) {
 
             $('#cropsContainer').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
             $('#cropNumber' + id).css({
@@ -758,7 +769,7 @@
         //
         // addCropMasterLayerToUI( id )
 
-        function addCropMasterLayerToUI (id) {
+        function addCropMasterLayerToUI(id) {
 
             $('#cropsContainer').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
             $('#cropNumber' + id).css({
@@ -795,7 +806,7 @@
         //
         // checkExtension( target, arrayOfReferences )
 
-        function checkExtension (target, arrayOfReferences) {
+        function checkExtension(target, arrayOfReferences) {
 
             target = target.split('.').pop();
             var control = false;
@@ -807,14 +818,14 @@
             return control;
         }
 
-        function addVideoContentLoadingSpinner () {
+        function addVideoContentLoadingSpinner() {
             // To conserve?
             $('#videoContentCache').fadeIn().append('<div id="videoContentBackground"></div>');
             $('#videoContentBackground').empty('').append('<div class="spinner large" role="progressbar"></div>');
         }
 
 
-        function displayModal (title, text) {
+        function displayModal(title, text) {
             var titleId = "informationModalContentTitle";
             var textId = "informationModalContentText";
 
@@ -824,12 +835,12 @@
             $('#informationModal').slideDown();
         }
 
-        function hideModal () {
+        function hideModal() {
             $('#informationModal').slideUp();
             $('#cache').fadeOut();
         }
 
-        function defaultFavicon () {
+        function defaultFavicon() {
             $('#favicon').remove();
             var icon = document.createElement('link');
             icon.type = 'image/png';
@@ -839,7 +850,7 @@
             $('head').append(icon);
         }
 
-        function changeFavicon (newPath) {
+        function changeFavicon(newPath) {
 
             $('#favicon').remove();
             var icon = document.createElement('link');
@@ -851,7 +862,7 @@
             $("#favicon").attr("href", newPath);
         }
 
-        function animateFavicon () {
+        function animateFavicon() {
             var i = 0;
             $('html').timer({
                 delay: 400,
@@ -866,7 +877,7 @@
             });
         }
 
-        function rebuildInterface (bool) {
+        function rebuildInterface(bool) {
             if (typeof(bool) != "boolean") {
                 return false;
             }
@@ -887,115 +898,153 @@
             }
         }
 
-        function enablePhotoLayer ( imagePath ) {
+        function enablePhotoLayer(imagePath) {
             photoPath = imagePath;
             $("#photoOnOffContainer").removeClass("disabled");
             $("#videoPhotoBackground").css({
-                "background-image":"url('" + photoPath + "')", 
-                "opacity":"0"
+                "background-image": "url('" + photoPath + "')",
+                "opacity": "0"
             });
         }
 
-        function displayPhotoLayer ( bool ) {
+        function displayPhotoLayer(bool) {
             if (typeof(bool) != "boolean") {
                 return false;
             }
             if (bool === true) {
                 $("#videoPhotoBackground").css({
-                   "background-image":"url('" + photoPath + "')", 
-                    "opacity":"0.5"
+                    "background-image": "url('" + photoPath + "')",
+                    "opacity": "0.5"
                 });
             }
             if (bool === false) {
                 $("#videoPhotoBackground").css({
-                    "background-image":"url('" + photoPath + "')", 
-                    "opacity":"0"
+                    "background-image": "url('" + photoPath + "')",
+                    "opacity": "0"
                 });
             }
         }
 
-        function destroyCrop ( id ) {
+        function destroyCrop(id) {
             crops.list[id] = null;
-            $( "#cropNumber" + id ).remove();
-            $( "#videoCropListDivElement" + id ).remove();
+            $("#cropNumber" + id).remove();
+            $("#videoCropListDivElement" + id).remove();
         }
- 
-    // Initialize the plugin instance.
-    init();
- 
-    // Expose methods of Plugin we wish to be public.
-    return {
-      option: option,
-      destroy: destroy,
-      fooPublic: fooPublic,
-      test: test,
-      checkExtension : checkExtension,
-      animateFavicon : animateFavicon,
-      addVideoContentLoadingSpinner : addVideoContentLoadingSpinner,
-      displayModal : displayModal,
-      updateVideoInformations : updateVideoInformations,
-      sendCrop : sendCrop,
-      hideModal : hideModal,
-      addScreen : addScreen,
-      rebuildInterface : rebuildInterface,
-      createFormatScreen : createFormatScreen,
-      updateCropsTitle : updateCropsTitle,
-      enablePhotoLayer : enablePhotoLayer,
-      displayPhotoLayer : displayPhotoLayer,
-      destroyCrop : destroyCrop,
 
-    };
-  }
- 
-  /**
-   * Plugin definition.
-   */
-  $.fn[pluginName] = function(options) {
-    // If the first parameter is a string, treat this as a call to
-    // a public method.
-    if (typeof arguments[0] === 'string') {
-      var methodName = arguments[0];
-      var args = Array.prototype.slice.call(arguments, 1);
-      var returnVal;
-      this.each(function() {
-        // Check that the element has a plugin instance, and that
-        // the requested public method exists.
-        if ($.data(this, 'plugin_' + pluginName) && typeof $.data(this, 'plugin_' + pluginName)[methodName] === 'function') {
-          // Call the method of the Plugin instance, and Pass it
-          // the supplied arguments.
-          returnVal = $.data(this, 'plugin_' + pluginName)[methodName].apply(this, args);
-        } else {
-          throw new Error('Method ' +  methodName + ' does not exist on jQuery.' + pluginName);
+
+        function bulk(str) {
+            var jsonBulk = str;
+            jsonBulk = jsonBulk.replace(/[^a-zA-Z 0-9]+/g, ' ').replace(/ +(?= )/g, '');
+
+            if (jsonBulk.charAt(jsonBulk.length - 1) == ' ') {
+                jsonBulk = jsonBulk.slice(0, jsonBulk.length - 1);
+            };
+            array = jsonBulk.split(' ');
+            if ((array.length % 3) != 0) {
+                alert("non possible");
+            } else {
+
+                var json = '{"screens":[';
+                for (var i = 3; i < array.length; i++) {
+                    var id = i % 3;
+
+                    switch (id) {
+                        case 0:
+                            if (i == 3) {
+                                json += '{"screenId":"' + array[i] + '",';
+                            } else {
+                                json += ',{"screenId":"' + array[i] + '",';
+                            }
+                            break;
+                        case 1:
+                            json += '"width":"' + array[i] + '",';
+                            break;
+                        case 2:
+                            json += '"height":"' + array[i] + '"}';
+                            break;
+                    }
+                }
+                json += ']}';
+                alert(json);
+            }
         }
-      });
-      if (returnVal !== undefined){
-        // If the method returned a value, return the value.
-        return returnVal;
-      } else {
-        // Otherwise, returning 'this' preserves chainability.
-        return this;
-      }
-    // If the first parameter is an object (options), or was omitted,
-    // instantiate a new instance of the plugin.
-    } else if (typeof options === "object" || !options) {
-      return this.each(function() {
-        // Only allow the plugin to be instantiated once.
-        if (!$.data(this, 'plugin_' + pluginName)) {
-          // Pass options to Plugin constructor, and store Plugin
-          // instance in the elements jQuery data object.
-          $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
-        }
-      });
+        // Initialize the plugin instance.
+        init();
+
+        // Expose methods of Plugin we wish to be public.
+        return {
+            option: option,
+            destroy: destroy,
+            fooPublic: fooPublic,
+            test: test,
+            checkExtension: checkExtension,
+            animateFavicon: animateFavicon,
+            addVideoContentLoadingSpinner: addVideoContentLoadingSpinner,
+            displayModal: displayModal,
+            updateVideoInformations: updateVideoInformations,
+            sendCrop: sendCrop,
+            hideModal: hideModal,
+            addScreen: addScreen,
+            rebuildInterface: rebuildInterface,
+            createFormatScreen: createFormatScreen,
+            updateCropsTitle: updateCropsTitle,
+            enablePhotoLayer: enablePhotoLayer,
+            displayPhotoLayer: displayPhotoLayer,
+            destroyCrop: destroyCrop,
+            bulk:bulk
+
+        };
     }
-  };
- 
-  // Default plugin options.
-  // Options can be overwritten when initializing plugin, by
-  // passing an object literal, or after initialization:
-  // $('#el').demoplugin('option', 'key', value);
-  $.fn[pluginName].defaults = {
-    onInit: function() {},
-    onDestroy: function() {}
-  };
- 
+
+    /**
+     * Plugin definition.
+     */
+    $.fn[pluginName] = function(options) {
+        // If the first parameter is a string, treat this as a call to
+        // a public method.
+        if (typeof arguments[0] === 'string') {
+            var methodName = arguments[0];
+            var args = Array.prototype.slice.call(arguments, 1);
+            var returnVal;
+            this.each(function() {
+                // Check that the element has a plugin instance, and that
+                // the requested public method exists.
+                if ($.data(this, 'plugin_' + pluginName) && typeof $.data(this, 'plugin_' + pluginName)[methodName] === 'function') {
+                    // Call the method of the Plugin instance, and Pass it
+                    // the supplied arguments.
+                    returnVal = $.data(this, 'plugin_' + pluginName)[methodName].apply(this, args);
+                } else {
+                    throw new Error('Method ' + methodName + ' does not exist on jQuery.' + pluginName);
+                }
+            });
+            if (returnVal !== undefined) {
+                // If the method returned a value, return the value.
+                return returnVal;
+            } else {
+                // Otherwise, returning 'this' preserves chainability.
+                return this;
+            }
+            // If the first parameter is an object (options), or was omitted,
+            // instantiate a new instance of the plugin.
+        } else if (typeof options === "object" || !options) {
+            return this.each(function() {
+                // Only allow the plugin to be instantiated once.
+                if (!$.data(this, 'plugin_' + pluginName)) {
+                    // Pass options to Plugin constructor, and store Plugin
+                    // instance in the elements jQuery data object.
+                    $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
+                }
+            });
+        }
+    };
+
+    // Default plugin options.
+    // Options can be overwritten when initializing plugin, by
+    // passing an object literal, or after initialization:
+    // $('#el').demoplugin('option', 'key', value);
+    $.fn[pluginName].defaults = {
+        onInit: function() {},
+        onDestroy: function() {}
+    };
+
 })(jQuery);
