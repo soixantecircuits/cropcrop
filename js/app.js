@@ -48,7 +48,10 @@ jQuery(function($) {
 
 		add: function(e, data) {
 			if (data.autoUpload || (data.autoUpload !== false && ($(this).data('blueimp-fileupload') || $(this).data('fileupload')).options.autoUpload)) {
-				var ext = cropmodule.cropcrop("checkExtension", data.files[0].name, videoExtensionsAllowed);
+				extName = data.files[0].name;
+
+				
+				var ext = cropmodule.cropcrop("checkExtension", extName.toLowerCase(), videoExtensionsAllowed);
 				if (ext) {
 		// var title = $("#fileupload").val();
 		// title = title.split(/(\\|\/)/g).pop();
