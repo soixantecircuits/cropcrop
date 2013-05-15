@@ -194,11 +194,6 @@ jQuery(function($) {
 		cropmodule.cropcrop("destroyCrop", id);
 	});
 
-	$("#legalMentionsLink").click(function(event) {
-		event.preventDefault();
-		cropmodule.cropcrop("displayModal", "Legal Mentions", "Legal mentions content.");
-	});
-
 	$("#iconHelp").click(function(event) {
 		event.preventDefault();
 		var textContent = "";
@@ -213,6 +208,11 @@ jQuery(function($) {
 		textContent += "<li>wait for the zip folder with your cropped videos !</li>";
 		textContent += "</ul>";
 		cropmodule.cropcrop("displayModal", "Help", textContent);
+	});
+
+	$("#legalMentionsLink").click(function(event) {
+		event.preventDefault();
+		cropmodule.cropcrop("displayModal", "Legal Mentions", "Legal mentions content.");
 	});
 	// jQuery end
 });
