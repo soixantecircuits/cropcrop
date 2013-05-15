@@ -281,8 +281,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 
 			<!-- Import libraries -->
-		<script type="text/javascript" src="js/vendor/jquery-1.9.1.js"></script>
-		<script type="text/javascript" src="js/vendor/jquery-ui.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.fileupload.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.plugin.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.timer.js"></script>

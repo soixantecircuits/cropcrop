@@ -938,7 +938,7 @@
         function bulk(str) {
 
 
-            str = str.replace(/[^a-zA-Z 0-9-*-_]+/g, ' ').replace(/ +(?= )/g, '');
+            str = str.replace(/[^a-zA-Z 0-9-*-_-+]+/g, ' ').replace(/ +(?= )/g, '');
             var longElement = 4;
 
             if (str.charAt(str.length - 1) == ' ') {

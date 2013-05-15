@@ -48,9 +48,15 @@ jQuery(function($) {
 
 		add: function(e, data) {
 			if (data.autoUpload || (data.autoUpload !== false && ($(this).data('blueimp-fileupload') || $(this).data('fileupload')).options.autoUpload)) {
+<<<<<<< HEAD
 				extName = data.files[0].name;
 				console.log(extName.toLowerCase());
 
+=======
+					extName = data.files[0].name;
+				// console.log(extName.toLowerCase());				
+								
+>>>>>>> 4fc2e91eeec0a6f9e553ba1fec2670ac86d9ac2b
 				var ext = cropmodule.cropcrop("checkExtension", extName.toLowerCase(), videoExtensionsAllowed);
 				if (ext) {
 					// var title = $("#fileupload").val();
@@ -211,7 +217,7 @@ jQuery(function($) {
 
 	$("#legalMentionsLink").click(function(event) {
 		event.preventDefault();
-		cropmodule.cropcrop("displayModal", "Legal Mentions", "Legal mentions content.");
+		cropmodule.cropcrop("displayModal", "Legal Mentions", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
 	});
 
 	$("#bulkButton").click(function(event) {
