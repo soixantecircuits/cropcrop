@@ -42,6 +42,14 @@
 	margin                    : 0 !important;
 	padding                   : 20px auto 10px auto !important;}
 
+.button.dark, .button.dark:hover, .button.dark.disabled:hover, .button.dark.disabled:active{
+	border-radius             : 0;
+	border                    : none; 
+	background-image          : none;
+	background-color          : #494D4E!important;}
+.button.dark:hover {
+	color                     : #5DC1FF!important;}
+
   /**********/
  /* Styles */
 /**********/
@@ -375,17 +383,20 @@ body {
 			margin-top: 10px;
 			margin-right: 15px;
 			cursor: pointer;
-			background-color: #fff;
+			background-color: #DFE2E2;
 			display: inline-block;
 			border: 1px solid #fff;
 			width: 8px; 
 			height: 8px; 
 			-webkit-border-radius: 50px;
 			border-radius: 50px;
-			-webkit-transition: all 400ms ease-in-out;
-	        -moz-transition: all 400ms ease-in-out;
-	        -o-transition: all 400ms ease-in-out;
-	        -ms-transition: all 400ms ease-in-out;}
+			-webkit-transition: all 300ms ease-in-out;
+	        -moz-transition: all 300ms ease-in-out;
+	        -o-transition: all 300ms ease-in-out;
+	        -ms-transition: all 300ms ease-in-out;}
+			#sphere.blue {
+			    background-color: #5DC1FF;
+			    border-color: #5DC1FF;}
 			#sphere.up {
 			    background-color: #494D4E;}
 	.toolsContainer{
@@ -442,32 +453,33 @@ body {
 				#iconFormatScreens{
 					float: left;
 					margin-top: 18px;
-					margin-right: 9px;
-					margin-left: 9px;}
+					margin-right: 18px;}
 			#addScreenForm{}
 				#iconCrops{
 					float: left;
 					margin-top: 18px;
-					margin-right: 9px;
-					margin-left: 9px;}
+					margin-right: 18px;}
+				#buttonAddScreen{
+					margin-top: 26px!important;
+					margin-left: 5px!important;}
 			#screenImportContainer{
 				margin-top: 10px;}
 				#iconText{
 					float: left;
 					margin-top: 5px;
-					margin-right: 9px;
-					margin-left: 9px;}
+					margin-right: 18px;}
 				#buttonImportScreen{
 					display: inline;}
 	.panel{
 		padding: 10px;
 		display: none;
 		margin-top: 3px;
-		background-color: #494D4E;}
+		background-color: #646665;}
 		.selectedPanel{
 			display: block;}
 		.panel h3{
-			margin-top: 0;}
+			margin-top: 0;
+			margin-bottom: 0;}
 		.panel p{
 			margin: 0;}
 		.buttonBar{
@@ -492,7 +504,7 @@ body {
 			float: left;
 			margin-right: 5px;}
 			.selectedMenu{
-				background-color: #494D4E;}
+				background-color: #646665;}
 				.toolsContainerMenu li h3{
 					font-size: 11px;
 					text-transform: uppercase;

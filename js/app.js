@@ -136,12 +136,18 @@ jQuery(function($) {
 	$('#cropItProgressBar,#toolsMainContainerContent,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
 
 	// Menu
-    $("#toolsMainContainer").draggable({
-        handle: "#toolsMainContainerMainButton"
-    });
-    $("#toolsMainContainerMainButton").dblclick(function(event){
-    	$('#sphere').trigger("click");
-    });
+	$("#toolsMainContainer").draggable({
+		handle: "#toolsMainContainerMainButton"
+	});
+	$("#toolsMainContainerMainButton").dblclick(function(event){
+		$('#sphere').trigger("click");
+	});
+	$("#toolsMainContainerMainButton").hover(function () {
+			$('#sphere').toggleClass("blue");
+		},
+		function () {
+			$('#sphere').toggleClass("blue");
+		});
 	$('#sphere').click(function(event) {
 		event.preventDefault();
 		if (isToolsMainContainer === 0) {
@@ -181,6 +187,10 @@ jQuery(function($) {
 	$("#autoCropCheckbox").click(function(event) {
 		autoCropEnabled = $('#autoCropCheckbox').is(':checked');
 		cropmodule.cropcrop("rebuildInterface", autoCropEnabled);
+	});
+
+	$("#buttonImportScreen").click(function(event) {
+		cropmodule.cropcrop("displayModal", "Test", "Retestests");
 	});
 
 	$("#carouselContainer").on("click", function(event) {

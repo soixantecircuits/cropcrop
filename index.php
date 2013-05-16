@@ -56,26 +56,16 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					</div>	
 				</div>	
 
+
+
+
+
+
 			<div id="touslesmenus">
 				<div id="nav">
 				<nav>
 					<!-- Bouton upload -->
 					<input type="button" class="custom button large dark" value ="Upload" id="buttonUpload" />
-
-					<!-- Zone autocrop -->
-					<div class="navElement" id="autoCropCheckboxDiv">
-						<p id="autoCropOnOff" class="disabled">
-							<label id="autoCropCheckboxLabel" for="autoCropCheckbox">Autocrop</label>
-							<input type="checkbox" class="slide-switch dark" id="autoCropCheckbox">
-							<label for="autoCropCheckbox">
-								<span class="wrapper">
-									<span class="on">ON</span>
-									<span class="switch"></span>
-									<span class="off">OFF</span>
-								</span>
-							</label>
-				   		</p>
-					</div>
 
 					<!-- Bouton Crop It -->
 					<div class="navElement" id="buttonCropItContainer">
@@ -161,10 +151,14 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 					<!-- Second Container -->
 					<div id="toolsSecondContainer" class="toolsContainer">
+
 						<ul class="toolsContainerMenu">
 							<li class="menuTab selectedMenu" data-associatedPanel="secondContainerPanel1"><h3>Add screen</h3></li>
 							<li class="menuTab" data-associatedPanel="secondContainerPanel2"><h3>Add photo</h3></li>
+							<li class="menuTab" data-associatedPanel="secondContainerPanel3"><h3>AutoCrop</h3></li>
 						</ul>
+
+
 						<div id="secondContainerPanel1" class="panel selectedPanel">
 							<!-- Zone Predefined format screens add buttons -->
 							<div id="predefinedScreensContainer">
@@ -185,20 +179,20 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							</div>
 							<!-- Zone screen input -->
 							<form id="addScreenForm">
-								<!-- <input type="submit" class="navElement button large dark disabled" title="Add Screen" id="buttonAddScreen" /> -->
+								<h3>Add custom screens :</h3>
 								<img id="iconCrops" src="img/cropIcon.png" />
 								<div class="navElement"  id="addScreenInputText">
 									<input class="text-field navInputText disabled" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
 									<input class="text-field navInputText disabled" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
 								</div>
+								<input type="submit" class="navElement button dark disabled" value ="Ok" id="buttonAddScreen" />
 							</form>
 							<!-- Zone screen import -->
 							<div id="screenImportContainer">
-								<!-- <input type="submit" class="navElement button large dark disabled" title="Add Screen" id="buttonAddScreen" /> -->
 								<img id="iconText" src="img/textIcon.png" />
 								<div class="navElement">
 									<a title="Import Screen" id="buttonImportScreen">
-										<input type="button" class="button large dark disabled" value="Import Screen" />
+										<input type="button" class="button large dark disabled" value="Import Screens list" />
 									</a>
 								</div>
 							</div>
@@ -219,6 +213,23 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 									</span>
 								</label>
 					   		</span>
+						</div>
+						<!-- Third Container -->
+						<div id="secondContainerPanel3" class="panel">
+							<!-- Zone autocrop -->
+							<div class="navElement" id="autoCropCheckboxDiv">
+								<p id="autoCropOnOff" class="disabled">
+									<label id="autoCropCheckboxLabel" for="autoCropCheckbox">Autocrop</label>
+									<input type="checkbox" class="slide-switch dark" id="autoCropCheckbox">
+									<label for="autoCropCheckbox">
+										<span class="wrapper">
+											<span class="on">ON</span>
+											<span class="switch"></span>
+											<span class="off">OFF</span>
+										</span>
+									</label>
+						   		</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -259,14 +270,11 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					<div id="videoPhotoBackground">
 					</div>
 				</div>
-
 			</div>
 		
 
 			
 			<!-- BODY END -->
-				
-
 			<div id="footer">
 			<footer>
 				<div id="footerContent">
