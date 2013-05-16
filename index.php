@@ -149,29 +149,13 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			<div id="toolsMainContainer">
 				<!-- Button -->
 				<div id="toolsMainContainerMainButton">
-					<img src="img/logoGitHub.png" /> Tools <span id="sphere"></span>
+					<img id="toolIcon" src="img/toolIcon.png" /><span id="sphere"></span><span id="sphereText">Tools</span>
 				</div>	
  				<div id="toolsMainContainerContent">
- 					
+
 					<!-- First Container -->
 					<div id="toolsFirstContainer" class="toolsContainer">
 						<ul class="toolsContainerMenu">
@@ -345,7 +329,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 		<div id="informationModal" class="bg-lightgray">
 			<div id="informationModalContent">
 				<h2 class="title"><span id="informationModalContentTitle">Javascript not enabled</span></h2>
-				<p class="large" id ="informationModalContentText">Please enable your Javascript to use Crop Crop</p>
+				<p id ="informationModalContentText">Please enable your Javascript to use Crop Crop</p>
 			</div>
 		</div>
 
