@@ -102,18 +102,26 @@ jQuery(function($) {
 	};
 
 
-	$('#cropItProgressBar,#YourVideoToolbar,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
 
+	//
+	// Interface
+	//
 
+	// Initialisation
+	$('#cropItProgressBar,#toolsMainContainerContent,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
+
+    $("#toolsMainContainer").draggable({
+        handle: "#falseButtonForNow"
+    });
+	// Buttons
 	$('#sphere').click(function(event) {
 		event.preventDefault();
-
 		if (isToolsMainContainer === 0) {
-			$('#YourVideoToolbar').slideDown();
+			$('#toolsMainContainerContent').slideDown();
 			$('#sphere').toggleClass('up');
 			isToolsMainContainer = 1;
 		} else {
-			$('#YourVideoToolbar').slideUp();
+			$('#toolsMainContainerContent').slideUp();
 			$('#sphere').toggleClass('up');
 			isToolsMainContainer = 0;
 		}

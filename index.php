@@ -181,66 +181,67 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				<div id="falseButtonForNow">
 					<img src="img/logoGitHub.png" /> Tools <span id="sphere"></span>
 				</div>	
- 
-				<!-- First Container -->
-				<div id="toolsFirstContainer" class="toolsContainer">
-					<ul class="toolsContainerMenu">
-						<li class="menuTab selectedMenu" data-associatedPanel="firstContainerPanel1"><h3>Your video</h3></li>
-						<li class="menuTab" data-associatedPanel="firstContainerPanel2"><h3>AutoCrop</h3></li>
-					</ul>
-					<div id="firstContainerPanel1" class="panel selectedPanel">
-						<ul id="videoInformationsDiv">
-							<li>
-								<strong><span id="videoInformationsTitle">...</span></strong>
-							</li>
-							<li>
-								Dimensions : <span id="videoInformationsWidth">...</span> x <span id="videoInformationsHeight">...</span>
-							</li>
-							<li>
-								Size : <span id="videoInformationsSize">...</span>
-							</li>
-							<li>
-								FPS : <span id="videoInformationsFPS">...</span>
-							</li>
+ 				<div id="toolsMainContainerContent">
+					<!-- First Container -->
+					<div id="toolsFirstContainer" class="toolsContainer">
+						<ul class="toolsContainerMenu">
+							<li class="menuTab selectedMenu" data-associatedPanel="firstContainerPanel1"><h3>Your video</h3></li>
+							<li class="menuTab" data-associatedPanel="firstContainerPanel2"><h3>AutoCrop</h3></li>
 						</ul>
-						<div id="thumbnailsContainer">
-							<div id="thumbnailsList">
-								<!--
-								<button id="carouselPrev" class="button dark prev disabled"> << </button>
-								<button id="carouselNext" class="button dark next disabled"> >> </button>
-								-->
-								<div class="thumbnailsCarousel">
-									<ul id="carouselContainer">
-										<li><img id="mini1" src="" alt="" width="" height="" data-big=""></li>
-										<li><img id="mini2" src="" alt="" width="" height="" data-big=""></li>
-										<li><img id="mini3" src="" alt="" width="" height="" data-big="" ></li>
-									</ul>
+						<div id="firstContainerPanel1" class="panel selectedPanel">
+							<ul id="videoInformationsDiv">
+								<li>
+									<strong><span id="videoInformationsTitle">...</span></strong>
+								</li>
+								<li>
+									Dimensions : <span id="videoInformationsWidth">...</span> x <span id="videoInformationsHeight">...</span>
+								</li>
+								<li>
+									Size : <span id="videoInformationsSize">...</span>
+								</li>
+								<li>
+									FPS : <span id="videoInformationsFPS">...</span>
+								</li>
+							</ul>
+							<div id="thumbnailsContainer">
+								<div id="thumbnailsList">
+									<!--
+									<button id="carouselPrev" class="button dark prev disabled"> << </button>
+									<button id="carouselNext" class="button dark next disabled"> >> </button>
+									-->
+									<div class="thumbnailsCarousel">
+										<ul id="carouselContainer">
+											<li><img id="mini1" src="" alt="" width="" height="" data-big=""></li>
+											<li><img id="mini2" src="" alt="" width="" height="" data-big=""></li>
+											<li><img id="mini3" src="" alt="" width="" height="" data-big="" ></li>
+										</ul>
+									</div>
 								</div>
 							</div>
 						</div>
+						<div id="firstContainerPanel2" class="panel">
+							<h3>SUPERBOB</h3>
+							<p>
+								Bob il est super.
+							</p>
+						</div>
 					</div>
-					<div id="firstContainerPanel2" class="panel">
-						<h3>SUPERBOB</h3>
-						<p>
-							Bob il est super.
-						</p>
-					</div>
-				</div>
-				
+					
 
-				<!-- Second Container -->
-				<div id="toolsSecondContainer" class="toolsContainer">
-					<ul class="toolsContainerMenu">
-						<li class="menuTab selectedMenu" data-associatedPanel="secondContainerPanel1"><h3>Add screen</h3></li>
-						<li class="menuTab" data-associatedPanel="secondContainerPanel2"><h3>Add photo</h3></li>
-					</ul>
-					<div id="secondContainerPanel1" class="panel selectedPanel">
-						<p>Something</p>
-					</div>
-					<div id="secondContainerPanel2" class="panel">
-						<p>
-							<p>Something else</p>
-						</p>
+					<!-- Second Container -->
+					<div id="toolsSecondContainer" class="toolsContainer">
+						<ul class="toolsContainerMenu">
+							<li class="menuTab selectedMenu" data-associatedPanel="secondContainerPanel1"><h3>Add screen</h3></li>
+							<li class="menuTab" data-associatedPanel="secondContainerPanel2"><h3>Add photo</h3></li>
+						</ul>
+						<div id="secondContainerPanel1" class="panel selectedPanel">
+							<p>Something</p>
+						</div>
+						<div id="secondContainerPanel2" class="panel">
+							<p>
+								<p>Something else</p>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>

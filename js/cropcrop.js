@@ -62,9 +62,6 @@
 
         function init() {
             // Add any initialization logic here...
-            $("#yourVideoContent").draggable({
-                handle: "#buttonYourVideo"
-            });
             hook('onInit');
         }
 
