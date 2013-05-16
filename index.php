@@ -125,14 +125,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 								</span>
 							</label>
 				   		</span>
-						<span class="button-group large" id="secondMenuButtons">
-							<a role="button" class="button start dark large disabled" id="buttonFormat1_1"  data-width="1" data-height="1"  >1 : 1</a>
-							<a role="button" class="button inside dark large disabled" id="buttonFormat3_2" data-width="1.5" data-height="1"  >3 : 2</a>
-							<a role="button" class="button inside dark large disabled" id="buttonFormat4_3" data-width="1.33" data-height="1" >4 : 3</a>
-							<a role="button" class="button inside dark large disabled" id="buttonFormat5_3" data-width="1.77" data-height="1" >5 : 3</a>
-							<a role="button" class="button inside dark large disabled" id="buttonFormat16_9" data-width="1.66" data-height="1" >16 : 9</a>
-							<a role="button" class="button end dark large disabled" id="buttonFormat16_10" data-width="1.618" data-height="1" >16 : 10</a>
-						</span>
 					</p>
 				</div>
 				<div>
@@ -162,7 +154,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					<div id="toolsFirstContainer" class="toolsContainer">
 						<ul class="toolsContainerMenu">
 							<li class="menuTab selectedMenu" data-associatedPanel="firstContainerPanel1"><h3>Your video</h3></li>
-							<li class="menuTab" data-associatedPanel="firstContainerPanel2"><h3>AutoCrop</h3></li>
+							<li class="menuTab" data-associatedPanel="firstContainerPanel2"><h3>Format Screens</h3></li>
 						</ul>
 						<div id="firstContainerPanel1" class="panel selectedPanel">
 							<ul id="videoInformationsDiv">
@@ -196,10 +188,17 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							</div>
 						</div>
 						<div id="firstContainerPanel2" class="panel">
-							<h3>SUPERBOB</h3>
-							<p>
-								Bob il est super.
-							</p>
+							<h3>Format screens</h3>
+							<div class="button-group buttonBar">
+								<a role="button" class="button start dark large disabled" id="buttonFormat1_1"  data-width="1" data-height="1"  >1 : 1</a>
+								<a role="button" class="button inside dark large disabled" id="buttonFormat3_2" data-width="1.5" data-height="1"  >3 : 2</a>
+								<a role="button" class="button end dark large disabled" id="buttonFormat4_3" data-width="1.33" data-height="1" >4 : 3</a>
+							</div>
+							<div class="button-group buttonBar">
+								<a role="button" class="button start dark large disabled" id="buttonFormat5_3" data-width="1.77" data-height="1" >5 : 3</a>
+								<a role="button" class="button inside dark large disabled" id="buttonFormat16_9" data-width="1.66" data-height="1" >16 : 9</a>
+								<a role="button" class="button end dark large disabled" id="buttonFormat16_10" data-width="1.618" data-height="1" >16 : 10</a>
+							</div>
 						</div>
 					</div>
 					
@@ -222,9 +221,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							</form>
 						</div>
 						<div id="secondContainerPanel2" class="panel">
-							<p>
-								<p>Something else</p>
-							</p>
+							<p>Something else</p>
 						</div>
 					</div>
 				</div>

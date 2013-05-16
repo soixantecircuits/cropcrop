@@ -201,7 +201,7 @@ jQuery(function($) {
 		}
 	});
 
-	$("#secondMenu").on("click", function(event) {
+	$(".buttonBar").on("click", function(event) {
 		if (($(event.target).data('width') && $(event.target).data('height'))) {
 			// console.log($(event.target).data('width'));
 			cropmodule.cropcrop("createFormatScreen", $(event.target).data('width'), $(event.target).data('height'));
