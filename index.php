@@ -213,7 +213,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							<h3>Add screen</h3>
 							<!-- Zone screen input -->
 							<form class="navElement" id="addScreenForm">
-								<input type="submit" class="navElement custom button large dark disabled" value ="Add Screen" id="buttonAddScreen" />
+								<input type="submit" class="navElement button large dark disabled" title="Add Screen" id="buttonAddScreen" />
 								<div class="navElement"  id="addScreenInputText">
 									<input class="text-field navInputText disabled" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
 									<input class="text-field navInputText disabled" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
@@ -344,7 +344,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 		<script type="text/javascript" src="js/vendor/jquery.plugin.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.timer.js"></script>
 		<script type="text/javascript" src="js/vendor/jcarousellite_1.0.1.js"></script>
-
 		<!-- Our scripts :D -->
 		<script type="text/javascript" src="js/cropcrop.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>

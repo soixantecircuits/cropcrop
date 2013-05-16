@@ -116,7 +116,6 @@ body {
 		margin-bottom: 18px;
 		margin-top: 20px;}
 		.navElement{
-			vertical-align: top;
 			display: inline-block;}
 			#addScreenInputText{
 				margin-top: 5px;
@@ -138,8 +137,6 @@ body {
 			#buttonUpload{
 				float: left;
 				width: 90px}
-			#buttonAddScreen{
-				width: 123px}
 			#buttonCropItContainer{
 				margin-right: 54px;
 				width: 94px;}
@@ -475,6 +472,11 @@ body {
 						display        : block;
 						margin         : 4px;}
 	#toolsSecondContainer{}
+		#buttonAddScreen{
+			background-image: url("../img/textIcon.png");
+			height: 16px!important;
+			width: 14px!important;
+		}
 	.panel{
 		display: none;
 		margin-top: 3px;
