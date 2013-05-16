@@ -4,6 +4,7 @@ jQuery(function($) {
 
 	// Script part
 	var closeTabWithoutWarning = false;
+	var isToolsMainContainer = 0;
 
 	// Module dependant
 
@@ -104,18 +105,17 @@ jQuery(function($) {
 	$('#cropItProgressBar,#YourVideoToolbar,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
 
 
-	$('#buttonYourVideo').click(function(event) {
+	$('#sphere').click(function(event) {
 		event.preventDefault();
 
-		if (isCropMenuShown === 0) {
-			event.preventDefault();
+		if (isToolsMainContainer === 0) {
 			$('#YourVideoToolbar').slideDown();
-			$('#triangle').toggleClass('up');
-			isCropMenuShown = 1;
+			$('#sphere').toggleClass('up');
+			isToolsMainContainer = 1;
 		} else {
 			$('#YourVideoToolbar').slideUp();
-			$('#triangle').toggleClass('up');
-			isCropMenuShown = 0;
+			$('#sphere').toggleClass('up');
+			isToolsMainContainer = 0;
 		}
 	});
 
@@ -236,6 +236,9 @@ jQuery(function($) {
 		container.find("#"+targetPanel).addClass("selectedPanel");
 	});
 	// jQuery end
+	function csl(target){
+		console.log(target);
+	}
 });
 
 
