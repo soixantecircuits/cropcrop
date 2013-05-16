@@ -111,20 +111,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 				<div id="secondMenu">
 					<p id="secondMenuContent">
-						<span class="button-group large">
-							<a id="buttonUploadYourPhoto" class="button large dark disabled" role="button">Upload your photo</a>
-						</span>
-						<span id="photoOnOffContainer" class="disabled">
-							<label id="photoCheckboxLabel" for="photoCheckbox">Photo</label>
-							<input type="checkbox" checked="checked" class="slide-switch dark" id="photoCheckbox">
-							<label for="photoCheckbox">
-								<span class="wrapper">
-									<span class="on">ON</span>
-									<span class="switch"></span>
-									<span class="off">OFF</span>
-								</span>
-							</label>
-				   		</span>
 					</p>
 				</div>
 				<div>
@@ -154,7 +140,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					<div id="toolsFirstContainer" class="toolsContainer">
 						<ul class="toolsContainerMenu">
 							<li class="menuTab selectedMenu" data-associatedPanel="firstContainerPanel1"><h3>Your video</h3></li>
-							<li class="menuTab" data-associatedPanel="firstContainerPanel2"><h3>Format Screens</h3></li>
 						</ul>
 						<div id="firstContainerPanel1" class="panel selectedPanel">
 							<ul id="videoInformationsDiv">
@@ -187,19 +172,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 								</div>
 							</div>
 						</div>
-						<div id="firstContainerPanel2" class="panel">
-							<h3>Format screens</h3>
-							<div class="button-group buttonBar">
-								<a role="button" class="button start dark large disabled" id="buttonFormat1_1"  data-width="1" data-height="1"  >1 : 1</a>
-								<a role="button" class="button inside dark large disabled" id="buttonFormat3_2" data-width="1.5" data-height="1"  >3 : 2</a>
-								<a role="button" class="button end dark large disabled" id="buttonFormat4_3" data-width="1.33" data-height="1" >4 : 3</a>
-							</div>
-							<div class="button-group buttonBar">
-								<a role="button" class="button start dark large disabled" id="buttonFormat5_3" data-width="1.77" data-height="1" >5 : 3</a>
-								<a role="button" class="button inside dark large disabled" id="buttonFormat16_9" data-width="1.66" data-height="1" >16 : 9</a>
-								<a role="button" class="button end dark large disabled" id="buttonFormat16_10" data-width="1.618" data-height="1" >16 : 10</a>
-							</div>
-						</div>
 					</div>
 					
 
@@ -210,18 +182,52 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							<li class="menuTab" data-associatedPanel="secondContainerPanel2"><h3>Add photo</h3></li>
 						</ul>
 						<div id="secondContainerPanel1" class="panel selectedPanel">
-							<h3>Add screen</h3>
 							<!-- Zone screen input -->
-							<form class="navElement" id="addScreenForm">
-								<input type="submit" class="navElement button large dark disabled" title="Add Screen" id="buttonAddScreen" />
+							<form id="addScreenForm">
+								<!-- <input type="submit" class="navElement button large dark disabled" title="Add Screen" id="buttonAddScreen" /> -->
+								<img id="iconCrops" src="img/cropIcon.png" />
 								<div class="navElement"  id="addScreenInputText">
 									<input class="text-field navInputText disabled" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
 									<input class="text-field navInputText disabled" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
 								</div>
 							</form>
+							<!-- Zone screen import -->
+							<div id="screenImportContainer">
+								<!-- <input type="submit" class="navElement button large dark disabled" title="Add Screen" id="buttonAddScreen" /> -->
+								<img id="iconText" src="img/textIcon.png" />
+								<div class="navElement">
+									<a title="Import Screen" id="buttonImportScreen">
+										<input type="button" class="button large dark disabled" value="Import Screen" />
+									</a>
+								</div>
+							</div>
+							<h3>Add predefined screen :</h3>
+							<div class="button-group buttonBar">
+								<a role="button" class="button start dark disabled" id="buttonFormat1_1"  data-width="1" data-height="1"  >1 : 1</a>
+								<a role="button" class="button inside dark disabled" id="buttonFormat3_2" data-width="1.5" data-height="1"  >3 : 2</a>
+								<a role="button" class="button end dark disabled" id="buttonFormat4_3" data-width="1.33" data-height="1" >4 : 3</a>
+							</div>
+							<div class="button-group buttonBar">
+								<a role="button" class="button start dark disabled" id="buttonFormat5_3" data-width="1.77" data-height="1" >5 : 3</a>
+								<a role="button" class="button inside dark disabled" id="buttonFormat16_9" data-width="1.66" data-height="1" >16 : 9</a>
+								<a role="button" class="button end dark disabled" id="buttonFormat16_10" data-width="1.618" data-height="1" >16 : 10</a>
+							</div>
 						</div>
 						<div id="secondContainerPanel2" class="panel">
-							<p>Something else</p>
+							<span class="button-group large">
+								<a id="buttonUploadYourPhoto" class="button large dark disabled" role="button">Upload your photo</a>
+							</span>
+							<span id="photoOnOffContainer" class="disabled">
+								<label id="photoCheckboxLabel" for="photoCheckbox">Display Photo</label>
+								<input type="checkbox" checked="checked" class="slide-switch dark" id="photoCheckbox">
+								<label for="photoCheckbox">
+									<span class="wrapper">
+										<span class="on">ON</span>
+										<span class="switch"></span>
+										<span class="off">OFF</span>
+									</span>
+								</label>
+					   		</span>
 						</div>
 					</div>
 				</div>

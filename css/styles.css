@@ -472,12 +472,24 @@ body {
 						display        : block;
 						margin         : 4px;}
 	#toolsSecondContainer{}
-		#buttonAddScreen{
-			background-image: url("../img/textIcon.png");
-			height: 16px!important;
-			width: 14px!important;
-		}
+		#secondContainerPanel1{}
+			#addScreenForm{}
+				#iconCrops{
+					float: left;
+					margin-top: 18px;
+					margin-right: 9px;
+					margin-left: 9px;}
+			#screenImportContainer{
+				margin-top: 10px;}
+				#iconText{
+					float: left;
+					margin-top: 5px;
+					margin-right: 9px;
+					margin-left: 9px;}
+				#buttonImportScreen{
+					display: inline;}
 	.panel{
+		padding: 10px;
 		display: none;
 		margin-top: 3px;
 		background-color: #494D4E;}
@@ -493,7 +505,7 @@ body {
 			display: block;
 			text-align: center;}
 	.toolsContainerMenu{
-		height: 24px;
+		height: 20px;
 		width: 230px;
 		display: block;
 		float: left;
@@ -509,8 +521,11 @@ body {
 			.selectedMenu{
 				background-color: #494D4E;}
 				.toolsContainerMenu li h3{
+					font-size: 11px;
+					text-transform: uppercase;
 					margin-top: 0;
 					margin: 3px;} 
 #touslesmenus{
 	display: none;
 }
+.inline{display: inline;}
