@@ -33,7 +33,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				<div id="headerContent">
 					<ul>
 						<li><a href="https://github.com/soixantecircuits/cropcrop/" title="Project on GitHub"><img src="img/logoGitHub.png" /></a></li>
-						<li><a href="https://twitter.com/Soixanteci" title="Fallow us on twitter"><img src="img/logoTwitter.png" /></a></li>
+						<li><a href="https://twitter.com/Soixanteci" title="Follow us on twitter"><img src="img/logoTwitter.png" /></a></li>
 						<li><a href="https://www.facebook.com/pages/Soixante-circuits/148341911906454" title="Find us on Facebook"><img src="img/logoFacebook.png" /></a></li>
 						<li><a href="#"  id="iconHelp" title="Help"><img src="img/logoHelp.png" /></a></li>
 					</ul>
@@ -110,11 +110,20 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				<!-- Main Container -->
  				<div id="toolsMainContainerContent">
 
-					<!-- First Container -->
+					<!-- 
+
+						First Container 
+
+					-->
 					<div id="toolsFirstContainer" class="toolsContainer">
 						<ul class="toolsContainerMenu">
 							<li class="menuTab selectedMenu" data-associatedPanel="firstContainerPanel1"><h3>Your video</h3></li>
+							<li class="menuTab" data-associatedPanel="firstContainerPanel2"><img src="img/autoCropIcon.png" /></li>
+							<li class="menuTab" data-associatedPanel="firstContainerPanel3"><img src="img/downloadIcon.png" /></li>
 						</ul>
+
+
+						<!-- First Panel -->
 						<div id="firstContainerPanel1" class="panel selectedPanel">
 							<ul id="videoInformationsDiv">
 								<li>
@@ -146,12 +155,20 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 								</div>
 							</div>
 						</div>
+						<!-- Second Panel -->
+						<div id="firstContainerPanel2" class="panel">
+						</div>
+						<!-- Third Panel -->
+						<div id="firstContainerPanel3" class="panel">
+						</div>
 					</div>
-					
 
-					<!-- Second Container -->
+					<!-- 
+
+						Second Container 
+
+					-->
 					<div id="toolsSecondContainer" class="toolsContainer">
-
 						<ul class="toolsContainerMenu">
 							<li class="menuTab selectedMenu" data-associatedPanel="secondContainerPanel1"><h3>Add screen</h3></li>
 							<li class="menuTab" data-associatedPanel="secondContainerPanel2"><h3>Add photo</h3></li>
@@ -159,6 +176,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						</ul>
 
 
+						<!-- First Panel -->
 						<div id="secondContainerPanel1" class="panel selectedPanel">
 							<!-- Zone Predefined format screens add buttons -->
 							<div id="predefinedScreensContainer">
@@ -197,7 +215,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 								</div>
 							</div>
 						</div>
-						<!-- Second Container -->
+
+						<!-- Second Panel -->
 						<div id="secondContainerPanel2" class="panel">
 							<p>
 								Place a photo over your video to help you draw the screens.
@@ -217,7 +236,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 								</label>
 					   		</span>
 						</div>
-						<!-- Third Container -->
+
+						<!-- Third Panel -->
 						<div id="secondContainerPanel3" class="panel">
 							<!-- Zone autocrop -->
 							<div class="navElement" id="autoCropCheckboxDiv">
