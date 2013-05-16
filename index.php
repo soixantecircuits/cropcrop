@@ -61,17 +61,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					<!-- Bouton upload -->
 					<input type="button" class="custom button large dark" value ="Upload" id="buttonUpload" />
 
-					<!-- Zone screen input -->
-					<form class="navElement" id="addScreenForm">
-
-						<div class="navElement"  id="addScreenInputText">
-							<input class="text-field navInputText disabled" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
-							<input class="text-field navInputText disabled" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
-						</div>
-						<input type="submit" class="navElement custom button large dark disabled" value ="Add Screen" id="buttonAddScreen" />
-
-					</form>
-
 					<!-- Zone autocrop -->
 					<div class="navElement" id="autoCropCheckboxDiv">
 						<p id="autoCropOnOff" class="disabled">
@@ -235,7 +224,15 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							<li class="menuTab" data-associatedPanel="secondContainerPanel2"><h3>Add photo</h3></li>
 						</ul>
 						<div id="secondContainerPanel1" class="panel selectedPanel">
-							<p>Something</p>
+							<h3>Add screen</h3>
+							<!-- Zone screen input -->
+							<form class="navElement" id="addScreenForm">
+								<input type="submit" class="navElement custom button large dark disabled" value ="Add Screen" id="buttonAddScreen" />
+								<div class="navElement"  id="addScreenInputText">
+									<input class="text-field navInputText disabled" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
+									<input class="text-field navInputText disabled" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
+								</div>
+							</form>
 						</div>
 						<div id="secondContainerPanel2" class="panel">
 							<p>
@@ -265,17 +262,17 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 				<!-- VIDEO AREA -->
 				<div id="videoContent">
-					<div id="cropsContainer">
-					</div>
-					<div id="videoPhotoBackground">
-					</div>
 					<div id="videoContentCache">
 						<div id="videoContentBackground">
-							<img src="img/camera.png">
+							<img src="img/centralUploadButton.png">
 							<p>
 								Or just drag and drop your video here
 							</p>
 						</div>
+					</div>
+					<div id="cropsContainer">
+					</div>
+					<div id="videoPhotoBackground">
 					</div>
 				</div>
 
