@@ -185,8 +185,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				<!-- First Container -->
 				<div id="toolsFirstContainer" class="toolsContainer">
 					<ul class="toolsContainerMenu">
-						<li class="selectedMenu" id=""><h3>Your video</h3></li>
-						<li id=""><h3>AutoCrop</h3></li>
+						<li class="menuTab selectedMenu" data-associatedPanel="firstContainerPanel1"><h3>Your video</h3></li>
+						<li class="menuTab" data-associatedPanel="firstContainerPanel2"><h3>AutoCrop</h3></li>
 					</ul>
 					<div id="firstContainerPanel1" class="panel selectedPanel">
 						<ul id="videoInformationsDiv">
@@ -220,6 +220,10 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						</div>
 					</div>
 					<div id="firstContainerPanel2" class="panel">
+						<h3>SUPERBOB</h3>
+						<p>
+							Bob il est super.
+						</p>
 					</div>
 				</div>
 				
@@ -227,8 +231,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				<!-- Second Container -->
 				<div id="toolsSecondContainer" class="toolsContainer">
 					<ul class="toolsContainerMenu">
-						<li class="selectedMenu"><h3>Add screen</h3></li>
-						<li id=""><h3>Add photo</h3></li>
+						<li class="menuTab selectedMenu" data-associatedPanel="secondContainerPanel1"><h3>Add screen</h3></li>
+						<li class="menuTab" data-associatedPanel="secondContainerPanel2"><h3>Add photo</h3></li>
 					</ul>
 					<div id="secondContainerPanel1" class="panel selectedPanel">
 						<p>Something</p>

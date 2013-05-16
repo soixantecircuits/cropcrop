@@ -225,6 +225,16 @@ jQuery(function($) {
 		event.preventDefault();
 		cropmodule.cropcrop("bulkJson", $('#bulkArea').val());
 	});
+
+	//
+	// Menu tabs
+	//
+	$(".menuTab").click(function(event) {
+		var targetPanel = $(this).attr("data-associatedPanel");
+		var container = $($(this).parents(".toolsContainer"));
+		container.find(".selectedPanel").removeClass("selectedPanel");
+		container.find("#"+targetPanel).addClass("selectedPanel");
+	});
 	// jQuery end
 });
 
