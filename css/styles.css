@@ -76,7 +76,6 @@ body {
 	background-color: #595B5A;
 	width: 100%;
 	height: 80px;
-
 	-webkit-box-shadow:  0px 0px 1px 2px #3D3E40;
     box-shadow:  0px 0px 1px 2px #3D3E40;}
 	#headerContent{
@@ -304,10 +303,8 @@ body {
 			    	margin: 0;}
 
 #progressBarText{
-	
-color : #FFF;
-font-size : 10 px;
-	}
+	color : #FFF;
+	font-size : 10 px;}
 
 
 #main{
@@ -392,10 +389,11 @@ font-size : 10 px;
 
 /* Bob */
 #toolsMainContainer{
+	background-color: rgba(222,226,225,.3);
+	padding: 3px;
 	z-index: 500;
 	position: fixed;
-	border: 3px solid rgba(222,226,225,.3);
-	width: 224px;
+	width: 230px;
 	top: 100px;
 	left: 70%;}
 	#toolsMainContainerMainButton{
@@ -428,7 +426,6 @@ font-size : 10 px;
 			#sphere.up {
 			    background-color: #494D4E;}
 	.toolsContainer{
-		border-top: 3px solid rgba(222,226,225,.3);
 		background-color: #494D4E;
 		padding: 0;
 		margin: 0;}
@@ -453,7 +450,6 @@ font-size : 10 px;
 								float: left;
 								width: 74px;
 								height: 42px;
-								background-color: #3B3F41;
 								cursor: pointer;
 							    -webkit-transition: all .8s; 
 								   -moz-transition: all .8s; 
@@ -480,14 +476,17 @@ font-size : 10 px;
 	#toolsSecondContainer{}
 	.panel{
 		display: none;
-		margin-top: 24px;
+		margin-top: 3px;
 		background-color: #494D4E;}
 		.selectedPanel{
 			display: block;
 		}
+		.panel h3{
+			margin-top: 0;
+		}
 	.toolsContainerMenu{
 		height: 24px;
-		width: 224px;
+		width: 230px;
 		display: block;
 		float: left;
 		margin: 0;
@@ -502,6 +501,7 @@ font-size : 10 px;
 			.selectedMenu{
 				background-color: #494D4E;}
 				.toolsContainerMenu li h3{
+					margin-top: 0;
 					margin: 3px;} 
 #touslesmenus{
 	display: none;

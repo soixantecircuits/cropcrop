@@ -259,9 +259,6 @@ jQuery(function($) {
 		container.find("#"+targetPanel).addClass("selectedPanel");
 	});
 	// jQuery end
-	function csl(target){
-		console.log(target);
-	}
 });
 
 

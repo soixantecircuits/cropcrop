@@ -153,7 +153,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				<!-- Button -->
 				<div id="toolsMainContainerMainButton">
 					<img id="toolIcon" src="img/toolIcon.png" /><span id="sphere"></span><span id="sphereText">Tools</span>
-				</div>	
+				</div>
+				<!-- Main Container -->
  				<div id="toolsMainContainerContent">
 
 					<!-- First Container -->
@@ -187,7 +188,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 										<ul id="carouselContainer">
 											<li><img id="mini1" src="" alt="" width="" height="" data-big=""></li>
 											<li><img id="mini2" src="" alt="" width="" height="" data-big=""></li>
-											<li><img id="mini3" src="" alt="" width="" height="" data-big="" ></li>
+											<li><img id="mini3" src="" alt="" width="" height="" data-big=""></li>
 										</ul>
 									</div>
 								</div>
