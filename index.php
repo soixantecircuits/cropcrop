@@ -167,10 +167,11 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 			<div id="toolsMainContainer">
 				<!-- Button -->
-				<div id="falseButtonForNow">
+				<div id="toolsMainContainerMainButton">
 					<img src="img/logoGitHub.png" /> Tools <span id="sphere"></span>
 				</div>	
  				<div id="toolsMainContainerContent">
+ 					
 					<!-- First Container -->
 					<div id="toolsFirstContainer" class="toolsContainer">
 						<ul class="toolsContainerMenu">

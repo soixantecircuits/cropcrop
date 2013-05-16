@@ -6,8 +6,9 @@ jQuery(function($) {
 	var closeTabWithoutWarning = false;
 	var isToolsMainContainer = 0;
 
+	//
 	// Module dependant
-
+	//
 	$("#images").change(function(evt) {
 		if (window.FormData) {
 			formdata = new FormData();
@@ -95,13 +96,37 @@ jQuery(function($) {
 	});
 
 
+	//
+	// Header
+	//
+	$("#iconHelp").click(function(event) {
+		event.preventDefault();
+		var textContent = "";
+		textContent += "<h3>Why this project?</h3>";
+		textContent += "<p>It aim to facilitate the cropping of videos.</p>";
+		textContent += "<h3>How it works?</h3>";
+		textContent += "<ul id='iconHelpUl'>";
+		textContent += "<li>Upload your Video file</li>";
+		textContent += "<li>wait for thumbnails to be created, then pick it to work with</li>";
+		textContent += "<li>draw your screens on the displayed thumbnail</li>";
+		textContent += "<li>push ' Crop It '</li>";
+		textContent += "<li>wait for the zip folder with your cropped videos !</li>";
+		textContent += "</ul>";
+		cropmodule.cropcrop("displayModal", "Help", textContent);
+	});
+
+	//
+	// Ask user to quit
+	//
 	window.onbeforeunload = function() {
 		if (closeTabWithoutWarning) {
 			return "Video uploaded, are you sure?";
 		}
 	};
 
-
+	$("#fileupload").change(function(event) {
+		event.preventDefault();
+	});
 
 	//
 	// Interface
@@ -110,10 +135,10 @@ jQuery(function($) {
 	// Initialisation
 	$('#cropItProgressBar,#toolsMainContainerContent,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
 
+	// Menu
     $("#toolsMainContainer").draggable({
-        handle: "#falseButtonForNow"
+        handle: "#toolsMainContainerMainButton"
     });
-	// Buttons
 	$('#sphere').click(function(event) {
 		event.preventDefault();
 		if (isToolsMainContainer === 0) {
@@ -127,6 +152,7 @@ jQuery(function($) {
 		}
 	});
 
+	// Buttons
 	$('#buttonUpload').click(function(event) {
 		event.preventDefault();
 		$("#fileupload").trigger("click");
@@ -154,10 +180,6 @@ jQuery(function($) {
 		cropmodule.cropcrop("rebuildInterface", autoCropEnabled);
 	});
 
-	$("#fileupload").change(function(event) {
-		event.preventDefault();
-	});
-
 	$("#carouselContainer").on("click", function(event) {
 		event.preventDefault();
 		$("#videoContent").css({
@@ -165,6 +187,7 @@ jQuery(function($) {
 		});
 	});
 
+	// To put a crop layer on the top
 	$("#videoCropListDiv").on("click", ".videoCropListDivElement", function(event) {
 		event.preventDefault();
 		var id = $(this).attr("id");
@@ -202,28 +225,18 @@ jQuery(function($) {
 		id = id.replace("destroyer", "");
 		cropmodule.cropcrop("destroyCrop", id);
 	});
-
-	$("#iconHelp").click(function(event) {
-		event.preventDefault();
-		var textContent = "";
-		textContent += "<h3>Why this project?</h3>";
-		textContent += "<p>It aim to facilitate the cropping of videos.</p>";
-		textContent += "<h3>How it works?</h3>";
-		textContent += "<ul id='iconHelpUl'>";
-		textContent += "<li>Upload your Video file</li>";
-		textContent += "<li>wait for thumbnails to be created, then pick it to work with</li>";
-		textContent += "<li>draw your screens on the displayed thumbnail</li>";
-		textContent += "<li>push ' Crop It '</li>";
-		textContent += "<li>wait for the zip folder with your cropped videos !</li>";
-		textContent += "</ul>";
-		cropmodule.cropcrop("displayModal", "Help", textContent);
-	});
-
+	
+	//
+	// Footer
+	//
 	$("#legalMentionsLink").click(function(event) {
 		event.preventDefault();
 		cropmodule.cropcrop("displayModal", "Legal Mentions", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
 	});
 
+	//
+	// Functions
+	//
 	$("#bulkExcel").click(function(event) {
 		event.preventDefault();
 		cropmodule.cropcrop("bulkExcel", $('#bulkArea').val());
