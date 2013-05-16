@@ -199,7 +199,10 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						</div>
 						<!-- Second Container -->
 						<div id="secondContainerPanel2" class="panel">
-							<span class="button-group large">
+							<p>
+								Place a photo over your video to help you draw the screens.
+							</p>
+							<span class="button-group">
 								<a id="buttonUploadYourPhoto" class="button large dark disabled" role="button">Upload your photo</a>
 							</span>
 							<span id="photoOnOffContainer" class="disabled">
