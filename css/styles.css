@@ -221,12 +221,13 @@ body {
 			top: 0;
 			bottom: 0;
 			left: 0;
-			right: 0;
-			cursor: pointer;}
+			right: 0;}
+			/*
 			#cropsContainer:hover{
 				cursor: pointer;
 				background-color: rgba(255,255,255,.1);
 				border: 1px dashed #5DC1FF;}
+			*/
 		#videoContentBackground{
 			margin           : auto;
 			padding-top      : 151px;

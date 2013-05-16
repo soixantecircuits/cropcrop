@@ -139,6 +139,9 @@ jQuery(function($) {
     $("#toolsMainContainer").draggable({
         handle: "#toolsMainContainerMainButton"
     });
+    $("#toolsMainContainerMainButton").dblclick(function(event){
+    	$('#sphere').trigger("click");
+    });
 	$('#sphere').click(function(event) {
 		event.preventDefault();
 		if (isToolsMainContainer === 0) {
