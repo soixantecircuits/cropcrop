@@ -85,22 +85,11 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 					<!-- TOOL MENU -->
 					<div id="yourVideoContent">
-						
-						
 						<!-- TOOL BAR -->
 						<div id="YourVideoToolbar">
-
 							<div id="videoDownloadButtonDiv">
 								<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
 							</div>
-
-							<div id="videoCropListDiv">
-							</div>
-
-						</div>
-
-						<div id="fix">
-							<p>Div fixing #buttonYourVideo position.</p>
 						</div>
 
 					<!-- END TOOL MENU -->
@@ -108,11 +97,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				</nav>
 				</div>
 
-
-				<div id="secondMenu">
-					<p id="secondMenuContent">
-					</p>
-				</div>
 				<div>
 					<textarea id="bulkArea"></textarea>
 					<button type="button" id ="bulkExcel" value="Excel">
@@ -182,6 +166,23 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							<li class="menuTab" data-associatedPanel="secondContainerPanel2"><h3>Add photo</h3></li>
 						</ul>
 						<div id="secondContainerPanel1" class="panel selectedPanel">
+							<!-- Zone Predefined format screens add buttons -->
+							<div id="predefinedScreensContainer">
+								<h3>Add predefined screen :</h3>
+								<img id="iconFormatScreens" src="img/formatIcon.png" />
+								<div class="navElement">
+									<div class="buttonBar">
+										<a role="button" class="formatButton button dark disabled" id="buttonFormat1_1"  data-width="1" data-height="1"  >1 : 1</a>
+										<a role="button" class="formatButton button dark disabled" id="buttonFormat3_2" data-width="1.5" data-height="1"  >3 : 2</a>
+										<a role="button" class="formatButton button dark disabled" id="buttonFormat4_3" data-width="1.33" data-height="1" >4 : 3</a>
+									</div>
+									<div class="buttonBar">
+										<a role="button" class="formatButton button dark disabled" id="buttonFormat5_3" data-width="1.77" data-height="1" >5 : 3</a>
+										<a role="button" class="formatButton button dark disabled" id="buttonFormat16_9" data-width="1.66" data-height="1" >16 : 9</a>
+										<a role="button" class="formatButton button dark disabled" id="buttonFormat16_10" data-width="1.618" data-height="1" >16 : 10</a>
+									</div>
+								</div>
+							</div>
 							<!-- Zone screen input -->
 							<form id="addScreenForm">
 								<!-- <input type="submit" class="navElement button large dark disabled" title="Add Screen" id="buttonAddScreen" /> -->
@@ -201,18 +202,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 									</a>
 								</div>
 							</div>
-							<h3>Add predefined screen :</h3>
-							<div class="button-group buttonBar">
-								<a role="button" class="button start dark disabled" id="buttonFormat1_1"  data-width="1" data-height="1"  >1 : 1</a>
-								<a role="button" class="button inside dark disabled" id="buttonFormat3_2" data-width="1.5" data-height="1"  >3 : 2</a>
-								<a role="button" class="button end dark disabled" id="buttonFormat4_3" data-width="1.33" data-height="1" >4 : 3</a>
-							</div>
-							<div class="button-group buttonBar">
-								<a role="button" class="button start dark disabled" id="buttonFormat5_3" data-width="1.77" data-height="1" >5 : 3</a>
-								<a role="button" class="button inside dark disabled" id="buttonFormat16_9" data-width="1.66" data-height="1" >16 : 9</a>
-								<a role="button" class="button end dark disabled" id="buttonFormat16_10" data-width="1.618" data-height="1" >16 : 10</a>
-							</div>
 						</div>
+						<!-- Second Container -->
 						<div id="secondContainerPanel2" class="panel">
 							<span class="button-group large">
 								<a id="buttonUploadYourPhoto" class="button large dark disabled" role="button">Upload your photo</a>
@@ -230,6 +221,9 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					   		</span>
 						</div>
 					</div>
+				</div>
+				<!-- Div where crops list will appear -->
+				<div id="videoCropListDiv">
 				</div>
 			</div>
 

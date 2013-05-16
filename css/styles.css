@@ -42,21 +42,6 @@
 	margin                    : 0 !important;
 	padding                   : 20px auto 10px auto !important;}
 
-
-  /*********/
- /* Fixes */
-/*********/
-#fix{
-	opacity: 0;
-}
-
-#etablis{
-	position: fixed;
-	background-color: #fff;
-	top: 100px;
-	left: 20px;
-}
-
   /**********/
  /* Styles */
 /**********/
@@ -263,8 +248,7 @@ body {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: rgba(255,255,255,0.5);
-}
+	background-color: rgba(255,255,255,0.5);}
 #informationModal{
 	position: fixed;
 	z-index: 999;
@@ -304,22 +288,10 @@ body {
 	color : #FFF;
 	font-size : 10 px;}
 
-
 #main{
 	width: 0;
 	height: 0;
 	visibility: hidden;}
-
-#secondMenu{
-	margin-left: auto;
-	margin-right: auto;
-	width: 960px;}
-
-#secondMenuContent{
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	width: 960px;}
 
 #autoCropCheckboxLabel{
 	display: block;
@@ -332,35 +304,32 @@ body {
 	font-size: 14px;}
 
 
-
-/*****************************/
+  /***********************/
+ /* checksys.php styles */
+/***********************/
 
 .checksysPhpContent{
 	width: 960px;
 	margin-left: auto;
-	margin-right: auto;
-}
-
+	margin-right: auto;}
 .checksysPadding {
-	padding-left: 32px;
-}
+	padding-left: 32px;}
 .checksysInfo{
-	color: #FFF;
-}
+	color: #FFF;}
 .checksys{
-	color: #5DC1FF;
-}
+	color: #5DC1FF;}
 .checksysError{
-	color: #F00;
-}
+	color: #F00;}
 .checksysImportant{
-	color: #5DC1FF;
-}
+	color: #5DC1FF;}
+
+  /***************************/
+ /* End checksys.php styles */
+/***************************/
 
 #photoOnOffContainer{
 	margin-top: 3px;
-	display: inline-block;
-}
+	display: inline-block;}
 
 .cropDestroyerContainer{
 	color: #FFF;
@@ -379,11 +348,9 @@ body {
 		margin-left: -4px;}
 
 #footerContent p{
-	line-height: 25px;
-}
+	line-height: 25px;}
 #iconHelpUl{
-	text-align: left;
-}
+	text-align: left;}
 
 /* Bob */
 #toolsMainContainer{
@@ -400,11 +367,9 @@ body {
 		background-color: #595B5A;}
 		#sphereText{
 			float: left;
-			margin-top: 7px;
-		}
+			margin-top: 7px;}
 		#toolIcon{
-			float: left;
-		}
+			float: left;}
 		#sphere {
 			float: right;
 			margin-top: 10px;
@@ -473,6 +438,12 @@ body {
 						margin         : 4px;}
 	#toolsSecondContainer{}
 		#secondContainerPanel1{}
+			#predefinedScreensContainer{}
+				#iconFormatScreens{
+					float: left;
+					margin-top: 18px;
+					margin-right: 9px;
+					margin-left: 9px;}
 			#addScreenForm{}
 				#iconCrops{
 					float: left;
@@ -504,6 +475,8 @@ body {
 			margin-right: auto;
 			display: block;
 			text-align: center;}
+			.formatButton{
+				width: 32px;}
 	.toolsContainerMenu{
 		height: 20px;
 		width: 230px;
@@ -524,8 +497,8 @@ body {
 					font-size: 11px;
 					text-transform: uppercase;
 					margin-top: 0;
-					margin: 3px;} 
+					margin: 3px;}
 #touslesmenus{
-	display: none;
-}
-.inline{display: inline;}
+	display: none;}
+.inline{
+	display: inline;}
