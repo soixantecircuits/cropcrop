@@ -232,6 +232,8 @@ jQuery(function($) {
 	$(".menuTab").click(function(event) {
 		var targetPanel = $(this).attr("data-associatedPanel");
 		var container = $($(this).parents(".toolsContainer"));
+		container.find(".selectedMenu").removeClass("selectedMenu");
+		$(this).addClass("selectedMenu");
 		container.find(".selectedPanel").removeClass("selectedPanel");
 		container.find("#"+targetPanel).addClass("selectedPanel");
 	});
