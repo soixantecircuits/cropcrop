@@ -102,15 +102,15 @@ jQuery(function($) {
 	$("#iconHelp").click(function(event) {
 		event.preventDefault();
 		var textContent = "";
-		textContent += "<h3>Why this project?</h3>";
-		textContent += "<p>It aim to facilitate the cropping of videos.</p>";
-		textContent += "<h3>How it works?</h3>";
+		textContent += "<h3>ABOUT Crop Crop</h3>";
+		textContent += "<p>We made cropping videos easy.</p>";
+		textContent += "<h3>HOW IT WORKS?</h3>";
 		textContent += "<ul id='iconHelpUl'>";
 		textContent += "<li>Upload your Video file</li>";
-		textContent += "<li>wait for thumbnails to be created, then pick it to work with</li>";
-		textContent += "<li>draw your screens on the displayed thumbnail</li>";
-		textContent += "<li>push ' Crop It '</li>";
-		textContent += "<li>wait for the zip folder with your cropped videos !</li>";
+		textContent += "<li>Wait thumbnails to be created</li>";
+		textContent += "<li>Draw as much screens as you wish over your video</li>";
+		textContent += "<li>Crop</li>";
+		textContent += "<li>Download zipped folder with all your cropped videos !</li>";
 		textContent += "</ul>";
 		cropmodule.cropcrop("displayModal", "Help", textContent);
 	});

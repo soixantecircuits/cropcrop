@@ -5,6 +5,17 @@
 .link{
 	max-width                 : none;}
 
+.bg-slategray .custom.title {
+	color           : #D4D7D7;
+	text-shadow     : none;
+	padding-top     : 10px;
+	font-family     : "source-l";
+	font-size       : 35px;
+	margin          : 0;}
+
+.bg-slategray .custom.title.h2{
+	font-size       : 20px;}
+
 .custom input[type=checkbox] {
 	position                  : relative !important;
 	padding                   : 0;
@@ -20,16 +31,13 @@
 	text-align                : center;
 	font-family               : "source-l" !important;
 	font-size                 : 20px !important;
-	
 	background-color          : #595B5A;
 	border                    : 0px;
 	display                   : inline-block;
-
 	-webkit-box-shadow        : 1px 2px 1px 1px #3D3E40;
 	box-shadow                : 1px 2px 1px 1px #3D3E40;
 	-webkit-border-radius     : 0px;
     border-radius             : 0px;
-
 	height                    : 50px !important;
 	margin                    : 0 !important;
 	padding                   : 20px auto 10px auto !important;}
@@ -353,18 +361,6 @@ font-size : 10 px;
 .checksysImportant{
 	color: #5DC1FF;
 }
-.bg-slategray .custom.title {
-	color           : #D4D7D7;
-	text-shadow     : none;
-	padding-top     : 10px;
-	font-family     : "source-l";
-	font-size       : 35px;
-	margin          : 0;}
-.bg-slategray .custom.title.h2{
-	font-size       : 20px;}
-
-#carouselContainer{
-	list-style-type: none;}
 
 #photoOnOffContainer{
 	margin-top: 3px;
@@ -437,26 +433,28 @@ font-size : 10 px;
 					.thumbnailsCarousel{
 						min-height: 42px; 
 						margin: auto;}
-						#carouselContainer li:first-child{
-							margin-left: -40px;}
-						#carouselContainer li{
-							margin: 0;
-							float: left;
-							width: 74px;
-							height: 42px;
-							background-color: #3B3F41;
-							cursor: pointer;
-						    -webkit-transition: all .8s; 
-							   -moz-transition: all .8s; 
-						         -o-transition: all .8s; 
-						            transition: all .8s;
-							opacity: 0.5;}
-						#carouselContainer li:hover{
-						    -webkit-transition: all .1s; 
-							   -moz-transition: all .1s; 
-						         -o-transition: all .1s; 
-						            transition: all .1s;
-							opacity: 1;}
+						#carouselContainer{
+							list-style-type: none;}
+							#carouselContainer li:first-child{
+								margin-left: -40px;}
+							#carouselContainer li{
+								margin: 0;
+								float: left;
+								width: 74px;
+								height: 42px;
+								background-color: #3B3F41;
+								cursor: pointer;
+							    -webkit-transition: all .8s; 
+								   -moz-transition: all .8s; 
+							         -o-transition: all .8s; 
+							            transition: all .8s;
+								opacity: 0.5;}
+								#carouselContainer li:hover{
+								    -webkit-transition: all .1s; 
+									   -moz-transition: all .1s; 
+								         -o-transition: all .1s; 
+								            transition: all .1s;
+									opacity: 1;}
 			#videoInformationsDiv{
 				z-index                : 999;
 				list-style-type        : none;
