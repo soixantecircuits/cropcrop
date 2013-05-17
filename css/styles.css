@@ -220,6 +220,7 @@ body {
 		margin               : auto;
 		margin-bottom        : 25px;}
 		#uploadZone{
+			cursor: pointer;
 			z-index: 50;
 			position: absolute;
 			top: 0;
@@ -228,7 +229,6 @@ body {
 			right: 0;}
 		/*
 		#uploadZone:hover{
-			cursor: pointer;
 			background-color: rgba(255,255,255,.1);
 			border: 1px dashed #5DC1FF;}
 		*/
@@ -357,12 +357,12 @@ body {
 	left: 70%;}
 	#toolsMainContainerMainButton{
 		cursor: move;
-		font-size: 20px;
+		font-size: 14px;	
 		height: 30px;
 		background-color: #595B5A;}
 		#sphereText{
 			float: left;
-			margin-top: 2px;}
+			margin-top: 6px;}
 		#toolIcon{
 			float: left;}
 		#sphere {
@@ -457,6 +457,7 @@ body {
 		.selectedPanel{
 			display: block;}
 		.panel h3{
+			font-size: 11px;
 			margin-top: 0;
 			margin-bottom: 0;}
 		.panel p{
@@ -485,16 +486,26 @@ body {
 			float: left;
 			margin-right: 5px;}
 			.menuTab{
-				height: 20px;}
+				height: 24px;}
+			.menuTab:hover{
+				background-color: #646665;
+				height: 24px;}
 				.selectedMenu{
 					background-color: #646665;}
 				.selectedMenu.iconMenu{
-					background-color: #3B3F41;}
+					background-color: rgba(0,0,0,0);}
 					.toolsContainerMenu li h3{
+						margin: 5px!important;
 						font-size: 11px;
 						text-transform: uppercase;
-						margin-top: 0;
-						margin: 3px;}
+						margin-top: 0;}
+					.toolsContainerMenu li.selectedMenu h3{
+						margin: 5px!important;
+						margin-left: 10px!important;
+						margin-right: 10px!important;
+						font-size: 11px;
+						text-transform: uppercase;
+						margin-top: 0;}
 #touslesmenus{
 	display: none;}
 .inline{
