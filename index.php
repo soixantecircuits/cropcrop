@@ -116,14 +116,14 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							</div>
 							<!-- Second Panel -->
 							<div id="firstContainerPanel2" class="panel">
-								<div class="navElement" id="buttonCropItContainer">
+								<div class="navElement" title="Crop" id="buttonCropItContainer">
 									<input type="button" class="custom button large dark disabled" value ="Crop It" id="buttonCropIt" />
 									<div class="spinner large" role="progressbar" id="cropItProgressBar"></div>
 								</div>
 							</div>
 							<!-- Third Panel -->
 							<div id="firstContainerPanel3" class="panel">
-								<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
+								<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" title="Download video" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
 							</div>
 						</div>
 

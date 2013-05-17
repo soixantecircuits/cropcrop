@@ -136,6 +136,20 @@ jQuery(function($) {
 
 	// Initialisation
 	$('#videoCropListDiv,#cropItProgressBar,#toolsMainContainerContent,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
+	
+	//
+	// Has to be worked
+	//
+	// $("#toolsFirstContainer").resizable({
+	// 	handles: 's',
+	// 	maxHeight: "25%",
+	// 	minHeight: "50px"
+	// });
+	// $("#toolsSecondContainer").resizable({
+	// 	handles: 's',
+	// 	maxHeight: "25%",
+	// 	minHeight: "150px"
+	// });
 
 	// Menu
 	$("#toolsMainContainer").draggable({
