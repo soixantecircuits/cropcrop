@@ -965,7 +965,14 @@
                                 marginLeft : array[i + 4],
                                 marginRight : array[i + 5]
                             });
-                            crops
+                            crops.list.push({
+                                BrandName: array[i],
+                                screenId: array[i + 1],
+                                width: array[i + 2],
+                                height: array[i + 3],
+                                marginLeft : array[i + 4],
+                                marginTop : array[i + 5]
+                            });
                         }
                     }
                 }
@@ -975,7 +982,7 @@
 
         function bulkJson(str) {
             jsonBulk = jQuery.parseJSON(str);
-            console.log(jsonBulk);
+            crops = jsonBulk;
             resetInterface();
         }
         // Initialize the plugin instance.

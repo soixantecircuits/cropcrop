@@ -89,11 +89,6 @@ body {
 				h1 a{
 					display: block;
 					color           : #D4D7D7;}
-					#betaText{
-						vertical-align: super;
-						font-family: "source";
-						color: #5DC1FF;
-						font-size: 14px;}
 			.customh2{
 				margin-top: 0;
 				font-family: "source";
@@ -341,8 +336,6 @@ body {
 
 #footerContent p{
 	line-height: 25px;}
-#iconHelpUl{
-	text-align: left;}
 
 /* Bob */
 #toolsMainContainer{
@@ -436,24 +429,12 @@ body {
 	#toolsSecondContainer{}
 		#secondContainerPanel1{}
 			#predefinedScreensContainer{}
-				#iconFormatScreens{
-					float: left;
-					margin-top: 18px;
-					margin-right: 18px;}
 			#addScreenForm{}
-				#iconCrops{
-					float: left;
-					margin-top: 18px;
-					margin-right: 18px;}
 				#buttonAddScreen{
 					margin-top: 26px!important;
 					margin-left: 5px!important;}
 			#screenImportContainer{
 				margin-top: 10px;}
-				#iconText{
-					float: left;
-					margin-top: 24px;
-					margin-right: 18px;}
 				#buttonImportScreen{
 					display: inline;}
 			#autoCropCheckboxLabel{
@@ -495,16 +476,139 @@ body {
 			margin: 0;
 			float: left;
 			margin-right: 5px;}
-			.selectedMenu{
-				background-color: #646665;}
-				.toolsContainerMenu li h3{
-					font-size: 11px;
-					text-transform: uppercase;
-					margin-top: 0;
-					margin: 3px;}
+			.menuTab{
+				height: 20px;			}
+				.selectedMenu{
+					background-color: #646665;}
+					.toolsContainerMenu li h3{
+						font-size: 11px;
+						text-transform: uppercase;
+						margin-top: 0;
+						margin: 3px;}
 #touslesmenus{
 	display: none;}
 .inline{
 	display: inline;}
 #importExportContainer{
 	width:142px;}
+
+
+
+
+  /*********/
+ /* Icons */
+/*********/
+	#cropcropIcon{
+		display: inline-block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: 0px -59px;
+		width: 18px;
+		height: 18px;
+		vertical-align: middle;
+		font-family: "source";
+		font-size: 14px;}
+
+	#centralUploadButton{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: 0px -119px;
+		width: 160px;
+		height: 65px;}
+	#centralUploadButton.hover{
+		background-position: 0px -190px;}
+
+
+	#toolIcon{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: 0px -274px;
+		width: 16px;
+		height: 16px;
+		float: left;
+		margin-top: 9px;
+		margin-right: 9px;}
+
+	#autoCropIcon{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: 0px -59px;
+		width: 18px;
+		height: 18px;
+		float: left;}
+	#autoCropIcon:hover{
+		background-position: 0px -81px;}
+	#downloadIcon{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: -27px -59px;
+		width: 18px;
+		height: 18px;
+		float: left;}
+	#downloadIcon:hover{
+		background-position: -27px -81px;}
+
+	#iconFormatScreens{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: 0px -274px;
+		width: 16px;
+		height: 16px;
+		float: left;
+		margin-top: 18px;
+		margin-right: 18px;}
+	#iconCrops{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: 0px -295px;
+		width: 16px;
+		height: 16px;
+		float: left;
+		margin-top: 18px;
+		margin-right: 18px;}
+	#iconText{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: 0px -315px;
+		width: 16px;
+		height: 16px;
+		float: left;
+		margin-top: 24px;
+		margin-right: 18px;}
+
+	#logoGitHub{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: -3px 0px;
+		width: 18px;
+		height: 18px;
+		float: left;}
+	#logoTwitter{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: -35px 0px;
+		width: 18px;
+		height: 18px;
+		float: left;}
+	#logoFacebook{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: -62px 0px;
+		width: 18px;
+		height: 18px;
+		float: left;}
+	#logoHelp{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-position: -89px 0px;
+		width: 18px;
+		height: 18px;
+		float: left;}
+
+	#logoGitHub:hover{
+		background-position: -3px -22px;}
+	#logoTwitter:hover{
+		background-position: -35px -22px;}
+	#logoFacebook:hover{
+		background-position: -62px -22px;}
+	#logoHelp:hover{
+		background-position: -89px -22px;}

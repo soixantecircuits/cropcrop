@@ -149,6 +149,12 @@ jQuery(function($) {
 		function () {
 			$('#sphere').toggleClass("blue");
 		});
+	$("#uploadZone").hover(function () {
+			$('#centralUploadButton').toggleClass("hover");
+		},
+		function () {
+			$('#centralUploadButton').toggleClass("hover");
+		});
 	$('#sphere').click(function(event) {
 		event.preventDefault();
 		if (isToolsMainContainer === 0) {
