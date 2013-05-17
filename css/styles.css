@@ -512,8 +512,15 @@ body {
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
 		background-position: 0px -119px;
-		width: 160px;
-		height: 65px;}
+		margin-right: 0px;
+		padding-right: 10px;
+		width: 150px;
+		height: 65px;
+		line-height: 65px;
+		vertical-align: middle;
+		text-indent: 5px;
+		font-size: 28px;
+		text-align: right;}
 	#centralUploadButton.hover{
 		background-position: 0px -190px;}
 

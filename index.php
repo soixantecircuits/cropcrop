@@ -240,7 +240,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				<div id="videoContent">
 					<div id="videoContentCache">
 						<div id="videoContentBackground">
-							<span id="centralUploadButton"></span>
+							<span id="centralUploadButton">Upload</span>
 							<p>
 								Or just drag and drop your video here
 							</p>
