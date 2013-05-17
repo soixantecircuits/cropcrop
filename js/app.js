@@ -191,7 +191,14 @@ jQuery(function($) {
 	});
 
 	$("#buttonImportScreen").click(function(event) {
-		cropmodule.cropcrop("displayModal", "Test", "Retestests");
+		event.preventDefault();
+		var textContent = "";
+		textContent += '<div>';
+		textContent += '<textarea id="bulkArea"></textarea>';
+		textContent += '<button type="button" id ="bulkExcel" value="Excel">';
+		textContent += '<button type="button" id ="bulkJson" value="jSon">';
+		textContent += '</div>';
+		cropmodule.cropcrop("displayModal", "Import Content", textContent);
 	});
 
 	$("#carouselContainer").on("click", function(event) {
@@ -251,12 +258,11 @@ jQuery(function($) {
 	//
 	// Functions
 	//
-	$("#bulkExcel").click(function(event) {
+	$("#informationModal").on("click", "#bulkExcel", function(event) {
 		event.preventDefault();
 		cropmodule.cropcrop("bulkExcel", $('#bulkArea').val());
 	});
-
-	$("#bulkJson").click(function(event) {
+	$("#informationModal").on("click", "#bulkJson", function(event) {
 		event.preventDefault();
 		cropmodule.cropcrop("bulkJson", $('#bulkArea').val());
 	});

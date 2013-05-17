@@ -928,9 +928,12 @@
             crops.list.splice(id, 1);
             $("#cropNumber" + id).remove();
             $("#videoCropListDivElement" + id).remove();
+            resetInterface();
+        }
+
+        function resetInterface() {
             $("#cropsContainer").empty();
             $("#videoCropListDiv").empty();
-
             for (var i = 0; i < crops.list.length; i++) {
                 addCropLayerToUI( i );
             };
@@ -939,8 +942,6 @@
 
 
         function bulkExcel(str) {
-
-
             str = str.replace(/[^a-zA-Z 0-9-*-_-+]+/g, ' ').replace(/ +(?= )/g, '');
             var longElement = 6;
 
@@ -953,8 +954,6 @@
             if ((array.length % longElement) != 0) {
                 displayModal('Bulk Error', 'Your Excel Table is not valid');
             } else {
-
-
                 for (var i = 0; i < array.length; i++) {
                     if (i >= longElement) {
                         if ((i % longElement == 0) && (i != array.length - 1)) {
