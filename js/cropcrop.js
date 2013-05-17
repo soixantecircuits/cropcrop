@@ -897,7 +897,7 @@
             }
         }
 
-        function enablePhotoLayer(imagePath) {
+        function enablePhotoLayer( imagePath ) {
             photoPath = imagePath;
             $("#photoOnOffContainer").removeClass("disabled");
             $("#videoPhotoBackground").css({
@@ -906,7 +906,7 @@
             });
         }
 
-        function displayPhotoLayer(bool) {
+        function displayPhotoLayer( bool ) {
             if (typeof(bool) != "boolean") {
                 return false;
             }
@@ -924,10 +924,17 @@
             }
         }
 
-        function destroyCrop(id) {
-            crops.list[id] = null;
+        function destroyCrop( id ) {
+            crops.list.splice(id, 1);
             $("#cropNumber" + id).remove();
             $("#videoCropListDivElement" + id).remove();
+            $("#cropsContainer").empty();
+            $("#videoCropListDiv").empty();
+
+            for (var i = 0; i < crops.list.length; i++) {
+                addCropLayerToUI( i );
+            };
+
         }
 
 

@@ -49,6 +49,10 @@
 	background-color          : #494D4E!important;}
 .button.dark:hover {
 	color                     : #5DC1FF!important;}
+.button.cta, .button.cta.disabled:hover, .button.cta.disabled:active{
+	background-color: #278ddf;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#278ddf),to(#278ddf));
+	background-image: linear-gradient(top,#278ddf,#278ddf);}
 
   /**********/
  /* Styles */
@@ -239,8 +243,6 @@ body {
 			.topLayer{
 				z-index: 1;}
 
-
-
 #footer {
 	position                 : absolute;
 	bottom                   : 0;
@@ -291,20 +293,15 @@ body {
 		    height: 25px;
 		    background: #5DC1FF;}
 		    .bar p {
+		    	padding-top: 3px;
 		    	position: absolute;
 		    	width: 100%;
 		    	margin: 0;
 				text-align: center;
 				font-size: 14px;}
-
-#progressBarText{
-	color : #FFF;
-	font-size : 10 px;}
-
-#main{
-	width: 0;
-	height: 0;
-	visibility: hidden;}
+				#progressBarText{
+					color : #FFF;
+					font-size : 10 px;}
 
 #autoCropCheckboxLabel{
 	display: block;

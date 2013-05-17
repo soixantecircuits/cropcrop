@@ -159,9 +159,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						</div>
 						<!-- Third Panel -->
 						<div id="firstContainerPanel3" class="panel">
-							<div id="videoDownloadButtonDiv">
-								<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
-							</div>
+							<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
 						</div>
 					</div>
 
