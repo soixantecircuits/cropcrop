@@ -535,7 +535,6 @@ body {
 		background-position: 0px -59px;
 		width: 18px;
 		height: 18px;
-		margin-left: 100px;
 		float: left;}
 	#autoCropIcon:hover{
 		background-position: 0px -81px;}
@@ -614,3 +613,7 @@ body {
 		background-position: -62px -22px;}
 	#logoHelp:hover{
 		background-position: -89px -22px;}
+
+	.floatRight{
+		float: right!important;
+	}
