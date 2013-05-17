@@ -510,6 +510,7 @@ body {
 		font-size: 14px;}
 
 	#centralUploadButton{
+		background-color: #646666;
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
 		background-repeat: no-repeat;
