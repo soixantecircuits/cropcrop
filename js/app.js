@@ -5,6 +5,7 @@ jQuery(function($) {
 	// Script part
 	var closeTabWithoutWarning = false;
 	var isToolsMainContainer = 0;
+	var isCropMenuShown = 0;
 
 	//
 	// Module dependant
@@ -134,7 +135,7 @@ jQuery(function($) {
 	//
 
 	// Initialisation
-	$('#cropItProgressBar,#toolsMainContainerContent,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
+	$('#videoCropListDiv,#cropItProgressBar,#toolsMainContainerContent,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
 
 	// Menu
 	$("#toolsMainContainer").draggable({
@@ -291,6 +292,24 @@ jQuery(function($) {
 		$(this).addClass("selectedMenu");
 		container.find(".selectedPanel").removeClass("selectedPanel");
 		container.find("#"+targetPanel).addClass("selectedPanel");
+	});
+
+	//
+	// Bob
+	//
+
+	$('#showCropListDivButtonDiv').click(function(event) {
+		event.preventDefault();
+		if (isCropMenuShown === 0) {
+			event.preventDefault();
+			$('#videoCropListDiv').slideDown();
+			$('#triangle').toggleClass('up');
+			isCropMenuShown = 1;
+		} else {
+			$('#videoCropListDiv').slideUp();
+			$('#triangle').toggleClass('up');
+			isCropMenuShown = 0;
+		}
 	});
 	// jQuery end
 });
