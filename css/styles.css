@@ -171,7 +171,9 @@ body {
 						text-align             : center;
 						background-color       : #595B5A;
 						height                 : 67px;}
-						#buttonDownloadIt{}
+						#buttonDownloadIt{
+							text-align: center;
+							display: block;}
 							#buttonDownloadItInput{
 								margin-top: 8px!important;
 								font: 14px/27px "source-sb",helvetica,arial,sans-serif !important;}
