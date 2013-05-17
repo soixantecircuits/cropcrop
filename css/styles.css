@@ -141,8 +141,8 @@ body {
 					margin-bottom: 7px;}
 
 			#autoCropCheckboxDiv{
-				text-align: center;
-				margin-left: 80px;}
+				display: block;
+				text-align: center;}
 
 			/* Button format */
 			#buttonUpload{
