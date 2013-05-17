@@ -477,9 +477,11 @@ body {
 			float: left;
 			margin-right: 5px;}
 			.menuTab{
-				height: 20px;			}
+				height: 20px;}
 				.selectedMenu{
 					background-color: #646665;}
+				.selectedMenu.iconMenu{
+					background-color: #3B3F41;}
 					.toolsContainerMenu li h3{
 						font-size: 11px;
 						text-transform: uppercase;
