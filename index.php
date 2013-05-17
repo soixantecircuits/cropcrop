@@ -172,10 +172,10 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 									<span id="iconText"></span>
 									<div class="navElement" id="importExportContainer">
 										<a title="Import Screen" id="buttonImportScreen">
-											<input type="button" class="button large dark disabled" value="Import Screens" />
+											<input type="button" class="button dark disabled" value="Import Screens" />
 										</a>
 										<a title="Export Screen" id="buttonExportScreen">
-											<input type="button" class="button large dark disabled" value="Export Screens" />
+											<input type="button" class="button dark disabled" value="Export Screens" />
 										</a>
 									</div>
 								</div>
