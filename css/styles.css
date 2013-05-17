@@ -352,7 +352,7 @@ body {
 	padding: 3px;
 	z-index: 500;
 	position: fixed;
-	width: 230px;
+	width: 224px;
 	top: 100px;
 	left: 70%;}
 	#toolsMainContainerMainButton{
@@ -472,7 +472,7 @@ body {
 				width: 32px;}
 	.toolsContainerMenu{
 		height: 20px;
-		width: 230px;
+		width: 224px;
 		display: block;
 		float: left;
 		margin: 0;
