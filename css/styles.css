@@ -221,12 +221,13 @@ body {
 		margin-bottom        : 25px;}
 		#uploadZone{
 			cursor: pointer;
-			z-index: 50;
+			z-index: 500;
 			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;}
+			width: 165px;
+			height: 65px;
+			margin-left: -80px;
+			top: 151px;
+			left: 50%;}
 		/*
 		#uploadZone:hover{
 			background-color: rgba(255,255,255,.1);
