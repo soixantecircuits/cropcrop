@@ -89,6 +89,11 @@ body {
 				h1 a{
 					display: block;
 					color           : #D4D7D7;}
+					#betaText{
+						vertical-align: super;
+						font-family: "source";
+						color: #5DC1FF;
+						font-size: 14px;}
 			.customh2{
 				margin-top: 0;
 				font-family: "source";
@@ -105,13 +110,27 @@ body {
 #body {
 	padding-bottom: 100px;   /* Height of the footer, don't forget to change #footer value */
 	}
-	#nav{
-		height: 50px;
-		text-align: right;
-		width: 960px;
-		margin: auto;
-		margin-bottom: 18px;
-		margin-top: 20px;}
+
+#progressContainer{
+	margin-right: auto;
+	margin-left: auto;
+	width: 100%;}
+	#progress{}
+		.bar {
+			margin: 0;
+		    height: 25px;
+		    background: #5DC1FF;}
+		    .bar p {
+		    	padding-top: 3px;
+		    	position: absolute;
+		    	width: 100%;
+		    	margin: 0;
+				text-align: center;
+				font-size: 14px;}
+				#progressBarText{
+					color : #FFF;
+					font-size : 10 px;}
+
 		.navElement{
 			display: inline-block;}
 			#addScreenInputText{
@@ -119,7 +138,7 @@ body {
 				width: 96px;}
 				.text-field.navInputText{
 					-webkit-border-radius: 0px;
-	    			border-radius: 0px;
+					border-radius: 0px;
 					min-width: 0;
 					height: 17px;
 					width: 96px;}
@@ -277,43 +296,6 @@ body {
 	top: 50%;
 	left: 50%;}
 
-
-
-
-  /**********************/
- /*  WORK IN PROGRESS  */
-/**********************/
-#progressContainer{
-	margin-right: auto;
-	margin-left: auto;
-	width: 100%;}
-	#progress{}
-		.bar {
-			margin: 0;
-		    height: 25px;
-		    background: #5DC1FF;}
-		    .bar p {
-		    	padding-top: 3px;
-		    	position: absolute;
-		    	width: 100%;
-		    	margin: 0;
-				text-align: center;
-				font-size: 14px;}
-				#progressBarText{
-					color : #FFF;
-					font-size : 10 px;}
-
-#autoCropCheckboxLabel{
-	display: block;
-	margin-top: 8px;}
-
-#betaText{
-	vertical-align: super;
-	font-family: "source";
-	color: #5DC1FF;
-	font-size: 14px;}
-
-
   /***********************/
  /* checksys.php styles */
 /***********************/
@@ -364,6 +346,7 @@ body {
 
 /* Bob */
 #toolsMainContainer{
+	color: #c6c8c8;
 	background-color: rgba(222,226,225,.3);
 	padding: 3px;
 	z-index: 500;
@@ -373,11 +356,12 @@ body {
 	left: 70%;}
 	#toolsMainContainerMainButton{
 		cursor: move;
+		font-size: 20px;
 		height: 30px;
 		background-color: #595B5A;}
 		#sphereText{
 			float: left;
-			margin-top: 7px;}
+			margin-top: 2px;}
 		#toolIcon{
 			float: left;}
 		#sphere {
@@ -385,9 +369,9 @@ body {
 			margin-top: 10px;
 			margin-right: 15px;
 			cursor: pointer;
-			background-color: #DFE2E2;
+			background-color: #c7c7c9;
 			display: inline-block;
-			border: 1px solid #fff;
+			border: 1px solid #c7c7c9;
 			width: 8px; 
 			height: 8px; 
 			-webkit-border-radius: 50px;
@@ -472,6 +456,9 @@ body {
 					margin-right: 18px;}
 				#buttonImportScreen{
 					display: inline;}
+			#autoCropCheckboxLabel{
+				display: block;
+				margin-top: 8px;}
 	.panel{
 		padding: 10px;
 		padding-top: 20px;

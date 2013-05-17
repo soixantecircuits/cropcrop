@@ -204,7 +204,7 @@ jQuery(function($) {
 		event.preventDefault();
 		var textContent = "";
 		textContent += '<div>';
-		textContent += '<textarea id="bulkArea">' + JSON.stringify(crops) + '</textarea>';
+		textContent += '<textarea>' + JSON.stringify(crops) + '</textarea>';
 		textContent += '</div>';
 		cropmodule.cropcrop("displayModal", "Export Content", textContent);
 	});
@@ -264,7 +264,7 @@ jQuery(function($) {
 	});
 
 	//
-	// Functions
+	// bulk screens
 	//
 	$("#informationModal").on("click", "#bulkExcel", function(event) {
 		event.preventDefault();

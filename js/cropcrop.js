@@ -957,7 +957,6 @@
                 for (var i = 0; i < array.length; i++) {
                     if (i >= longElement) {
                         if ((i % longElement == 0) && (i != array.length - 1)) {
-
                             jsonBulk.list.push({
                                 BrandName: array[i],
                                 screenId: array[i + 1],
@@ -966,15 +965,18 @@
                                 marginLeft : array[i + 4],
                                 marginRight : array[i + 5]
                             });
+                            crops
                         }
                     }
                 }
-
+                resetInterface();
             }
         }
 
         function bulkJson(str) {
             jsonBulk = jQuery.parseJSON(str);
+            console.log(jsonBulk);
+            resetInterface();
         }
         // Initialize the plugin instance.
         init();
