@@ -100,7 +100,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 			<div id="toolsMainContainer">
 				<!-- Button -->
 				<div id="toolsMainContainerMainButton" title="Doubleclick to toggle">
-					<img id="toolIcon" src="img/toolIcon.png" /><span id="sphere"></span><span id="sphereText">Tools</span>
+					<img id="toolIcon" src="img/toolIcon.png" /><span id="sphere" title="Click to toggle"></span><span id="sphereText">Tools</span>
 				</div>
 				<!-- Main Container -->
  				<div id="toolsMainContainerContent">
