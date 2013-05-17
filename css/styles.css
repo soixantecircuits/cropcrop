@@ -640,6 +640,7 @@ body {
 		height: 20px;
 		cursor: pointer;}
 		#yourScreensText{
+			text-transform: uppercase;
 			vertical-align: super;}
 	#bulkArea{
 		margin: 0px;
