@@ -200,6 +200,14 @@ jQuery(function($) {
 		textContent += '</div>';
 		cropmodule.cropcrop("displayModal", "Import Content", textContent);
 	});
+	$("#buttonExportScreen").click(function(event) {
+		event.preventDefault();
+		var textContent = "";
+		textContent += '<div>';
+		textContent += '<textarea id="bulkArea">' + JSON.stringify(crops) + '</textarea>';
+		textContent += '</div>';
+		cropmodule.cropcrop("displayModal", "Export Content", textContent);
+	});
 
 	$("#carouselContainer").on("click", function(event) {
 		event.preventDefault();

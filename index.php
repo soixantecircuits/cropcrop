@@ -208,9 +208,12 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							<!-- Zone screen import -->
 							<div id="screenImportContainer">
 								<img id="iconText" src="img/textIcon.png" />
-								<div class="navElement">
+								<div class="navElement" id="importExportContainer">
 									<a title="Import Screen" id="buttonImportScreen">
 										<input type="button" class="button large dark disabled" value="Import Screens list" />
+									</a>
+									<a title="Export Screen" id="buttonExportScreen">
+										<input type="button" class="button large dark disabled" value="Export Screens list" />
 									</a>
 								</div>
 							</div>
