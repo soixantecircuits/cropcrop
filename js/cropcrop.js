@@ -512,7 +512,6 @@
                 Math.ceil((Math.random() * 255)),
                 0.5]
             });
-
             addCropLayerToUI(id);
         }
 
@@ -963,7 +962,12 @@
                                 width: array[i + 2],
                                 height: array[i + 3],
                                 marginLeft : array[i + 4],
-                                marginRight : array[i + 5]
+                                marginRight : array[i + 5],
+                                color: [
+                                    Math.ceil((Math.random() * 255)),
+                                    Math.ceil((Math.random() * 255)),
+                                    Math.ceil((Math.random() * 255)),
+                                    0.5]
                             });
                             crops.list.push({
                                 BrandName: array[i],
@@ -971,7 +975,12 @@
                                 width: array[i + 2],
                                 height: array[i + 3],
                                 marginLeft : array[i + 4],
-                                marginTop : array[i + 5]
+                                marginTop : array[i + 5],
+                                color: [
+                                    Math.ceil((Math.random() * 255)),
+                                    Math.ceil((Math.random() * 255)),
+                                    Math.ceil((Math.random() * 255)),
+                                    0.5]
                             });
                         }
                     }
@@ -982,6 +991,13 @@
 
         function bulkJson(str) {
             jsonBulk = jQuery.parseJSON(str);
+            for (var i = 0; i < jsonBulk.list.length; i++) {
+                jsonBulk.list[i].color = [
+                                    Math.ceil((Math.random() * 255)),
+                                    Math.ceil((Math.random() * 255)),
+                                    Math.ceil((Math.random() * 255)),
+                                    0.5]
+            };
             crops = jsonBulk;
             resetInterface();
         }

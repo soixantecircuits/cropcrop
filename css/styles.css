@@ -615,5 +615,8 @@ body {
 		background-position: -89px -22px;}
 
 	.floatRight{
-		float: right!important;
-	}
+		float: right!important;}
+	#bulkArea{
+		margin: 0px;
+		width: 358px;
+		height: 223px;}

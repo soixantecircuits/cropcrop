@@ -199,10 +199,10 @@ jQuery(function($) {
 	$("#buttonImportScreen").click(function(event) {
 		event.preventDefault();
 		var textContent = "";
+		textContent += '<div><textarea id="bulkArea"></textarea></div>';
 		textContent += '<div>';
-		textContent += '<textarea id="bulkArea"></textarea>';
-		textContent += '<button type="button" id ="bulkExcel" value="Excel">';
-		textContent += '<button type="button" id ="bulkJson" value="jSon">';
+		textContent += '<input type="button" role="button" class="button dark" id ="bulkExcel" value="Excel">';
+		textContent += '<input type="button" role="button" class="button dark" id ="bulkJson" value="jSon">';
 		textContent += '</div>';
 		cropmodule.cropcrop("displayModal", "Import Content", textContent);
 	});
