@@ -616,17 +616,16 @@ body {
 
 	.floatRight{
 		float: right!important;}
-	.super{
-		vertical-align: super;}
+	#showCropListDivButtonDiv{
+		background-color: #646665;
+		height: 20px;
+		cursor: pointer;}
+		#yourScreensText{
+			vertical-align: super;}
 	#bulkArea{
 		margin: 0px;
 		width: 358px;
 		height: 223px;}
-	#showCropListDivButtonDiv{
-		background-color: #646665;
-		height: 16px;
-		cursor: pointer;
-	}
 
 	#triangle {
 		display: inline-block;

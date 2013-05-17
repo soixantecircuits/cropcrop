@@ -224,7 +224,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						</div>
 						<div id="showCropListDivButtonDiv">
 							<span id="triangle"></span>
-							<span class="super">Your screens</span>
+							<span id="yourScreensText">Your screens</span>
 						</div>
 					</div>
 					<!-- Div where crops list will appear -->
