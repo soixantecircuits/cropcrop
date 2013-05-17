@@ -149,7 +149,10 @@ body {
 				float: left;
 				width: 90px}
 			#buttonCropItContainer{
-				margin-right: 54px;
+				margin-top: 22px;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
 				width: 94px;}
 				#buttonCropIt{
 					width: 94px;}
