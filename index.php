@@ -78,8 +78,14 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						<div id="toolsFirstContainer" class="toolsContainer">
 							<ul class="toolsContainerMenu">
 								<li class="menuTab selectedMenu" data-associatedPanel="firstContainerPanel1"><h3>Your video</h3></li>
-								<li class="noBg floatRight iconMenu" data-associatedPanel="firstContainerPanel3"><span original-title="Download video" id="downloadIcon"></span></li>
-								<li class="noBg floatRight iconMenu" data-associatedPanel="firstContainerPanel2"><span original-title="Crop" id="cropIcon"></span></li>
+								<li class="noBg floatRight iconMenu" data-associatedPanel="firstContainerPanel3">
+									<a title="Download It" href="#" target="_blank" id="buttonDownloadIt">
+										<span original-title="Download video" id="downloadIcon"></span>
+									</a>
+								</li>
+								<li class="noBg floatRight iconMenu" data-associatedPanel="firstContainerPanel2">
+									<span original-title="Crop" id="cropIcon"></span>
+								</li>
 							</ul>
 
 
