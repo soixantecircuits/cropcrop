@@ -136,7 +136,8 @@ jQuery(function($) {
 
 	// Initialisation
 	$('#videoCropListDiv,#cropItProgressBar,#toolsMainContainerContent,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
-	
+	$('#downloadIcon').tipsy();
+	$('#cropIcon').tipsy();
 	//
 	// Has to be worked
 	//
@@ -189,9 +190,11 @@ jQuery(function($) {
 		$("#fileupload").trigger("click");
 	});
 
-	$('#buttonCropIt').click(function(event) {
+	// $('#buttonCropIt').click(function(event) {
+	$('#cropIcon').click(function(event) {
 		event.preventDefault();
 		$("#progressBarText").text("Croping your video, please wait....");
+		$('html').timer('start');
 		$('html').timer('start');
 		cropmodule.cropcrop("sendCrop");
 	});

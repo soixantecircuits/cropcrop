@@ -490,8 +490,6 @@ body {
 				height: 24px;}
 			.menuTab:hover{
 				background-color: #646666;}
-			.menuTab:hover{
-				background-color: rgba(0,0,0,0);}
 				.selectedMenu{
 					background-color: #646666;}
 				.selectedMenu.iconMenu{
@@ -563,7 +561,7 @@ body {
 		margin-left: 9px;
 		margin-right: 9px;}
 
-	#autoCropIcon{
+	#cropIcon{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
 		background-repeat: no-repeat;
@@ -571,7 +569,7 @@ body {
 		width: 18px;
 		height: 18px;
 		float: left;}
-	#autoCropIcon:hover{
+	#cropIcon:hover{
 		background-position: 0px -81px;}
 	#downloadIcon{
 		display: block;
