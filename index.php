@@ -46,6 +46,28 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 
 			<div id="body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 				<div id="progressContainer">
 					<div id="progress">
 						<div class="bar" style="width: 0%;">	
@@ -54,45 +76,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							</p>								
 						</div>
 					</div>	
-				</div>	
-
-
-
-
-
-
-			<div id="touslesmenus">
-				<div id="nav">
-				<nav>
-					<!-- Bouton upload -->
-					<input type="button" class="custom button large dark" value ="Upload" id="buttonUpload" />
-
-					<!-- Bouton Crop It -->
-					<div class="navElement" id="buttonCropItContainer">
-						<input type="button" class="custom button large dark disabled" value ="Crop It" id="buttonCropIt" />
-						<div class="spinner large" role="progressbar" id="cropItProgressBar"></div>
-					</div>
-
-					<!-- TOOL MENU -->
-					<div id="yourVideoContent">
-						<!-- TOOL BAR -->
-						<div id="YourVideoToolbar">
-							<div id="videoDownloadButtonDiv">
-								<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
-							</div>
-						</div>
-
-					<!-- END TOOL MENU -->
-					</div>
-				</nav>
 				</div>
-
-				<div>
-					<textarea id="bulkArea"></textarea>
-					<button type="button" id ="bulkExcel" value="Excel">
-					<button type="button" id ="bulkJson" value="jSon">
-				</div>
-			</div>
 
 				
 
@@ -102,9 +86,20 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 			<div id="toolsMainContainer">
 				<!-- Button -->
-				<div id="toolsMainContainerMainButton">
+				<div id="toolsMainContainerMainButton" title="Doubleclick to toggle">
 					<img id="toolIcon" src="img/toolIcon.png" /><span id="sphere"></span><span id="sphereText">Tools</span>
 				</div>
 				<!-- Main Container -->
@@ -157,9 +152,16 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						</div>
 						<!-- Second Panel -->
 						<div id="firstContainerPanel2" class="panel">
+							<div class="navElement" id="buttonCropItContainer">
+								<input type="button" class="custom button large dark disabled" value ="Crop It" id="buttonCropIt" />
+								<div class="spinner large" role="progressbar" id="cropItProgressBar"></div>
+							</div>
 						</div>
 						<!-- Third Panel -->
 						<div id="firstContainerPanel3" class="panel">
+							<div id="videoDownloadButtonDiv">
+								<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
+							</div>
 						</div>
 					</div>
 
@@ -278,6 +280,9 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 
 
+
+
+
 				<!-- VIDEO AREA -->
 				<div id="videoContent">
 					<div id="videoContentCache">
@@ -288,13 +293,38 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							</p>
 						</div>
 					</div>
+					<div id="uploadZone">
+					</div>
 					<div id="cropsContainer">
 					</div>
 					<div id="videoPhotoBackground">
 					</div>
 				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			</div>
 		
+
+
+
+
+
+
 
 			
 			<!-- BODY END -->

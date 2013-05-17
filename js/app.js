@@ -59,6 +59,7 @@ jQuery(function($) {
 				if (ext) {
 					// var title = $("#fileupload").val();
 					// title = title.split(/(\\|\/)/g).pop();
+					$("#uploadZone").hide();
 					cropmodule.cropcrop("updateCropsTitle", data.files[0].name);
 					cropmodule.cropcrop("animateFavicon");
 					data.submit();
@@ -162,7 +163,7 @@ jQuery(function($) {
 	});
 
 	// Buttons
-	$('#buttonUpload').click(function(event) {
+	$('#uploadZone').click(function(event) {
 		event.preventDefault();
 		$("#fileupload").trigger("click");
 	});

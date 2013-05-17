@@ -195,6 +195,17 @@ body {
 		height               : 422px;
 		margin               : auto;
 		margin-bottom        : 25px;}
+		#uploadZone{
+			z-index: 50;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;}
+		#uploadZone:hover{
+			cursor: pointer;
+			background-color: rgba(255,255,255,.1);
+			border: 1px dashed #5DC1FF;}
 		#videoPhotoBackground{
 			z-index: 20;
 			background-position: center top; 
@@ -212,12 +223,6 @@ body {
 			bottom: 0;
 			left: 0;
 			right: 0;}
-			/*
-			#cropsContainer:hover{
-				cursor: pointer;
-				background-color: rgba(255,255,255,.1);
-				border: 1px dashed #5DC1FF;}
-			*/
 		#videoContentBackground{
 			margin           : auto;
 			padding-top      : 151px;
