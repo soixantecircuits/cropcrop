@@ -501,6 +501,7 @@ body {
 	#cropcropIcon{
 		display: inline-block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: 0px -59px;
 		width: 18px;
 		height: 18px;
@@ -511,6 +512,7 @@ body {
 	#centralUploadButton{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: 0px -119px;
 		margin-right: 0px;
 		padding-right: 30px;
@@ -527,6 +529,7 @@ body {
 	#toolIcon{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: 0px -274px;
 		width: 16px;
 		height: 16px;
@@ -538,6 +541,7 @@ body {
 	#autoCropIcon{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: 0px -59px;
 		width: 18px;
 		height: 18px;
@@ -547,6 +551,7 @@ body {
 	#downloadIcon{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: -27px -59px;
 		width: 18px;
 		height: 18px;
@@ -557,6 +562,7 @@ body {
 	#iconFormatScreens{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: 0px -295px;
 		width: 16px;
 		height: 16px;
@@ -566,6 +572,7 @@ body {
 	#iconCrops{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: 0px -316px;
 		width: 16px;
 		height: 16px;
@@ -575,6 +582,7 @@ body {
 	#iconText{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: 0px -337px;
 		width: 16px;
 		height: 16px;
@@ -585,6 +593,7 @@ body {
 	#logoGitHub{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: -3px 0px;
 		width: 18px;
 		height: 18px;
@@ -592,6 +601,7 @@ body {
 	#logoTwitter{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: -35px 0px;
 		width: 18px;
 		height: 18px;
@@ -599,6 +609,7 @@ body {
 	#logoFacebook{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: -62px 0px;
 		width: 18px;
 		height: 18px;
@@ -606,6 +617,7 @@ body {
 	#logoHelp{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
 		background-position: -89px 0px;
 		width: 18px;
 		height: 18px;
