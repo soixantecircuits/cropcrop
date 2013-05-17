@@ -143,8 +143,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							<!-- First Panel -->
 							<div id="secondContainerPanel1" class="panel selectedPanel">
 								<!-- Zone Predefined format screens add buttons -->
-								<div id="predefinedScreensContainer">
-									<h3>Add predefined screen :</h3>
+								<div id="predefinedScreensContainer" title="Add predefined screen.">
 									<span id="iconFormatScreens"></span>
 									<div class="navElement">
 										<div class="buttonBar">
@@ -160,8 +159,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 									</div>
 								</div>
 								<!-- Zone screen input -->
-								<form id="addScreenForm">
-									<h3>Add custom screens :</h3>
+								<form id="addScreenForm" title="Add custom screens">
 									<span id="iconCrops"></span>
 									<div class="navElement"  id="addScreenInputText">
 										<input class="text-field navInputText disabled" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
@@ -174,10 +172,10 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 									<span id="iconText"></span>
 									<div class="navElement" id="importExportContainer">
 										<a title="Import Screen" id="buttonImportScreen">
-											<input type="button" class="button large dark disabled" value="Import Screens list" />
+											<input type="button" class="button large dark disabled" value="Import Screens" />
 										</a>
 										<a title="Export Screen" id="buttonExportScreen">
-											<input type="button" class="button large dark disabled" value="Export Screens list" />
+											<input type="button" class="button large dark disabled" value="Export Screens" />
 										</a>
 									</div>
 								</div>
