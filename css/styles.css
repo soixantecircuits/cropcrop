@@ -80,6 +80,7 @@ body {
 		margin: auto;
 		text-transform: uppercase;}
 			.bg-slategray .custom.title {
+				text-transform  : none;
 				color           : #D4D7D7;
 				text-shadow     : none;
 				padding-top     : 10px;
@@ -225,10 +226,12 @@ body {
 			bottom: 0;
 			left: 0;
 			right: 0;}
+		/*
 		#uploadZone:hover{
 			cursor: pointer;
 			background-color: rgba(255,255,255,.1);
 			border: 1px dashed #5DC1FF;}
+		*/
 		#videoPhotoBackground{
 			z-index: 20;
 			background-position: center top; 
@@ -517,7 +520,6 @@ body {
 		font-size: 14px;}
 
 	#centralUploadButton{
-		background-color: #646666;
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
 		background-repeat: no-repeat;

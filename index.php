@@ -37,7 +37,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						<li><a href="https://www.facebook.com/pages/Soixante-circuits/148341911906454" title="Find us on Facebook"><span id="logoFacebook"></span></a></li>
 						<li><a href="#"  id="iconHelp" title="Help"><span id="logoHelp"></span></a></li>
 					</ul>
-					<h1 class="custom title">Crop crop <span id="cropcropIcon"></span></h1>
+					<h1 class="custom title">Crop Crop <span id="cropcropIcon"></span></h1>
 					<h2 class="customh2">Video cropping made easy</h2>
 				</div>
 			</header>
