@@ -525,7 +525,8 @@ body {
 		width: 16px;
 		height: 16px;
 		float: left;
-		margin-top: 9px;
+		margin-top: 7px;
+		margin-left: 9px;
 		margin-right: 9px;}
 
 	#autoCropIcon{
@@ -534,6 +535,7 @@ body {
 		background-position: 0px -59px;
 		width: 18px;
 		height: 18px;
+		margin-left: 100px;
 		float: left;}
 	#autoCropIcon:hover{
 		background-position: 0px -81px;}
@@ -550,7 +552,7 @@ body {
 	#iconFormatScreens{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
-		background-position: 0px -274px;
+		background-position: 0px -295px;
 		width: 16px;
 		height: 16px;
 		float: left;
@@ -559,7 +561,7 @@ body {
 	#iconCrops{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
-		background-position: 0px -295px;
+		background-position: 0px -316px;
 		width: 16px;
 		height: 16px;
 		float: left;
@@ -568,7 +570,7 @@ body {
 	#iconText{
 		display: block;
 		background-image: url("../img/cropcropIcons.png");
-		background-position: 0px -315px;
+		background-position: 0px -337px;
 		width: 16px;
 		height: 16px;
 		float: left;
