@@ -291,11 +291,11 @@ body {
 		    height: 25px;
 		    background: #5DC1FF;}
 		    .bar p {
+		    	position: absolute;
+		    	width: 100%;
 		    	margin: 0;
 				text-align: center;
-				font-size: 14px; }
-			    #progressBarTest {
-			    	margin: 0;}
+				font-size: 14px;}
 
 #progressBarText{
 	color : #FFF;
