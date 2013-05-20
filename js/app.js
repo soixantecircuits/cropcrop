@@ -143,16 +143,16 @@ jQuery(function($) {
 	//
 	// Has to be worked
 	//
-	// $("#toolsFirstContainer").resizable({
-	// 	handles: 's',
-	// 	maxHeight: "25%",
-	// 	minHeight: "50px"
-	// });
-	// $("#toolsSecondContainer").resizable({
-	// 	handles: 's',
-	// 	maxHeight: "25%",
-	// 	minHeight: "150px"
-	// });
+	$("#toolsFirstContainer").resizable({
+		handles: 's',
+		maxHeight: "174",
+		minHeight: "34"
+	});
+	$("#toolsSecondContainer").resizable({
+		handles: 's',
+		maxHeight: "216",
+		minHeight: "24"
+	});
 
 	// Menu
 	$("#toolsMainContainer").draggable({
