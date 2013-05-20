@@ -191,14 +191,13 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 							<!-- Second Panel -->
 							<div id="secondContainerPanel2" class="panel">
-								<p>
-									Place a photo over your video to help you draw the screens.
-								</p>
 								<span class="button-group">
 									<a id="buttonUploadYourPhoto" class="button dark disabled" role="button">Upload Photo</a>
 								</span>
+								<p>
+									Place a photo over your video to help you draw the screens.
+								</p>
 								<span id="photoOnOffContainer" class="disabled">
-									<label id="photoCheckboxLabel" for="photoCheckbox">Display Photo</label>
 									<input type="checkbox" checked="checked" class="slide-switch dark" id="photoCheckbox">
 									<label for="photoCheckbox">
 										<span class="wrapper">
@@ -207,6 +206,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 											<span class="off">OFF</span>
 										</span>
 									</label>
+									<label id="photoCheckboxLabel" for="photoCheckbox">Display Photo</label>
 						   		</span>
 							</div>
 
@@ -337,6 +337,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.fileupload.js"></script>
+		<script type="text/javascript" src="js/vendor/jquery.mousewheel.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.plugin.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.timer.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.tipsy.js"></script>
