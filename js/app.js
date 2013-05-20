@@ -157,7 +157,8 @@ jQuery(function($) {
 
 	// Menu
 	$("#toolsMainContainer").draggable({
-		handle: "#toolsMainContainerMainButton"
+		handle: "#toolsMainContainerMainButton",
+		containment: "body"
 	});
 	$("#toolsMainContainerMainButton").dblclick(function(event){
 		$('#sphere').trigger("click");
