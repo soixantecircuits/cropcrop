@@ -191,11 +191,13 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 							<!-- Second Panel -->
 							<div id="secondContainerPanel2" class="panel">
+								<!-- Zone screen import -->
+								<span id="iconPhoto"></span>
 								<span class="button-group">
 									<a id="buttonUploadYourPhoto" class="button dark disabled" role="button">Upload Photo</a>
 								</span>
 								<p>
-									Place a photo over your video to help you draw the screens.
+									* Place a photo over your video to help you draw the screens.
 								</p>
 								<span id="photoOnOffContainer" class="disabled">
 									<input type="checkbox" checked="checked" class="slide-switch dark" id="photoCheckbox">
@@ -206,7 +208,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 											<span class="off">OFF</span>
 										</span>
 									</label>
-									<label id="photoCheckboxLabel" for="photoCheckbox">Display Photo</label>
+									<img id="yourPhotoMini" src=""  width="62" alt="your photo" />
+									<!-- <label id="photoCheckboxLabel" for="photoCheckbox">Display Photo</label> -->
 						   		</span>
 							</div>
 

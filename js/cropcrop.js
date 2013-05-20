@@ -898,6 +898,7 @@
 
         function enablePhotoLayer( imagePath ) {
             photoPath = imagePath;
+            $("#yourPhotoMini").attr("src", imagePath);
             $("#photoOnOffContainer").removeClass("disabled");
             $("#videoPhotoBackground").css({
                 "background-image": "url('" + photoPath + "')",

@@ -461,6 +461,7 @@ body {
 				display: block;
 				margin-top: 8px;}
 	.panel{
+		color: #494a4a;
 		padding: 10px;
 		padding-top: 30px;
 		display: none;
@@ -622,6 +623,17 @@ body {
 		float: left;
 		margin-top: 1px;
 		margin-right: 18px;}
+	#iconPhoto{
+		display: block;
+		background-image: url("../img/cropcropIcons.png");
+		background-repeat: no-repeat;
+		background-position: 0px -358px;
+		width: 16px;
+		height: 16px;
+		float: left;
+		margin-top: 1px;
+		margin-right: 18px;
+		margin-bottom: 50px;}
 
 	#logoGitHub{
 		display: block;
@@ -684,8 +696,8 @@ body {
 		display: block;
 		float: left;
 		margin-top: 2px;
-		margin-left: 32px;
-		margin-right: 16px;
+		margin-left: 10px;
+		margin-right: 10px;
 		width: 0; 
 		height: 0; 
 		border-top: 5px solid transparent;
