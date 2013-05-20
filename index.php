@@ -240,7 +240,9 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 						</div>
 					</div>
 					<!-- Div where crops list will appear -->
-					<div id="videoCropListDiv">
+					<div class="panelContainer">
+						<div id="videoCropListDiv">
+						</div>
 					</div>
 				</div>
 
