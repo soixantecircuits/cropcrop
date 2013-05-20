@@ -671,6 +671,7 @@ body {
 		height: 20px;
 		cursor: pointer;}
 		#yourScreensText{
+			color: #3B3F41;
 			text-transform: uppercase;
 			vertical-align: super;}
 	#bulkArea{
@@ -679,14 +680,16 @@ body {
 		height: 223px;}
 
 	#triangle {
-		display: inline-block;
+		display: block;
+		float: left;
+		margin-top: 2px;
 		margin-left: 32px;
 		margin-right: 16px;
 		width: 0; 
 		height: 0; 
-		border-top: 7px solid transparent;
-		border-bottom: 7px solid transparent; 
-		border-left:7px solid #494D4E; 
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent; 
+		border-left: 5px solid #494D4E; 
 		-webkit-transition: all 500ms ease-in-out;
 		-moz-transition: all 500ms ease-in-out;
 		-o-transition: all 500ms ease-in-out;
