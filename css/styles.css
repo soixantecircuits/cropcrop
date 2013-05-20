@@ -732,3 +732,33 @@ body {
 			zoom: 1;}
 #addScreenForm{
 	margin-top: 7px;}
+
+#dropzone {
+    /*background-color: #FF0;
+    width: 150px;
+    height: 50px;*/
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    width: 960px;
+    height: 422px;
+	z-index: 499;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;}
+#dropzone.in {
+	background-color: rgba(255,255,255,.1);
+	border: 1px dashed #5DC1FF;}
+#dropzone.hover {
+	background-color: rgba(255,255,255,.1);
+	border: 1px dashed #5DC1FF;}
+#dropzone.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+}

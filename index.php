@@ -265,6 +265,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					</div>
 					<div id="uploadZone">
 					</div>
+					<div id="dropzone">
+					</div>
 					<div id="cropsContainer">
 					</div>
 					<div id="videoPhotoBackground">
