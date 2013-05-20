@@ -507,9 +507,8 @@ body {
 				background-color: #646666;}
 				.selectedMenu{
 					background-color: #646666;}
-				.selectedMenu.iconMenu{
-					background-color: rgba(0,0,0,0);}
-				.selectedMenu.iconMenu{
+				.iconMenu{
+					margin-right: 10px!important;
 					background-color: rgba(0,0,0,0);}
 					.toolsContainerMenu li h3{
 						margin: 5px!important;
