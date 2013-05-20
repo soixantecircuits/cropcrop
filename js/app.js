@@ -339,6 +339,11 @@ jQuery(function($) {
 	//
 	// Dropzone !
 	//
+	// Disable drag n' drop
+	$(document).bind('drop dragover', function (e) {
+	    e.preventDefault();
+	});
+	// Das Dropzone !
 	$(document).bind('dragover', function (e) {
     var dropZone = $('#dropzone'),
         timeout = window.dropZoneTimeout;
