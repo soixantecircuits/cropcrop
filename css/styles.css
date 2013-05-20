@@ -493,8 +493,7 @@ body {
 		.toolsContainerMenu li{
 			cursor: pointer;
 			margin: 0;
-			float: left;
-			margin-right: 5px;}
+			float: left;}
 			.menuTab{
 				height: 24px;}
 			.menuTab:hover{
