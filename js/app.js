@@ -195,10 +195,12 @@ jQuery(function($) {
 	// $('#buttonCropIt').click(function(event) {
 	$('#cropIcon').click(function(event) {
 		event.preventDefault();
-		$("#progressBarText").text("Croping your video, please wait....");
-		$('html').timer('start');
-		$('html').timer('start');
-		cropmodule.cropcrop("sendCrop");
+		if (crops.list.length > 0) {
+			$("#progressBarText").text("Croping your video, please wait....");
+			$('html').timer('start');
+			$('html').timer('start');
+			cropmodule.cropcrop("sendCrop");
+		};
 	});
 
 	$('#cache').click(function(event) {
