@@ -405,7 +405,8 @@ body {
 	#toolsFirstContainer{}
 		#toolsFirstContainer .toolsContainerMenu{
 			padding-top: 14px;}
-		#firstContainerPanel1{}
+		#firstContainerPanel1{
+			color: #3a3c3d;}
 			#thumbnailsContainer{
 				width: 224px;}
 				#thumbnailsList{
