@@ -144,7 +144,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							<ul class="toolsContainerMenu">
 								<li class="menuTab selectedMenu" data-associatedPanel="secondContainerPanel1"><h3>Add screen</h3></li>
 								<li class="menuTab" data-associatedPanel="secondContainerPanel2"><h3>Add photo</h3></li>
-								<li class="menuTab" data-associatedPanel="secondContainerPanel3"><h3>AutoCrop</h3></li>
 							</ul>
 
 
@@ -187,6 +186,20 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 										</a>
 									</div>
 								</div>
+								<!-- Zone autocrop -->
+								<div class="navElement" id="autoCropCheckboxDiv">
+									<p id="autoCropOnOff" class="disabled">
+										<label id="autoCropCheckboxLabel" for="autoCropCheckbox">Autocrop</label>
+										<input type="checkbox" class="slide-switch dark" id="autoCropCheckbox">
+										<label for="autoCropCheckbox">
+											<span class="wrapper">
+												<span class="on">ON</span>
+												<span class="switch"></span>
+												<span class="off">OFF</span>
+											</span>
+										</label>
+							   		</p>
+								</div>
 							</div>
 
 							<!-- Second Panel -->
@@ -211,24 +224,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 									<img id="yourPhotoMini" src=""  width="62" alt="your photo" />
 									<!-- <label id="photoCheckboxLabel" for="photoCheckbox">Display Photo</label> -->
 						   		</span>
-							</div>
-
-							<!-- Third Panel -->
-							<div id="secondContainerPanel3" class="panel">
-								<!-- Zone autocrop -->
-								<div class="navElement" id="autoCropCheckboxDiv">
-									<p id="autoCropOnOff" class="disabled">
-										<label id="autoCropCheckboxLabel" for="autoCropCheckbox">Autocrop</label>
-										<input type="checkbox" class="slide-switch dark" id="autoCropCheckbox">
-										<label for="autoCropCheckbox">
-											<span class="wrapper">
-												<span class="on">ON</span>
-												<span class="switch"></span>
-												<span class="off">OFF</span>
-											</span>
-										</label>
-							   		</p>
-								</div>
 							</div>
 						</div>
 						<div id="showCropListDivButtonDiv">
