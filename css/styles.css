@@ -194,12 +194,14 @@ body {
 							line-height           : 50px;
 							margin-top            : 0;
 							border-bottom         : 1px solid #D4D7D7;}
+						/*
 						.videoCropListDivElement:hover{
 						    -webkit-transition: all .1s; 
 							   -moz-transition: all .1s; 
 						         -o-transition: all .1s; 
 						            transition: all .1s;
 							background-color       : rgba(0,255,255, 0.5);}
+							*/
 							.videoCropListDivElementContent{
 								display           : inline-block;
 								vertical-align    : middle;}
@@ -327,6 +329,12 @@ body {
 	margin-top: 3px;
 	display: inline-block;}
 
+.deleteContainer{
+	cursor: pointer;
+	width: 16px;}
+.deleteContainer:hover{
+	color: #5DC1FF;}
+/*
 .cropDestroyerContainer{
 	color: #FFF;
 	background-color: #F00;
@@ -342,6 +350,7 @@ body {
 		text-align: center;
 		margin-top: -16px;
 		margin-left: -4px;}
+*/
 
 #footerContent p{
 	line-height: 25px;}

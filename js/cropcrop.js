@@ -1025,7 +1025,8 @@
             displayPhotoLayer: displayPhotoLayer,
             destroyCrop: destroyCrop,
             bulkExcel: bulkExcel,
-            bulkJson: bulkJson
+            bulkJson: bulkJson,
+            enableUserInterface: enableUserInterface
 
         };
     }

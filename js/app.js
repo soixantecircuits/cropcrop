@@ -314,7 +314,6 @@ jQuery(function($) {
 	//
 	// Bob
 	//
-
 	$('#showCropListDivButtonDiv').click(function(event) {
 		event.preventDefault();
 		if (isCropMenuShown === 0) {
