@@ -142,6 +142,7 @@ body {
 					margin-bottom: 7px;}
 
 			#autoCropCheckboxDiv{
+				float: right;
 				display: block;
 				text-align: center;}
 
@@ -457,7 +458,9 @@ body {
 			#screenImportContainer{
 				margin-top: 10px;}
 				#buttonImportScreen{
-					display: inline;}
+					display: block;}
+				#buttonExportScreen{
+					display: block;}
 			#autoCropCheckboxLabel{
 				display: block;
 				margin-top: 8px;}
@@ -524,8 +527,7 @@ body {
 	display: none;}
 .inline{
 	display: inline;}
-#importExportContainer{
-	width:142px;}
+#importExportContainer{}
 
 
 
