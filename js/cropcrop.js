@@ -16,6 +16,7 @@
     function Plugin(element, options) {
         // References to DOM and jQuery versions of element.
         photoEnabled = true;
+        thumnbnailsLoaded = false;
         serverPath = "server/php/";
         photoPath = "server/php/";
         videoInformations = {};
@@ -178,12 +179,11 @@
 
             }).done(function(datas) {
                 $('html').timer('stop');
-
                 thumnbnailsinfos = datas;
                 createCarousel(thumnbnailsinfos);
                 $("#progressBarText").text("You can now add screens to crop with video");
+                thumnbnailsLoaded = true;
                 defaultFavicon();
-
             });
         }
 
