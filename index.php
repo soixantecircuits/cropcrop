@@ -300,14 +300,22 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 				<div id="cropSelectionid__rectangle" class="rectangle videoCropListDivElementContent">
 				</div>
 				<div class="videoCropListDivElementContent inputContainer">
+				<!-- 
 					<input type="text" id="inputWidthid" placeholder="W : ' + width + '" />
 					<input type="text" id="inputHeightid" placeholder="H : ' + height + '" />
+				 -->
+					<span class="cropInfo" id="inputWidthid">W : ' + width + '</span>
+					<span class="cropInfo" id="inputHeightid">H : ' + height + '</span>
 				</div>
 				<div class="videoCropListDivElementContent inputContainer">
+				<!-- 
 					<input type="text" id="inputTopid" placeholder="T : ' + marginTop + '" />
 					<input type="text" id="inputLeftid" placeholder="L : ' + marginLeft + '" />
+				 -->
+					<span class="cropInfo" id="inputTopid">T : ' + marginTop + '</span>
+					<span class="cropInfo" id="inputLeftid">L : ' + marginLeft + '</span>
 				</div>
-				<div class="videoCropListDivElementContent deleteContainer">
+				<div id="cropSelectionid__destroyer" class="cropDestroyerContainer videoCropListDivElementContent deleteContainer">
 					X
 					<!-- <p id="cropSelectionid__destroyer" class="cropDestroyerContainer"> -->
 						<!-- <span class="cropDestroyer">X</span> -->

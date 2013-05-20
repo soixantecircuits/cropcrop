@@ -316,13 +316,13 @@
             content.attr("id", "videoCropListDivElement" + id);
             content.find("#cropSelection2 p").text(id + " .");
             content.find("#inputWidthid").attr("id", "inputWidth" + id);
-            content.find("#inputWidth" + id).attr("placeholder", "W : " + width);
+            content.find("#inputWidth" + id).text("W : " + width);
             content.find("#inputHeightid").attr("id", "inputHeight" + id);
-            content.find("#inputHeight" + id).attr("placeholder", "H : " + height);
+            content.find("#inputHeight" + id).text("H : " + height);
             content.find("#inputTopid").attr("id", "inputTop" + id);
-            content.find("#inputTop" + id).attr("placeholder", "T : " + marginTop);
+            content.find("#inputTop" + id).text("T : " + marginTop);
             content.find("#inputLeftid").attr("id", "inputLeft" + id);
-            content.find("#inputLeft" + id).attr("placeholder", "L : " + marginLeft);
+            content.find("#inputLeft" + id).text("L : " + marginLeft);
             content.find("#cropSelectionid__rectangle").attr("id", "rectangle" + id);
             content.find("#cropSelectionid__destroyer").attr("id", "destroyer" + id);
 
@@ -338,15 +338,15 @@
         function updateSize(id, width, height) {
             crops.list[id].width = width;
             crops.list[id].height = height;
-            $('#inputWidth' + id).attr("placeholder", "W : " + crops.list[id].width);
-            $('#inputHeight' + id).attr("placeholder", "H : " + crops.list[id].height);
+            $('#inputWidth' + id).text("W : " + crops.list[id].width);
+            $('#inputHeight' + id).text("H : " + crops.list[id].height);
         }
 
         function updatePos(id, top, left) {
             crops.list[id].marginTop = calculPosTop;
             crops.list[id].marginLeft = calculPosLeft;
-            $('#inputTop' + id).attr("placeholder", "T : " + crops.list[id].marginTop);
-            $('#inputLeft' + id).attr("placeholder", "L : " + crops.list[id].marginLeft);
+            $('#inputTop' + id).text("T : " + crops.list[id].marginTop);
+            $('#inputLeft' + id).text("L : " + crops.list[id].marginLeft);
         }
         //
         // UPDATE SLAVES SIZE
@@ -381,10 +381,10 @@
             crops.list[id].height = height;
             crops.list[id].marginTop = top;
             crops.list[id].marginLeft = left;
-            $('#inputWidth' + id).attr("placeholder", "W : " + crops.list[id].width);
-            $('#inputHeight' + id).attr("placeholder", "H : " + crops.list[id].height);
-            $('#inputTop' + id).attr("placeholder", "T : " + crops.list[id].marginTop);
-            $('#inputLeft' + id).attr("placeholder", "L : " + crops.list[id].marginLeft);
+            $('#inputWidth' + id).text("W : " + crops.list[id].width);
+            $('#inputHeight' + id).text("H : " + crops.list[id].height);
+            $('#inputTop' + id).text("T : " + crops.list[id].marginTop);
+            $('#inputLeft' + id).text("L : " + crops.list[id].marginLeft);
             $("#cropNumber" + id).css({
                 width: crops.list[id].width,
                 height: crops.list[id].height,

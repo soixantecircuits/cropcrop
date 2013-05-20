@@ -183,6 +183,7 @@ body {
 								margin-top: 8px!important;
 								font: 14px/27px "source-sb",helvetica,arial,sans-serif !important;}
 					#videoCropListDiv{
+						position: absolute;
 						background-color: rgba(0,0,0, 0.5);
 						max-height: 300px;
 						overflow-y: scroll;}
@@ -191,8 +192,8 @@ body {
 							   -moz-transition: all .8s; 
 						         -o-transition: all .8s; 
 						            transition: all .8s;
+							width                 : 227px;
 							text-align            : center;
-							line-height           : 50px;
 							margin-top            : 0;
 							border-bottom         : 1px solid #D4D7D7;}
 						/*
@@ -211,8 +212,7 @@ body {
 								width             : 32px;}
 							.inputContainer{
 								width             : 64px;}
-							.videoCropListDivElementContent input{
-								background-color  : #c7c7c9; 
+							.videoCropListDivElementContent span{
 								width             : 48px;
 								display           : inline-block;}
 	#videoContent{
