@@ -61,6 +61,7 @@ jQuery(function($) {
 					// var title = $("#fileupload").val();
 					// title = title.split(/(\\|\/)/g).pop();
 					$("#uploadZone").hide();
+					$("#dropzone").hide();
 					cropmodule.cropcrop("updateCropsTitle", data.files[0].name);
 					cropmodule.cropcrop("animateFavicon");
 					data.submit();
