@@ -333,6 +333,8 @@
             $("#rectangle" + id).css({
                 "background-color": 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')'
             });
+            // Update menu
+            $('#videoCropListDivContainer').perfectScrollbar("update");
         }
 
         function updateSize(id, width, height) {

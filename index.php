@@ -238,12 +238,15 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 								<span id="yourScreensText">Your screens</span>
 							</div>
 						</div>
-					</div>
-					<!-- Div where crops list will appear -->
-					<div class="panelContainer">
-						<div id="videoCropListDiv">
+
+						<div class="panelContainer">
+							<div id="videoCropListDivContainer">
+								<div id="videoCropListDiv">
+								</div>
+							</div>
 						</div>
 					</div>
+					<!-- Div where crops list will appear -->
 				</div>
 
 

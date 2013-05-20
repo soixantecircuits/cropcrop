@@ -139,6 +139,7 @@ jQuery(function($) {
 	$('#downloadIcon').tipsy();
 	$('#cropIcon').tipsy();
 	$("#videoCropListDiv").perfectScrollbar();
+	$('#videoCropListDivContainer').perfectScrollbar();
 
 	//
 	// Has to be worked
@@ -332,6 +333,7 @@ jQuery(function($) {
 		}
 	});
 	// jQuery end
+// $('#videoCropListDiv').perfectScrollbar();
 });
 
 
