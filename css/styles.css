@@ -465,7 +465,6 @@ body {
 				display: block;
 				margin-top: 8px;}
 	.panel{
-		color: #494a4a;
 		padding: 10px;
 		padding-top: 30px;
 		display: none;
@@ -478,6 +477,7 @@ body {
 			margin-top: 0;
 			margin-bottom: 0;}
 		.panel p{
+			color: #494a4a;
 			padding-top: 3px;
 			padding-bottom: 3px;
 			margin: 0;}
