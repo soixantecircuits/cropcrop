@@ -138,6 +138,7 @@ jQuery(function($) {
 	$('#videoCropListDiv,#cropItProgressBar,#toolsMainContainerContent,#hiddenElements,#cache,#informationModal,#warningJavascriptNotEnabled').hide();
 	$('#downloadIcon').tipsy();
 	$('#cropIcon').tipsy();
+	$("#videoCropListDiv").perfectScrollbar();
 	//
 	// Has to be worked
 	//
