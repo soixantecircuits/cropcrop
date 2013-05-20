@@ -65,9 +65,12 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 				<div id="toolsMainContainer">
 					<!-- Button -->
-					<div id="toolsMainContainerMainButton" title="Doubleclick to toggle">
-						<span id="toolIcon"></span><span id="sphere" title="Click to toggle"></span><span id="sphereText">Tools</span>
+					<div class="panelContainerButton">
+						<div id="toolsMainContainerMainButton" title="Doubleclick to toggle">
+							<span id="toolIcon"></span><span id="sphere" title="Click to toggle"></span><span id="sphereText">Tools</span>
+						</div>
 					</div>
+
 					<!-- Main Container -->
 	 				<div id="toolsMainContainerContent">
 
@@ -76,63 +79,65 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							First Container 
 
 						-->
-						<div id="toolsFirstContainer" class="toolsContainer">
-							<ul class="toolsContainerMenu">
-								<li class="menuTab selectedMenu" data-associatedPanel="firstContainerPanel1"><h3>Your video</h3></li>
-								<li class="noBg floatRight iconMenu" data-associatedPanel="firstContainerPanel3">
-									<a title="Download It" href="#" target="_blank" id="buttonDownloadIt">
-										<span original-title="Download video" id="downloadIcon"></span>
-									</a>
-								</li>
-								<li class="noBg floatRight iconMenu" data-associatedPanel="firstContainerPanel2">
-									<span original-title="Crop" id="cropIcon"></span>
-								</li>
-							</ul>
-
-
-							<!-- First Panel -->
-							<div id="firstContainerPanel1" class="panel selectedPanel">
-								<ul id="videoInformationsDiv">
-									<li>
-										<strong><span id="videoInformationsTitle">...</span></strong>
+						<div class="panelContainer">
+							<div id="toolsFirstContainer" class="toolsContainer">
+								<ul class="toolsContainerMenu">
+									<li class="menuTab selectedMenu" data-associatedPanel="firstContainerPanel1"><h3>Your video</h3></li>
+									<li class="noBg floatRight iconMenu" data-associatedPanel="firstContainerPanel3">
+										<a title="Download It" href="#" target="_blank" id="buttonDownloadIt">
+											<span original-title="Download video" id="downloadIcon"></span>
+										</a>
 									</li>
-									<li>
-										Dimensions : <span id="videoInformationsWidth">...</span> x <span id="videoInformationsHeight">...</span>
-									</li>
-									<li>
-										Size : <span id="videoInformationsSize">...</span>
-									</li>
-									<li>
-										FPS : <span id="videoInformationsFPS">...</span>
+									<li class="noBg floatRight iconMenu" data-associatedPanel="firstContainerPanel2">
+										<span original-title="Crop" id="cropIcon"></span>
 									</li>
 								</ul>
-								<div id="thumbnailsContainer">
-									<div id="thumbnailsList">
-										<!--
-										<button id="carouselPrev" class="button dark prev disabled"> << </button>
-										<button id="carouselNext" class="button dark next disabled"> >> </button>
-										-->
-										<div class="thumbnailsCarousel">
-											<ul id="carouselContainer">
-												<li><img id="mini1" src="" alt="" width="" height="" data-big=""></li>
-												<li><img id="mini2" src="" alt="" width="" height="" data-big=""></li>
-												<li><img id="mini3" src="" alt="" width="" height="" data-big=""></li>
-											</ul>
+
+
+								<!-- First Panel -->
+								<div id="firstContainerPanel1" class="panel selectedPanel">
+									<ul id="videoInformationsDiv">
+										<li>
+											<strong><span id="videoInformationsTitle">...</span></strong>
+										</li>
+										<li>
+											Dimensions : <span id="videoInformationsWidth">...</span> x <span id="videoInformationsHeight">...</span>
+										</li>
+										<li>
+											Size : <span id="videoInformationsSize">...</span>
+										</li>
+										<li>
+											FPS : <span id="videoInformationsFPS">...</span>
+										</li>
+									</ul>
+									<div id="thumbnailsContainer">
+										<div id="thumbnailsList">
+											<!--
+											<button id="carouselPrev" class="button dark prev disabled"> << </button>
+											<button id="carouselNext" class="button dark next disabled"> >> </button>
+											-->
+											<div class="thumbnailsCarousel">
+												<ul id="carouselContainer">
+													<li><img id="mini1" src="" alt="" width="" height="" data-big=""></li>
+													<li><img id="mini2" src="" alt="" width="" height="" data-big=""></li>
+													<li><img id="mini3" src="" alt="" width="" height="" data-big=""></li>
+												</ul>
+											</div>
 										</div>
 									</div>
 								</div>
+								<!-- Second Panel -->
+								<!-- <div id="firstContainerPanel2" class="panel">
+									<div class="navElement" title="Crop" id="buttonCropItContainer">
+										<input type="button" class="custom button large dark disabled" value ="Crop It" id="buttonCropIt" />
+										<div class="spinner large" role="progressbar" id="cropItProgressBar"></div>
+									</div>
+								</div> -->
+								<!-- Third Panel -->
+								<!-- <div id="firstContainerPanel3" class="panel">
+									<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" title="Download video" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
+								</div> -->
 							</div>
-							<!-- Second Panel -->
-							<!-- <div id="firstContainerPanel2" class="panel">
-								<div class="navElement" title="Crop" id="buttonCropItContainer">
-									<input type="button" class="custom button large dark disabled" value ="Crop It" id="buttonCropIt" />
-									<div class="spinner large" role="progressbar" id="cropItProgressBar"></div>
-								</div>
-							</div> -->
-							<!-- Third Panel -->
-							<!-- <div id="firstContainerPanel3" class="panel">
-								<a title="Download It" target="_blank" id="buttonDownloadIt"><input type="button" title="Download video" class="button cta large dark disabled" value="Download It" id="buttonDownloadItInput" /></a>
-							</div> -->
 						</div>
 
 						<!-- 
@@ -140,64 +145,65 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							Second Container 
 
 						-->
-						<div id="toolsSecondContainer" class="toolsContainer">
-							<ul class="toolsContainerMenu">
-								<li class="menuTab selectedMenu" data-associatedPanel="secondContainerPanel1"><h3>Add screen</h3></li>
-								<li class="menuTab" data-associatedPanel="secondContainerPanel2"><h3>Add photo</h3></li>
-							</ul>
+						<div class="panelContainer">
+							<div id="toolsSecondContainer" class="toolsContainer">
+								<ul class="toolsContainerMenu">
+									<li class="menuTab selectedMenu" data-associatedPanel="secondContainerPanel1"><h3>Add screen</h3></li>
+									<li class="menuTab" data-associatedPanel="secondContainerPanel2"><h3>Add photo</h3></li>
+								</ul>
 
-
-							<!-- First Panel -->
-							<div id="secondContainerPanel1" class="panel selectedPanel">
-								<!-- Zone Predefined format screens add buttons -->
-								<div id="predefinedScreensContainer" title="Add predefined screen.">
-									<span id="iconFormatScreens"></span>
-									<div class="navElement">
-										<div class="buttonBar">
-											<a role="button" class="formatButton button dark disabled" id="buttonFormat1_1" data-width="1" data-height="1"  >1 : 1</a>
-											<a role="button" class="formatButton button dark disabled" id="buttonFormat3_2" data-width="1.5" data-height="1"  >3 : 2</a>
-											<a role="button" class="formatButton button dark disabled" id="buttonFormat4_3" data-width="1.33" data-height="1" >4 : 3</a>
-										</div>
-										<div class="buttonBar">
-											<a role="button" class="formatButton button dark disabled" id="buttonFormat5_3" data-width="1.77" data-height="1" >5 : 3</a>
-											<a role="button" class="formatButton button dark disabled" id="buttonFormat16_9" data-width="1.66" data-height="1" >16 : 9</a>
-											<a role="button" class="formatButton button dark disabled" id="buttonFormat16_10" data-width="1.618" data-height="1" >16 : 10</a>
+								<!-- First Panel -->
+								<div id="secondContainerPanel1" class="panel selectedPanel">
+									<!-- Zone Predefined format screens add buttons -->
+									<div id="predefinedScreensContainer" title="Add predefined screen.">
+										<span id="iconFormatScreens"></span>
+										<div class="navElement">
+											<div class="buttonBar">
+												<a role="button" class="formatButton button dark disabled" id="buttonFormat1_1" data-width="1" data-height="1"  >1 : 1</a>
+												<a role="button" class="formatButton button dark disabled" id="buttonFormat3_2" data-width="1.5" data-height="1"  >3 : 2</a>
+												<a role="button" class="formatButton button dark disabled" id="buttonFormat4_3" data-width="1.33" data-height="1" >4 : 3</a>
+											</div>
+											<div class="buttonBar">
+												<a role="button" class="formatButton button dark disabled" id="buttonFormat5_3" data-width="1.77" data-height="1" >5 : 3</a>
+												<a role="button" class="formatButton button dark disabled" id="buttonFormat16_9" data-width="1.66" data-height="1" >16 : 9</a>
+												<a role="button" class="formatButton button dark disabled" id="buttonFormat16_10" data-width="1.618" data-height="1" >16 : 10</a>
+											</div>
 										</div>
 									</div>
-								</div>
-								<!-- Zone screen input -->
-								<form id="addScreenForm" title="Add custom screens">
-									<span id="iconCrops"></span>
-									<div class="navElement"  id="addScreenInputText">
-										<input class="text-field navInputText disabled" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
-										<input class="text-field navInputText disabled" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
+									<!-- Zone screen input -->
+									<form id="addScreenForm" title="Add custom screens">
+										<span id="iconCrops"></span>
+										<div class="navElement"  id="addScreenInputText">
+											<input class="text-field navInputText disabled" type="text" placeholder="W:" name="text_field" id="navInputTextWidth">
+											<input class="text-field navInputText disabled" type="text" placeholder="H:" name="text_field" id="navInputTextHeight">
+										</div>
+										<input type="submit" class="navElement button dark disabled" value ="Ok" id="buttonAddScreen" />
+									</form>
+									<!-- Zone autocrop -->
+									<div class="navElement" id="autoCropCheckboxDiv">
+										<p id="autoCropOnOff" class="disabled">
+											<label id="autoCropCheckboxLabel" for="autoCropCheckbox">Autocrop</label>
+											<input type="checkbox" class="slide-switch dark" id="autoCropCheckbox">
+											<label for="autoCropCheckbox">
+												<span class="wrapper">
+													<span class="on">ON</span>
+													<span class="switch"></span>
+													<span class="off">OFF</span>
+												</span>
+											</label>
+										</p>
 									</div>
-									<input type="submit" class="navElement button dark disabled" value ="Ok" id="buttonAddScreen" />
-								</form>
-								<!-- Zone autocrop -->
-								<div class="navElement" id="autoCropCheckboxDiv">
-									<p id="autoCropOnOff" class="disabled">
-										<label id="autoCropCheckboxLabel" for="autoCropCheckbox">Autocrop</label>
-										<input type="checkbox" class="slide-switch dark" id="autoCropCheckbox">
-										<label for="autoCropCheckbox">
-											<span class="wrapper">
-												<span class="on">ON</span>
-												<span class="switch"></span>
-												<span class="off">OFF</span>
-											</span>
-										</label>
-									</p>
-								</div>
-								<!-- Zone screen import -->
-								<div id="screenImportContainer">
-									<span id="iconText"></span>
-									<div class="navElement" id="importExportContainer">
-										<a title="Import Screen" id="buttonImportScreen">
-											<input type="button" class="button dark disabled" value="Import Screens" />
-										</a>
-										<a title="Export Screen" id="buttonExportScreen">
-											<input type="button" class="button dark disabled" value="Export Screens" />
-										</a>
+									<!-- Zone screen import -->
+									<div id="screenImportContainer">
+										<span id="iconText"></span>
+										<div class="navElement" id="importExportContainer">
+											<a title="Import Screen" id="buttonImportScreen">
+												<input type="button" class="button dark disabled" value="Import Screens" />
+											</a>
+											<a title="Export Screen" id="buttonExportScreen">
+												<input type="button" class="button dark disabled" value="Export Screens" />
+											</a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -223,12 +229,14 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 									</label>
 									<img id="yourPhotoMini" src=""  width="62" alt="your photo" />
 									<!-- <label id="photoCheckboxLabel" for="photoCheckbox">Display Photo</label> -->
-						   		</span>
+							   	</span>
 							</div>
 						</div>
-						<div id="showCropListDivButtonDiv">
-							<span id="triangle"></span>
-							<span id="yourScreensText">Your screens</span>
+						<div class="panelContainer">
+							<div id="showCropListDivButtonDiv">
+								<span id="triangle"></span>
+								<span id="yourScreensText">Your screens</span>
+							</div>
 						</div>
 					</div>
 					<!-- Div where crops list will appear -->

@@ -361,7 +361,6 @@ body {
 #toolsMainContainer{
 	/* color: #c6c8c8; */
 	color: #c7c7c9;
-	background-color: rgba(222,226,225,.3);
 	padding: 3px;
 	z-index: 500;
 	position: fixed;
@@ -466,6 +465,13 @@ body {
 			#autoCropCheckboxLabel{
 				display: block;
 				margin-top: 8px;}
+	.panelContainer{
+		background-color: rgba(222,226,225,.3);
+		padding: 3px;
+		padding-top: 0;}
+	.panelContainerButton{
+		background-color: rgba(222,226,225,.3);
+		padding: 3px;}
 	.panel{
 		padding: 10px;
 		padding-top: 30px;
@@ -684,6 +690,7 @@ body {
 	.floatRight{
 		float: right!important;}
 	#showCropListDivButtonDiv{
+		padding-top: 5px;
 		background-color: #646666;
 		height: 20px;
 		cursor: pointer;}
