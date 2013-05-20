@@ -104,8 +104,8 @@ body {
 
 
 #body {
-	padding-bottom: 100px;   /* Height of the footer, don't forget to change #footer value */
-	}
+	/* Height of the footer, don't forget to change #footer value */
+	padding-bottom: 100px;}
 
 #progressContainer{
 	height: 25px;
@@ -270,6 +270,7 @@ body {
 			height: 100%;
 			}
 		.cropLayer{
+			cursor: move;
 			z-index: 0;}
 			.topLayer{
 				z-index: 1;}
