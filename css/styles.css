@@ -211,6 +211,7 @@ body {
 							.inputContainer{
 								width             : 64px;}
 							.videoCropListDivElementContent input{
+								background-color  : #c7c7c9; 
 								width             : 48px;
 								display           : inline-block;}
 	#videoContent{
@@ -357,7 +358,8 @@ body {
 
 /* Bob */
 #toolsMainContainer{
-	color: #c6c8c8;
+	/* color: #c6c8c8; */
+	color: #c7c7c9;
 	background-color: rgba(222,226,225,.3);
 	padding: 3px;
 	z-index: 500;
@@ -670,7 +672,7 @@ body {
 		height: 20px;
 		cursor: pointer;}
 		#yourScreensText{
-			color: #3B3F41;
+			color: #494a4a;
 			text-transform: uppercase;
 			vertical-align: super;}
 	#bulkArea{

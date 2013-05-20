@@ -1027,7 +1027,6 @@
             bulkExcel: bulkExcel,
             bulkJson: bulkJson,
             enableUserInterface: enableUserInterface
-
         };
     }
 
