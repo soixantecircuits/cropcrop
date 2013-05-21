@@ -930,6 +930,9 @@
 
         function destroyCrop( id ) {
             crops.list.splice(id, 1);
+            for (var i = 0; i < crops.list.length; i++) {
+                crops.list[i].screenId = i;
+            }
             $("#cropNumber" + id).remove();
             $("#videoCropListDivElement" + id).remove();
             resetInterface();
@@ -946,7 +949,6 @@
             for (var i = 0; i < crops.list.length; i++) {
                 addCropLayerToUI( i );
             };
-
         }
 
 
