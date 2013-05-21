@@ -311,10 +311,10 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 			</div>
 
 			<div class="videoCropListDivElement" id="videoCropListDivElementModel">
+				<div id="cropSelectionid__rectangle" class="rectangle videoCropListDivElementContent">
+				</div>
 				<div id="cropSelection2" class="videoCropListDivElementContent">
 					<p>id . </p>
-				</div>
-				<div id="cropSelectionid__rectangle" class="rectangle videoCropListDivElementContent">
 				</div>
 				<div class="videoCropListDivElementContent inputContainer">
 				<!-- 
