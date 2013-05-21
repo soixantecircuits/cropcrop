@@ -339,6 +339,12 @@
                 $("#cropLi").attr("original-title", "You can now crop your video");
             }
             $('#videoCropListDivContainer').perfectScrollbar("update");
+            if (isCropMenuShown === 0) {
+                event.preventDefault();
+                $('#videoCropListDiv').slideDown();
+                $('#triangle').toggleClass('up');
+                isCropMenuShown = 1;
+            }
         }
 
         function updateSize(id, width, height) {

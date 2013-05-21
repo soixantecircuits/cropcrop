@@ -5,7 +5,7 @@ jQuery(function($) {
 	// Script part
 	var closeTabWithoutWarning = false;
 	isToolsMainContainer = 0;
-	var isCropMenuShown = 0;
+	isCropMenuShown = 0;
 
 	//
 	// Module dependant
