@@ -251,24 +251,21 @@
         }
 
         function createCarousel(thumnbnailsinfos) {
-            $("#mini1,#mini2,#mini3").attr('width', thumnbnailsinfos.message.miniwidth);
-            $("#mini1,#mini2,#mini3").attr('height', thumnbnailsinfos.message.miniheight);
+            // $("#mini1,#mini2,#mini3").attr('width', thumnbnailsinfos.message.miniwidth);
+            // $("#mini1,#mini2,#mini3").attr('height', thumnbnailsinfos.message.miniheight);
             $("#mini1").attr('src', "server/php/" + thumnbnailsinfos.message.mini1);
             $("#mini1").attr('data-big', serverPath + thumnbnailsinfos.message.thumbnails1);
             $("#mini2").attr('src', "server/php/" + thumnbnailsinfos.message.mini2);
             $("#mini2").attr('data-big', serverPath + thumnbnailsinfos.message.thumbnails2);
             $("#mini3").attr('src', "server/php/" + thumnbnailsinfos.message.mini3);
             $("#mini3").attr('data-big', serverPath + thumnbnailsinfos.message.thumbnails3);
-            $(function() {
-                $(".thumbnailsCarousel").jCarouselLite({
-                    btnNext: ".next",
-                    btnPrev: ".prev"
-                });
-            });
+            // $(function() {
+            //     $(".thumbnailsCarousel").jCarouselLite({
+            //         btnNext: ".next",
+            //         btnPrev: ".prev"
+            //     });
+            // });
         }
-
-
-
         //
         // SEND CROP
         //

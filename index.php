@@ -120,9 +120,9 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 											-->
 											<div class="thumbnailsCarousel">
 												<ul id="carouselContainer">
-													<li><img id="mini1" src="" alt="" width="" height="" data-big=""></li>
-													<li><img id="mini2" src="" alt="" width="" height="" data-big=""></li>
-													<li><img id="mini3" src="" alt="" width="" height="" data-big=""></li>
+													<li><img class="miniContainer" id="mini1" src="" alt="" width="" height="" data-big=""></li>
+													<li><img class="miniContainer" id="mini2" src="" alt="" width="" height="" data-big=""></li>
+													<li><img class="miniContainer" id="mini3" src="" alt="" width="" height="" data-big=""></li>
 												</ul>
 											</div>
 										</div>
@@ -364,7 +364,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 		<script type="text/javascript" src="js/vendor/jquery.plugin.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.timer.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.tipsy.js"></script>
-		<script type="text/javascript" src="js/vendor/jcarousellite_1.0.1.js"></script>
+		<!-- // <script type="text/javascript" src="js/vendor/jcarousellite_1.0.1.js"></script> -->
 		<script type="text/javascript" src="js/vendor/perfect-scrollbar.with-mousewheel.min.js"></script>
 		<!-- Our scripts :D -->
 		<script type="text/javascript" src="js/cropcrop.js"></script>

@@ -426,7 +426,7 @@ body {
 						#carouselContainer{
 							list-style-type: none;}
 							#carouselContainer li:first-child{
-								margin-left: -40px;}
+								margin-left: -50px;}
 							#carouselContainer li{
 								margin: 0;
 								float: left;
@@ -444,6 +444,12 @@ body {
 								         -o-transition: all .1s; 
 								            transition: all .1s;
 									opacity: 1;}
+									#carouselContainer li img{
+										background-attachment: fixed;
+										background-repeat: no-repeat;
+										background-size: contain;
+										-moz-background-size: contain;
+										width: 74px;}
 			#videoInformationsDiv{
 				z-index                : 999;
 				list-style-type        : none;
@@ -777,5 +783,4 @@ body {
 }
 
 .hiddenText{
-	opacity: 0;
-}
+	opacity: 0;}
