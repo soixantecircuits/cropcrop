@@ -4,7 +4,7 @@ jQuery(function($) {
 
 	// Script part
 	var closeTabWithoutWarning = false;
-	var isToolsMainContainer = 0;
+	isToolsMainContainer = 0;
 	var isCropMenuShown = 0;
 
 	//
@@ -144,7 +144,7 @@ jQuery(function($) {
 	//
 	$("#toolsFirstContainer").resizable({
 		handles: 's',
-		maxHeight: "174",
+		maxHeight: "204",
 		minHeight: "34"
 	});
 	$("#toolsSecondContainer").resizable({
