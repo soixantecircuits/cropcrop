@@ -338,6 +338,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: center 4px;
 	cursor: pointer;
+	margin-left: 10px;
 	height: 100%;
 	width: 7px;}
 .deleteContainer:hover{
