@@ -333,9 +333,15 @@ body {
 	display: inline-block;}
 
 .deleteContainer{
+	display: inline-block;
+	background-image: url("../img/delete_layer.png");
+	background-repeat: no-repeat;
+	background-position: center 4px;
 	cursor: pointer;
-	width: 16px;}
+	height: 100%;
+	width: 7px;}
 .deleteContainer:hover{
+	background-position: center -8px;
 	color: #5DC1FF;}
 /*
 .cropDestroyerContainer{
@@ -768,4 +774,8 @@ body {
     -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
     opacity: 1;
+}
+
+.hiddenText{
+	opacity: 0;
 }

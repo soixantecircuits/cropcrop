@@ -333,7 +333,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 					<span class="cropInfo" id="inputLeftid">L : ' + marginLeft + '</span>
 				</div>
 				<div id="cropSelectionid__destroyer" class="cropDestroyerContainer videoCropListDivElementContent deleteContainer">
-					X
+					<span class="hiddenText">x</span>
 					<!-- <p id="cropSelectionid__destroyer" class="cropDestroyerContainer"> -->
 						<!-- <span class="cropDestroyer">X</span> -->
 					<!-- </p> -->
