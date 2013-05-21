@@ -473,6 +473,15 @@ body {
 	.panelContainerButton{
 		background-color: rgba(222,226,225,.3);
 		padding: 3px;}
+	.panelContainerButton.selected{
+		background-color: rgba(222,226,225,.3);
+		padding: 3px;
+		padding-bottom: 0;}
+	.panelContainerButtonDiv{
+		background-color: rgba(222,226,225,.3);
+		padding: 3px;
+		padding-bottom: 0;
+		padding-top: 0;}
 	.panel{
 		padding: 10px;
 		padding-top: 30px;

@@ -234,7 +234,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							   	</span>
 							</div>
 						</div>
-						<div class="panelContainer">
+						<div class="panelContainerButtonDiv">
 							<div id="showCropListDivButtonDiv">
 								<span id="triangle"></span>
 								<span id="yourScreensText">Your screens</span>
