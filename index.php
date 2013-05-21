@@ -73,7 +73,6 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 					<!-- Main Container -->
 	 				<div id="toolsMainContainerContent">
-
 						<!-- 
 
 							First Container 
@@ -83,13 +82,16 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							<div id="toolsFirstContainer" class="toolsContainer">
 								<ul class="toolsContainerMenu">
 									<li class="menuTab selectedMenu" data-associatedPanel="firstContainerPanel1"><h3>Your video</h3></li>
-									<li class="noBg floatRight iconMenu" data-associatedPanel="firstContainerPanel3">
-										<a title="Download It" href="#" target="_blank" id="buttonDownloadIt">
-											<span original-title="Download video" id="downloadIcon"></span>
+									<li id="downloadLi" class="noBg floatRight iconMenu" original-title="No download ready yet..." data-associatedPanel="firstContainerPanel3">
+										<a title="Download It" class="disabled" href="#" target="_blank" id="buttonDownloadIt">
+											<span class="disabled" id="downloadIcon"></span>
 										</a>
 									</li>
-									<li class="noBg floatRight iconMenu" data-associatedPanel="firstContainerPanel2">
-										<span original-title="Crop" id="cropIcon"></span>
+									<li id="cropLi" original-title="You need to add a screen before croping." class="noBg floatRight iconMenu" data-associatedPanel="firstContainerPanel2">
+										<div class="spinner" role="progressbar" id="cropItProgressBar"></div>
+										<span id="cropIconContainer" class="disabled">
+											<span class="disabled" id="cropIcon"></span>
+										</span>
 									</li>
 								</ul>
 
@@ -303,8 +305,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 
 		  		<div id="response">
 		  		</div>
-				<ul id="image-list">
 
+				<ul id="image-list">
 				</ul>
 			</div>
 

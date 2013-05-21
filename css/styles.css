@@ -160,8 +160,10 @@ body {
 				#buttonCropIt{
 					width: 94px;}
 				#cropItProgressBar{
+					/*
 					margin-top: 8px;
-					margin-right: 32px;}
+					margin-right: 32px;
+					*/}
 
 			#yourVideoContent{
 				position: relative;
@@ -177,12 +179,6 @@ body {
 						text-align             : center;
 						background-color       : #595B5A;
 						height                 : 67px;}
-						#buttonDownloadIt{
-							text-align: center;
-							display: block;}
-							#buttonDownloadItInput{
-								margin-top: 8px!important;
-								font: 14px/27px "source-sb",helvetica,arial,sans-serif !important;}
 					#videoCropListDivContainer{
 						position: relative;
 						max-height: 150px;

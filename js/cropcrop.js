@@ -225,18 +225,21 @@
         // Enable user interface
         //
         // enableUserInterface()
-
         function enableUserInterface() {
-            $(".disabled").not("#buttonCropIt").not("#photoOnOffContainer").removeClass("disabled");
+            $(".disabled").
+                not("#buttonCropIt").
+                not("#photoOnOffContainer").
+                not("#buttonDownloadIt").
+                not("#downloadIcon").
+                not("#cropIconContainer").
+                not("#cropIcon").
+                removeClass("disabled");
         }
-
-
 
         //
         // Disable user interface
         //
         // disableUserInterface()
-
         function disableUserInterface() {
             $(".button inside dark large disabled", ".button end dark large disabled").addClass("disabled");
 
@@ -248,7 +251,6 @@
         }
 
         function createCarousel(thumnbnailsinfos) {
-
             $("#mini1,#mini2,#mini3").attr('width', thumnbnailsinfos.message.miniwidth);
             $("#mini1,#mini2,#mini3").attr('height', thumnbnailsinfos.message.miniheight);
             $("#mini1").attr('src', "server/php/" + thumnbnailsinfos.message.mini1);
@@ -257,7 +259,6 @@
             $("#mini2").attr('data-big', serverPath + thumnbnailsinfos.message.thumbnails2);
             $("#mini3").attr('src', "server/php/" + thumnbnailsinfos.message.mini3);
             $("#mini3").attr('data-big', serverPath + thumnbnailsinfos.message.thumbnails3);
-
             $(function() {
                 $(".thumbnailsCarousel").jCarouselLite({
                     btnNext: ".next",
@@ -277,7 +278,7 @@
         function sendCrop() {
             var jsondata = crops;
             // console.log(crops.title);
-            $("#buttonCropIt").hide();
+            $("#cropIconContainer").hide();
             $("#cropItProgressBar").fadeIn();
 
             var jsoninfo = jsondata;
@@ -287,31 +288,32 @@
                 data: {
                     json: jsoninfo
                 }
-
             }).done(function(datas) {
-
                 $("#progressBarText").text("Your videos are ready to download");
                 $('#buttonDownloadIt').attr("href", "server/php/download.php?filename=" + datas);
-                $('#buttonDownloadItInput').removeClass("disabled");
+                $('#buttonDownloadIt').removeClass("disabled");
+                $('#downloadLi').attr("original-title", "Download It !");
+                $('#downloadIcon').removeClass("disabled");
                 $("#buttonYourVideo,#buttonDownloadItInput").effect("highlight", {}, 1000);
                 $("#cropItProgressBar").hide();
-                $("#buttonCropIt").fadeIn();
+                $("#cropIconContainer").fadeIn();
                 $('html').timer('stop');
                 defaultFavicon();
             });
         }
 
-        function addToolbarInfos(id) {
+        function addToolbarInfos( id ) {
             // console.log(id);
             if (!crops.list[id]) {
                 return false;
             }
 
-            var content = "";
             var width = crops.list[id].width;
             var height = crops.list[id].height;
             var marginTop = crops.list[id].marginTop;
             var marginLeft = crops.list[id].marginLeft;
+            var content = "";
+            
             content = $("#videoCropListDivElementModel").clone();
             content.attr("id", "videoCropListDivElement" + id);
             content.find("#cropSelection2 p").text(id + " .");
@@ -334,6 +336,11 @@
                 "background-color": 'rgba(' + crops.list[id].color[0] + ',' + crops.list[id].color[1] + ',' + crops.list[id].color[2] + ',' + crops.list[id].color[3] + ')'
             });
             // Update menu
+            if (crops.list.length > 0) {
+                $("#cropIconContainer").removeClass("disabled");
+                $("#cropIcon").removeClass("disabled");
+                $("#cropLi").attr("original-title", "You can now crop your video");
+            }
             $('#videoCropListDivContainer').perfectScrollbar("update");
         }
 
@@ -702,7 +709,6 @@
         // addCropLayerToUI( id )
 
         function addCropLayerToUI(id) {
-
             $('#cropsContainer').append('<div class="cropLayer" id="cropNumber' + id + '"></div>');
             $('#cropNumber' + id).css({
                 'position': 'absolute',
@@ -807,7 +813,6 @@
         // checkExtension( target, arrayOfReferences )
 
         function checkExtension(target, arrayOfReferences) {
-
             target = target.split('.').pop();
             var control = false;
             for (var i = 0; i < arrayOfReferences.length; i++) {
@@ -934,6 +939,11 @@
         }
 
         function resetInterface() {
+            if (crops.list.length == 0) {
+                $('#cropLi').attr("original-title", "You need to add a screen before croping.");
+                $('#cropIconContainer').addClass("disabled");
+                $('#cropIcon').addClass("disabled");
+            }
             $("#cropsContainer").empty();
             $("#videoCropListDiv").empty();
             for (var i = 0; i < crops.list.length; i++) {
