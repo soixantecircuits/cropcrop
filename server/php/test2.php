@@ -1,4 +1,7 @@
 <?php 
+	$name = 
+	echo 
+
 	if (isset($_POST['name']))
 	{
 		$filename = $_POST['name'];

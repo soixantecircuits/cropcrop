@@ -53,6 +53,10 @@
 	background-color: #278ddf;
 	background-image: -webkit-gradient(linear,left top,left bottom,from(#278ddf),to(#278ddf));
 	background-image: linear-gradient(top,#278ddf,#278ddf);}
+.disabled {
+    cursor: default!important;
+    opacity: 0.6;
+    pointer-events: none;}
 
   /**********/
  /* Styles */
@@ -263,8 +267,7 @@ body {
 		#videoContentCache{
 			position: absolute;
 			width: 100%;
-			height: 100%;
-			}
+			height: 100%;}
 		.cropLayer{
 			cursor: move;
 			z-index: 0;}
@@ -291,7 +294,8 @@ body {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: rgba(255,255,255,0.5);}
+	background-color: rgba(255,255,255,0.5);
+	display: none;}
 #informationModal{
 	position: fixed;
 	z-index: 999;
@@ -303,7 +307,8 @@ body {
 	margin-top: -200px;
 	margin-left: -216px;
 	top: 50%;
-	left: 50%;}
+	left: 50%;
+	display: none;}
 
   /***********************/
  /* checksys.php styles */
