@@ -369,6 +369,7 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 		<!-- Our scripts :D -->
 		<script type="text/javascript" src="js/cropcrop.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/mixpanel.js"></script>
 
 		<script type="text/javascript">
 			// mixpanel.track("Video play");
