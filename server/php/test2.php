@@ -1,6 +1,6 @@
 <?php 
-	$name = 
-	echo 
+	//$name = 
+	// echo 
 
 	if (isset($_POST['name']))
 	{
