@@ -22,44 +22,62 @@ jQuery(function(){
 	});
 //     github
 	$('#logoGitHub').click(function(event) {
-		mixpanel.track("Click GitHub");
+		mixpanel.track("Click GitHub", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 //     twitter
 	$('#logoTwitter').click(function(event) {
-		mixpanel.track("Click Twitter");
+		mixpanel.track("Click Twitter", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 //     facebook
 	$('#logoFacebook').click(function(event) {
-		mixpanel.track("Click facebook");
+		mixpanel.track("Click facebook", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 //     help
 	$('#iconHelp').click(function(event) {
-		mixpanel.track("Click help icon");
+		mixpanel.track("Click help icon", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 //     mixpanel
 	// Is this a good idea to modify the premade
 //     soixantecircuits website
 	$('#soixantecircuitsWebsite').click(function(event) {
-		mixpanel.track("Click soixantecircuits website");
+		mixpanel.track("Click soixantecircuits website", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 //     legal mentions
 	$('#legalMentionsLink').click(function(event) {
-		mixpanel.track("Click legal mentions");
+		mixpanel.track("Click legal mentions", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 
 // Toolbox
 // Main button
 //     main button sphere click
 	$('#sphere').click(function(event) {
-		mixpanel.track("Click sphere toolbox");
+		mixpanel.track("Click sphere toolbox", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 //     main button click
 	$("#toolsMainContainerMainButton").click(function(event){
-		mixpanel.track("Click toolbox");
+		mixpanel.track("Click toolbox", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 //     main button double click
 	$("#toolsMainContainerMainButton").dblclick(function(event){
-		mixpanel.track("Double click toolbox");
+		mixpanel.track("Double click toolbox", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 
 // First panel
@@ -69,39 +87,57 @@ jQuery(function(){
 	// });
 //     crop enabled
 	$("#cropIcon").click(function(event){
-		mixpanel.track("Click cropIcon activated");
+		mixpanel.track("Click cropIcon activated", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 //     download disabled
 	// $("#downloadIcon").click(function(event){
-	// 	mixpanel.track("Click cropIcon activated");
+	// 	mixpanel.track("Click cropIcon activated", {
+		// 	"UUID" : localStorage.getItem("UUID")
+		// });
 	// });
 //     download enabled
 	$("#downloadIcon.disabled").click(function(event){
-		mixpanel.track("Click cropIcon activated");
+		mixpanel.track("Click cropIcon activated", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 
 // Second panel
 //     add format screen
 	$(".buttonBar").on("click", function(event) {
 		if (($(event.target).data('width') && $(event.target).data('height'))) {
-			mixpanel.track(("Click format screen "+$(event.target).data('width')+":"+$(event.target).data('height')));
+			var format = $(event.target).data('width')+":"+$(event.target).data('height');
+			mixpanel.track("Click format screen ", {
+			"UUID" : localStorage.getItem("UUID"),
+			"format" : format
+		});
 		};
 	});
 //     add custom screen
 	$("#addScreenForm").submit(function(event) {
-		mixpanel.track("Submit add screen");
+		mixpanel.track("Submit add screen", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 //     import screen
 	$("#buttonImportScreen").click(function(event){
-		mixpanel.track("Click toolbox");
+		mixpanel.track("Click toolbox", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 //     export screen
 	$("#buttonExportScreen").click(function(event){
-		mixpanel.track("Click toolbox");
+		mixpanel.track("Click toolbox", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 //     autocrop
 	$("#toolsMainContainerMainButton").click(function(event){
-		mixpanel.track("Click autocrop");
+		mixpanel.track("Click autocrop", {
+			"UUID" : localStorage.getItem("UUID")
+		});
 	});
 
 // Crop list

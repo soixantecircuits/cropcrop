@@ -173,7 +173,7 @@
 
         function thumbnails(infos) {
             $.ajax({
-                url: 'server/php/test2.php',
+                url: 'server/php/secondaryThumbnails.php',
                 type: "POST",
                 data: dataAStocker
 
