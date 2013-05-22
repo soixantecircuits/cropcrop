@@ -372,7 +372,7 @@ body {
 	z-index: 500;
 	position: fixed;
 	width: 230px;
-	background-color: rgba(255,255,255,.5);
+	background-color: rgba(255,255,255,.3);
 	top: 100px;
 	left: 70%;}
 	#toolsMainContainerMainButton{
