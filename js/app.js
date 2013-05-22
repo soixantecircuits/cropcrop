@@ -379,6 +379,9 @@ jQuery(function($) {
 	    	thumnbnailsLoaded = false;
     	}
     })
+    // $(".formatButton.button.dark.disabled").click(function(){
+    // 	console.log("bob");
+    // })
 	// jQuery end
 });
 
