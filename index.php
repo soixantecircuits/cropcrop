@@ -241,10 +241,8 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 							</div>
 						</div>
 
-						<div class="panelContainer">
-							<div id="videoCropListDivContainer">
-								<div id="videoCropListDiv">
-								</div>
+						<div id="videoCropListDivContainer">
+							<div id="videoCropListDiv">
 							</div>
 						</div>
 					</div>
@@ -370,10 +368,5 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 		<script type="text/javascript" src="js/cropcrop.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/mixpanel.js"></script>
-
-		<script type="text/javascript">
-			// mixpanel.track("Video play");
-		</script>
-		
 	</body>
 </html>

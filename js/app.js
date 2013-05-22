@@ -178,12 +178,10 @@ jQuery(function($) {
 		if (isToolsMainContainer === 0) {
 			$('#toolsMainContainerContent').slideDown();
 			$('#sphere').toggleClass('up');
-			$('.panelContainerButton').toggleClass('selected');
 			isToolsMainContainer = 1;
 		} else {
 			$('#toolsMainContainerContent').slideUp();
 			$('#sphere').toggleClass('up');
-			$('.panelContainerButton').toggleClass('selected');
 			isToolsMainContainer = 0;
 		}
 	});

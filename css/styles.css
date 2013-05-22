@@ -367,12 +367,12 @@ body {
 
 /* Bob */
 #toolsMainContainer{
-	/* color: #c6c8c8; */
 	color: #c7c7c9;
 	padding: 3px;
 	z-index: 500;
 	position: fixed;
-	width: 224px;
+	width: 230px;
+	background-color: rgba(255,255,255,.5);
 	top: 100px;
 	left: 70%;}
 	#toolsMainContainerMainButton{
@@ -480,19 +480,11 @@ body {
 				display: block;
 				margin-top: 8px;}
 	.panelContainer{
-		background-color: rgba(222,226,225,.3);
-		padding: 3px;
-		padding-top: 0;}
+		padding-bottom: 3px;}
 	.panelContainerButton{
-		background-color: rgba(222,226,225,.3);
-		padding: 3px;}
-	.panelContainerButton.selected{
-		background-color: rgba(222,226,225,.3);
-		padding: 3px;
-		padding-bottom: 0;}
+		background-color: rgba(222,226,225,.3);}
 	.panelContainerButtonDiv{
 		background-color: rgba(222,226,225,.3);
-		padding: 3px;
 		padding-bottom: 0;
 		padding-top: 0;}
 	.panel{
@@ -521,7 +513,7 @@ body {
 				width: 32px;}
 	.toolsContainerMenu{
 		height: 20px;
-		width: 224px;
+		width: 100%;
 		display: block;
 		float: left;
 		margin: 0;
