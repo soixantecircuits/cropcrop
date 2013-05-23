@@ -10,11 +10,12 @@
             if (json_decode($incommingJson) == null) {
                 throw new Exception('Invalid Json');
             }
-            $validJson = json_decode($incommingJson);                     // Transform received information into json string
+            $validJson = json_encode($incommingJson);                     // Transform received information into json string
 
 
         // STOCK DATA IN FILE
-            $jsonReplaced = str_replace('\\', '', $jsonInformations);     // Clean special caracters wich would crash the application
+            $jsonReplaced = str_replace('\\', '', $validJson);            // Clean special caracters wich would crash the application
+            // echo $jsonReplaced; // The MTV : Moving Testing Variable
             
             $file = fopen('screen.json','w+');                            // Open a file to write into
             fwrite($file, "$jsonReplaced");                               // Stock our json into that file
@@ -28,12 +29,10 @@
             }
 
         // EXECUTE PYTHON CROP SCRIPT
-            // echo $validJson->title; // The MTV : Moving Testing Variable
             $resp = exec('python3 ./scripts/cropcrop.py ./files/'. $validJson->title ." screen.json  ". $validJson->title, $output );
             if(json_encode($output) == '[]'){
                 throw new Exception('Failed cropcrop.py, result is : '.json_encode($output));
             }
-            
             echo $resp;                                                   // Send back json informations
         }
         catch (Exception $e){
