@@ -18,12 +18,13 @@
             // echo $jsonReplaced; // The MTV : Moving Testing Variable
             
             $file = fopen('screen.json','w+');                            // Open a file to write into
-            fwrite($file, "$jsonReplaced");                               // Stock our json into that file
+            fwrite($file, $jsonReplaced);                                 // Stock our json into that file
             fclose($file);                                                // Close the file 
-            if ( readfile('screen.json') == 0) {                          // If  screen.json
-                throw new Exception('screen.json is empty. Content : '.readfile('screen.json'));
+
+            if ( file_get_contents('screen.json') == '') {                          // If  screen.json
+                throw new Exception('screen.json is empty. Content : '.file_get_contents('screen.json'));
             }
-            
+
             if ( ! file_exists('screen.json')) {                          // If exists screen.json
                 throw new Exception('screen.json has not been created');
             }
