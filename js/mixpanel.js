@@ -81,26 +81,34 @@ jQuery(function(){
 	});
 
 // First panel
-//     crop disabled
-	// $("#cropIcon").click(function(event){
-	// 	mixpanel.track("Click cropIcon desactivated");
-	// });
-//     crop enabled
 	$("#cropIcon").click(function(event){
-		mixpanel.track("Click cropIcon activated", {
-			"UUID" : localStorage.getItem("UUID")
-		});
+		// crop disabled
+		if( $("#cropIcon").hasClass("disabled") ){
+			mixpanel.track("Click downloadIcon desactivated", {
+				"UUID" : localStorage.getItem("UUID")
+			});
+		}
+		// crop enabled
+		if( ! $("#cropIcon").hasClass("disabled") ){
+			mixpanel.track("Click cropIcon activated", {
+				"UUID" : localStorage.getItem("UUID")
+			});
+		}
 	});
-//     download disabled
-	// $("#downloadIcon").click(function(event){
-	// 	mixpanel.track("Click cropIcon activated", {
-		// 	"UUID" : localStorage.getItem("UUID")
-		// });
-	// });
-//     download enabled
-	$("#downloadIcon.disabled").click(function(event){
-		mixpanel.track("Click cropIcon activated", {
-			"UUID" : localStorage.getItem("UUID")
+	$("#downloadIcon").click(function(event){
+		// download disabled
+		if( $("#downloadIcon").hasClass("disabled") ){
+			mixpanel.track("Click downloadIcon desactivated", {
+				"UUID" : localStorage.getItem("UUID")
+			});
+		}
+		// download enabled
+		$("#downloadIcon").click(function(event){
+			if( ! $("#downloadIcon").hasClass("disabled")){
+				mixpanel.track("Click cropIcon activated", {
+					"UUID" : localStorage.getItem("UUID")
+				});
+			}
 		});
 	});
 

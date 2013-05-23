@@ -174,6 +174,10 @@ jQuery(function($) {
 			$('#centralUploadButton').toggleClass("hover");
 		});
 	$('#sphere').click(function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		if (isToolsMainContainer === 0) {
 			$('#toolsMainContainerContent').slideDown();
@@ -188,12 +192,20 @@ jQuery(function($) {
 
 	// Buttons
 	$('#uploadZone').click(function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		$("#fileupload").trigger("click");
 	});
 
 	// $('#buttonCropIt').click(function(event) {
 	$('#cropIcon').click(function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		if (crops.list.length > 0) {
 			$("#progressBarText").text("Croping your video, please wait....");
@@ -204,21 +216,37 @@ jQuery(function($) {
 	});
 
 	$('#cache').click(function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		cropmodule.cropcrop("hideModal");
 	});
 
 	$("#addScreenForm").submit(function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		cropmodule.cropcrop("addScreen");
 	});
 
 	$("#autoCropCheckbox").click(function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		autoCropEnabled = $('#autoCropCheckbox').is(':checked');
 		cropmodule.cropcrop("rebuildInterface", autoCropEnabled);
 	});
 
 	$("#buttonImportScreen").click(function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		var textContent = "";
 		textContent += '<div><textarea id="bulkArea"></textarea></div>';
@@ -229,6 +257,10 @@ jQuery(function($) {
 		cropmodule.cropcrop("displayModal", "Import Content", textContent);
 	});
 	$("#buttonExportScreen").click(function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		var textContent = "";
 		textContent += '<div>';
@@ -238,6 +270,10 @@ jQuery(function($) {
 	});
 
 	$("#carouselContainer").on("click", function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		$("#videoContent").css({
 			"background-image": "url(" + $(event.target).data('big') + ")"
@@ -246,6 +282,10 @@ jQuery(function($) {
 
 	// To put a crop layer on the top
 	$("#videoCropListDiv").on("click", ".videoCropListDivElement", function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		var id = $(this).attr("id");
 		id = id.replace("videoCropListDivElement", "");
@@ -256,6 +296,10 @@ jQuery(function($) {
 	});
 
 	$(".buttonBar").on("click", function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		if (($(event.target).data('width') && $(event.target).data('height'))) {
 			// console.log($(event.target).data('width'));
 			cropmodule.cropcrop("createFormatScreen", $(event.target).data('width'), $(event.target).data('height'));
@@ -263,20 +307,36 @@ jQuery(function($) {
 	});
 
 	$("#photoCheckbox").click(function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		photoEnabled = $('#photoCheckbox').is(':checked');
 		cropmodule.cropcrop("displayPhotoLayer", photoEnabled);
 	});
 
 	$("#buttonUploadYourPhoto").click(function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		$("#images").trigger("click");
 	});
 	$("#yourPhotoUpload").change(function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		$("#btn").submit();
 	});
 
 	$("#videoCropListDiv").on("click", ".cropDestroyerContainer", function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		var id = $(this).attr("id");
 		id = id.replace("destroyer", "");
@@ -295,10 +355,18 @@ jQuery(function($) {
 	// bulk screens
 	//
 	$("#informationModal").on("click", "#bulkExcel", function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		cropmodule.cropcrop("bulkExcel", $('#bulkArea').val());
 	});
 	$("#informationModal").on("click", "#bulkJson", function(event) {
+		// Check if disabled
+		if ( $(event.target).hasClass("disabled") ) { return false; }
+		// If not disabled, continue
+		
 		event.preventDefault();
 		cropmodule.cropcrop("bulkJson", $('#bulkArea').val());
 	});

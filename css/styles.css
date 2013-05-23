@@ -56,7 +56,7 @@
 .disabled {
     cursor: default!important;
     opacity: 0.6;
-    pointer-events: none;}
+    pointer-events: auto!important;}
 .bg-slategray{
 	background-image: none;
 	background-color: transparent;}
