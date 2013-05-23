@@ -1,19 +1,21 @@
 <?php
 
     if(isset($_POST["json"])){
-
         // DATA ANALYSIS
+        $incommingJson = $_POST["json"];
+        // $incommingJson = '{"foo":"bar","hello":"hi"}';
         try {
-            if (json_decode($_POST["json"]) == null) {
+            if (json_decode($incommingJson) == null) {
                 throw new Exception('Invalid Json');
             }
+            $validJson = json_decode($incommingJson);
             // Transform received information into json string
-            $jsonInformations = json_encode($_POST["json"]);
+            // $jsonInformations = json_encode($incommingJson);
             // Clean special caracters wich would crash the application
-            $jsonInformations = str_replace('\\', '', $jsonInformations);
+            // $jsonInformations = str_replace('\\', '', $jsonInformations);
         }
         catch (Exception $e){
-            echo ('Fatal error : '. $e->getMessage() );
+            echo ('Fatal error : '. $e->getMessage() ." ".$incommingJson );
         }
 
         // STOCK DATA IN FILE
@@ -21,7 +23,7 @@
             /* Open a file to write into */
             $file = fopen('screen.json','w+');
             // Stock our json into that file
-            fwrite($file, $jsonInformations);
+            fwrite($file, $validJson);
             // Close the file 
             fclose($file);
             // If exists screen.json
@@ -34,14 +36,21 @@
         }
 
 
-        // Output is what we send 
-        $output = json_decode($jsonInformations);
+        // validJson is what we send 
+        // $validJson = json_decode($jsonInformations);
+        // echo $validJson->title; // The MTV : Moving Testing Variable
 
 
         // Exec python script
-        $resp = exec('python3 ./scripts/cropcrop.py ./files/'. $output->title ." screen.json  ". $output->title);
-
-
+        try{
+            $resp = exec('python3 ./scripts/cropcrop.py ./files/'. $validJson->title ." screen.json  ". $validJson->title, $output );
+            if(json_encode($output) == '[]'){
+                throw new Exception('Failed to execute cropcrop.py.');
+            }
+        }
+        catch (Exception $e){
+            echo ('Fatal error : '. $e->getMessage());
+        }
         // Send back json informations
         echo $resp;
     }

@@ -278,7 +278,7 @@
             $("#cropIconContainer").hide();
             $("#cropItProgressBar").fadeIn();
 
-            var jsoninfo = jsondata;
+            var jsoninfo = JSON.stringify(jsondata);
             $.ajax({
                 url: 'server/php/crop.php',
                 type: "POST",
@@ -296,6 +296,9 @@
                 $("#cropIconContainer").fadeIn();
                 $('html').timer('stop');
                 defaultFavicon();
+            }).fail(function(datas) {
+                console.log("Error");
+                console.log(datas);
             });
         }
 

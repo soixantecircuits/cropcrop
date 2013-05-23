@@ -42,6 +42,8 @@ jQuery(function($) {
 				cropmodule.cropcrop("enablePhotoLayer", data);
 				photoEnabled = $('#photoCheckbox').is(':checked');
 				cropmodule.cropcrop("displayPhotoLayer", photoEnabled);
+			}).fail(function(response) {
+				console.log(response);
 			});
 		}
 	});
@@ -81,6 +83,8 @@ jQuery(function($) {
 			}).done(function(response) {
 				dataAStocker = _self;
 				cropmodule.cropcrop("updateVideoInformations", response);
+			}).fail(function(response) {
+				console.log(response);
 			});
 		});
 	});
@@ -299,7 +303,7 @@ jQuery(function($) {
 		// Check if disabled
 		if ( $(event.target).hasClass("disabled") ) { return false; }
 		// If not disabled, continue
-		
+
 		if (($(event.target).data('width') && $(event.target).data('height'))) {
 			// console.log($(event.target).data('width'));
 			cropmodule.cropcrop("createFormatScreen", $(event.target).data('width'), $(event.target).data('height'));
