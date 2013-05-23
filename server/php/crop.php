@@ -35,7 +35,7 @@
             $command = $software.' '.$scriptPath.' '.$arg1.' '.$arg2.' '.$arg3;
             $resp = exec($command, $output);
             if(json_encode($output) == '[]'){
-                throw new Exception('Failed cropcrop.py, result is : '.json_encode($output));
+                throw new Exception('Failed cropcrop.py, command is : '.$command);
             }
             echo $resp;                                                   // Send back json informations
         }
