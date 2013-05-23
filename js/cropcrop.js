@@ -306,6 +306,12 @@
                     json: jsoninfo
                 }
             }).done(function(datas) {
+                if ( datas.indexOf("Fatal error : ") != -1 ) {
+                    console.log ( datas );
+                    displayModal("Error", "Fatal error encountered. We apologize for the inconvenience.");
+                    return false;
+                }
+
                 $("#progressBarText").text("Your videos are ready to download");
                 $('#buttonDownloadIt').attr("href", "server/php/download.php?filename=" + datas);
                 $('#buttonDownloadIt').removeClass("disabled");
