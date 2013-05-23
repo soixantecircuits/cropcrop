@@ -9,10 +9,8 @@
             if (json_decode($incommingJson) == null) {
                 throw new Exception('Invalid Json');
             }
-            $validJson = json_encode($incommingJson);                     // Transform received information into json string
             $jsonExploitable = json_decode($incommingJson, true);         // Json selectable elements
-            $jsonReplaced = str_replace('\\', '', $validJson);            // Clean special caracters wich would crash the application
-
+            
         // STOCK DATA IN FILE
             $file = fopen('screen.json','w+');                            // Open a file to write into
             fwrite($file, $incommingJson);                                // Stock our json into that file
