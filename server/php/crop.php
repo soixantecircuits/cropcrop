@@ -45,7 +45,7 @@
         try{
             $resp = exec('python3 ./scripts/cropcrop.py ./files/'. $validJson->title ." screen.json  ". $validJson->title, $output );
             if(json_encode($output) == '[]'){
-                throw new Exception('Failed cropcrop.py, result is : '.$output);
+                throw new Exception('Failed cropcrop.py, result is : '.json_encode($output));
             }
         }
         catch (Exception $e){
