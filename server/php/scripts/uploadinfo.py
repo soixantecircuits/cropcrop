@@ -77,13 +77,7 @@ if sys.argv.__len__()>0:
 		thumbmini.append(str('./thumbnails/Mini'+random_string+ID))
     	
 
-	
-
-		
-
 	os.system("ffmpeg -itsoffset -"+thumb[0]+" -i "+filename+" -vcodec mjpeg -vframes 1 -an -f rawvideo -s "+width+"*"+height+" "+thumbname[0]+".jpg")
-	
-
 	
 	data =  { 'width': width, 'height':height,'filename':filename2, 'duration' : duration, 'fileSize': fileSize, 'frameRate': frameRate,'fileExt' : fileExt, 'thumbnails1': thumbname[0]+".jpg"}
 	data_string = json.dumps(data)

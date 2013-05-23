@@ -75,7 +75,7 @@ jQuery(function($) {
 		$.each(data.result.files, function(index, file) {
 			var _self = this;
 			$.ajax({
-				url: 'server/php/mainThumbnail.php',
+				url: 'server/php/getVideoInformations.php',
 				type: "POST",
 				data: _self
 			}).done(function(response) {
