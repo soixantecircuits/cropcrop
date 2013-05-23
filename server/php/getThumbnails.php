@@ -1,6 +1,4 @@
 <?php 
-	//$name = 
-	// echo 
 
 	if (isset($_POST['name']))
 	{
