@@ -293,9 +293,7 @@
 
 
         function sendCrop() {
-            crops.title = videoInformations.message.filename;
             var jsondata = crops;
-            // console.log(crops.title);
             $("#cropIconContainer").hide();
             $("#cropItProgressBar").fadeIn();
 

@@ -60,7 +60,8 @@ jQuery(function($) {
 					// title = title.split(/(\\|\/)/g).pop();
 					$("#uploadZone").hide();
 					$("#dropzone").hide();
-					cropmodule.cropcrop("updateCropsTitle", data.files[0].name);
+					
+					cropmodule.cropcrop("updateCropsTitle", data.files[0].name.replaceAll(" ", "_"));
 					cropmodule.cropcrop("animateFavicon");
 					data.submit();
 					cropmodule.cropcrop("addVideoContentLoadingSpinner");
