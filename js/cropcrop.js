@@ -152,7 +152,27 @@
             }
         }
 
-        function updateVideoInformations(infos) {
+        function updateVideoInformations( infos ) {
+            if( typeof(infos) != "object"){
+                displayModal("Error","No valid informations received.");
+                // mixpanel.track("Error : updateVideoInformations() no object type received.");
+                return false;
+            }
+            if ( typeof(infos.message.filename) != "string" ) {
+                displayModal("Error","No valid informations received.");
+                // mixpanel.track("Error : updateVideoInformations() filename not a string.");
+                return false;
+            }
+            if ( typeof(infos.message.frameRate) != "string" ) {
+                displayModal("Error","No valid informations received.");
+                // mixpanel.track("Error : updateVideoInformations() frameRate not a string.");
+                return false;
+            }
+            if ( typeof(infos.message.fileSize) != "string" ) {
+                displayModal("Error","No valid informations received.");
+                // mixpanel.track("Error : updateVideoInformations() fileSize not a string.");
+                return false;
+            }
 
             videoInformations = infos;
             videoInformations.message.filename = videoInformations.message.filename.replaceAll('\'', '');
