@@ -178,6 +178,7 @@
             videoInformations.message.filename = videoInformations.message.filename.replaceAll('\'', '');
             videoInformations.message.frameRate = videoInformations.message.frameRate.replaceAll('\'', '');
             videoInformations.message.fileSize = videoInformations.message.fileSize.replaceAll('\'', '');
+            crops.title = videoInformations.message.filename;
 
             // Display HTML content in the interface (thumbnails, informations,...)
             displayContent();

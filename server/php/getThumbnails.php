@@ -3,7 +3,9 @@
 	if (isset($_POST['name']))
 	{
 		$filename = $_POST['name'];
-		$tmp = json_decode(exec("python3 scripts/thumbnails.py files/'". $filename."'"));
+		$newFilename = preg_replace('/\s+/', '_', $filename);
+
+		$tmp = json_decode(exec("python3 scripts/thumbnails.py files/'". $newFilename."'"));
 		$response = array(
 			"message" => $tmp
 		);

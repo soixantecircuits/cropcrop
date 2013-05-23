@@ -366,11 +366,11 @@ mixpanel.init("6a11b8598a929f09bff74f7c0a52addf");</script><!-- end Mixpanel -->
 		<script type="text/javascript" src="js/vendor/jquery.plugin.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.timer.js"></script>
 		<script type="text/javascript" src="js/vendor/jquery.tipsy.js"></script>
-		<!-- CDN -->
+			<!-- CDN -->
 		<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.4/bootstrap-editable/js/bootstrap-editable.min.js"></script>
-		<!-- // <script type="text/javascript" src="js/vendor/jcarousellite_1.0.1.js"></script> -->
+			<!-- // <script type="text/javascript" src="js/vendor/jcarousellite_1.0.1.js"></script> -->
 		<script type="text/javascript" src="js/vendor/perfect-scrollbar.with-mousewheel.min.js"></script>
-		<!-- Our scripts :D -->
+			<!-- Our scripts :D -->
 		<script type="text/javascript" src="js/cropcrop.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/mixpanel.js"></script>

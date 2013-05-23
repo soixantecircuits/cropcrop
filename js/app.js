@@ -23,7 +23,6 @@ jQuery(function($) {
 			if ( !! file.type.match(/image.*/)) {
 				if (window.FileReader) {
 					reader = new FileReader();
-
 					reader.readAsDataURL(file);
 				}
 				if (formdata) {
@@ -81,6 +80,8 @@ jQuery(function($) {
 				type: "POST",
 				data: _self
 			}).done(function(response) {
+				console.log("____________________");
+				console.log(response);
 				dataAStocker = _self;
 				cropmodule.cropcrop("updateVideoInformations", response);
 			}).fail(function(response) {
